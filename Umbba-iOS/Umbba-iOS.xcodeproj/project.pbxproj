@@ -33,7 +33,6 @@
 		697815902A53015D0047944C /* MakeVibrate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6978158F2A53015D0047944C /* MakeVibrate.swift */; };
 		697815BF2A530B8F0047944C /* Lottie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697815BE2A530B8F0047944C /* Lottie.swift */; };
 		697815C32A530BB00047944C /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697815C22A530BB00047944C /* TabBar.swift */; };
-		697815C52A530BC10047944C /* UIComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697815C42A530BC10047944C /* UIComponents.swift */; };
 		697815C72A530BC90047944C /* Splash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697815C62A530BC90047944C /* Splash.swift */; };
 		697815C92A530BD00047944C /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697815C82A530BD00047944C /* Login.swift */; };
 		697815CB2A530BD70047944C /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697815CA2A530BD70047944C /* Entry.swift */; };
@@ -75,6 +74,8 @@
 		69DE6B9F2A53421D00F31812 /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 69DE6B9C2A53421C00F31812 /* Pretendard-SemiBold.otf */; };
 		69DE6BA02A53421D00F31812 /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 69DE6B9D2A53421D00F31812 /* Pretendard-Bold.otf */; };
 		69DE6BA12A53421D00F31812 /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 69DE6B9E2A53421D00F31812 /* Pretendard-Regular.otf */; };
+		69DE6BAD2A5432CC00F31812 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DE6BAC2A5432CC00F31812 /* CustomTextField.swift */; };
+		69DE6BAF2A5432E600F31812 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DE6BAE2A5432E600F31812 /* CustomButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -106,7 +107,6 @@
 		6978158F2A53015D0047944C /* MakeVibrate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeVibrate.swift; sourceTree = "<group>"; };
 		697815BE2A530B8F0047944C /* Lottie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lottie.swift; sourceTree = "<group>"; };
 		697815C22A530BB00047944C /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
-		697815C42A530BC10047944C /* UIComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIComponents.swift; sourceTree = "<group>"; };
 		697815C62A530BC90047944C /* Splash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Splash.swift; sourceTree = "<group>"; };
 		697815C82A530BD00047944C /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		697815CA2A530BD70047944C /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
@@ -133,6 +133,8 @@
 		69DE6B9C2A53421C00F31812 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
 		69DE6B9D2A53421D00F31812 /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
 		69DE6B9E2A53421D00F31812 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
+		69DE6BAC2A5432CC00F31812 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		69DE6BAE2A5432E600F31812 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -351,7 +353,8 @@
 		697815942A53022A0047944C /* UIComponents */ = {
 			isa = PBXGroup;
 			children = (
-				697815C42A530BC10047944C /* UIComponents.swift */,
+				69DE6BAC2A5432CC00F31812 /* CustomTextField.swift */,
+				69DE6BAE2A5432E600F31812 /* CustomButton.swift */,
 			);
 			path = UIComponents;
 			sourceTree = "<group>";
@@ -705,6 +708,7 @@
 				697815752A52FF760047944C /* UIVIew+.swift in Sources */,
 				6978157F2A52FFE10047944C /* UILabel+.swift in Sources */,
 				697815BF2A530B8F0047944C /* Lottie.swift in Sources */,
+				69DE6BAD2A5432CC00F31812 /* CustomTextField.swift in Sources */,
 				697815832A53000D0047944C /* UITableView+.swift in Sources */,
 				697815692A52FE850047944C /* SizeLiterals.swift in Sources */,
 				6978156F2A52FEB00047944C /* ImageLiterals.swift in Sources */,
@@ -717,7 +721,6 @@
 				697815852A5300290047944C /* UITableViewRegiseterable.swift in Sources */,
 				6978158E2A5300F90047944C /* ButtonPress.swift in Sources */,
 				697815C72A530BC90047944C /* Splash.swift in Sources */,
-				697815C52A530BC10047944C /* UIComponents.swift in Sources */,
 				697815CB2A530BD70047944C /* Entry.swift in Sources */,
 				697815F42A5311AA0047944C /* Complete.swift in Sources */,
 				697815D12A530BF10047944C /* Write.swift in Sources */,
@@ -744,6 +747,7 @@
 				697815EE2A53117F0047944C /* UserInfo.swift in Sources */,
 				697815F82A5311C30047944C /* Quest.swift in Sources */,
 				697815CD2A530BDE0047944C /* invite.swift in Sources */,
+				69DE6BAF2A5432E600F31812 /* CustomButton.swift in Sources */,
 				697815732A52FF650047944C /* UIImage+.swift in Sources */,
 				6978156D2A52FEA00047944C /* StringLiterals.swift in Sources */,
 				697815462A52FA370047944C /* SceneDelegate.swift in Sources */,
