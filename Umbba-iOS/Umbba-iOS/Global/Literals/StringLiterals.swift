@@ -11,6 +11,7 @@ struct I18N {
     
     struct Onboarding {
         static let test = "test"
+        static let inviteNavigationTitle = "초대코드입력"
     }
     
 }
