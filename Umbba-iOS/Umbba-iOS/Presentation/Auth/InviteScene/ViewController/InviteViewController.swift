@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 
 final class InviteViewController: UIViewController {
-  
+    
     // MARK: - View Life Cycle
     
     override func loadView() {
@@ -22,6 +22,18 @@ final class InviteViewController: UIViewController {
         super.viewDidLoad()
         
         setNavigationUI()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        (view as? InviteView)?.registerForKeyboardNotifications()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        (view as? InviteView)?.unregisterForKeyboardNotifications()
     }
 }
 

@@ -36,7 +36,6 @@
 		697815C72A530BC90047944C /* Splash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697815C62A530BC90047944C /* Splash.swift */; };
 		697815C92A530BD00047944C /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697815C82A530BD00047944C /* Login.swift */; };
 		697815CB2A530BD70047944C /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697815CA2A530BD70047944C /* Entry.swift */; };
-		697815CD2A530BDE0047944C /* invite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697815CC2A530BDE0047944C /* invite.swift */; };
 		697815CF2A530BE70047944C /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697815CE2A530BE70047944C /* Main.swift */; };
 		697815D12A530BF10047944C /* Write.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697815D02A530BF10047944C /* Write.swift */; };
 		697815D32A530BFA0047944C /* Detail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697815D22A530BFA0047944C /* Detail.swift */; };
@@ -76,6 +75,9 @@
 		69DE6BA12A53421D00F31812 /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 69DE6B9E2A53421D00F31812 /* Pretendard-Regular.otf */; };
 		69DE6BAD2A5432CC00F31812 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DE6BAC2A5432CC00F31812 /* CustomTextField.swift */; };
 		69DE6BAF2A5432E600F31812 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DE6BAE2A5432E600F31812 /* CustomButton.swift */; };
+		69DE6BB42A54400500F31812 /* InviteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DE6BB32A54400500F31812 /* InviteView.swift */; };
+		69DE6BB62A54403200F31812 /* InviteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DE6BB52A54403200F31812 /* InviteViewController.swift */; };
+		69DE6BB82A54417F00F31812 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DE6BB72A54417F00F31812 /* String+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -110,7 +112,6 @@
 		697815C62A530BC90047944C /* Splash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Splash.swift; sourceTree = "<group>"; };
 		697815C82A530BD00047944C /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		697815CA2A530BD70047944C /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
-		697815CC2A530BDE0047944C /* invite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = invite.swift; sourceTree = "<group>"; };
 		697815CE2A530BE70047944C /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
 		697815D02A530BF10047944C /* Write.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Write.swift; sourceTree = "<group>"; };
 		697815D22A530BFA0047944C /* Detail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Detail.swift; sourceTree = "<group>"; };
@@ -135,6 +136,9 @@
 		69DE6B9E2A53421D00F31812 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
 		69DE6BAC2A5432CC00F31812 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		69DE6BAE2A5432E600F31812 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		69DE6BB32A54400500F31812 /* InviteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteView.swift; sourceTree = "<group>"; };
+		69DE6BB52A54403200F31812 /* InviteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteViewController.swift; sourceTree = "<group>"; };
+		69DE6BB72A54417F00F31812 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -267,6 +271,7 @@
 				697815802A52FFF50047944C /* NSObject+.swift */,
 				697815822A53000D0047944C /* UITableView+.swift */,
 				69DE6B902A53384C00F31812 /* UIColor+.swift */,
+				69DE6BB72A54417F00F31812 /* String+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -404,7 +409,8 @@
 		6978159E2A5302A60047944C /* InviteScene */ = {
 			isa = PBXGroup;
 			children = (
-				697815CC2A530BDE0047944C /* invite.swift */,
+				69DE6BB12A543FE600F31812 /* ViewController */,
+				69DE6BB02A543FDF00F31812 /* View */,
 			);
 			path = InviteScene;
 			sourceTree = "<group>";
@@ -585,6 +591,22 @@
 			path = FamilyInfoScene;
 			sourceTree = "<group>";
 		};
+		69DE6BB02A543FDF00F31812 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				69DE6BB32A54400500F31812 /* InviteView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		69DE6BB12A543FE600F31812 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				69DE6BB52A54403200F31812 /* InviteViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -707,7 +729,9 @@
 				6978157B2A52FFBC0047944C /* UIViewController+.swift in Sources */,
 				697815752A52FF760047944C /* UIVIew+.swift in Sources */,
 				6978157F2A52FFE10047944C /* UILabel+.swift in Sources */,
+				69DE6BB62A54403200F31812 /* InviteViewController.swift in Sources */,
 				697815BF2A530B8F0047944C /* Lottie.swift in Sources */,
+				69DE6BB82A54417F00F31812 /* String+.swift in Sources */,
 				69DE6BAD2A5432CC00F31812 /* CustomTextField.swift in Sources */,
 				697815832A53000D0047944C /* UITableView+.swift in Sources */,
 				697815692A52FE850047944C /* SizeLiterals.swift in Sources */,
@@ -743,10 +767,10 @@
 				697815C32A530BB00047944C /* TabBar.swift in Sources */,
 				697815DC2A530CF70047944C /* Config.swift in Sources */,
 				69DE6B912A53384C00F31812 /* UIColor+.swift in Sources */,
+				69DE6BB42A54400500F31812 /* InviteView.swift in Sources */,
 				6978155B2A52FBD30047944C /* UserManager.swift in Sources */,
 				697815EE2A53117F0047944C /* UserInfo.swift in Sources */,
 				697815F82A5311C30047944C /* Quest.swift in Sources */,
-				697815CD2A530BDE0047944C /* invite.swift in Sources */,
 				69DE6BAF2A5432E600F31812 /* CustomButton.swift in Sources */,
 				697815732A52FF650047944C /* UIImage+.swift in Sources */,
 				6978156D2A52FEA00047944C /* StringLiterals.swift in Sources */,
