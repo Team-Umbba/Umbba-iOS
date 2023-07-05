@@ -79,8 +79,8 @@ extension EntryView {
         loginViewImage.snp.makeConstraints {
             $0.top.equalToSuperview().inset(85)
             $0.leading.equalToSuperview().inset(24)
-            $0.width.equalTo(86)
-            $0.height.equalTo(22)
+            $0.width.equalTo(SizeLiterals.Screen.screenWidth * 86 / 375)
+            $0.height.equalTo(SizeLiterals.Screen.screenHeight * 22 / 375)
         }
         
         loginLabel.snp.makeConstraints {
@@ -90,8 +90,7 @@ extension EntryView {
         
         entryButton.snp.makeConstraints {
             $0.bottom.equalToSuperview().inset(178)
-            $0.centerX.equalToSuperview()
-            $0.width.equalTo(319)
+            $0.leading.trailing.equalToSuperview().inset(20)
             $0.height.equalTo(60)
         }
         
@@ -107,8 +106,7 @@ extension EntryView {
         
         inviteButton.snp.makeConstraints {
             $0.bottom.equalToSuperview().inset(44)
-            $0.centerX.equalToSuperview()
-            $0.width.equalTo(319)
+            $0.leading.trailing.equalToSuperview().inset(20)
             $0.height.equalTo(60)
         }
     }
