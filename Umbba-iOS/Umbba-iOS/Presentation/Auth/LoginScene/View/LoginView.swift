@@ -26,17 +26,11 @@ final class LoginView: UIView {
     
     lazy var loginAppleButton: UIButton = {
         let button = CustomButton(status: false, title: I18N.Auth.appleButtonTitle)
-        button.titleLabel?.textColor = .UmbbaWhite
-        button.titleLabel?.font = .PretendardRegular(size: 16)
-        button.layer.cornerRadius = 30
         return button
     }()
     
     lazy var loginKakaoButton: UIButton = {
         let button = CustomButton(status: false, title: I18N.Auth.kakaoButtonTitle)
-        button.titleLabel?.textColor = .UmbbaWhite
-        button.titleLabel?.font = .PretendardRegular(size: 16)
-        button.layer.cornerRadius = 30
         return button
     }()
     

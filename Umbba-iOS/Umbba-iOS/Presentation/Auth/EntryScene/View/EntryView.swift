@@ -26,8 +26,6 @@ final class EntryView: UIView {
     
     lazy var entryButton: UIButton = {
         let button = CustomButton(status: true, title: I18N.Auth.entryButtonTitle)
-        button.titleLabel?.font = .PretendardRegular(size: 16)
-        button.layer.cornerRadius = 30
         return button
     }()
     
@@ -49,8 +47,6 @@ final class EntryView: UIView {
     
     lazy var inviteButton: UIButton = {
         let button = CustomButton(status: false, title: I18N.Auth.inviteButtonTitle)
-        button.titleLabel?.font = .PretendardRegular(size: 16)
-        button.layer.cornerRadius = 30
         return button
     }()
     
