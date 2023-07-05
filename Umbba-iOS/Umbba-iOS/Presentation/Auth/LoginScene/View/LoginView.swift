@@ -37,6 +37,9 @@ final class LoginView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        // MARK: - 컴포넌트 설정
+        setUI()
+        
         // MARK: - addsubView
         setHierarchy()
         
@@ -53,12 +56,15 @@ final class LoginView: UIView {
 
 extension LoginView {
     
+    func setUI() {
+        backgroundColor = .white
+    }
+    
     func setHierarchy() {
         addSubviews(loginViewImage, loginLabel, loginAppleButton, loginKakaoButton)
     }
     
     func setLayout() {
-        backgroundColor = .white
         
         loginViewImage.snp.makeConstraints {
             $0.top.equalToSuperview().inset(85)
