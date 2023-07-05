@@ -34,7 +34,6 @@
 		697815BF2A530B8F0047944C /* Lottie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697815BE2A530B8F0047944C /* Lottie.swift */; };
 		697815C32A530BB00047944C /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697815C22A530BB00047944C /* TabBar.swift */; };
 		697815C72A530BC90047944C /* Splash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697815C62A530BC90047944C /* Splash.swift */; };
-		697815C92A530BD00047944C /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697815C82A530BD00047944C /* Login.swift */; };
 		697815CB2A530BD70047944C /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697815CA2A530BD70047944C /* Entry.swift */; };
 		697815CD2A530BDE0047944C /* invite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697815CC2A530BDE0047944C /* invite.swift */; };
 		697815CF2A530BE70047944C /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697815CE2A530BE70047944C /* Main.swift */; };
@@ -110,7 +109,6 @@
 		697815BE2A530B8F0047944C /* Lottie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lottie.swift; sourceTree = "<group>"; };
 		697815C22A530BB00047944C /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		697815C62A530BC90047944C /* Splash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Splash.swift; sourceTree = "<group>"; };
-		697815C82A530BD00047944C /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		697815CA2A530BD70047944C /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
 		697815CC2A530BDE0047944C /* invite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = invite.swift; sourceTree = "<group>"; };
 		697815CE2A530BE70047944C /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
@@ -394,7 +392,6 @@
 			children = (
 				A42723B62A552E46003C445F /* View */,
 				A42723B92A553054003C445F /* ViewController */,
-				697815C82A530BD00047944C /* Login.swift */,
 			);
 			path = LoginScene;
 			sourceTree = "<group>";
@@ -735,7 +732,6 @@
 				697815832A53000D0047944C /* UITableView+.swift in Sources */,
 				697815692A52FE850047944C /* SizeLiterals.swift in Sources */,
 				6978156F2A52FEB00047944C /* ImageLiterals.swift in Sources */,
-				697815C92A530BD00047944C /* Login.swift in Sources */,
 				697815F22A5311A10047944C /* NoticeAlarm.swift in Sources */,
 				697815772A52FF890047944C /* UITextField+.swift in Sources */,
 				697815872A53003A0047944C /* UICollectionViewRegisterable.swift in Sources */,
