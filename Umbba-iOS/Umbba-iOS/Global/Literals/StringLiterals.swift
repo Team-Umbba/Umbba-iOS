@@ -7,13 +7,13 @@
 
 import Foundation
 
-struct I18N {
+enum I18N {
     
-    struct Common {
+    enum Common {
         static let nextButtonTitle = "다음으로"
     }
     
-    struct Onboarding {
+    enum Onboarding {
         static let test = "test"
         static let inviteNavigationTitle = "초대코드입력"
         static let inviteTitle = "초대코드를\n입력해주세요."
