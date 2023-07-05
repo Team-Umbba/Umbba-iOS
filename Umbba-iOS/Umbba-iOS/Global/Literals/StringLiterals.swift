@@ -7,10 +7,19 @@
 
 import Foundation
 
-struct I18N {
+enum I18N {
     
-    struct Onboarding {
+    enum Common {
+        static let nextButtonTitle = "다음으로"
+    }
+    
+    enum Onboarding {
         static let test = "test"
+        static let inviteNavigationTitle = "초대코드입력"
+        static let inviteTitle = "초대코드를\n입력해주세요."
+        static let inviteBoldTitle = "초대코드"
+        static let inviteTextFieldPlaceholder = "초대코드를 입력해주세요."
+        static let inviteError = "*올바른 초대코드 형식이 아닙니다."
     }
     
 }
