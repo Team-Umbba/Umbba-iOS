@@ -9,7 +9,7 @@ import UIKit
 
 import SnapKit
 
-class NoticeAlarmView: UIView {
+final class NoticeAlarmView: UIView {
     
     // MARK: - UI Components
     
@@ -62,6 +62,7 @@ private extension NoticeAlarmView {
     }
 
     func setAddTarget() {
+        nextButton.addTarget(self, action: #selector(nextButtonTapped), for: .touchUpInside)
     }
 
     func setLayout() {
@@ -82,5 +83,10 @@ private extension NoticeAlarmView {
             $0.trailing.leading.equalToSuperview().inset(20)
             $0.height.equalTo(60)
         }
+    }
+    
+    @objc
+    func nextButtonTapped() {
+        print("다음 화면으로 전환")
     }
 }

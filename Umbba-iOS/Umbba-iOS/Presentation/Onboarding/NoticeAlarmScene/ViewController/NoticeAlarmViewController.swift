@@ -7,7 +7,7 @@
 
 import UIKit
 
-class NoticeAlarmViewController: UIViewController {
+final class NoticeAlarmViewController: UIViewController {
 
     // MARK: - View Life Cycle
     
