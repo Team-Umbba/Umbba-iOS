@@ -10,14 +10,14 @@ import UIKit
 final class EntryViewController: UIViewController {
 
     private let entryView = EntryView()
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
     
     override func loadView() {
         super.loadView()
         self.view = entryView
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
     }
 
 }

@@ -89,15 +89,15 @@ final class LoginView: UIView {
 
 extension LoginView {
     
-    func setUI() {
+    private func setUI() {
         backgroundColor = .white
     }
     
-    func setHierarchy() {
+    private func setHierarchy() {
         addSubviews(loginViewImage, loginLabel, loginAppleButton, loginKakaoButton)
     }
     
-    func setLayout() {
+    private func setLayout() {
         
         loginViewImage.snp.makeConstraints {
             $0.top.equalToSuperview().inset(85)

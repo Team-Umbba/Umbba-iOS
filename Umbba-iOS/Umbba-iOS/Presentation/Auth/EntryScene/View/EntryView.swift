@@ -69,11 +69,11 @@ final class EntryView: UIView {
 
 extension EntryView {
     
-    func setHierarchy() {
+    private func setHierarchy() {
         addSubviews(loginViewImage, loginLabel, entryButton, dividingText, inviteText, inviteButton)
     }
     
-    func setLayout() {
+    private func setLayout() {
         backgroundColor = .white
         
         loginViewImage.snp.makeConstraints {
