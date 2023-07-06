@@ -301,11 +301,23 @@ private extension UserInfoView {
     }
     
     func isFilledAnswer() {
-        if nameTextField.hasText && birthTextField.hasText && (maleButton.isSelected || femaleButton.isSelected) {
+        if nameTextField.hasText && birthTextField.hasText
+            && birthTextField.textFieldStatus == .uncorrectedType || nameTextField.textFieldStatus == .uncorrectedType
+            && (maleButton.isSelected || femaleButton.isSelected) {
             nextButton.isEnabled = true
         } else {
             nextButton.isEnabled = false
         }
+    }
+    
+    func updateNameErrorLabel(isError: Bool) {
+        self.nameErrorLabel.isHidden = !isError
+        nameTextField.textFieldStatus = isError ? .uncorrectedType : .normal
+    }
+    
+    func updateBirthErrorLabel(isError: Bool) {
+        self.birthErrorLabel.isHidden = !isError
+        birthTextField.textFieldStatus = isError ? .uncorrectedType : .normal
     }
     
     @objc
@@ -324,36 +336,31 @@ private extension UserInfoView {
 
 extension UserInfoView: UITextFieldDelegate {
     func textFieldDidChangeSelection(_ textField: UITextField) {
-            isFilledAnswer()
-            if !nameTextField.hasText {
-                self.nameErrorLabel.isHidden = true
-                nameTextField.textFieldStatus = .normal
-            }
-            if (!birthTextField.hasText) && (birthTextField.text?.count == 4) {
-                self.birthErrorLabel.isHidden = true
-                birthTextField.textFieldStatus = .normal
-            }
+        isFilledAnswer()
+        if !nameTextField.hasText {
+            updateNameErrorLabel(isError: false)
         }
-        
-        func textFieldDidEndEditing(_ textField: UITextField) {
-            if nameTextField.text?.isOnlyKorean() == false {
-                self.nameErrorLabel.isHidden = false
-                nameTextField.textFieldStatus = .uncorrectedType
-            } else {
-                self.nameErrorLabel.isHidden = true
-                nameTextField.textFieldStatus = .normal
-            }
-            if birthTextField.hasText && (birthTextField.text?.count != 4) {
-                self.birthErrorLabel.isHidden = false
-                birthTextField.textFieldStatus = .uncorrectedType
-            } else {
-                self.birthErrorLabel.isHidden = true
-                birthTextField.textFieldStatus = .normal
-            }
+        if (!birthTextField.hasText) && (birthTextField.text?.count == 4) {
+            updateBirthErrorLabel(isError: false)
         }
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if nameTextField.hasText && nameTextField.text?.isOnlyKorean() == false {
+            updateNameErrorLabel(isError: true)
+        } else {
+            updateNameErrorLabel(isError: false)
+        }
+        if birthTextField.hasText && (birthTextField.text?.count != 4) {
+            updateBirthErrorLabel(isError: true)
+        } else {
+            updateBirthErrorLabel(isError: false)
+        }
+    }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
 }
+
