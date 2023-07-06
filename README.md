@@ -4,6 +4,8 @@
 
 
 ### 👩‍💻 About Developers
+> **우리도 어렸다 👶🏻**
+
 | [최영린](https://github.com/joeuni01) | [고아라](https://github.com/ahra1221) | [남유진](https://github.com/yujin-00)|
 | --- | --- | --- |
 | <img src = "https://github.com/Team-Umbba/Umbba-iOS/assets/75068759/e41de00d-4fed-4362-ae87-ae536801921d" width = "300">| <img src = "https://github.com/Team-Umbba/Umbba-iOS/assets/75068759/4ab130f6-c3f3-4ec2-b748-99f8e2111d7e" width = "300"> | <img src = "https://github.com/Team-Umbba/Umbba-iOS/assets/75068759/48adbc91-01fa-4108-af80-5dd458db330b" width = "300"> |
