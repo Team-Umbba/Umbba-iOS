@@ -323,6 +323,29 @@ private extension UserInfoView {
 }
 
 extension UserInfoView: UITextFieldDelegate {
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        isFilledAnswer()
+        if !nameTextField.hasText {
+            self.nameErrorLabel.isHidden = true
+            nameTextField.textFieldStatus = .normal
+        }
+        if (!birthTextField.hasText) && (birthTextField.text?.count == 4) {
+            self.birthErrorLabel.isHidden = true
+            birthTextField.textFieldStatus = .normal
+        }
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if nameTextField.text?.isOnlyKorean() == false {
+            self.nameErrorLabel.isHidden = false
+            nameTextField.textFieldStatus = .uncorrectedType
+        }
+        if birthTextField.hasText && (birthTextField.text?.count != 4) {
+            self.birthErrorLabel.isHidden = false
+            birthTextField.textFieldStatus = .uncorrectedType
+        }
+    }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
