@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		14AA29842A5685050038CDA1 /* NoticeAlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AA29832A5685050038CDA1 /* NoticeAlarmViewController.swift */; };
+		14AA29862A5685660038CDA1 /* NoticeAlarmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AA29852A5685660038CDA1 /* NoticeAlarmView.swift */; };
 		697815442A52FA370047944C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697815432A52FA370047944C /* AppDelegate.swift */; };
 		697815462A52FA370047944C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697815452A52FA370047944C /* SceneDelegate.swift */; };
 		697815482A52FA370047944C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697815472A52FA370047944C /* ViewController.swift */; };
@@ -48,7 +50,6 @@
 		697815EC2A5311770047944C /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697815EB2A5311770047944C /* Animation.swift */; };
 		697815EE2A53117F0047944C /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697815ED2A53117F0047944C /* UserInfo.swift */; };
 		697815F02A53118E0047944C /* FamilyInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697815EF2A53118E0047944C /* FamilyInfo.swift */; };
-		697815F22A5311A10047944C /* NoticeAlarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697815F12A5311A10047944C /* NoticeAlarm.swift */; };
 		697815F42A5311AA0047944C /* Complete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697815F32A5311AA0047944C /* Complete.swift */; };
 		697815F62A5311BA0047944C /* PushAlarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697815F52A5311BA0047944C /* PushAlarm.swift */; };
 		697815F82A5311C30047944C /* Quest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697815F72A5311C30047944C /* Quest.swift */; };
@@ -81,6 +82,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		14AA29832A5685050038CDA1 /* NoticeAlarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeAlarmViewController.swift; sourceTree = "<group>"; };
+		14AA29852A5685660038CDA1 /* NoticeAlarmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeAlarmView.swift; sourceTree = "<group>"; };
 		697815402A52FA370047944C /* Umbba-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Umbba-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		697815432A52FA370047944C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		697815452A52FA370047944C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -124,7 +127,6 @@
 		697815EB2A5311770047944C /* Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
 		697815ED2A53117F0047944C /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		697815EF2A53118E0047944C /* FamilyInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyInfo.swift; sourceTree = "<group>"; };
-		697815F12A5311A10047944C /* NoticeAlarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeAlarm.swift; sourceTree = "<group>"; };
 		697815F32A5311AA0047944C /* Complete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Complete.swift; sourceTree = "<group>"; };
 		697815F52A5311BA0047944C /* PushAlarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushAlarm.swift; sourceTree = "<group>"; };
 		697815F72A5311C30047944C /* Quest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quest.swift; sourceTree = "<group>"; };
@@ -167,6 +169,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		148B81F12A568FF000670350 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				14AA29852A5685660038CDA1 /* NoticeAlarmView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		148B81F22A56909300670350 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				14AA29832A5685050038CDA1 /* NoticeAlarmViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		697815372A52FA370047944C = {
 			isa = PBXGroup;
 			children = (
@@ -562,7 +580,8 @@
 		697815E72A530F480047944C /* NoticeAlarmScene */ = {
 			isa = PBXGroup;
 			children = (
-				697815F12A5311A10047944C /* NoticeAlarm.swift */,
+				148B81F22A56909300670350 /* ViewController */,
+				148B81F12A568FF000670350 /* View */,
 			);
 			path = NoticeAlarmScene;
 			sourceTree = "<group>";
@@ -737,13 +756,13 @@
 				697815692A52FE850047944C /* SizeLiterals.swift in Sources */,
 				6978156F2A52FEB00047944C /* ImageLiterals.swift in Sources */,
 				697815C92A530BD00047944C /* Login.swift in Sources */,
-				697815F22A5311A10047944C /* NoticeAlarm.swift in Sources */,
 				697815772A52FF890047944C /* UITextField+.swift in Sources */,
 				697815872A53003A0047944C /* UICollectionViewRegisterable.swift in Sources */,
 				697815712A52FEC10047944C /* ColorLiterals.swift in Sources */,
 				697815482A52FA370047944C /* ViewController.swift in Sources */,
 				697815852A5300290047944C /* UITableViewRegiseterable.swift in Sources */,
 				6978158E2A5300F90047944C /* ButtonPress.swift in Sources */,
+				14AA29842A5685050038CDA1 /* NoticeAlarmViewController.swift in Sources */,
 				697815C72A530BC90047944C /* Splash.swift in Sources */,
 				697815CB2A530BD70047944C /* Entry.swift in Sources */,
 				697815F42A5311AA0047944C /* Complete.swift in Sources */,
@@ -760,6 +779,7 @@
 				697815E32A530E140047944C /* User.swift in Sources */,
 				697815812A52FFF50047944C /* NSObject+.swift in Sources */,
 				697815D72A530C120047944C /* Setting.swift in Sources */,
+				14AA29862A5685660038CDA1 /* NoticeAlarmView.swift in Sources */,
 				697815442A52FA370047944C /* AppDelegate.swift in Sources */,
 				697815F02A53118E0047944C /* FamilyInfo.swift in Sources */,
 				6978157D2A52FFCB0047944C /* UIStackView+.swift in Sources */,
@@ -911,9 +931,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 9YCVZHNG67;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Umbba-iOS/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -929,6 +950,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.umbba.Umbba-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -940,9 +962,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 9YCVZHNG67;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Umbba-iOS/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -958,6 +981,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.umbba.Umbba-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

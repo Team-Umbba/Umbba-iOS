@@ -20,6 +20,8 @@ enum I18N {
         static let inviteBoldTitle = "초대코드"
         static let inviteTextFieldPlaceholder = "초대코드를 입력해주세요."
         static let inviteError = "*올바른 초대코드 형식이 아닙니다."
+        static let timeNotice = "매일 밤 11시에\n타임머신을 보내줄게"
+        static let subNotice = "초대자가 선택한 시간에 따라 알림을 보내드립니다."
     }
     
 }
