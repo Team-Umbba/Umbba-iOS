@@ -28,6 +28,12 @@ class NoticeAlarmView: UIView {
         return label
     }()
     
+    private lazy var nextButton: CustomButton = {
+        let button = CustomButton(status: false, title: I18N.Common.nextButtonTitle)
+        button.isEnabled = true
+        return button
+    }()
+    
     // MARK: - Life Cycles
         
     override init(frame: CGRect) {
@@ -58,7 +64,7 @@ private extension NoticeAlarmView {
     }
 
     func setLayout() {
-        self.addSubviews(timeNoticeLabel, subNoticeLabel)
+        self.addSubviews(timeNoticeLabel, subNoticeLabel, nextButton)
         
         timeNoticeLabel.snp.makeConstraints {
             $0.top.equalTo(self.safeAreaLayoutGuide).offset(12)
@@ -68,6 +74,12 @@ private extension NoticeAlarmView {
         subNoticeLabel.snp.makeConstraints {
             $0.top.equalTo(timeNoticeLabel.snp.bottom).offset(12)
             $0.leading.equalTo(timeNoticeLabel)
+        }
+        
+        nextButton.snp.makeConstraints {
+            $0.bottom.equalTo(self.safeAreaLayoutGuide).offset(-12)
+            $0.trailing.leading.equalToSuperview().inset(20)
+            $0.height.equalTo(60)
         }
     }
 }
