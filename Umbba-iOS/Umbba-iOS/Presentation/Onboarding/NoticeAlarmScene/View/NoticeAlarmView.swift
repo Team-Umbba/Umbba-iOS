@@ -24,6 +24,7 @@ class NoticeAlarmView: UIView {
     private let subNoticeLabel: UILabel = {
         let label = UILabel()
         label.text = I18N.Onboarding.subNotice
+        label.textColor = .lightGray
         label.font = .PretendardRegular(size: 12)
         return label
     }()
