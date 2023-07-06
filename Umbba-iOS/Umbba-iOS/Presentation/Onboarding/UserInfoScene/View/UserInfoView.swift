@@ -1,0 +1,307 @@
+//
+//  UserInfoView.swift
+//  Umbba-Lab
+//
+//  Created by 최영린 on 2023/07/06.
+//
+
+import UIKit
+
+final class UserInfoView: UIView {
+    
+    // MARK: - UI Components
+    
+    private let userInfoTitleLabel: UILabel = {
+        let label = UILabel()
+        label.text = I18N.Onboarding.userInfoTitle
+        label.font = .PretendardRegular(size: 24)
+        label.setLineSpacingPartFontChange(lineSpacing: 5.0, targetString: "너", font: .PretendardBold(size: 24))
+        label.numberOfLines = 0
+        return label
+    }()
+    
+    private lazy var scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.backgroundColor = .white
+        scrollView.showsVerticalScrollIndicator = false
+        return scrollView
+    }()
+    
+    private let contentView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    private let nameView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .white
+        view.layer.cornerRadius = 8
+        view.layer.borderWidth = 1
+        view.layer.borderColor = UIColor.Gray400.cgColor
+        view.layer.masksToBounds = true
+        return view
+    }()
+    
+    private let nameLabel: UILabel = {
+        let label = UILabel()
+        label.text = I18N.Onboarding.nameInfo
+        label.textColor = .UmbbaBlack
+        label.font = .PretendardSemiBold(size: 20)
+        return label
+    }()
+    
+    private lazy var nameTextField: CustomTextField = {
+        let textField = CustomTextField(placeHolder: I18N.Onboarding.namePlaceholder)
+        return textField
+    }()
+    
+    private let nameErrorLabel: UILabel = {
+        let label = UILabel()
+        label.text = I18N.Onboarding.nameError
+        label.font = .PretendardRegular(size: 12)
+        label.textColor = UIColor.Error
+        label.isHidden = true
+        return label
+    }()
+    
+    private let genderView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .white
+        view.layer.cornerRadius = 8
+        view.layer.borderWidth = 1
+        view.layer.borderColor = UIColor.Gray400.cgColor
+        view.layer.masksToBounds = true
+        return view
+    }()
+    
+    private let genderLabel: UILabel = {
+        let label = UILabel()
+        label.text = I18N.Onboarding.genderInfo
+        label.textColor = .black
+        label.font = .PretendardSemiBold(size: 20)
+        return label
+    }()
+    
+    private lazy var maleButton: UIButton = {
+        let button = UIButton()
+        button.setBackgroundColor(.Gray300, for: .normal)
+        button.setBackgroundColor(.Gray500, for: .selected)
+        button.setTitle(I18N.Onboarding.male, for: .normal)
+        button.setTitleColor(.UmbbaBlack, for: .normal)
+        button.setTitleColor(.UmbbaWhite, for: .selected)
+        button.titleLabel?.font = .PretendardRegular(size: 16)
+        button.layer.cornerRadius = 24
+        return button
+    }()
+    
+    private lazy var femaleButton: UIButton = {
+        let button = UIButton()
+        button.setBackgroundColor(.Gray300, for: .normal)
+        button.setBackgroundColor(.Gray500, for: .selected)
+        button.setTitle(I18N.Onboarding.female, for: .normal)
+        button.setTitleColor(.UmbbaBlack, for: .normal)
+        button.setTitleColor(.UmbbaWhite, for: .selected)
+        button.titleLabel?.font = .PretendardRegular(size: 16)
+        button.layer.cornerRadius = 24
+        return button
+    }()
+    
+    private lazy var genderStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .horizontal
+        stackView.distribution = .fillEqually
+        stackView.spacing = 13
+        stackView.addArrangedSubviews(maleButton, femaleButton)
+        return stackView
+    }()
+    
+    private let birthView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .white
+        view.layer.cornerRadius = 8
+        view.layer.borderWidth = 1
+        view.layer.borderColor = UIColor.Gray400.cgColor
+        view.layer.masksToBounds = true
+        return view
+    }()
+    
+    private let birthLabel: UILabel = {
+        let label = UILabel()
+        label.text = I18N.Onboarding.birthInfo
+        label.textColor = .black
+        label.font = .PretendardSemiBold(size: 20)
+        return label
+    }()
+    
+    private lazy var birthTextField: CustomTextField = {
+        let textField = CustomTextField(placeHolder: I18N.Onboarding.birthPlaceholder)
+        textField.keyboardType = .numberPad
+        return textField
+    }()
+    
+    private let birthErrorLabel: UILabel = {
+        let label = UILabel()
+        label.text = I18N.Onboarding.birthError
+        label.font = .PretendardRegular(size: 12)
+        label.textColor = UIColor.Error
+        label.isHidden = true
+        return label
+    }()
+    
+    private lazy var infoStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.alignment = .fill
+        stackView.spacing = 12
+        stackView.addArrangedSubviews(nameView, genderView, birthView)
+        return stackView
+    }()
+    
+    lazy var nextButton: CustomButton = {
+        let button = CustomButton(status: false, title: I18N.Common.nextButtonTitle)
+        button.isEnabled = false
+        return button
+    }()
+    
+    // MARK: - Life Cycles
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        setUI()
+        setDelegate()
+        setAddTarget()
+        setLayout()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+
+// MARK: - Extensions
+
+private extension UserInfoView {
+    func setUI() {
+        self.backgroundColor = .UmbbaWhite
+    }
+    
+    func setDelegate() {
+        nameTextField.delegate = self
+        birthTextField.delegate = self
+    }
+    
+    func setAddTarget() {
+        maleButton.addTarget(self, action: #selector(genderButtonTapped), for: .touchUpInside)
+        femaleButton.addTarget(self, action: #selector(genderButtonTapped), for: .touchUpInside)
+    }
+    
+    func setLayout() {
+        self.addSubviews(userInfoTitleLabel, scrollView, nextButton)
+        scrollView.addSubview(contentView)
+        contentView.addSubviews(infoStackView)
+        nameView.addSubviews(nameLabel, nameTextField, nameErrorLabel)
+        genderView.addSubviews(genderLabel, genderStackView)
+        birthView.addSubviews(birthLabel, birthTextField, birthErrorLabel)
+        
+        userInfoTitleLabel.snp.makeConstraints {
+            $0.top.equalTo(self.safeAreaLayoutGuide).inset(12)
+            $0.leading.equalToSuperview().inset(24)
+        }
+        
+        scrollView.snp.makeConstraints { make in
+            make.top.equalTo(userInfoTitleLabel.snp.bottom).offset(20)
+            make.bottom.leading.trailing.equalToSuperview()
+        }
+        
+        contentView.snp.makeConstraints { make in
+            make.edges.equalTo(scrollView.contentLayoutGuide)
+            make.height.greaterThanOrEqualTo(self.snp.height).priority(.low)
+            make.width.equalTo(scrollView.snp.width)
+        }
+        
+        infoStackView.snp.makeConstraints {
+            $0.top.bottom.equalToSuperview()
+            $0.leading.trailing.equalToSuperview().inset(24)
+        }
+        
+        nameView.snp.makeConstraints {
+            $0.height.equalTo(136)
+        }
+        
+        nameLabel.snp.makeConstraints {
+            $0.top.leading.equalToSuperview().inset(24)
+        }
+        
+        nameTextField.snp.makeConstraints {
+            $0.top.equalTo(nameLabel.snp.bottom).offset(12)
+            $0.trailing.leading.equalToSuperview().inset(20)
+            $0.height.equalTo(48)
+        }
+        
+        nameErrorLabel.snp.makeConstraints {
+            $0.top.equalTo(nameTextField.snp.bottom).offset(4)
+            $0.leading.equalTo(nameTextField.snp.leading).offset(20)
+        }
+        
+        genderView.snp.makeConstraints {
+            $0.height.equalTo(136)
+        }
+        
+        genderLabel.snp.makeConstraints {
+            $0.top.leading.equalToSuperview().inset(24)
+        }
+        
+        maleButton.snp.makeConstraints {
+            $0.height.equalTo(48)
+        }
+        
+        femaleButton.snp.makeConstraints {
+            $0.height.equalTo(48)
+        }
+        
+        genderStackView.snp.makeConstraints {
+            $0.top.equalTo(genderLabel.snp.bottom).offset(12)
+            $0.leading.trailing.equalToSuperview().inset(25)
+        }
+        
+        birthView.snp.makeConstraints {
+            $0.height.equalTo(136)
+        }
+        
+        birthLabel.snp.makeConstraints {
+            $0.top.leading.equalToSuperview().inset(24)
+        }
+        
+        birthTextField.snp.makeConstraints {
+            $0.top.equalTo(birthLabel.snp.bottom).offset(12)
+            $0.trailing.leading.equalToSuperview().inset(20)
+            $0.height.equalTo(48)
+        }
+        
+        birthErrorLabel.snp.makeConstraints {
+            $0.top.equalTo(birthTextField.snp.bottom).offset(4)
+            $0.leading.equalTo(birthTextField.snp.leading).offset(20)
+        }
+        
+        nextButton.snp.makeConstraints {
+            $0.bottom.equalTo(self.safeAreaLayoutGuide).offset(-12)
+            $0.trailing.leading.equalToSuperview().inset(20)
+            $0.height.equalTo(60)
+        }
+    }
+    
+    @objc
+    func genderButtonTapped(sender: UIButton) {
+        print("성별 버튼 클릭")
+    }
+}
+
+extension UserInfoView: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+}
