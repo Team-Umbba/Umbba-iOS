@@ -29,8 +29,8 @@ final class NoticeAlarmView: UIView {
         return label
     }()
     
-    private lazy var nextButton: CustomButton = {
-        let button = CustomButton(status: false, title: I18N.Common.nextButtonTitle)
+    lazy var nextButton: CustomButton = {
+        let button = CustomButton(status: true, title: I18N.Common.nextButtonTitle)
         button.isEnabled = true
         return button
     }()
@@ -41,8 +41,6 @@ final class NoticeAlarmView: UIView {
         super.init(frame: frame)
 
         setUI()
-        setDelegate()
-        setAddTarget()
         setLayout()
     }
     
@@ -58,13 +56,6 @@ private extension NoticeAlarmView {
         self.backgroundColor = .white
     }
 
-    func setDelegate() {
-    }
-
-    func setAddTarget() {
-        nextButton.addTarget(self, action: #selector(nextButtonTapped), for: .touchUpInside)
-    }
-
     func setLayout() {
         self.addSubviews(timeNoticeLabel, subNoticeLabel, nextButton)
         
@@ -75,7 +66,7 @@ private extension NoticeAlarmView {
         
         subNoticeLabel.snp.makeConstraints {
             $0.top.equalTo(timeNoticeLabel.snp.bottom).offset(12)
-            $0.leading.equalTo(timeNoticeLabel)
+            $0.leading.equalTo(timeNoticeLabel.snp.leading)
         }
         
         nextButton.snp.makeConstraints {
@@ -83,10 +74,5 @@ private extension NoticeAlarmView {
             $0.trailing.leading.equalToSuperview().inset(20)
             $0.height.equalTo(60)
         }
-    }
-    
-    @objc
-    func nextButtonTapped() {
-        print("다음 화면으로 전환")
     }
 }
