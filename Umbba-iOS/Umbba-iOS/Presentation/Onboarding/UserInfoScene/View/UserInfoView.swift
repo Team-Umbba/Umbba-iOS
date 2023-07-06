@@ -9,6 +9,11 @@ import UIKit
 
 final class UserInfoView: UIView {
     
+    // MARK: - Properties
+    
+    private var selectedButton: Int = 0
+    private var genderButton: [UIButton] = []
+    
     // MARK: - UI Components
     
     private let userInfoTitleLabel: UILabel = {
@@ -93,6 +98,7 @@ final class UserInfoView: UIView {
         button.setTitleColor(.UmbbaWhite, for: .selected)
         button.titleLabel?.font = .PretendardRegular(size: 16)
         button.layer.cornerRadius = 24
+        genderButton.append(button)
         return button
     }()
     
@@ -105,6 +111,7 @@ final class UserInfoView: UIView {
         button.setTitleColor(.UmbbaWhite, for: .selected)
         button.titleLabel?.font = .PretendardRegular(size: 16)
         button.layer.cornerRadius = 24
+        genderButton.append(button)
         return button
     }()
     
@@ -293,9 +300,25 @@ private extension UserInfoView {
         }
     }
     
+    func isFilledAnswer() {
+        if nameTextField.hasText && birthTextField.hasText && (maleButton.isSelected || femaleButton.isSelected) {
+            nextButton.isEnabled = true
+        } else {
+            nextButton.isEnabled = false
+        }
+    }
+    
     @objc
     func genderButtonTapped(sender: UIButton) {
-        print("성별 버튼 클릭")
+        self.selectedButton = sender.tag
+        genderButton.forEach { button in
+            guard let gender = button.titleLabel?.text else { return }
+            button.isSelected = sender == button
+            if button.isSelected {
+                print(gender)
+            }
+        }
+        isFilledAnswer()
     }
 }
 
