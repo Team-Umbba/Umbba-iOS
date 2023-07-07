@@ -300,13 +300,29 @@ private extension UserInfoView {
         }
     }
     
-    func isFilledAnswer() {
-        if nameTextField.hasText && birthTextField.hasText
-            && birthTextField.textFieldStatus == .uncorrectedType || nameTextField.textFieldStatus == .uncorrectedType
-            && (maleButton.isSelected || femaleButton.isSelected) {
-            nextButton.isEnabled = true
+    func isFilledAnswer() -> Bool {
+        if nameTextField.hasText && birthTextField.hasText && (maleButton.isSelected || femaleButton.isSelected) {
+            return true
         } else {
+            return false
+        }
+    }
+    
+    func isCorrectedStatus() -> Bool {
+        if birthTextField.textFieldStatus == .normal && nameTextField.textFieldStatus == .normal {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    func updateNextButton() {
+        if  isFilledAnswer() && !isCorrectedStatus() {
             nextButton.isEnabled = false
+        } else if !isFilledAnswer() {
+            nextButton.isEnabled = false
+        } else {
+            nextButton.isEnabled = true
         }
     }
     
@@ -322,6 +338,7 @@ private extension UserInfoView {
     
     @objc
     func genderButtonTapped(sender: UIButton) {
+        updateNextButton()
         self.selectedButton = sender.tag
         genderButton.forEach { button in
             guard let gender = button.titleLabel?.text else { return }
@@ -330,22 +347,29 @@ private extension UserInfoView {
                 print(gender)
             }
         }
-        isFilledAnswer()
     }
 }
 
 extension UserInfoView: UITextFieldDelegate {
     func textFieldDidChangeSelection(_ textField: UITextField) {
-        isFilledAnswer()
-        if !nameTextField.hasText {
+        updateNextButton()
+        if nameTextField.hasText && nameTextField.text?.isOnlyKorean() == false {
+            updateNameErrorLabel(isError: true)
+        } else {
             updateNameErrorLabel(isError: false)
         }
-        if (!birthTextField.hasText) && (birthTextField.text?.count == 4) {
+        if birthTextField.hasText && (birthTextField.text?.count == 4) {
             updateBirthErrorLabel(isError: false)
+        } else if !birthTextField.hasText || birthTextField.text?.count ?? 0 < 4 {
+            birthTextField.textFieldStatus = .editing
+            self.nextButton.isEnabled = false
+        } else {
+            updateBirthErrorLabel(isError: true)
         }
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
+        updateNextButton()
         if nameTextField.hasText && nameTextField.text?.isOnlyKorean() == false {
             updateNameErrorLabel(isError: true)
         } else {
@@ -363,4 +387,3 @@ extension UserInfoView: UITextFieldDelegate {
         return true
     }
 }
-
