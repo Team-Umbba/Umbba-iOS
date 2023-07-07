@@ -300,6 +300,8 @@ private extension UserInfoView {
         }
     }
     
+    // MARK: - Functions
+    
     func isFilledAnswer() -> Bool {
         if nameTextField.hasText && birthTextField.hasText && (maleButton.isSelected || femaleButton.isSelected) {
             return true
@@ -336,6 +338,8 @@ private extension UserInfoView {
         birthTextField.textFieldStatus = isError ? .uncorrectedType : .normal
     }
     
+    // MARK: - @objc Functions
+    
     @objc
     func genderButtonTapped(sender: UIButton) {
         updateNextButton()
@@ -349,6 +353,8 @@ private extension UserInfoView {
         }
     }
 }
+
+// MARK: - TextFieldDelegate
 
 extension UserInfoView: UITextFieldDelegate {
     func textFieldDidChangeSelection(_ textField: UITextField) {

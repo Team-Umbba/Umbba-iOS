@@ -9,8 +9,12 @@ import UIKit
 
 final class UserInfoViewController: UIViewController {
     
+    // MARK: - UI Components
+    
     private let userInfoView = UserInfoView()
     private lazy var nextButton = userInfoView.nextButton
+    
+    // MARK: - Life Cycles
     
     override func loadView() {
         super.loadView()
@@ -25,7 +29,7 @@ final class UserInfoViewController: UIViewController {
     }
 }
 
-// MARK: - Methods
+// MARK: - Extensions
 
 extension UserInfoViewController {
     func setNavigationUI() {
