@@ -43,7 +43,7 @@ final class PushAlarmViewController: UIViewController {
 
 // MARK: - Extensions
 
-extension PushAlarmViewController {
+private extension PushAlarmViewController {
     func setNavigationUI() {
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "arrow.backward"), style: .plain, target: self, action: #selector(backButtonTapped))
         navigationItem.leftBarButtonItem?.tintColor = .black

@@ -37,7 +37,7 @@ final class PushAlarmView: UIView {
         }()
         
         lazy var nextButton: CustomButton = {
-            let button = CustomButton(status: true, title:  I18N.Common.nextButtonTitle)
+            let button = CustomButton(status: true, title: I18N.Common.nextButtonTitle)
             button.isEnabled = true
             return button
         }()
@@ -56,7 +56,7 @@ final class PushAlarmView: UIView {
         }
     }
 
-    // MARK: - Extensions
+// MARK: - Extensions
 
 private extension PushAlarmView {
     func setUI() {
