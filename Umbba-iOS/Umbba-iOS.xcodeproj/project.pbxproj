@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		14AA29842A5685050038CDA1 /* NoticeAlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AA29832A5685050038CDA1 /* NoticeAlarmViewController.swift */; };
 		14AA29862A5685660038CDA1 /* NoticeAlarmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AA29852A5685660038CDA1 /* NoticeAlarmView.swift */; };
+		69636FAD2A5A615C008B457A /* FamiltInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69636FAC2A5A615C008B457A /* FamiltInfoViewController.swift */; };
+		69636FAF2A5A616C008B457A /* FamilyInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69636FAE2A5A616C008B457A /* FamilyInfoView.swift */; };
 		697815442A52FA370047944C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697815432A52FA370047944C /* AppDelegate.swift */; };
 		697815462A52FA370047944C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697815452A52FA370047944C /* SceneDelegate.swift */; };
 		697815482A52FA370047944C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697815472A52FA370047944C /* ViewController.swift */; };
@@ -88,6 +90,8 @@
 /* Begin PBXFileReference section */
 		14AA29832A5685050038CDA1 /* NoticeAlarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeAlarmViewController.swift; sourceTree = "<group>"; };
 		14AA29852A5685660038CDA1 /* NoticeAlarmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeAlarmView.swift; sourceTree = "<group>"; };
+		69636FAC2A5A615C008B457A /* FamiltInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamiltInfoViewController.swift; sourceTree = "<group>"; };
+		69636FAE2A5A616C008B457A /* FamilyInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyInfoView.swift; sourceTree = "<group>"; };
 		697815402A52FA370047944C /* Umbba-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Umbba-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		697815432A52FA370047944C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		697815452A52FA370047944C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -189,6 +193,22 @@
 			isa = PBXGroup;
 			children = (
 				14AA29832A5685050038CDA1 /* NoticeAlarmViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		69636FAA2A5A6123008B457A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				69636FAE2A5A616C008B457A /* FamilyInfoView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		69636FAB2A5A612A008B457A /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				69636FAC2A5A615C008B457A /* FamiltInfoViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -617,6 +637,8 @@
 		697815EA2A53111B0047944C /* FamilyInfoScene */ = {
 			isa = PBXGroup;
 			children = (
+				69636FAB2A5A612A008B457A /* ViewController */,
+				69636FAA2A5A6123008B457A /* View */,
 				697815EF2A53118E0047944C /* FamilyInfo.swift */,
 			);
 			path = FamilyInfoScene;
@@ -806,6 +828,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69636FAF2A5A616C008B457A /* FamilyInfoView.swift in Sources */,
 				6978157B2A52FFBC0047944C /* UIViewController+.swift in Sources */,
 				697815752A52FF760047944C /* UIVIew+.swift in Sources */,
 				6978157F2A52FFE10047944C /* UILabel+.swift in Sources */,
@@ -839,6 +862,7 @@
 				697815902A53015D0047944C /* MakeVibrate.swift in Sources */,
 				697815792A52FFA20047944C /* UIButton+.swift in Sources */,
 				697815E02A530DC80047944C /* AuthService.swift in Sources */,
+				69636FAD2A5A615C008B457A /* FamiltInfoViewController.swift in Sources */,
 				697815E32A530E140047944C /* User.swift in Sources */,
 				A42723B82A552E5C003C445F /* LoginView.swift in Sources */,
 				697815812A52FFF50047944C /* NSObject+.swift in Sources */,

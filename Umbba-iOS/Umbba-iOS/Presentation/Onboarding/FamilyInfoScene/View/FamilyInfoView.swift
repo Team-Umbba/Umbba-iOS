@@ -1,0 +1,251 @@
+//
+//  FamilyInfoView.swift
+//  Umbba-iOS
+//
+//  Created by 최영린 on 2023/07/09.
+//
+
+import UIKit
+
+import SnapKit
+
+final class FamilyInfoView: UIView {
+   
+    // MARK: - UI Components
+    
+    private let familyInfoTitleLabel: UILabel = {
+        let label = UILabel()
+        label.text = I18N.Onboarding.familyInfoTitle
+        label.font = .PretendardRegular(size: 24)
+        label.setLineSpacingPartFontChange(lineSpacing: 5.0, targetString: "과거", font: .PretendardBold(size: 24))
+        label.numberOfLines = 0
+        return label
+    }()
+    
+    private lazy var scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.backgroundColor = .white
+        scrollView.showsVerticalScrollIndicator = false
+        return scrollView
+    }()
+    
+    private let contentView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    private let relationView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .white
+        view.layer.cornerRadius = 8
+        view.layer.borderWidth = 1
+        view.layer.borderColor = UIColor.Gray400.cgColor
+        view.layer.masksToBounds = true
+        return view
+    }()
+    
+    private let relationLabel: UILabel = {
+        let label = UILabel()
+        label.text = I18N.Onboarding.relationInfo
+        label.textColor = .UmbbaBlack
+        label.font = .PretendardSemiBold(size: 20)
+        return label
+    }()
+    
+    private lazy var parentButton: UIButton = {
+        let button = UIButton()
+        button.setBackgroundColor(.Gray300, for: .normal)
+        button.setBackgroundColor(.Gray500, for: .selected)
+        button.setTitle(I18N.Onboarding.parent, for: .normal)
+        button.setTitleColor(.UmbbaBlack, for: .normal)
+        button.setTitleColor(.UmbbaWhite, for: .selected)
+        button.titleLabel?.font = .PretendardRegular(size: 16)
+        button.layer.cornerRadius = 24
+        return button
+    }()
+    
+    private lazy var childButton: UIButton = {
+        let button = UIButton()
+        button.setBackgroundColor(.Gray300, for: .normal)
+        button.setBackgroundColor(.Gray500, for: .selected)
+        button.setTitle(I18N.Onboarding.child, for: .normal)
+        button.setTitleColor(.UmbbaBlack, for: .normal)
+        button.setTitleColor(.UmbbaWhite, for: .selected)
+        button.titleLabel?.font = .PretendardRegular(size: 16)
+        button.layer.cornerRadius = 24
+        return button
+    }()
+    
+    private lazy var relationStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .horizontal
+        stackView.distribution = .fillEqually
+        stackView.spacing = 13
+        stackView.addArrangedSubviews(parentButton, childButton)
+        return stackView
+    }()
+    
+    private let genderView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .white
+        view.layer.cornerRadius = 8
+        view.layer.borderWidth = 1
+        view.layer.borderColor = UIColor.Gray400.cgColor
+        view.layer.masksToBounds = true
+        return view
+    }()
+    
+    private let genderLabel: UILabel = {
+        let label = UILabel()
+        label.text = I18N.Onboarding.detailnfo
+        label.textColor = .black
+        label.font = .PretendardSemiBold(size: 20)
+        return label
+    }()
+    
+    private lazy var maleButton: UIButton = {
+        let button = UIButton()
+        button.setBackgroundColor(.Gray300, for: .normal)
+        button.setBackgroundColor(.Gray500, for: .selected)
+        button.setTitleColor(.UmbbaBlack, for: .normal)
+        button.setTitleColor(.UmbbaWhite, for: .selected)
+        button.titleLabel?.font = .PretendardRegular(size: 16)
+        button.layer.cornerRadius = 24
+        return button
+    }()
+    
+    private lazy var femaleButton: UIButton = {
+        let button = UIButton()
+        button.setBackgroundColor(.Gray300, for: .normal)
+        button.setBackgroundColor(.Gray500, for: .selected)
+        button.setTitleColor(.UmbbaBlack, for: .normal)
+        button.setTitleColor(.UmbbaWhite, for: .selected)
+        button.titleLabel?.font = .PretendardRegular(size: 16)
+        button.layer.cornerRadius = 24
+        return button
+    }()
+    
+    private lazy var genderStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .horizontal
+        stackView.distribution = .fillEqually
+        stackView.spacing = 13
+        stackView.addArrangedSubviews(maleButton, femaleButton)
+        return stackView
+    }()
+    
+    private lazy var infoStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.alignment = .fill
+        stackView.spacing = 12
+        stackView.addArrangedSubviews(relationView, genderView)
+        return stackView
+    }()
+    
+    lazy var nextButton: CustomButton = {
+        let button = CustomButton(status: false, title: I18N.Common.nextButtonTitle)
+        button.isEnabled = false
+        return button
+    }()
+    
+    // MARK: - Life Cycles
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        setUI()
+        setLayout()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+
+// MARK: - Extensions
+
+private extension FamilyInfoView {
+    func setUI() {
+        self.backgroundColor = .UmbbaWhite
+    }
+    
+    func setLayout() {
+        self.addSubviews(familyInfoTitleLabel, scrollView, nextButton)
+        scrollView.addSubview(contentView)
+        contentView.addSubviews(infoStackView)
+        relationView.addSubviews(relationLabel, relationStackView)
+        genderView.addSubviews(genderLabel, genderStackView)
+        
+        familyInfoTitleLabel.snp.makeConstraints {
+            $0.top.equalTo(self.safeAreaLayoutGuide).inset(12)
+            $0.leading.equalToSuperview().inset(24)
+        }
+        
+        scrollView.snp.makeConstraints { make in
+            make.top.equalTo(familyInfoTitleLabel.snp.bottom).offset(20)
+            make.bottom.leading.trailing.equalToSuperview()
+        }
+        
+        contentView.snp.makeConstraints { make in
+            make.edges.equalTo(scrollView.contentLayoutGuide)
+            make.height.greaterThanOrEqualTo(self.snp.height).priority(.low)
+            make.width.equalTo(scrollView.snp.width)
+        }
+        
+        infoStackView.snp.makeConstraints {
+            $0.top.bottom.equalToSuperview()
+            $0.leading.trailing.equalToSuperview().inset(24)
+        }
+        
+        relationView.snp.makeConstraints {
+            $0.height.equalTo(136)
+        }
+        
+        relationLabel.snp.makeConstraints {
+            $0.top.leading.equalToSuperview().inset(24)
+        }
+        
+        parentButton.snp.makeConstraints {
+            $0.height.equalTo(48)
+        }
+        
+        childButton.snp.makeConstraints {
+            $0.height.equalTo(48)
+        }
+        
+        relationStackView.snp.makeConstraints {
+            $0.top.equalTo(relationLabel.snp.bottom).offset(12)
+            $0.leading.trailing.equalToSuperview().inset(25)
+        }
+        
+        genderView.snp.makeConstraints {
+            $0.height.equalTo(136)
+        }
+        
+        genderLabel.snp.makeConstraints {
+            $0.top.leading.equalToSuperview().inset(24)
+        }
+        
+        maleButton.snp.makeConstraints {
+            $0.height.equalTo(48)
+        }
+        
+        femaleButton.snp.makeConstraints {
+            $0.height.equalTo(48)
+        }
+        
+        genderStackView.snp.makeConstraints {
+            $0.top.equalTo(genderLabel.snp.bottom).offset(12)
+            $0.leading.trailing.equalToSuperview().inset(25)
+        }
+
+        nextButton.snp.makeConstraints {
+            $0.bottom.equalTo(self.safeAreaLayoutGuide).offset(-12)
+            $0.trailing.leading.equalToSuperview().inset(20)
+            $0.height.equalTo(60)
+        }
+    }
+}
