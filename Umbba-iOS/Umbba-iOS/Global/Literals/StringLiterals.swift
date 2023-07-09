@@ -34,4 +34,8 @@ enum I18N {
         static let inviteButtonTitle = "초대코드 입력하기"
     }
     
+    struct Setting {
+        static let settingTitle = "설정"
+    }
+    
 }
