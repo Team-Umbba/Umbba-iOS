@@ -274,6 +274,15 @@ private extension FamilyInfoView {
         femaleButton.setTitle(female, for: .normal)
     }
     
+    func isFilledAnswer() {
+        if (maleButton.isSelected || femaleButton.isSelected)
+            && (maleButton.isSelected || femaleButton.isSelected) {
+            nextButton.isEnabled = true
+        } else {
+            nextButton.isEnabled = false
+        }
+    }
+    
     @objc
     func relationButtonTapped(sender: UIButton) {
         UIView.animate(withDuration: 0.5) {
@@ -290,6 +299,7 @@ private extension FamilyInfoView {
                 setGenderButtonTitle(male: maleTitle, female: femaleTitle)
             }
         }
+        isFilledAnswer()
     }
     
     @objc
@@ -302,5 +312,6 @@ private extension FamilyInfoView {
                 print(gender)
             }
         }
+        isFilledAnswer()
     }
 }
