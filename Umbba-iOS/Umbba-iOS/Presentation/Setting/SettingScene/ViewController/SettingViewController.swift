@@ -16,6 +16,7 @@ class SettingViewController: UIViewController {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.text = I18N.Setting.settingTitle
+        label.font = .PretendardRegular(size: 20)
         label.textAlignment = .left
         label.sizeToFit()
         return label
@@ -57,6 +58,7 @@ private extension SettingViewController {
     func setTableView() {
         tableView.register(SettingTableViewCell.self, forCellReuseIdentifier: SettingTableViewCell.identifier)
         tableView.rowHeight = 72
+        tableView.backgroundColor = .white
     }
     
     func setDelegate() {

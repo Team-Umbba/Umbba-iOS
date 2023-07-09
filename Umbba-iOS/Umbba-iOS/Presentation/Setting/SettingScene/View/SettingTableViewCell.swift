@@ -24,7 +24,7 @@ class SettingTableViewCell: UITableViewCell {
     
     private lazy var buttonImage: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(systemName: "arrow_forward")?.withTintColor(.gray, renderingMode: .alwaysOriginal)
+        imageView.image = UIImage(systemName: "chevron.compact.right")?.withTintColor(.gray, renderingMode: .alwaysOriginal)
         return imageView
     }()
     
