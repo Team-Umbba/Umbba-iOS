@@ -44,4 +44,8 @@ enum I18N {
         static let inviteButtonTitle = "초대코드 입력하기"
     }
     
+    enum Archiving {
+        static let navigationTitle = "리스트"
+    }
+    
 }

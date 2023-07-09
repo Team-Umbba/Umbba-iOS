@@ -23,6 +23,8 @@ final class ArchivingSectionViewController: UIViewController {
         setDelegate()
 
         setRegister()
+        
+        setNavigationUI()
     }
     
 }
@@ -37,7 +39,18 @@ private extension ArchivingSectionViewController {
     func setRegister() {
         archivingSectionView.archivingColletionView.register(ArchivingSectionCollectionViewCell.self, forCellWithReuseIdentifier: ArchivingSectionCollectionViewCell.identifier)
     }
- }
+    
+    func setNavigationUI() {
+        let listButton = UIBarButtonItem.init(title: "리스트", style: .plain, target: self, action: #selector(listButtonTapped))
+        navigationItem.leftBarButtonItem = listButton
+        navigationItem.leftBarButtonItem?.tintColor = .UmbbaBlack
+    }
+    
+    @objc
+    func listButtonTapped() {
+        
+    }
+}
 
 extension ArchivingSectionViewController: UICollectionViewDelegate {
 }
