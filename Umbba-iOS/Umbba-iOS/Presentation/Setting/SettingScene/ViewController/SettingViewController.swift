@@ -82,9 +82,15 @@ extension SettingViewController: UITableViewDelegate {
         let header = SettingSectionHeaderView.dequeueReusableHeaderFooterView(tableView: tableView)
         return header
     }
+    
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 72
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 72
+    }
+    
 }
 
 extension SettingViewController: UITableViewDataSource {
