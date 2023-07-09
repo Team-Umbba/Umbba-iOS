@@ -17,10 +17,10 @@ final class ArchivingSectionCollectionViewCell: UICollectionViewCell {
         let label = UILabel()
         label.textAlignment = .center
         label.font = .PretendardRegular(size: 12)
-        label.textColor = .UmbbaWhite
+        label.textColor = .gray
         label.layer.borderWidth = 1
         label.layer.borderColor = UIColor.gray.cgColor
-        label.backgroundColor = .gray
+        label.backgroundColor = .UmbbaWhite
         label.clipsToBounds = true
         label.layer.cornerRadius = 12
         return label
