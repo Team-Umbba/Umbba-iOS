@@ -32,6 +32,15 @@ enum I18N {
         static let birthInfo = "태어난 연도는 언제야?"
         static let birthPlaceholder = "태어난 연도를 입력해주세요."
         static let birthError = "*올바른 형식이 아닙니다."
+        static let familyInfoTitle = "오늘부터 매일,\n과거로 시간여행을 떠날거야"
+        static let relationInfo = "누구와 함께하겠어??"
+        static let parent = "부모님"
+        static let child = "자식"
+        static let detailnfo = "더 자세히 알려줄 수 있어?"
+        static let mom = "엄마"
+        static let dad = "아빠"
+        static let daughter = "딸"
+        static let son = "아들"
     }
     
     struct Auth {
