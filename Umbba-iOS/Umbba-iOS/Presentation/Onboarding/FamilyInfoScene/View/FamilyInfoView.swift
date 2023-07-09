@@ -56,6 +56,7 @@ final class FamilyInfoView: UIView {
         button.setTitleColor(.UmbbaWhite, for: .selected)
         button.titleLabel?.font = .PretendardRegular(size: 16)
         button.layer.cornerRadius = 24
+        button.adjustsImageWhenHighlighted = false
         relationButton.append(button)
         return button
     }()
@@ -69,6 +70,7 @@ final class FamilyInfoView: UIView {
         button.setTitleColor(.UmbbaWhite, for: .selected)
         button.titleLabel?.font = .PretendardRegular(size: 16)
         button.layer.cornerRadius = 24
+        button.adjustsImageWhenHighlighted = false
         relationButton.append(button)
         return button
     }()
@@ -109,6 +111,7 @@ final class FamilyInfoView: UIView {
         button.setTitleColor(.UmbbaWhite, for: .selected)
         button.titleLabel?.font = .PretendardRegular(size: 16)
         button.layer.cornerRadius = 24
+        button.adjustsImageWhenHighlighted = false
         genderButton.append(button)
         return button
     }()
@@ -121,6 +124,7 @@ final class FamilyInfoView: UIView {
         button.setTitleColor(.UmbbaWhite, for: .selected)
         button.titleLabel?.font = .PretendardRegular(size: 16)
         button.layer.cornerRadius = 24
+        button.adjustsImageWhenHighlighted = false
         genderButton.append(button)
         return button
     }()
