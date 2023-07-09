@@ -283,6 +283,11 @@ private extension FamilyInfoView {
         }
     }
     
+    func updateGenderButtonUI() {
+        maleButton.isSelected = false
+        femaleButton.isSelected = false
+    }
+    
     @objc
     func relationButtonTapped(sender: UIButton) {
         UIView.animate(withDuration: 0.5) {
@@ -297,6 +302,7 @@ private extension FamilyInfoView {
                 let maleTitle = relation == "부모님" ? I18N.Onboarding.dad : I18N.Onboarding.son
                 let femaleTitle = relation == "부모님" ? I18N.Onboarding.mom : I18N.Onboarding.daughter
                 setGenderButtonTitle(male: maleTitle, female: femaleTitle)
+                updateGenderButtonUI()
             }
         }
         isFilledAnswer()
