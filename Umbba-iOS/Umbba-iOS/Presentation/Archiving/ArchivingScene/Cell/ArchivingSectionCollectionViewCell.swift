@@ -17,12 +17,8 @@ final class ArchivingSectionCollectionViewCell: UICollectionViewCell {
         let label = UILabel()
         label.textAlignment = .center
         label.font = .PretendardRegular(size: 12)
-        label.textColor = .gray
-        label.layer.borderWidth = 1
-        label.layer.borderColor = UIColor.gray.cgColor
-        label.backgroundColor = .UmbbaWhite
+        label.textColor = .Primary600
         label.clipsToBounds = true
-        label.layer.cornerRadius = 12
         return label
     }()
     
@@ -47,6 +43,12 @@ extension ArchivingSectionCollectionViewCell {
     
     func setUI() {
         backgroundColor = .UmbbaWhite
+        
+        self.layer.cornerRadius = 13
+        self.layer.borderWidth = 1
+        self.layer.borderColor = UIColor.Primary600.cgColor
+        self.backgroundColor = .UmbbaWhite
+        
     }
     
     func setHierarchy() {
@@ -55,8 +57,8 @@ extension ArchivingSectionCollectionViewCell {
     
     func setLayout() {
         archivingSectionLabel.snp.makeConstraints {
-            $0.top.leading.trailing.equalToSuperview()
-            $0.height.equalTo(26)
+            $0.centerY.equalToSuperview()
+            $0.leading.trailing.equalToSuperview().inset(16)
         }
     }
     
