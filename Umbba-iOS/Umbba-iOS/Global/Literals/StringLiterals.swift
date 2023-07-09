@@ -41,6 +41,7 @@ enum I18N {
         static let dad = "아빠"
         static let daughter = "딸"
         static let son = "아들"
+        static let completeTitle = "과거에 도착했어!\n앞으로 나눌 이야기가 많을거야"
     }
     
     struct Auth {
