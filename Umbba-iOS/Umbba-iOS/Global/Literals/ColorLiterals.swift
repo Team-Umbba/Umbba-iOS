@@ -28,8 +28,8 @@ extension UIColor {
         return UIColor(hex: "#F0EBE8")
     }
     
-    static var Gray500: UIColor {
-        return UIColor(hex: "#E7E0DC")
+    static var Gray800: UIColor {
+        return UIColor(hex: "#BBADA4")
     }
 
     static var Error: UIColor {

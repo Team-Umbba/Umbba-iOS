@@ -50,7 +50,7 @@ final class FamilyInfoView: UIView {
     private lazy var parentButton: UIButton = {
         let button = UIButton()
         button.setBackgroundColor(.Gray300, for: .normal)
-        button.setBackgroundColor(.Gray500, for: .selected)
+        button.setBackgroundColor(.Gray800, for: .selected)
         button.setTitle(I18N.Onboarding.parent, for: .normal)
         button.setTitleColor(.UmbbaBlack, for: .normal)
         button.setTitleColor(.UmbbaWhite, for: .selected)
@@ -64,7 +64,7 @@ final class FamilyInfoView: UIView {
     private lazy var childButton: UIButton = {
         let button = UIButton()
         button.setBackgroundColor(.Gray300, for: .normal)
-        button.setBackgroundColor(.Gray500, for: .selected)
+        button.setBackgroundColor(.Gray800, for: .selected)
         button.setTitle(I18N.Onboarding.child, for: .normal)
         button.setTitleColor(.UmbbaBlack, for: .normal)
         button.setTitleColor(.UmbbaWhite, for: .selected)
@@ -106,7 +106,7 @@ final class FamilyInfoView: UIView {
     private lazy var maleButton: UIButton = {
         let button = UIButton()
         button.setBackgroundColor(.Gray300, for: .normal)
-        button.setBackgroundColor(.Gray500, for: .selected)
+        button.setBackgroundColor(.Gray800, for: .selected)
         button.setTitleColor(.UmbbaBlack, for: .normal)
         button.setTitleColor(.UmbbaWhite, for: .selected)
         button.titleLabel?.font = .PretendardRegular(size: 16)
@@ -119,7 +119,7 @@ final class FamilyInfoView: UIView {
     private lazy var femaleButton: UIButton = {
         let button = UIButton()
         button.setBackgroundColor(.Gray300, for: .normal)
-        button.setBackgroundColor(.Gray500, for: .selected)
+        button.setBackgroundColor(.Gray800, for: .selected)
         button.setTitleColor(.UmbbaBlack, for: .normal)
         button.setTitleColor(.UmbbaWhite, for: .selected)
         button.titleLabel?.font = .PretendardRegular(size: 16)
