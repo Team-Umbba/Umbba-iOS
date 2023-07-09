@@ -10,7 +10,14 @@ import UIKit
 import SnapKit
 
 final class FamilyInfoView: UIView {
-   
+    
+    // MARK: - Properties
+    
+    private var selectedRelationButton: Int = 0
+    private var relationButton: [UIButton] = []
+    private var selectedGenderButton: Int = 0
+    private var genderButton: [UIButton] = []
+    
     // MARK: - UI Components
     
     private let familyInfoTitleLabel: UILabel = {
@@ -63,6 +70,7 @@ final class FamilyInfoView: UIView {
         button.setTitleColor(.UmbbaWhite, for: .selected)
         button.titleLabel?.font = .PretendardRegular(size: 16)
         button.layer.cornerRadius = 24
+        relationButton.append(button)
         return button
     }()
     
@@ -75,6 +83,7 @@ final class FamilyInfoView: UIView {
         button.setTitleColor(.UmbbaWhite, for: .selected)
         button.titleLabel?.font = .PretendardRegular(size: 16)
         button.layer.cornerRadius = 24
+        relationButton.append(button)
         return button
     }()
     
@@ -94,6 +103,7 @@ final class FamilyInfoView: UIView {
         view.layer.borderWidth = 1
         view.layer.borderColor = UIColor.Gray400.cgColor
         view.layer.masksToBounds = true
+        view.alpha = 0.0
         return view
     }()
     
@@ -113,6 +123,7 @@ final class FamilyInfoView: UIView {
         button.setTitleColor(.UmbbaWhite, for: .selected)
         button.titleLabel?.font = .PretendardRegular(size: 16)
         button.layer.cornerRadius = 24
+        genderButton.append(button)
         return button
     }()
     
@@ -124,6 +135,7 @@ final class FamilyInfoView: UIView {
         button.setTitleColor(.UmbbaWhite, for: .selected)
         button.titleLabel?.font = .PretendardRegular(size: 16)
         button.layer.cornerRadius = 24
+        genderButton.append(button)
         return button
     }()
     
@@ -157,6 +169,7 @@ final class FamilyInfoView: UIView {
         super.init(frame: frame)
         
         setUI()
+        setAddTarget()
         setLayout()
     }
     
@@ -170,6 +183,13 @@ final class FamilyInfoView: UIView {
 private extension FamilyInfoView {
     func setUI() {
         self.backgroundColor = .UmbbaWhite
+    }
+    
+    func setAddTarget() {
+        parentButton.addTarget(self, action: #selector(relationButtonTapped), for: .touchUpInside)
+        childButton.addTarget(self, action: #selector(relationButtonTapped), for: .touchUpInside)
+        maleButton.addTarget(self, action: #selector(genderButtonTapped), for: .touchUpInside)
+        femaleButton.addTarget(self, action: #selector(genderButtonTapped), for: .touchUpInside)
     }
     
     func setLayout() {
@@ -241,11 +261,46 @@ private extension FamilyInfoView {
             $0.top.equalTo(genderLabel.snp.bottom).offset(12)
             $0.leading.trailing.equalToSuperview().inset(25)
         }
-
+        
         nextButton.snp.makeConstraints {
             $0.bottom.equalTo(self.safeAreaLayoutGuide).offset(-12)
             $0.trailing.leading.equalToSuperview().inset(20)
             $0.height.equalTo(60)
+        }
+    }
+    
+    func setGenderButtonTitle(male: String, female: String) {
+        maleButton.setTitle(male, for: .normal)
+        femaleButton.setTitle(female, for: .normal)
+    }
+    
+    @objc
+    func relationButtonTapped(sender: UIButton) {
+        UIView.animate(withDuration: 0.5) {
+            self.genderView.alpha = 1.0
+        }
+        self.selectedRelationButton = sender.tag
+        relationButton.forEach { button in
+            guard let relation = button.titleLabel?.text else { return }
+            button.isSelected = sender == button
+            if button.isSelected {
+                print(relation)
+                let maleTitle = relation == "부모님" ? I18N.Onboarding.dad : I18N.Onboarding.son
+                let femaleTitle = relation == "부모님" ? I18N.Onboarding.mom : I18N.Onboarding.daughter
+                setGenderButtonTitle(male: maleTitle, female: femaleTitle)
+            }
+        }
+    }
+    
+    @objc
+    func genderButtonTapped(sender: UIButton) {
+        self.selectedGenderButton = sender.tag
+        genderButton.forEach { button in
+            guard let gender = button.titleLabel?.text else { return }
+            button.isSelected = sender == button
+            if button.isSelected {
+                print(gender)
+            }
         }
     }
 }
