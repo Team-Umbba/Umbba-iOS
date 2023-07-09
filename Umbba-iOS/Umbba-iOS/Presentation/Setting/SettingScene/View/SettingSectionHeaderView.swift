@@ -9,7 +9,7 @@ import UIKit
 
 import SnapKit
 
-class SettingSectionHeaderView: UITableViewHeaderFooterView, UITableViewHeaderFooterRegisterable {
+final class SettingSectionHeaderView: UITableViewHeaderFooterView, UITableViewHeaderFooterRegisterable {
    
     // MARK: - Properties
     
@@ -30,6 +30,8 @@ class SettingSectionHeaderView: UITableViewHeaderFooterView, UITableViewHeaderFo
         return mySwitch
     }()
     
+    // MARK: - Life Cycles
+    
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
        
@@ -42,7 +44,9 @@ class SettingSectionHeaderView: UITableViewHeaderFooterView, UITableViewHeaderFo
     }
 }
 
-extension SettingSectionHeaderView {
+// MARK: - Extensions
+
+private extension SettingSectionHeaderView {
     
     func setUI() {
         backgroundColor = .white
@@ -58,7 +62,7 @@ extension SettingSectionHeaderView {
         
         alarmSwitch.snp.makeConstraints {
             $0.centerY.equalToSuperview()
-            $0.trailing.equalToSuperview().offset(-24)
+            $0.trailing.equalToSuperview().inset(24)
         }
     }
 }

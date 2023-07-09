@@ -9,7 +9,7 @@ import UIKit
 
 import SnapKit
 
-class SettingViewController: UIViewController {
+final class SettingViewController: UIViewController {
     
     // MARK: - UI Components
 
@@ -57,7 +57,6 @@ private extension SettingViewController {
     }
     
     func setTableView() {
-        tableView.rowHeight = 72
         tableView.backgroundColor = .white
     }
     

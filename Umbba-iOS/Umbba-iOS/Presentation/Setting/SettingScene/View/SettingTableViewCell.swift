@@ -9,7 +9,7 @@ import UIKit
 
 import SnapKit
 
-class SettingTableViewCell: UITableViewCell, UITableViewRegisterable {
+final class SettingTableViewCell: UITableViewCell, UITableViewRegisterable {
     
     // MARK: - Properties
     
@@ -30,6 +30,8 @@ class SettingTableViewCell: UITableViewCell, UITableViewRegisterable {
         return imageView
     }()
     
+    // MARK: - Life Cycles
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
@@ -42,6 +44,8 @@ class SettingTableViewCell: UITableViewCell, UITableViewRegisterable {
         super.init(coder: coder)
     }
 }
+
+// MARK: - Extensions
 
 extension SettingTableViewCell {
     
