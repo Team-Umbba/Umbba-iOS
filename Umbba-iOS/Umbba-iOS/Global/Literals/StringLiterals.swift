@@ -22,7 +22,7 @@ enum I18N {
         static let inviteError = "*올바른 초대코드 형식이 아닙니다."
         static let timeNotice = "매일 밤 11시에\n타임머신을 보내줄게"
         static let subNotice = "초대자가 선택한 시간에 따라 알림을 보내드립니다."
-        static let userInfoTitle = "환영해!\n너에 대해 알려줘"
+        static let userInfoTitle = "반가워!\n너에 대행 알고 싶어!"
         static let nameInfo = "너의 이름이 뭐야?"
         static let namePlaceholder = "이름을 입력해주세요."
         static let nameError = "*올바른 형식이 아닙니다."
