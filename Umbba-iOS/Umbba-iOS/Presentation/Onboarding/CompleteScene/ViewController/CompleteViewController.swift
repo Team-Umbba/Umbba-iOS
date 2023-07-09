@@ -32,7 +32,7 @@ final class CompleteViewController: UIViewController {
 
 // MARK: - Extensions
 
-extension CompleteViewController {
+private extension CompleteViewController {
     func setNavigationUI() {
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "arrow.backward"), style: .plain, target: self, action: #selector(backButtonTapped))
         navigationItem.leftBarButtonItem?.tintColor = .black
