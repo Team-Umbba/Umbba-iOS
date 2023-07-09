@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		14A01D432A57D8A200D4F860 /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A01D422A57D8A200D4F860 /* SettingTableViewCell.swift */; };
+		14A6D3062A5A63EF003A83B3 /* SettingSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A6D3052A5A63EF003A83B3 /* SettingSectionHeaderView.swift */; };
 		14AA29842A5685050038CDA1 /* NoticeAlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AA29832A5685050038CDA1 /* NoticeAlarmViewController.swift */; };
 		14AA29862A5685660038CDA1 /* NoticeAlarmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AA29852A5685660038CDA1 /* NoticeAlarmView.swift */; };
 		14AC19B32A57C27600A01E4F /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AC19B22A57C27600A01E4F /* SettingViewController.swift */; };
@@ -87,6 +88,7 @@
 
 /* Begin PBXFileReference section */
 		14A01D422A57D8A200D4F860 /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
+		14A6D3052A5A63EF003A83B3 /* SettingSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingSectionHeaderView.swift; sourceTree = "<group>"; };
 		14AA29832A5685050038CDA1 /* NoticeAlarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeAlarmViewController.swift; sourceTree = "<group>"; };
 		14AA29852A5685660038CDA1 /* NoticeAlarmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeAlarmView.swift; sourceTree = "<group>"; };
 		14AC19B22A57C27600A01E4F /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
@@ -205,6 +207,7 @@
 			isa = PBXGroup;
 			children = (
 				14A01D422A57D8A200D4F860 /* SettingTableViewCell.swift */,
+				14A6D3052A5A63EF003A83B3 /* SettingSectionHeaderView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -830,6 +833,7 @@
 				697815F42A5311AA0047944C /* Complete.swift in Sources */,
 				697815D12A530BF10047944C /* Write.swift in Sources */,
 				697815EC2A5311770047944C /* Animation.swift in Sources */,
+				14A6D3062A5A63EF003A83B3 /* SettingSectionHeaderView.swift in Sources */,
 				697815CF2A530BE70047944C /* Main.swift in Sources */,
 				697815D52A530C050047944C /* Archiving.swift in Sources */,
 				697815DE2A530D2C0047944C /* NetworkResult.swift in Sources */,

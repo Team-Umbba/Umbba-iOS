@@ -36,6 +36,7 @@ enum I18N {
     
     struct Setting {
         static let settingTitle = "설정"
+        static let settingLabel = "알람 설정"
     }
     
 }

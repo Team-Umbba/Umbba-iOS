@@ -70,7 +70,16 @@ private extension SettingViewController {
     }
 }
 
-extension SettingViewController: UITableViewDelegate { }
+extension SettingViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let sectionHeaderView = SettingSectionHeaderView()
+        return sectionHeaderView
+    }
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 72
+    }
+}
 
 extension SettingViewController: UITableViewDataSource {
     
