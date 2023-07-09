@@ -9,15 +9,22 @@ import UIKit
 
 final class PushAlarmViewController: UIViewController {
     
+    // MARK: - Properties
+    
     private var pushAlarmTime: [String: Any] = [
         "hour": "1",
         "minute": "00",
         "period": "AM"
     ]
+    private var formattedTime = ""
+    
+    // MARK: - UI Components
     
     private let pushAlarmView = PushAlarmView()
     private lazy var pickerView = pushAlarmView.timePickerView
     private lazy var nextButton = pushAlarmView.nextButton
+    
+    // MARK: - Life Cycles
     
     override func loadView() {
         super.loadView()
@@ -51,6 +58,29 @@ extension PushAlarmViewController {
         pickerView.dataSource = self
     }
     
+    // MARK: - Functions
+    
+    func convertToTime(time: [String: Any]) {
+        guard let hour = pushAlarmTime["hour"] as? String else { return }
+        guard let minute = pushAlarmTime["minute"] as? String else { return }
+        guard let period = pushAlarmTime["period"] as? String else { return }
+        
+        var hourString = hour
+        
+        if let hour = Int(hourString), let minute = Int(minute) {
+            if period == "PM" {
+                if hour != 12 {
+                    hourString = String(hour + 12)
+                }
+            } else {
+                if hour == 12 {
+                    hourString = "00"
+                }
+            }
+            formattedTime = String(format: "%02d:%02d:00", Int(hourString) ?? 0, minute)
+        }
+    }
+    
     @objc
     func backButtonTapped() {
         self.navigationController?.popViewController(animated: true)
@@ -58,9 +88,13 @@ extension PushAlarmViewController {
     
     @objc
     func nextButtonTapped() {
+        convertToTime(time: pushAlarmTime)
+        print("\(formattedTime)")
         self.navigationController?.pushViewController(CompleteViewController(), animated: true)
     }
 }
+
+// MARK: - UIPickerViewDelegate, UIPickerViewDataSource
 
 extension PushAlarmViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
