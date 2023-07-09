@@ -70,6 +70,8 @@
 		697816182A5317C10047944C /* FirebaseInAppMessaging-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = 697816172A5317C10047944C /* FirebaseInAppMessaging-Beta */; };
 		6978161A2A5317C10047944C /* FirebaseInAppMessagingSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = 697816192A5317C10047944C /* FirebaseInAppMessagingSwift-Beta */; };
 		6978161C2A5317C10047944C /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 6978161B2A5317C10047944C /* FirebaseMessaging */; };
+		6991BA6E2A5731330091D52D /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6991BA6D2A5731330091D52D /* UserInfoViewController.swift */; };
+		6991BA702A57314A0091D52D /* UserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6991BA6F2A57314A0091D52D /* UserInfoView.swift */; };
 		69DE6B912A53384C00F31812 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DE6B902A53384C00F31812 /* UIColor+.swift */; };
 		69DE6B9B2A5341FF00F31812 /* Cafe24Classictype-v1.1.otf in Resources */ = {isa = PBXBuildFile; fileRef = 69DE6B9A2A5341FF00F31812 /* Cafe24Classictype-v1.1.otf */; };
 		69DE6B9F2A53421D00F31812 /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 69DE6B9C2A53421C00F31812 /* Pretendard-SemiBold.otf */; };
@@ -137,6 +139,8 @@
 		697815F52A5311BA0047944C /* PushAlarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushAlarm.swift; sourceTree = "<group>"; };
 		697815F72A5311C30047944C /* Quest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quest.swift; sourceTree = "<group>"; };
 		697815FA2A5314BE0047944C /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		6991BA6D2A5731330091D52D /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
+		6991BA6F2A57314A0091D52D /* UserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoView.swift; sourceTree = "<group>"; };
 		69DE6B902A53384C00F31812 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		69DE6B9A2A5341FF00F31812 /* Cafe24Classictype-v1.1.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cafe24Classictype-v1.1.otf"; sourceTree = "<group>"; };
 		69DE6B9C2A53421C00F31812 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
@@ -628,6 +632,8 @@
 		697815E92A5311090047944C /* UserInfoScene */ = {
 			isa = PBXGroup;
 			children = (
+				6991BA6C2A5730AE0091D52D /* ViewController */,
+				6991BA6B2A57303D0091D52D /* View */,
 				697815ED2A53117F0047944C /* UserInfo.swift */,
 			);
 			path = UserInfoScene;
@@ -641,10 +647,42 @@
 			path = FamilyInfoScene;
 			sourceTree = "<group>";
 		};
+    6991BA6B2A57303D0091D52D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6991BA6F2A57314A0091D52D /* UserInfoView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6991BA6C2A5730AE0091D52D /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				6991BA6D2A5731330091D52D /* UserInfoViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		69DE6BB02A543FDF00F31812 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				69DE6BB32A54400500F31812 /* InviteView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		69DE6BB12A543FE600F31812 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				69DE6BB52A54403200F31812 /* InviteViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		A42723B62A552E46003C445F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A42723B72A552E5C003C445F /* LoginView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -819,6 +857,7 @@
 				697815832A53000D0047944C /* UITableView+.swift in Sources */,
 				697815692A52FE850047944C /* SizeLiterals.swift in Sources */,
 				6978156F2A52FEB00047944C /* ImageLiterals.swift in Sources */,
+				6991BA6E2A5731330091D52D /* UserInfoViewController.swift in Sources */,
 				697815772A52FF890047944C /* UITextField+.swift in Sources */,
 				14A01D432A57D8A200D4F860 /* SettingTableViewCell.swift in Sources */,
 				697815872A53003A0047944C /* UICollectionViewRegisterable.swift in Sources */,
@@ -835,6 +874,7 @@
 				697815EC2A5311770047944C /* Animation.swift in Sources */,
 				14A6D3062A5A63EF003A83B3 /* SettingSectionHeaderView.swift in Sources */,
 				697815CF2A530BE70047944C /* Main.swift in Sources */,
+				6991BA702A57314A0091D52D /* UserInfoView.swift in Sources */,
 				697815D52A530C050047944C /* Archiving.swift in Sources */,
 				697815DE2A530D2C0047944C /* NetworkResult.swift in Sources */,
 				6978156B2A52FE960047944C /* FontLiterals.swift in Sources */,
