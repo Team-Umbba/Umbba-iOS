@@ -76,6 +76,8 @@
 		6978161C2A5317C10047944C /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 6978161B2A5317C10047944C /* FirebaseMessaging */; };
 		6991BA6E2A5731330091D52D /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6991BA6D2A5731330091D52D /* UserInfoViewController.swift */; };
 		6991BA702A57314A0091D52D /* UserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6991BA6F2A57314A0091D52D /* UserInfoView.swift */; };
+		699455DB2A5AED0B003C118A /* PushAlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 699455DA2A5AED0B003C118A /* PushAlarmViewController.swift */; };
+		699455DD2A5AED19003C118A /* PushAlarmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 699455DC2A5AED19003C118A /* PushAlarmView.swift */; };
 		69DE6B912A53384C00F31812 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DE6B902A53384C00F31812 /* UIColor+.swift */; };
 		69DE6B9B2A5341FF00F31812 /* Cafe24Classictype-v1.1.otf in Resources */ = {isa = PBXBuildFile; fileRef = 69DE6B9A2A5341FF00F31812 /* Cafe24Classictype-v1.1.otf */; };
 		69DE6B9F2A53421D00F31812 /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 69DE6B9C2A53421C00F31812 /* Pretendard-SemiBold.otf */; };
@@ -149,6 +151,8 @@
 		697815FA2A5314BE0047944C /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		6991BA6D2A5731330091D52D /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
 		6991BA6F2A57314A0091D52D /* UserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoView.swift; sourceTree = "<group>"; };
+		699455DA2A5AED0B003C118A /* PushAlarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushAlarmViewController.swift; sourceTree = "<group>"; };
+		699455DC2A5AED19003C118A /* PushAlarmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushAlarmView.swift; sourceTree = "<group>"; };
 		69DE6B902A53384C00F31812 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		69DE6B9A2A5341FF00F31812 /* Cafe24Classictype-v1.1.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cafe24Classictype-v1.1.otf"; sourceTree = "<group>"; };
 		69DE6B9C2A53421C00F31812 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
@@ -639,6 +643,8 @@
 		697815E52A530F140047944C /* PushAlarmScene */ = {
 			isa = PBXGroup;
 			children = (
+				699455DF2A5AED35003C118A /* ViewController */,
+				699455DE2A5AED1E003C118A /* View */,
 				697815F52A5311BA0047944C /* PushAlarm.swift */,
 			);
 			path = PushAlarmScene;
@@ -703,6 +709,22 @@
 			isa = PBXGroup;
 			children = (
 				6991BA6D2A5731330091D52D /* UserInfoViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		699455DE2A5AED1E003C118A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				699455DC2A5AED19003C118A /* PushAlarmView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		699455DF2A5AED35003C118A /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				699455DA2A5AED0B003C118A /* PushAlarmViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -903,6 +925,7 @@
 				697815F42A5311AA0047944C /* Complete.swift in Sources */,
 				697815D12A530BF10047944C /* Write.swift in Sources */,
 				697815EC2A5311770047944C /* Animation.swift in Sources */,
+				699455DB2A5AED0B003C118A /* PushAlarmViewController.swift in Sources */,
 				14A6D3062A5A63EF003A83B3 /* SettingSectionHeaderView.swift in Sources */,
 				697815CF2A530BE70047944C /* Main.swift in Sources */,
 				6991BA702A57314A0091D52D /* UserInfoView.swift in Sources */,
@@ -920,6 +943,7 @@
 				A42723BF2A5537CD003C445F /* EntryView.swift in Sources */,
 				697815D72A530C120047944C /* Setting.swift in Sources */,
 				14AA29862A5685660038CDA1 /* NoticeAlarmView.swift in Sources */,
+				699455DD2A5AED19003C118A /* PushAlarmView.swift in Sources */,
 				697815442A52FA370047944C /* AppDelegate.swift in Sources */,
 				697815F02A53118E0047944C /* FamilyInfo.swift in Sources */,
 				6978157D2A52FFCB0047944C /* UIStackView+.swift in Sources */,
