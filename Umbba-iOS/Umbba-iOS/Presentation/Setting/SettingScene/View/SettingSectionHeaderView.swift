@@ -21,6 +21,11 @@ class SettingSectionHeaderView: UIView {
         return label
     }()
     
+    private lazy var alarmSwitch: UISwitch = {
+        let mySwitch = UISwitch()
+        return mySwitch
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
        
@@ -40,11 +45,16 @@ extension SettingSectionHeaderView {
     }
     
     func setLayout() {
-        addSubview(settingLabel)
+        addSubviews(settingLabel, alarmSwitch)
         
         settingLabel.snp.makeConstraints {
             $0.centerY.equalToSuperview()
             $0.leading.equalToSuperview().offset(24)
+        }
+        
+        alarmSwitch.snp.makeConstraints {
+            $0.centerY.equalToSuperview()
+            $0.trailing.equalToSuperview().offset(-24)
         }
     }
 }
