@@ -29,20 +29,6 @@ final class FamilyInfoView: UIView {
         return label
     }()
     
-    private lazy var scrollView: UIScrollView = {
-        let scrollView = UIScrollView()
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
-        scrollView.backgroundColor = .white
-        scrollView.showsVerticalScrollIndicator = false
-        return scrollView
-    }()
-    
-    private let contentView: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-    
     private let relationView: UIView = {
         let view = UIView()
         view.backgroundColor = .white
@@ -193,9 +179,7 @@ private extension FamilyInfoView {
     }
     
     func setLayout() {
-        self.addSubviews(familyInfoTitleLabel, scrollView, nextButton)
-        scrollView.addSubview(contentView)
-        contentView.addSubviews(infoStackView)
+        self.addSubviews(familyInfoTitleLabel, infoStackView, nextButton)
         relationView.addSubviews(relationLabel, relationStackView)
         genderView.addSubviews(genderLabel, genderStackView)
         
@@ -204,19 +188,8 @@ private extension FamilyInfoView {
             $0.leading.equalToSuperview().inset(24)
         }
         
-        scrollView.snp.makeConstraints { make in
-            make.top.equalTo(familyInfoTitleLabel.snp.bottom).offset(20)
-            make.bottom.leading.trailing.equalToSuperview()
-        }
-        
-        contentView.snp.makeConstraints { make in
-            make.edges.equalTo(scrollView.contentLayoutGuide)
-            make.height.greaterThanOrEqualTo(self.snp.height).priority(.low)
-            make.width.equalTo(scrollView.snp.width)
-        }
-        
         infoStackView.snp.makeConstraints {
-            $0.top.bottom.equalToSuperview()
+            $0.top.equalTo(familyInfoTitleLabel.snp.bottom).offset(20)
             $0.leading.trailing.equalToSuperview().inset(24)
         }
         
