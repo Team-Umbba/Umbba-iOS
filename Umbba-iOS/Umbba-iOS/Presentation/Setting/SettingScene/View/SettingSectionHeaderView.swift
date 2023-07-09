@@ -9,8 +9,12 @@ import UIKit
 
 import SnapKit
 
-class SettingSectionHeaderView: UIView {
-
+class SettingSectionHeaderView: UITableViewHeaderFooterView, UITableViewHeaderFooterRegisterable {
+   
+    // MARK: - Properties
+    
+    static var isFromNib = false
+    
     // MARK: - UI Components
     
     private let settingLabel: UILabel = {
@@ -26,8 +30,8 @@ class SettingSectionHeaderView: UIView {
         return mySwitch
     }()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    override init(reuseIdentifier: String?) {
+        super.init(reuseIdentifier: reuseIdentifier)
        
         setUI()
         setLayout()

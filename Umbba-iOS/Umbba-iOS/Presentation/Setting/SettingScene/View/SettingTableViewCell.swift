@@ -9,9 +9,11 @@ import UIKit
 
 import SnapKit
 
-class SettingTableViewCell: UITableViewCell {
-
-    static let identifier = "SettingTableViewCell"
+class SettingTableViewCell: UITableViewCell, UITableViewRegisterable {
+    
+    // MARK: - Properties
+    
+    static var isFromNib = false
     
     // MARK: - UI Components
     

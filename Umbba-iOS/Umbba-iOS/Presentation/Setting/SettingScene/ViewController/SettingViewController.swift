@@ -33,6 +33,7 @@ class SettingViewController: UIViewController {
         setUI()
         setLayout()
         setTableView()
+        registerCell()
         setDelegate()
         setNavigationUI()
     }
@@ -56,9 +57,13 @@ private extension SettingViewController {
     }
     
     func setTableView() {
-        tableView.register(SettingTableViewCell.self, forCellReuseIdentifier: SettingTableViewCell.identifier)
         tableView.rowHeight = 72
         tableView.backgroundColor = .white
+    }
+    
+    func registerCell() {
+        SettingTableViewCell.register(target: tableView)
+        SettingSectionHeaderView.register(target: tableView)
     }
     
     func setDelegate() {
@@ -75,8 +80,8 @@ private extension SettingViewController {
 extension SettingViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let sectionHeaderView = SettingSectionHeaderView()
-        return sectionHeaderView
+        let header = SettingSectionHeaderView.dequeueReusableHeaderFooterView(tableView: tableView)
+        return header
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 72
@@ -90,11 +95,8 @@ extension SettingViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: SettingTableViewCell.identifier, for: indexPath) as? SettingTableViewCell else { return UITableViewCell() }
-
+        let cell = SettingTableViewCell.dequeueReusableCell(tableView: tableView, indexPath: indexPath)
         cell.configureCell(dummy[indexPath.row])
-        
         return cell
     }
 }
