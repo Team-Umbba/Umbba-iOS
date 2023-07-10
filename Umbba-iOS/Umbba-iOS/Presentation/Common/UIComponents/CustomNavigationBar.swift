@@ -109,12 +109,12 @@ extension CustomNavigationBar {
         
         titleView.snp.makeConstraints {
             $0.center.equalToSuperview()
-            $0.width.equalTo(161)
             $0.height.equalTo(32)
         }
         
         cafe24TitleLabel.snp.makeConstraints {
             $0.center.equalToSuperview()
+            $0.leading.trailing.equalToSuperview().inset(49)
         }
         
         rightButton.snp.makeConstraints {
