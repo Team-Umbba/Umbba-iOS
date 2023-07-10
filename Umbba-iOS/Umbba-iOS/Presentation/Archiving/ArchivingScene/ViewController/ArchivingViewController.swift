@@ -28,10 +28,10 @@ final class ArchivingViewController: UIViewController {
         super.viewDidLoad()
         
         setUI()
+        setDelegate()
         setHierarchy()
         setLayout()
-        setDelegate()
-        setRegister()
+        registerCell()
         setNavigationUI()
     }
 }
@@ -40,12 +40,13 @@ extension ArchivingViewController {
     
     private func setUI() {
         view.backgroundColor = .UmbbaWhite
-        
         archivingCollectionView.showsVerticalScrollIndicator = false
         archivingCollectionView.isScrollEnabled = true
         archivingCollectionView.clipsToBounds = true
         archivingCollectionView.contentInsetAdjustmentBehavior = .never
         archivingCollectionView.collectionViewLayout = self.setSectionLayout()
+        archivingCollectionView.isUserInteractionEnabled = true
+        archivingCollectionView.allowsSelection = true
     }
     
     private func setHierarchy() {
@@ -68,7 +69,7 @@ extension ArchivingViewController {
         archivingCollectionView.dataSource = self
     }
     
-    private func setRegister() {
+    private func registerCell() {
         archivingCollectionView.register(ArchivingSectionCollectionViewCell.self, forCellWithReuseIdentifier: ArchivingSectionCollectionViewCell.identifier)
         archivingCollectionView.register(ArchivingQuestionCollectionViewCell.self, forCellWithReuseIdentifier: ArchivingQuestionCollectionViewCell.identifier)
         
@@ -82,7 +83,7 @@ extension ArchivingViewController {
     
     func setSectionLayout() -> UICollectionViewLayout {
         return UICollectionViewCompositionalLayout { sectionIndex, env -> NSCollectionLayoutSection? in
-            let sectionType = SectionType.allCases[sectionIndex]
+            let sectionType = Section.allCases[sectionIndex]
             switch sectionType {
             case .section:
                 return self.getLayoutSection()
@@ -101,16 +102,16 @@ extension ArchivingViewController {
         
         let groupSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1.5),
-            heightDimension: .absolute(42)
+            heightDimension: .absolute(26)
         )
         let group = NSCollectionLayoutGroup.horizontal(
             layoutSize: groupSize,
             subitems: [item]
         )
         group.interItemSpacing = .fixed(12)
-        group.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 24, bottom: 8, trailing: 0)
         
         let section = NSCollectionLayoutSection(group: group)
+        section.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 24, bottom: 8, trailing: 0)
         section.orthogonalScrollingBehavior = .continuous
         
         return section
@@ -148,12 +149,29 @@ extension ArchivingViewController {
         
         return section
     }
+    
+}
 
+extension ArchivingViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let sectionType = Section.allCases[indexPath.section]
+        switch sectionType {
+        case .section:
+            print("asdf")
+        case .question:
+            print("iroi")
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+        print("shouldSelectItemAt")
+        return true
+    }
 }
 
 extension ArchivingViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let sectionType = SectionType.allCases[indexPath.section]
+        let sectionType = Section.allCases[indexPath.section]
         switch sectionType {
         case .section:
             guard let cell = archivingCollectionView.dequeueReusableCell(withReuseIdentifier: ArchivingSectionCollectionViewCell.identifier, for: indexPath) as? ArchivingSectionCollectionViewCell else { return UICollectionViewCell() }
@@ -189,13 +207,9 @@ extension ArchivingViewController: UICollectionViewDataSource {
     }
 }
 
-extension ArchivingViewController: UICollectionViewDelegate {
-}
-
 extension ArchivingViewController: UICollectionViewDelegateFlowLayout {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return Section.allCases.count
     }
-    
 }
