@@ -12,20 +12,18 @@ import SnapKit
 final class SettingViewController: UIViewController {
     
     // MARK: - UI Components
-    
-    private let tableView = UITableView(frame: .zero, style: .plain)
-    private let section0 = Setting.section0()
-    private let section1 = Setting.section1()
+        
+    private let settingTableView = SettingTableView()
+    private lazy var settingtableView = settingTableView.tableView
+    let userSection = Setting.section0()
+    let teamSection = Setting.section1()
     
     // MARK: - Life Cycles
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view = settingTableView
         
-        setUI()
-        setLayout()
-        setTableView()
-        registerCell()
         setDelegate()
     }
 }
@@ -33,36 +31,10 @@ final class SettingViewController: UIViewController {
 // MARK: - Extensions
 
 private extension SettingViewController {
-    
-    func setUI() {
-        view.backgroundColor = .white
-    }
-    
-    func setLayout() {
-        view.addSubview(tableView)
-        
-        tableView.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaInsets)
-            $0.leading.trailing.bottom.equalToSuperview()
-        }
-    }
-    
-    func setTableView() {
-        tableView.backgroundColor = .white
-        tableView.sectionFooterHeight = 0
-        tableView.sectionHeaderTopPadding = 1
-        tableView.isScrollEnabled = false
-        tableView.isUserInteractionEnabled = true
-    }
-    
-    func registerCell() {
-        SettingTableViewCell.register(target: tableView)
-        SettingSectionHeaderView.register(target: tableView)
-    }
-    
+
     func setDelegate() {
-        tableView.delegate = self
-        tableView.dataSource = self
+        settingtableView.delegate = self
+        settingtableView.dataSource = self
     }
 }
 
@@ -116,9 +88,9 @@ extension SettingViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
-            return section0.count
+            return userSection.count
         } else if section == 1 {
-            return section1.count
+            return teamSection.count
         } else {
             return 0
         }
@@ -128,9 +100,9 @@ extension SettingViewController: UITableViewDataSource {
         let cell = SettingTableViewCell.dequeueReusableCell(tableView: tableView, indexPath: indexPath)
         
         if indexPath.section == 0 {
-            cell.configureCell(section0[indexPath.row])
+            cell.configureCell(userSection[indexPath.row])
         } else if indexPath.section == 1 {
-            cell.configureCell(section1[indexPath.row])
+            cell.configureCell(teamSection[indexPath.row])
         } else {
             return UITableViewCell()
         }
