@@ -33,7 +33,7 @@ extension AnswerWriteViewController {
 
 extension AnswerWriteViewController: AnswrWriteDelegate {
     func backButtonTapped() {
-        self.makeAlert(alertType: .withdrawalAlert) {
+        self.makeAlert(alertType: .writeCancelAlert) {
             print("이전 화면으로 이동")
         }
     }
