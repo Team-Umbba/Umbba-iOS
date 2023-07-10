@@ -5,4 +5,15 @@
 //  Created by 최영린 on 2023/07/03.
 //
 
-import Foundation
+import UIKit
+
+enum ImageLiterals {
+    struct TabBar {
+        static var icn_home: UIImage { .load(name: "home_default") }
+        static var icn_home_selected: UIImage { .load(name: "home_active") }
+        static var icn_list: UIImage { .load(name: "list_default") }
+        static var icn_list_selected: UIImage { .load(name: "list_active") }
+        static var icn_setting: UIImage { .load(name: "setting_default") }
+        static var icn_setting_selected: UIImage { .load(name: "setting_active") }
+    }
+}
