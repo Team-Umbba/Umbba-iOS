@@ -21,6 +21,7 @@ final class AnswerWriteViewController: UIViewController {
         super.viewDidLoad()
         
         setNavigationUI()
+        setDelegate()
     }
 }
 
@@ -29,5 +30,19 @@ final class AnswerWriteViewController: UIViewController {
 extension AnswerWriteViewController {
     func setNavigationUI() {
         navigationController?.isNavigationBarHidden = true
+    }
+    
+    func setDelegate() {
+        answerWriteView.delegate = self
+    }
+}
+
+extension AnswerWriteViewController: AnswrWriteDelegate {
+    func backButtonTapped() {
+        print("작성 취소 팝업")
+    }
+    
+    func completeButtonTapped() {
+        print("작성 저장 팝업")
     }
 }

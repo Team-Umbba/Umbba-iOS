@@ -9,7 +9,18 @@ import UIKit
 
 import SnapKit
 
+// MARK: - Protocols
+
+protocol AnswrWriteDelegate: AnyObject {
+    func backButtonTapped()
+    func completeButtonTapped()
+}
+
 final class AnswerWriteView: UIView {
+    
+    // MARK: - Properties
+    
+    weak var delegate: AnswrWriteDelegate?
     
     // MARK: - UI Components
     
@@ -87,6 +98,7 @@ final class AnswerWriteView: UIView {
         super.init(frame: frame)
         
         setUI()
+        setAddTarget()
         setDelegate()
         setLayout()
     }
@@ -101,6 +113,11 @@ final class AnswerWriteView: UIView {
 private extension AnswerWriteView {
     func setUI() {
         self.backgroundColor = .UmbbaWhite
+    }
+    
+    func setAddTarget() {
+        navigationBarView.leftButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
+        navigationBarView.rightButton.addTarget(self, action: #selector(completeButtonTapped), for: .touchUpInside)
     }
     
     func setDelegate() {
@@ -146,6 +163,16 @@ private extension AnswerWriteView {
         if (textView.text.count) > 100 {
             textView.deleteBackward()
         }
+    }
+    
+    @objc
+    func backButtonTapped() {
+        delegate?.backButtonTapped()
+    }
+    
+    @objc
+    func completeButtonTapped() {
+        delegate?.completeButtonTapped()
     }
 }
 

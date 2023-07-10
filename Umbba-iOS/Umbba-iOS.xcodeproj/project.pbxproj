@@ -83,6 +83,7 @@
 		699455EE2A5C0C8B003C118A /* InviteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 699455ED2A5C0C8B003C118A /* InviteViewController.swift */; };
 		69A67D7B2A5C12CE00C43F49 /* AnswerWriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A67D7A2A5C12CE00C43F49 /* AnswerWriteView.swift */; };
 		69A67D7E2A5C12F100C43F49 /* AnswerWriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A67D7D2A5C12F100C43F49 /* AnswerWriteViewController.swift */; };
+		69A67D812A5C1BB600C43F49 /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A67D802A5C1BB600C43F49 /* CustomNavigationBar.swift */; };
 		69DE6B912A53384C00F31812 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DE6B902A53384C00F31812 /* UIColor+.swift */; };
 		69DE6B9B2A5341FF00F31812 /* Cafe24Classictype-v1.1.otf in Resources */ = {isa = PBXBuildFile; fileRef = 69DE6B9A2A5341FF00F31812 /* Cafe24Classictype-v1.1.otf */; };
 		69DE6B9F2A53421D00F31812 /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 69DE6B9C2A53421C00F31812 /* Pretendard-SemiBold.otf */; };
@@ -161,6 +162,7 @@
 		69A67D782A5C0F9C00C43F49 /* Umbba-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Umbba-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		69A67D7A2A5C12CE00C43F49 /* AnswerWriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerWriteView.swift; sourceTree = "<group>"; };
 		69A67D7D2A5C12F100C43F49 /* AnswerWriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerWriteViewController.swift; sourceTree = "<group>"; };
+		69A67D802A5C1BB600C43F49 /* CustomNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBar.swift; sourceTree = "<group>"; };
 		69DE6B902A53384C00F31812 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		69DE6B9A2A5341FF00F31812 /* Cafe24Classictype-v1.1.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cafe24Classictype-v1.1.otf"; sourceTree = "<group>"; };
 		69DE6B9C2A53421C00F31812 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
@@ -451,6 +453,7 @@
 			children = (
 				69DE6BAC2A5432CC00F31812 /* CustomTextField.swift */,
 				69DE6BAE2A5432E600F31812 /* CustomButton.swift */,
+				69A67D802A5C1BB600C43F49 /* CustomNavigationBar.swift */,
 			);
 			path = UIComponents;
 			sourceTree = "<group>";
@@ -958,6 +961,7 @@
 				697815E02A530DC80047944C /* AuthService.swift in Sources */,
 				69636FAD2A5A615C008B457A /* FamilyInfoViewController.swift in Sources */,
 				697815E32A530E140047944C /* User.swift in Sources */,
+				69A67D812A5C1BB600C43F49 /* CustomNavigationBar.swift in Sources */,
 				697815812A52FFF50047944C /* NSObject+.swift in Sources */,
 				A42723BF2A5537CD003C445F /* EntryView.swift in Sources */,
 				697815D72A530C120047944C /* Setting.swift in Sources */,
