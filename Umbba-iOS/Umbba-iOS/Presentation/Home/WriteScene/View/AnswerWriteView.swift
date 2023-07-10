@@ -26,7 +26,7 @@ final class AnswerWriteView: UIView {
     
     private let navigationBarView: CustomNavigationBar = {
         let view = CustomNavigationBar()
-        view.cafe24Title = I18N.Write.navigaionTitle
+        view.cafe24Title = I18N.Write.navigationTitle
         view.isTitleViewIncluded = true
         view.isRightButtonIncluded = true
         view.isLeftButtonIncluded = true

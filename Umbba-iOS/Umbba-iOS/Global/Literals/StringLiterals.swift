@@ -60,7 +60,7 @@ enum I18N {
     }
     
     enum Write {
-        static let navigaionTitle = "어린시절"
+        static let navigationTitle = "어린시절"
         static let numberTitle = "#1"
         static let themeTitle = "가장 오래된 기억"
         static let questionTitle = "당신과 어머니의 꿈은 달라?"
@@ -73,4 +73,13 @@ enum I18N {
         static let settingLabel = "알람 설정"
     }
     
+    enum Alert {
+        static let writeCancelTitle = "답변 작성을 취소하시겠어요?\n작성 중인 답변은 저장되지 않아요"
+        static let withdrawalTitle = "정말 회원을 탈퇴하시겠습니까?"
+        static let cancelButtonTitle = "취소"
+        static let confirmButtonTitle = "확인"
+        static let writeSaveTitle = "답변을 저장하시겠어요?"
+        static let backButtonTitle = "돌아가기"
+        static let saveButtonTitle = "저장"
+    }
 }
