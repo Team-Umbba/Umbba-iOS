@@ -59,6 +59,14 @@ enum I18N {
         static let inviteButtonTitle = "초대코드 입력하기"
     }
     
+    enum Write {
+        static let numberTitle = "#1"
+        static let themeTitle = "가장 오래된 기억"
+        static let questionTitle = "당신과 어머니의 꿈은 달라?"
+        static let answerPlaceholder = "답변을 입력해주세요."
+        static let countText = "(0/100)"
+    }
+    
     enum Setting {
         static let settingTitle = "설정"
         static let settingLabel = "알람 설정"
