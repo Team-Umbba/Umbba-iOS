@@ -13,7 +13,7 @@ extension UIColor {
     }
     
     static var Primary500: UIColor {
-        return UIColor(hex: "#FE99F7A")
+        return UIColor(hex: "#E99F7A")
     }
     
     static var Primary600: UIColor {
