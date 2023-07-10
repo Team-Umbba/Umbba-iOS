@@ -13,6 +13,15 @@ final class AnswerWriteView: UIView {
     
     // MARK: - UI Components
     
+    private let navigationBarView: CustomNavigationBar = {
+        let view = CustomNavigationBar()
+        view.cafe24Title = I18N.Write.navigaionTitle
+        view.isTitleViewIncluded = true
+        view.isRightButtonIncluded = true
+        view.isLeftButtonIncluded = true
+        return view
+    }()
+    
     private let numberLabel: UILabel = {
         let label = UILabel()
         label.textColor = .UmbbaBlack
@@ -99,11 +108,16 @@ private extension AnswerWriteView {
     }
     
     func setLayout() {
-        self.addSubviews(themeStackView, questionLabel, answerView)
+        self.addSubviews(navigationBarView, themeStackView, questionLabel, answerView)
         answerView.addSubviews(answerTextView, countLabel)
         
+        navigationBarView.snp.makeConstraints {
+            $0.top.equalTo(self.safeAreaLayoutGuide)
+            $0.leading.trailing.equalToSuperview()
+        }
+        
         themeStackView.snp.makeConstraints {
-            $0.top.equalTo(self.safeAreaLayoutGuide).offset(9)
+            $0.top.equalTo(navigationBarView.snp.bottom).offset(9)
             $0.centerX.equalToSuperview()
         }
         
@@ -145,7 +159,7 @@ extension AnswerWriteView: UITextViewDelegate {
     
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.isEmpty {
-            textView.text = "답변을 입력해주세요."
+            textView.text = I18N.Write.answerPlaceholder
             textView.textColor = .Gray800
         }
     }

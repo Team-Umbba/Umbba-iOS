@@ -60,6 +60,7 @@ enum I18N {
     }
     
     enum Write {
+        static let navigaionTitle = "어린시절"
         static let numberTitle = "#1"
         static let themeTitle = "가장 오래된 기억"
         static let questionTitle = "당신과 어머니의 꿈은 달라?"
