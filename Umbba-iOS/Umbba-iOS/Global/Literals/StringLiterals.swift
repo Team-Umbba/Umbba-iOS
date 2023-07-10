@@ -64,7 +64,7 @@ enum I18N {
         static let numberTitle = "#1"
         static let themeTitle = "가장 오래된 기억"
         static let questionTitle = "당신과 어머니의 꿈은 달라?"
-        static let answerPlaceholder = "답변을 입력해주세요."
+        static let answerPlaceholder = "답변을 입력해주세요"
         static let countText = "(0/100)"
     }
     
