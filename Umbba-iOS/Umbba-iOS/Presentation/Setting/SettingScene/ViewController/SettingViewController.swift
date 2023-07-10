@@ -52,6 +52,7 @@ private extension SettingViewController {
         tableView.sectionFooterHeight = 0
         tableView.sectionHeaderTopPadding = 1
         tableView.isScrollEnabled = false
+        tableView.isUserInteractionEnabled = true
     }
     
     func registerCell() {
@@ -70,7 +71,6 @@ extension SettingViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if section == 1 {
             let header = SettingSectionHeaderView.dequeueReusableHeaderFooterView(tableView: tableView)
-            header.layoutMargins.left = 0
             return header
         } else {
             return UIView()
@@ -93,6 +93,22 @@ extension SettingViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 72
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        switch indexPath.section {
+        case 0:
+            let accountViewController = AccountViewController()
+            self.navigationController?.pushViewController(accountViewController, animated: true)
+        case 1:
+            if indexPath.row == 0 { print("--> \(indexPath.row)") }
+            if indexPath.row == 1 { print("--> \(indexPath.row)") }
+            if indexPath.row == 2 { print("--> \(indexPath.row)") }
+        default:
+            return
+        }
+        
     }
 }
 
