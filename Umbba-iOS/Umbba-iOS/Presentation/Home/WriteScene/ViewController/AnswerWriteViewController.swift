@@ -19,8 +19,6 @@ final class AnswerWriteViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        setNavigationUI()
         setDelegate()
     }
 }
@@ -28,10 +26,6 @@ final class AnswerWriteViewController: UIViewController {
 // MARK: - Extensions
 
 extension AnswerWriteViewController {
-    func setNavigationUI() {
-        navigationController?.isNavigationBarHidden = true
-    }
-    
     func setDelegate() {
         answerWriteView.delegate = self
     }
