@@ -11,6 +11,10 @@ import SnapKit
 
 final class WithdrawalAlertView: UIView {
     
+    weak var delegate: AlertDelegate?
+    
+    // MARK: - UI Components
+    
     private let alertTitle: UILabel = {
         let label = UILabel()
         label.text = I18N.Alert.withdrawalTitle
@@ -65,6 +69,8 @@ final class WithdrawalAlertView: UIView {
     }
 }
 
+// MARK: - Extensions
+
 private extension WithdrawalAlertView {
     func setUI() {
         self.backgroundColor = .UmbbaWhite
@@ -72,7 +78,8 @@ private extension WithdrawalAlertView {
     }
     
     func setAddTarget() {
-        
+        cancelButton.addTarget(self, action: #selector(cancelButtonTapped), for: .touchUpInside)
+        confirmButton.addTarget(self, action: #selector(confirmButtonTapped), for: .touchUpInside)
     }
     
     func setLayout() {
@@ -95,5 +102,15 @@ private extension WithdrawalAlertView {
             $0.bottom.equalToSuperview().inset(24)
             $0.leading.trailing.equalToSuperview().inset(32)
         }
+    }
+    
+    // MARK: - @objc Functions
+    
+    @objc func cancelButtonTapped() {
+        delegate?.confirmButtonTapped()
+    }
+    
+    @objc func confirmButtonTapped() {
+        delegate?.cancelButtonTapped()
     }
 }

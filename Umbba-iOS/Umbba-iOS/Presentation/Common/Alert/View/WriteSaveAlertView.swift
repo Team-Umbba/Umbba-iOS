@@ -11,6 +11,8 @@ import SnapKit
 
 final class WriteSaveWriteView: UIView {
     
+    weak var delegate: AlertDelegate?
+    
     // MARK: - UI Components
     
     private let titleView: UIView = {
@@ -134,7 +136,8 @@ private extension WriteSaveWriteView {
     }
     
     func setAddTarget() {
-        
+        cancelButton.addTarget(self, action: #selector(cancelButtonTapped), for: .touchUpInside)
+        confirmButton.addTarget(self, action: #selector(confirmButtonTapped), for: .touchUpInside)
     }
     
     func setLayout() {
@@ -186,5 +189,15 @@ private extension WriteSaveWriteView {
             $0.leading.trailing.equalToSuperview().inset(32)
             $0.bottom.equalToSuperview().inset(29)
         }
+    }
+    
+    // MARK: - @objc Functions
+    
+    @objc func cancelButtonTapped() {
+        delegate?.confirmButtonTapped()
+    }
+    
+    @objc func confirmButtonTapped() {
+        delegate?.cancelButtonTapped()
     }
 }

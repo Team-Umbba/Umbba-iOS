@@ -9,7 +9,18 @@ import UIKit
 
 import SnapKit
 
+// MARK: - Protocols
+
+protocol AlertDelegate: AnyObject {
+    func confirmButtonTapped()
+    func cancelButtonTapped()
+}
+
 final class WriteCancelAlertView: UIView {
+    
+    weak var delegate: AlertDelegate?
+    
+    // MARK: - UI Components
     
     private let alertTitle: UILabel = {
         let label = UILabel()
@@ -67,6 +78,8 @@ final class WriteCancelAlertView: UIView {
     }
 }
 
+// MARK: - Extensions
+
 private extension WriteCancelAlertView {
     func setUI() {
         self.backgroundColor = .UmbbaWhite
@@ -74,7 +87,8 @@ private extension WriteCancelAlertView {
     }
     
     func setAddTarget() {
-        
+        cancelButton.addTarget(self, action: #selector(cancelButtonTapped), for: .touchUpInside)
+        confirmButton.addTarget(self, action: #selector(confirmButtonTapped), for: .touchUpInside)
     }
     
     func setLayout() {
@@ -97,5 +111,15 @@ private extension WriteCancelAlertView {
             $0.top.equalTo(alertTitle.snp.bottom).offset(24)
             $0.leading.trailing.equalToSuperview().inset(32)
         }
+    }
+    
+    // MARK: - @objc Functions
+    
+    @objc func cancelButtonTapped() {
+        delegate?.cancelButtonTapped()
+    }
+    
+    @objc func confirmButtonTapped() {
+        delegate?.confirmButtonTapped()
     }
 }

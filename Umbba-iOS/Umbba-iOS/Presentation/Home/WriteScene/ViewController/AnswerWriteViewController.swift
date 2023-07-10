@@ -33,10 +33,14 @@ extension AnswerWriteViewController {
 
 extension AnswerWriteViewController: AnswrWriteDelegate {
     func backButtonTapped() {
-        print("작성 취소 팝업")
+        self.makeAlert(alertType: .withdrawalAlert) {
+            print("이전 화면으로 이동")
+        }
     }
     
     func completeButtonTapped() {
-        print("작성 저장 팝업")
+        self.makeAlert(alertType: .writeSaveAlert) {
+            print("작성 저장 API")
+        }
     }
 }
