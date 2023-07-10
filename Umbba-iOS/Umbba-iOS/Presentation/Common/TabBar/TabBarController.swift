@@ -11,7 +11,7 @@ class TabBarController: UITabBarController {
     
     // MARK: - Properties
         
-    private let TabBarHeight: CGFloat = 83
+    private let TabBarHeight: CGFloat = 51
     
     var upperLineView: UIView!
 
@@ -61,12 +61,14 @@ private extension TabBarController {
     }
     
     func setTabBarHeight() {
-        var tabFrame = self.tabBar.frame
-        tabFrame.size.height = TabBarHeight
-        tabFrame.origin.y = self.view.frame.size.height - TabBarHeight
-        self.tabBar.frame = tabFrame
+        if let tabBar = self.tabBarController?.tabBar {
+            let safeAreaBottomInset = self.view.safeAreaInsets.bottom
+            let tabBarHeight = tabBar.bounds.height
+            let newTabBarFrame = CGRect(x: tabBar.frame.origin.x, y: tabBar.frame.origin.y - safeAreaBottomInset, width: tabBar.frame.width, height: tabBarHeight + safeAreaBottomInset)
+            tabBar.frame = newTabBarFrame
+        }
     }
-    
+
     func addTabbarIndicatorView(index: Int, isFirstTime: Bool = false) {
         guard let tabView = tabBar.items?[index].value(forKey: "view") as? UIView else {
           return
