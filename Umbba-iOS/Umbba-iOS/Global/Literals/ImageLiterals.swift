@@ -8,7 +8,7 @@
 import UIKit
 
 enum ImageLiterals {
-    struct TabBar {
+    enum TabBar {
         static var icn_home: UIImage { .load(name: "home_default") }
         static var icn_home_selected: UIImage { .load(name: "home_active") }
         static var icn_list: UIImage { .load(name: "list_default") }

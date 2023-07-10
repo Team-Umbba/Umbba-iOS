@@ -13,7 +13,7 @@ class TabBarController: UITabBarController {
         
     private let TabBarHeight: CGFloat = 51
     
-    var upperLineView: UIView!
+    var upperLineView: UIView = UIView()
 
     // MARK: - UI Components
     
@@ -27,11 +27,12 @@ class TabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.delegate = self
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
            self.addTabbarIndicatorView(index: 0, isFirstTime: true)
         }
-
+        
+        setLayout()
+        setDelegate()
         setTabBar()
     }
     
@@ -79,14 +80,19 @@ private extension TabBarController {
         }
         upperLineView = UIView(frame: CGRect(x: tabView.frame.minX - 1, y: tabView.frame.minY - 1, width: tabView.frame.size.width + 2, height: 1))
         upperLineView.backgroundColor = UIColor.Primary500
-        
-        tabBar.addSubview(defaultLineView)
-        tabBar.addSubview(upperLineView)
+    }
+    
+    func setLayout() {
+        tabBar.addSubviews(defaultLineView, upperLineView)
         
         defaultLineView.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview()
             $0.height.equalTo(1)
         }
+    }
+    
+    func setDelegate() {
+        self.delegate = self
     }
     
     func setTabBar() {
