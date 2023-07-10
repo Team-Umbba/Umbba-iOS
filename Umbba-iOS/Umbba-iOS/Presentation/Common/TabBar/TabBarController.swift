@@ -12,19 +12,25 @@ class TabBarController: UITabBarController {
     // MARK: - Properties
         
     private let TabBarHeight: CGFloat = 83
+    
+    var upperLineView: UIView!
 
     // MARK: - UI Components
     
-    private let borderView: UIView = {
-        let borderView = UIView(frame: CGRect(x: 0, y: 0, width: tabBar.frame.width, height: TabBarHeight))
-        borderView.backgroundColor = .clear
-        borderView.layer.borderWidth = 1.0  // 테두리의 두께를 설정합니다.
-        borderView.layer.borderColor = UIColor.red.cgColor  // 테두리의 색상을 설정합니다.
-        return borderView
+    private let defaultLineView: UIView = {
+        let lineView = UIView()
+        lineView.backgroundColor = UIColor.Gray300
+        return lineView
     }()
+    
+    // MARK: - Life Cycles
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.delegate = self
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+           self.addTabbarIndicatorView(index: 0, isFirstTime: true)
+        }
 
         setTabBar()
     }
@@ -61,6 +67,26 @@ private extension TabBarController {
         self.tabBar.frame = tabFrame
     }
     
+    func addTabbarIndicatorView(index: Int, isFirstTime: Bool = false) {
+        guard let tabView = tabBar.items?[index].value(forKey: "view") as? UIView else {
+          return
+        }
+
+        if !isFirstTime {
+          upperLineView.removeFromSuperview()
+        }
+        upperLineView = UIView(frame: CGRect(x: tabView.frame.minX - 1, y: tabView.frame.minY - 1, width: tabView.frame.size.width + 2, height: 1))
+        upperLineView.backgroundColor = UIColor.Primary500
+        
+        tabBar.addSubview(defaultLineView)
+        tabBar.addSubview(upperLineView)
+        
+        defaultLineView.snp.makeConstraints {
+            $0.leading.trailing.equalToSuperview()
+            $0.height.equalTo(1)
+        }
+    }
+    
     func setTabBar() {
         let home = makeTabBar(
             viewController: NoticeAlarmViewController(),
@@ -88,5 +114,11 @@ private extension TabBarController {
         self.setViewControllers(tabs, animated: false)
         tabBar.backgroundColor = .white
         tabBar.isTranslucent = false
+    }
+}
+
+extension TabBarController: UITabBarControllerDelegate {
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        addTabbarIndicatorView(index: self.selectedIndex)
     }
 }
