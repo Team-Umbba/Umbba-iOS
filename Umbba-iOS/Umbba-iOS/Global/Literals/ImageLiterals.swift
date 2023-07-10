@@ -8,6 +8,11 @@
 import UIKit
 
 enum ImageLiterals {
+    enum NavigationBar {
+        static var icn_back: UIImage { .load(name: "back") }
+        static var icn_check: UIImage { .load(name: "check") }
+    }
+    
     enum TabBar {
         static var icn_home: UIImage { .load(name: "home_default") }
         static var icn_home_selected: UIImage { .load(name: "home_active") }

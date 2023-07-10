@@ -19,20 +19,24 @@ final class AnswerWriteViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        setNavigationUI()
+        setDelegate()
     }
 }
 
-// MARK: - Methods
+// MARK: - Extensions
 
 extension AnswerWriteViewController {
-    func setNavigationUI() {
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "arrow.backward"), style: .plain, target: self, action: #selector(backButtonTapped))
-        navigationItem.leftBarButtonItem?.tintColor = .black
+    func setDelegate() {
+        answerWriteView.delegate = self
     }
-        
-    @objc func backButtonTapped() {
-        print("눌림요")
+}
+
+extension AnswerWriteViewController: AnswrWriteDelegate {
+    func backButtonTapped() {
+        print("작성 취소 팝업")
+    }
+    
+    func completeButtonTapped() {
+        print("작성 저장 팝업")
     }
 }

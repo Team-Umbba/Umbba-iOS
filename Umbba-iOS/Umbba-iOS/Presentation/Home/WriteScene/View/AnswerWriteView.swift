@@ -9,9 +9,29 @@ import UIKit
 
 import SnapKit
 
+// MARK: - Protocols
+
+protocol AnswrWriteDelegate: AnyObject {
+    func backButtonTapped()
+    func completeButtonTapped()
+}
+
 final class AnswerWriteView: UIView {
     
+    // MARK: - Properties
+    
+    weak var delegate: AnswrWriteDelegate?
+    
     // MARK: - UI Components
+    
+    private let navigationBarView: CustomNavigationBar = {
+        let view = CustomNavigationBar()
+        view.cafe24Title = I18N.Write.navigaionTitle
+        view.isTitleViewIncluded = true
+        view.isRightButtonIncluded = true
+        view.isLeftButtonIncluded = true
+        return view
+    }()
     
     private let numberLabel: UILabel = {
         let label = UILabel()
@@ -78,6 +98,7 @@ final class AnswerWriteView: UIView {
         super.init(frame: frame)
         
         setUI()
+        setAddTarget()
         setDelegate()
         setLayout()
     }
@@ -94,16 +115,26 @@ private extension AnswerWriteView {
         self.backgroundColor = .UmbbaWhite
     }
     
+    func setAddTarget() {
+        navigationBarView.leftButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
+        navigationBarView.rightButton.addTarget(self, action: #selector(completeButtonTapped), for: .touchUpInside)
+    }
+    
     func setDelegate() {
         answerTextView.delegate = self
     }
     
     func setLayout() {
-        self.addSubviews(themeStackView, questionLabel, answerView)
+        self.addSubviews(navigationBarView, themeStackView, questionLabel, answerView)
         answerView.addSubviews(answerTextView, countLabel)
         
+        navigationBarView.snp.makeConstraints {
+            $0.top.equalTo(self.safeAreaLayoutGuide)
+            $0.leading.trailing.equalToSuperview()
+        }
+        
         themeStackView.snp.makeConstraints {
-            $0.top.equalTo(self.safeAreaLayoutGuide).offset(9)
+            $0.top.equalTo(navigationBarView.snp.bottom).offset(9)
             $0.centerX.equalToSuperview()
         }
         
@@ -133,6 +164,16 @@ private extension AnswerWriteView {
             textView.deleteBackward()
         }
     }
+    
+    @objc
+    func backButtonTapped() {
+        delegate?.backButtonTapped()
+    }
+    
+    @objc
+    func completeButtonTapped() {
+        delegate?.completeButtonTapped()
+    }
 }
 
 extension AnswerWriteView: UITextViewDelegate {
@@ -145,7 +186,7 @@ extension AnswerWriteView: UITextViewDelegate {
     
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.isEmpty {
-            textView.text = "답변을 입력해주세요."
+            textView.text = I18N.Write.answerPlaceholder
             textView.textColor = .Gray800
         }
     }
