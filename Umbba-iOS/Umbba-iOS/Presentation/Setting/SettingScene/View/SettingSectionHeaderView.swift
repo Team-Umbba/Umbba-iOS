@@ -49,11 +49,11 @@ final class SettingSectionHeaderView: UITableViewHeaderFooterView, UITableViewHe
 private extension SettingSectionHeaderView {
     
     func setUI() {
-        backgroundColor = .white
+        contentView.backgroundColor = .white
     }
     
     func setLayout() {
-        addSubviews(settingLabel, alarmSwitch)
+        contentView.addSubviews(settingLabel, alarmSwitch)
         
         settingLabel.snp.makeConstraints {
             $0.centerY.equalToSuperview()

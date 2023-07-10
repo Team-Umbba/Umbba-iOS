@@ -12,18 +12,10 @@ import SnapKit
 final class SettingViewController: UIViewController {
     
     // MARK: - UI Components
-
-    private let titleLabel: UILabel = {
-        let label = UILabel()
-        label.text = I18N.Setting.settingTitle
-        label.font = .PretendardRegular(size: 20)
-        label.textAlignment = .left
-        label.sizeToFit()
-        return label
-    }()
     
-    private let tableView = UITableView(frame: .zero, style: .grouped)
-    private let dummy = Setting.dummy()
+    private let tableView = UITableView(frame: .zero, style: .plain)
+    private let section0 = Setting.section0()
+    private let section1 = Setting.section1()
     
     // MARK: - Life Cycles
     
@@ -35,7 +27,6 @@ final class SettingViewController: UIViewController {
         setTableView()
         registerCell()
         setDelegate()
-        setNavigationUI()
     }
 }
 
@@ -58,6 +49,9 @@ private extension SettingViewController {
     
     func setTableView() {
         tableView.backgroundColor = .white
+        tableView.sectionFooterHeight = 0
+        tableView.sectionHeaderTopPadding = 1
+        tableView.isScrollEnabled = false
     }
     
     func registerCell() {
@@ -69,39 +63,61 @@ private extension SettingViewController {
         tableView.delegate = self
         tableView.dataSource = self
     }
-    
-    func setNavigationUI() {
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont.PretendardRegular(size: 20), .foregroundColor: UIColor.UmbbaBlack]
-        navigationItem.leftBarButtonItem = UIBarButtonItem.init(customView: titleLabel)
-    }
 }
 
 extension SettingViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let header = SettingSectionHeaderView.dequeueReusableHeaderFooterView(tableView: tableView)
-        return header
+        if section == 1 {
+            let header = SettingSectionHeaderView.dequeueReusableHeaderFooterView(tableView: tableView)
+            header.layoutMargins.left = 0
+            return header
+        } else {
+            return UIView()
+        }
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 72
+        if section == 0 {
+            return 0
+        } else if section == 1 {
+            return 72
+        } else {
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 72
     }
-    
 }
 
 extension SettingViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dummy.count
+        if section == 0 {
+            return section0.count
+        } else if section == 1 {
+            return section1.count
+        } else {
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = SettingTableViewCell.dequeueReusableCell(tableView: tableView, indexPath: indexPath)
-        cell.configureCell(dummy[indexPath.row])
+        
+        if indexPath.section == 0 {
+            cell.configureCell(section0[indexPath.row])
+        } else if indexPath.section == 1 {
+            cell.configureCell(section1[indexPath.row])
+        } else {
+            return UITableViewCell()
+        }
         return cell
     }
 }
