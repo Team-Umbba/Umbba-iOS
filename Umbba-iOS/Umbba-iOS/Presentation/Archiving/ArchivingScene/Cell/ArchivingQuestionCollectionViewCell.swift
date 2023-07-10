@@ -9,9 +9,11 @@ import UIKit
 
 import SnapKit
 
-final class ArchivingQuestionCollectionViewCell: UICollectionViewCell {
+final class ArchivingQuestionCollectionViewCell: UICollectionViewCell, UICollectionViewRegisterable {
     
-    static let identifier = "ArchivingQuestionCollectionViewCell"
+    static let isFromNib: Bool = false
+    
+    // MARK: - UI Components
     
     private let questionNumber: UILabel = {
         let label = UILabel()
@@ -33,16 +35,13 @@ final class ArchivingQuestionCollectionViewCell: UICollectionViewCell {
         return line
     }()
     
+    // MARK: - Life Cycles
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        // MARK: - UI Components
         setUI()
-        
-        // MARK: - addsubView
         setHierarchy()
-        
-        // MARK: - layout
         setLayout()
 
     }
@@ -52,14 +51,20 @@ final class ArchivingQuestionCollectionViewCell: UICollectionViewCell {
     }
 }
 
+// MARK: - Extensions
+// MARK: - Extensions
+
 extension ArchivingQuestionCollectionViewCell {
     
     func setUI() {
         backgroundColor = .UmbbaWhite
+        
+        self.isUserInteractionEnabled = true
     }
     
     func setHierarchy() {
-        addSubviews(questionNumber, questionText, lineView)
+        
+        self.contentView.addSubviews(questionNumber, questionText, lineView)
     }
     
     func setLayout() {

@@ -13,21 +13,21 @@ final class ArchivingImageView: UIView {
     
     static let identifier = "ArchivingImageView"
 
+    // MARK: - UI Components
+    
     private let imageView: UIImageView = {
         let image = UIImageView()
-        image.backgroundColor = .gray
         image.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
         image.layer.cornerRadius = 20
         return image
     }()
     
+    // MARK: - Life Cycles
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        // MARK: - addsubView
+    
         setHierarchy()
-        
-        // MARK: - autolayout설정
         setLayout()
     }
     
@@ -37,6 +37,8 @@ final class ArchivingImageView: UIView {
     }
 
 }
+
+// MARK: - Extensions
 
 private extension ArchivingImageView {
     

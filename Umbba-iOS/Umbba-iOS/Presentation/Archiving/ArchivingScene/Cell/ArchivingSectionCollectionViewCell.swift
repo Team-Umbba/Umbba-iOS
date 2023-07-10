@@ -9,17 +9,21 @@ import UIKit
 
 import SnapKit
 
-final class ArchivingSectionCollectionViewCell: UICollectionViewCell {
+final class ArchivingSectionCollectionViewCell: UICollectionViewCell, UICollectionViewRegisterable {
     
-    static let identifier = "ArchivingSectionCollectionViewCell"
+    static let isFromNib: Bool = false
     
-    private let archivingSectionLabel: UILabel = {
+    // MARK: - Properties
+    
+    let archivingSectionLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
         label.font = .PretendardRegular(size: 12)
         label.textColor = .Primary600
         return label
     }()
+    
+    // MARK: - Life Cycles
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -35,6 +39,8 @@ final class ArchivingSectionCollectionViewCell: UICollectionViewCell {
     }
 }
 
+// MARK: - Extensions
+
 extension ArchivingSectionCollectionViewCell {
     
     func setUI() {
@@ -42,7 +48,7 @@ extension ArchivingSectionCollectionViewCell {
         self.layer.borderWidth = 1
         self.layer.borderColor = UIColor.Primary600.cgColor
         self.backgroundColor = .UmbbaWhite
-        self.contentView.isUserInteractionEnabled = true
+        self.isUserInteractionEnabled = true
     }
     
     func setHierarchy() {
@@ -57,6 +63,6 @@ extension ArchivingSectionCollectionViewCell {
     }
     
     func setDataBind(model: ArchivingSectionItem) {
-        archivingSectionLabel.text = model.keywordTitle
+        archivingSectionLabel.text = model.sectionTitle
     }
 }

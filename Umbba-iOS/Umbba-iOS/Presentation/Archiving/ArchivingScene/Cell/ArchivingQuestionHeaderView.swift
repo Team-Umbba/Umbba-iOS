@@ -9,25 +9,26 @@ import UIKit
 
 import SnapKit
 
-final class ArchivingQuestionHeaderView: UICollectionReusableView {
+final class ArchivingQuestionHeaderView: UICollectionReusableView, UICollectionHeaderViewRegisterable {
     
-    static let identifier = "ArchivingQuestionHeaderView"
+    static let isFromNib: Bool = false
 
+    // MARK: - UI Components
+    
     private let headerLabel: UILabel = {
         let label = UILabel()
         label.font = .Cafe24Regular(size: 20)
-        label.text = "어린 시절"
         label.textColor = .Primary600
         return label
     }()
     
+    // MARK: - Life Cycles
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        // MARK: - addsubView
+        setUI()
         setHierarchy()
-        
-        // MARK: - autolayout설정
         setLayout()
     }
     
@@ -38,7 +39,13 @@ final class ArchivingQuestionHeaderView: UICollectionReusableView {
 
 }
 
-private extension ArchivingQuestionHeaderView {
+// MARK: - Extensions
+
+extension ArchivingQuestionHeaderView {
+    
+    func setUI() {
+        self.backgroundColor = .UmbbaWhite
+    }
     
     func setHierarchy() {
         addSubview(headerLabel)
@@ -48,6 +55,23 @@ private extension ArchivingQuestionHeaderView {
         headerLabel.snp.makeConstraints {
             $0.centerY.equalToSuperview().inset(12)
             $0.leading.equalToSuperview().inset(21)
+        }
+    }
+    
+    func setDataBind(model: ArchivingQuestionItem) {
+        switch model.section {
+        case 0:
+            headerLabel.text = "어린 시절"
+        case 1:
+            headerLabel.text = "학창 시절"
+        case 2:
+            headerLabel.text = "청춘 시절"
+        case 3:
+            headerLabel.text = "연애 시절"
+        case 4:
+            headerLabel.text = "우리가 만나고"
+        default:
+            headerLabel.text = "어린 시절"
         }
     }
 }
