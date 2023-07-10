@@ -79,6 +79,8 @@
 		6991BA702A57314A0091D52D /* UserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6991BA6F2A57314A0091D52D /* UserInfoView.swift */; };
 		699455DB2A5AED0B003C118A /* PushAlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 699455DA2A5AED0B003C118A /* PushAlarmViewController.swift */; };
 		699455DD2A5AED19003C118A /* PushAlarmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 699455DC2A5AED19003C118A /* PushAlarmView.swift */; };
+		699455EB2A5C0C24003C118A /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 699455EA2A5C0C24003C118A /* LoginView.swift */; };
+		699455EE2A5C0C8B003C118A /* InviteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 699455ED2A5C0C8B003C118A /* InviteViewController.swift */; };
 		69DE6B912A53384C00F31812 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DE6B902A53384C00F31812 /* UIColor+.swift */; };
 		69DE6B9B2A5341FF00F31812 /* Cafe24Classictype-v1.1.otf in Resources */ = {isa = PBXBuildFile; fileRef = 69DE6B9A2A5341FF00F31812 /* Cafe24Classictype-v1.1.otf */; };
 		69DE6B9F2A53421D00F31812 /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 69DE6B9C2A53421C00F31812 /* Pretendard-SemiBold.otf */; };
@@ -87,9 +89,7 @@
 		69DE6BAD2A5432CC00F31812 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DE6BAC2A5432CC00F31812 /* CustomTextField.swift */; };
 		69DE6BAF2A5432E600F31812 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DE6BAE2A5432E600F31812 /* CustomButton.swift */; };
 		69DE6BB42A54400500F31812 /* InviteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DE6BB32A54400500F31812 /* InviteView.swift */; };
-		69DE6BB62A54403200F31812 /* InviteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DE6BB52A54403200F31812 /* InviteViewController.swift */; };
 		69DE6BB82A54417F00F31812 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DE6BB72A54417F00F31812 /* String+.swift */; };
-		A42723B82A552E5C003C445F /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42723B72A552E5C003C445F /* LoginView.swift */; };
 		A42723BB2A553069003C445F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42723BA2A553069003C445F /* LoginViewController.swift */; };
 		A42723BF2A5537CD003C445F /* EntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42723BE2A5537CD003C445F /* EntryView.swift */; };
 		A42723C12A5537DA003C445F /* EntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42723C02A5537DA003C445F /* EntryViewController.swift */; };
@@ -106,7 +106,7 @@
 		69636FAE2A5A616C008B457A /* FamilyInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyInfoView.swift; sourceTree = "<group>"; };
 		69636FB22A5ADE4A008B457A /* CompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteViewController.swift; sourceTree = "<group>"; };
 		69636FB42A5ADE5D008B457A /* CompleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteView.swift; sourceTree = "<group>"; };
-		697815402A52FA370047944C /* Umbba-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Umbba-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		697815402A52FA370047944C /* Umbba-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = "Umbba-iOS.app"; path = "/Users/olynny/Documents/Umbba/Umbba-iOS/Umbba-iOS/build/Debug-iphoneos/Umbba-iOS.app"; sourceTree = "<absolute>"; };
 		697815432A52FA370047944C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		697815452A52FA370047944C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		697815472A52FA370047944C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -155,6 +155,8 @@
 		6991BA6F2A57314A0091D52D /* UserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoView.swift; sourceTree = "<group>"; };
 		699455DA2A5AED0B003C118A /* PushAlarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushAlarmViewController.swift; sourceTree = "<group>"; };
 		699455DC2A5AED19003C118A /* PushAlarmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushAlarmView.swift; sourceTree = "<group>"; };
+		699455EA2A5C0C24003C118A /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		699455ED2A5C0C8B003C118A /* InviteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteViewController.swift; sourceTree = "<group>"; };
 		69DE6B902A53384C00F31812 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		69DE6B9A2A5341FF00F31812 /* Cafe24Classictype-v1.1.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cafe24Classictype-v1.1.otf"; sourceTree = "<group>"; };
 		69DE6B9C2A53421C00F31812 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
@@ -163,9 +165,7 @@
 		69DE6BAC2A5432CC00F31812 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		69DE6BAE2A5432E600F31812 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		69DE6BB32A54400500F31812 /* InviteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteView.swift; sourceTree = "<group>"; };
-		69DE6BB52A54403200F31812 /* InviteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteViewController.swift; sourceTree = "<group>"; };
 		69DE6BB72A54417F00F31812 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
-		A42723B72A552E5C003C445F /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		A42723BA2A553069003C445F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A42723BE2A5537CD003C445F /* EntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryView.swift; sourceTree = "<group>"; };
 		A42723C02A5537DA003C445F /* EntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryViewController.swift; sourceTree = "<group>"; };
@@ -266,16 +266,7 @@
 			isa = PBXGroup;
 			children = (
 				697815422A52FA370047944C /* Umbba-iOS */,
-				697815412A52FA370047944C /* Products */,
 			);
-			sourceTree = "<group>";
-		};
-		697815412A52FA370047944C /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				697815402A52FA370047944C /* Umbba-iOS.app */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		697815422A52FA370047944C /* Umbba-iOS */ = {
@@ -489,7 +480,7 @@
 		6978159C2A5302940047944C /* LoginScene */ = {
 			isa = PBXGroup;
 			children = (
-				A42723B62A552E46003C445F /* View */,
+				699455E92A5C0C03003C118A /* LoginView */,
 				A42723B92A553054003C445F /* ViewController */,
 			);
 			path = LoginScene;
@@ -507,7 +498,7 @@
 		6978159E2A5302A60047944C /* InviteScene */ = {
 			isa = PBXGroup;
 			children = (
-				69DE6BB12A543FE600F31812 /* ViewController */,
+				699455EC2A5C0C38003C118A /* InviteViewController */,
 				69DE6BB02A543FDF00F31812 /* View */,
 			);
 			path = InviteScene;
@@ -732,6 +723,22 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
+		699455E92A5C0C03003C118A /* LoginView */ = {
+			isa = PBXGroup;
+			children = (
+				699455EA2A5C0C24003C118A /* LoginView.swift */,
+			);
+			path = LoginView;
+			sourceTree = "<group>";
+		};
+		699455EC2A5C0C38003C118A /* InviteViewController */ = {
+			isa = PBXGroup;
+			children = (
+				699455ED2A5C0C8B003C118A /* InviteViewController.swift */,
+			);
+			path = InviteViewController;
+			sourceTree = "<group>";
+		};
 		69DE6BB02A543FDF00F31812 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -831,7 +838,7 @@
 				697815FF2A5316E80047944C /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
 				6978160E2A5317C10047944C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
-			productRefGroup = 697815412A52FA370047944C /* Products */;
+			productRefGroup = 697815372A52FA370047944C;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -887,8 +894,8 @@
 				69636FAF2A5A616C008B457A /* FamilyInfoView.swift in Sources */,
 				6978157B2A52FFBC0047944C /* UIViewController+.swift in Sources */,
 				697815752A52FF760047944C /* UIVIew+.swift in Sources */,
+				699455EE2A5C0C8B003C118A /* InviteViewController.swift in Sources */,
 				6978157F2A52FFE10047944C /* UILabel+.swift in Sources */,
-				69DE6BB62A54403200F31812 /* InviteViewController.swift in Sources */,
 				697815BF2A530B8F0047944C /* Lottie.swift in Sources */,
 				69DE6BB82A54417F00F31812 /* String+.swift in Sources */,
 				69DE6BAD2A5432CC00F31812 /* CustomTextField.swift in Sources */,
@@ -907,6 +914,7 @@
 				697815852A5300290047944C /* UITableViewRegiseterable.swift in Sources */,
 				6978158E2A5300F90047944C /* ButtonPress.swift in Sources */,
 				14AA29842A5685050038CDA1 /* NoticeAlarmViewController.swift in Sources */,
+				699455EB2A5C0C24003C118A /* LoginView.swift in Sources */,
 				697815C72A530BC90047944C /* Splash.swift in Sources */,
 				69636FB32A5ADE4A008B457A /* CompleteViewController.swift in Sources */,
 				697815F42A5311AA0047944C /* Complete.swift in Sources */,
@@ -926,7 +934,6 @@
 				697815E02A530DC80047944C /* AuthService.swift in Sources */,
 				69636FAD2A5A615C008B457A /* FamilyInfoViewController.swift in Sources */,
 				697815E32A530E140047944C /* User.swift in Sources */,
-				A42723B82A552E5C003C445F /* LoginView.swift in Sources */,
 				697815812A52FFF50047944C /* NSObject+.swift in Sources */,
 				A42723BF2A5537CD003C445F /* EntryView.swift in Sources */,
 				697815D72A530C120047944C /* Setting.swift in Sources */,
