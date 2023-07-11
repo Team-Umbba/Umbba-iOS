@@ -12,6 +12,7 @@ import SnapKit
 final class UserInfoView: UIView {
     
     // MARK: - Properties
+    
     weak var navigationdelegate: NavigationBarDelegate?
     weak var nextDelegate: NextButtonDelegate?
     
@@ -19,9 +20,9 @@ final class UserInfoView: UIView {
     private var genderButton: [UIButton] = []
     
     // MARK: - UI Components
+    
     private let navigationBarView: CustomNavigationBar = {
         let view = CustomNavigationBar()
-        view.pretendardTitle = I18N.Onboarding.inviteNavigationTitle
         view.isLeftButtonIncluded = true
         return view
     }()

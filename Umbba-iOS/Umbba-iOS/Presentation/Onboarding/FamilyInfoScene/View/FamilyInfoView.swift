@@ -22,9 +22,9 @@ final class FamilyInfoView: UIView {
     private var genderButton: [UIButton] = []
     
     // MARK: - UI Components
+    
     private let navigationBarView: CustomNavigationBar = {
         let view = CustomNavigationBar()
-        view.pretendardTitle = I18N.Onboarding.inviteNavigationTitle
         view.isLeftButtonIncluded = true
         return view
     }()
@@ -194,12 +194,17 @@ private extension FamilyInfoView {
     }
     
     func setLayout() {
-        self.addSubviews(familyInfoTitleLabel, infoStackView, nextButton)
+        self.addSubviews(navigationBarView, familyInfoTitleLabel, infoStackView, nextButton)
         relationView.addSubviews(relationLabel, relationStackView)
         genderView.addSubviews(genderLabel, genderStackView)
         
+        navigationBarView.snp.makeConstraints {
+            $0.top.equalTo(self.safeAreaLayoutGuide)
+            $0.leading.trailing.equalToSuperview()
+        }
+        
         familyInfoTitleLabel.snp.makeConstraints {
-            $0.top.equalTo(self.safeAreaLayoutGuide).inset(12)
+            $0.top.equalTo(navigationBarView.snp.bottom).offset(12)
             $0.leading.equalToSuperview().inset(24)
         }
         
