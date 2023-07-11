@@ -20,6 +20,7 @@
 		691979F42A5C61450069FB63 /* AlertVIewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691979F32A5C61450069FB63 /* AlertVIewController.swift */; };
 		691979F82A5C6A4E0069FB63 /* WithdrawalAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691979F72A5C6A4E0069FB63 /* WithdrawalAlertView.swift */; };
 		691979FA2A5C6BDB0069FB63 /* WriteSaveAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691979F92A5C6BDB0069FB63 /* WriteSaveAlertView.swift */; };
+		6951A6962A5D2B5300D49692 /* InviteAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6951A6952A5D2B5300D49692 /* InviteAlertView.swift */; };
 		69636FAD2A5A615C008B457A /* FamilyInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69636FAC2A5A615C008B457A /* FamilyInfoViewController.swift */; };
 		69636FAF2A5A616C008B457A /* FamilyInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69636FAE2A5A616C008B457A /* FamilyInfoView.swift */; };
 		69636FB32A5ADE4A008B457A /* CompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69636FB22A5ADE4A008B457A /* CompleteViewController.swift */; };
@@ -120,6 +121,7 @@
 		691979F32A5C61450069FB63 /* AlertVIewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertVIewController.swift; sourceTree = "<group>"; };
 		691979F72A5C6A4E0069FB63 /* WithdrawalAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithdrawalAlertView.swift; sourceTree = "<group>"; };
 		691979F92A5C6BDB0069FB63 /* WriteSaveAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteSaveAlertView.swift; sourceTree = "<group>"; };
+		6951A6952A5D2B5300D49692 /* InviteAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteAlertView.swift; sourceTree = "<group>"; };
 		69636FAC2A5A615C008B457A /* FamilyInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyInfoViewController.swift; sourceTree = "<group>"; };
 		69636FAE2A5A616C008B457A /* FamilyInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyInfoView.swift; sourceTree = "<group>"; };
 		69636FB22A5ADE4A008B457A /* CompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteViewController.swift; sourceTree = "<group>"; };
@@ -269,6 +271,7 @@
 				691979F12A5C61190069FB63 /* WriteCancelAlertView.swift */,
 				691979F72A5C6A4E0069FB63 /* WithdrawalAlertView.swift */,
 				691979F92A5C6BDB0069FB63 /* WriteSaveAlertView.swift */,
+				6951A6952A5D2B5300D49692 /* InviteAlertView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -974,6 +977,7 @@
 				144F3F432A5C655400D73A6B /* AccountViewController.swift in Sources */,
 				691979F22A5C61190069FB63 /* WriteCancelAlertView.swift in Sources */,
 				697815832A53000D0047944C /* UITableView+.swift in Sources */,
+				6951A6962A5D2B5300D49692 /* InviteAlertView.swift in Sources */,
 				697815692A52FE850047944C /* SizeLiterals.swift in Sources */,
 				69636FB52A5ADE5D008B457A /* CompleteView.swift in Sources */,
 				6978156F2A52FEB00047944C /* ImageLiterals.swift in Sources */,

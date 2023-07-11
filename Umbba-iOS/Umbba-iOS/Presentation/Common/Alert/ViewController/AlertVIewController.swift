@@ -11,6 +11,7 @@ enum AlertType {
     case writeCancelAlert
     case writeSaveAlert
     case withdrawalAlert
+    case inviteAlert
 }
 
 final class AlertViewController: UIViewController {
@@ -37,6 +38,11 @@ final class AlertViewController: UIViewController {
         return view
     }()
     
+    private let inviteAlertView: InviteAlertView = {
+        let view = InviteAlertView()
+        return view
+    }()
+    
     // MARK: - Life Cycles
     
     override func viewDidLoad() {
@@ -60,24 +66,28 @@ private extension AlertViewController {
     func setAlertType() {
         switch alertType {
         case .writeCancelAlert:
-            setAlertView(writeCancel: true, writeSave: false, withdrawal: false)
+            setAlertView(writeCancel: true, writeSave: false, withdrawal: false, invite: false)
         case .writeSaveAlert:
-            setAlertView(writeCancel: false, writeSave: true, withdrawal: false)
+            setAlertView(writeCancel: false, writeSave: true, withdrawal: false, invite: false)
         case .withdrawalAlert:
-            setAlertView(writeCancel: false, writeSave: false, withdrawal: true)
+            setAlertView(writeCancel: false, writeSave: false, withdrawal: true, invite: false)
+        case .inviteAlert:
+            setAlertView(writeCancel: false, writeSave: false, withdrawal: false, invite: true)
         }
     }
     
-    func setAlertView(writeCancel: Bool, writeSave: Bool, withdrawal: Bool) {
+    func setAlertView(writeCancel: Bool, writeSave: Bool, withdrawal: Bool, invite: Bool) {
         writeCancelAlertView.isHidden = !writeCancel
         writeSaveAlertView.isHidden = !writeSave
         withdrawalAlertView.isHidden = !withdrawal
+        inviteAlertView.isHidden = !invite
     }
     
     func setLayout() {
         view.addSubviews(writeCancelAlertView,
                          writeSaveAlertView,
-                         withdrawalAlertView)
+                         withdrawalAlertView,
+                         inviteAlertView)
         
         writeCancelAlertView.snp.makeConstraints {
             let writeCancelWidth = SizeLiterals.Screen.screenWidth * 343 / 375
@@ -98,12 +108,20 @@ private extension AlertViewController {
             $0.width.equalTo(withdrawalWidth)
             $0.height.equalTo(withdrawalWidth * 164 / 343)
         }
+        
+        inviteAlertView.snp.makeConstraints {
+            let inviteWidth = SizeLiterals.Screen.screenWidth * 343 / 375
+            $0.center.equalToSuperview()
+            $0.width.equalTo(inviteWidth)
+            $0.height.equalTo(inviteWidth * 472 / 343)
+        }
     }
     
     func setDelegate() {
         writeCancelAlertView.delegate = self
         writeSaveAlertView.delegate = self
         withdrawalAlertView.delegate = self
+        inviteAlertView.delegate = self
     }
     
     func emptyActions() {

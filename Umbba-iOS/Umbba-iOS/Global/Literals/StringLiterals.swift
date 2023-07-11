@@ -76,6 +76,10 @@ enum I18N {
     }
     
     enum Alert {
+        static let inviteTitle = "상대에게 교신을 보낼 차례야\n초대를 받으면 문답이 시작돼"
+        static let copyButtonTitle = "초대코드 복사"
+        static let inviteCode = "1234-1234556"
+        static let shateButtonTitle = "초대장 보내기"
         static let writeCancelTitle = "답변 작성을 취소하시겠어요?\n작성 중인 답변은 저장되지 않아요"
         static let withdrawalTitle = "정말 회원을 탈퇴하시겠습니까?"
         static let cancelButtonTitle = "취소"
