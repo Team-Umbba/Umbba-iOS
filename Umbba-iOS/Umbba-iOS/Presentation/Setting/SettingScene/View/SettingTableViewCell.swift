@@ -50,7 +50,7 @@ final class SettingTableViewCell: UITableViewCell, UITableViewRegisterable {
 private extension SettingTableViewCell {
     
     func setUI() {
-        self.backgroundColor = .white
+        self.backgroundColor = .UmbbaWhite
         separatorInset.left = 0
         self.selectionStyle = .none
     }
