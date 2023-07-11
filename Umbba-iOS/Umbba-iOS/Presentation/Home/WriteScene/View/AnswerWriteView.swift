@@ -9,13 +9,6 @@ import UIKit
 
 import SnapKit
 
-// MARK: - Protocols
-
-protocol NavigationBarDelegate: AnyObject {
-    func backButtonTapped()
-    func completeButtonTapped()
-}
-
 final class AnswerWriteView: UIView {
     
     // MARK: - Properties
