@@ -52,6 +52,7 @@ extension SettingTableViewCell {
     func setUI() {
         self.backgroundColor = .white
         separatorInset.left = 0
+        self.selectionStyle = .none
     }
     
     func setLayout() {
@@ -67,9 +68,5 @@ extension SettingTableViewCell {
             $0.trailing.equalToSuperview().offset(-24)
             $0.size.equalTo(18)
         }
-    }
-    
-    func configureCell(_ setting: Setting) {
-        contentLabel.text = setting.title
     }
 }
