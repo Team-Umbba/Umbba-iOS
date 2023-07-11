@@ -15,9 +15,11 @@ final class SettingViewController: UIViewController {
         
     private let settingTableView = SettingTableView()
     private lazy var settingtableView = settingTableView.tableView
-    let userSection = Setting.section0()
-    let teamSection = Setting.section1()
-    
+    let userSection = I18N.Setting.userSectionLabel
+    let teamSection = I18N.Setting.teamSectionLabel
+//    let userSection = Setting.section0()
+//    let teamSection = Setting.section1()
+//
     // MARK: - Life Cycles
     
     override func viewDidLoad() {
@@ -98,11 +100,11 @@ extension SettingViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = SettingTableViewCell.dequeueReusableCell(tableView: tableView, indexPath: indexPath)
-        
+
         if indexPath.section == 0 {
-            cell.configureCell(userSection[indexPath.row])
+            cell.contentLabel.text = I18N.Setting.userSectionLabel[indexPath.row]
         } else if indexPath.section == 1 {
-            cell.configureCell(teamSection[indexPath.row])
+            cell.contentLabel.text = I18N.Setting.teamSectionLabel[indexPath.row]
         } else {
             return UITableViewCell()
         }
