@@ -104,7 +104,7 @@ final class LoginView: UIView {
 extension LoginView {
     
     private func setUI() {
-        backgroundColor = .white
+        backgroundColor = .UmbbaWhite
     }
     
     private func setHierarchy() {
