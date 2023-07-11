@@ -164,7 +164,7 @@ final class AssignView: UIView {
 private extension AssignView {
     
     func setUI() {
-        backgroundColor = .white
+        backgroundColor = .UmbbaWhite
     }
     
     func setHierarchy() {
