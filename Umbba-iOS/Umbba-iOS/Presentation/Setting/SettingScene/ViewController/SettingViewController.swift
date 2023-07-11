@@ -15,11 +15,9 @@ final class SettingViewController: UIViewController {
         
     private let settingTableView = SettingTableView()
     private lazy var settingtableView = settingTableView.tableView
-    let userSection = I18N.Setting.userSectionLabel
-    let teamSection = I18N.Setting.teamSectionLabel
-//    let userSection = Setting.section0()
-//    let teamSection = Setting.section1()
-//
+    private let userSection = I18N.Setting.userSectionLabel
+    private let teamSection = I18N.Setting.teamSectionLabel
+
     // MARK: - Life Cycles
     
     override func viewDidLoad() {
@@ -56,11 +54,12 @@ extension SettingViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if section == 0 {
+        switch section {
+        case 0:
             return 0
-        } else if section == 1 {
+        case 1:
             return 72
-        } else {
+        default:
             return 0
         }
     }
@@ -89,25 +88,30 @@ extension SettingViewController: UITableViewDelegate {
 extension SettingViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 {
+        switch section {
+        case 0:
             return userSection.count
-        } else if section == 1 {
+        case 1:
             return teamSection.count
-        } else {
+        default:
             return 0
+            
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = SettingTableViewCell.dequeueReusableCell(tableView: tableView, indexPath: indexPath)
-
-        if indexPath.section == 0 {
+        
+        switch indexPath.section {
+        case 0:
             cell.contentLabel.text = I18N.Setting.userSectionLabel[indexPath.row]
-        } else if indexPath.section == 1 {
+        case 1:
             cell.contentLabel.text = I18N.Setting.teamSectionLabel[indexPath.row]
-        } else {
+        default:
             return UITableViewCell()
+            
         }
+        
         return cell
     }
 }
