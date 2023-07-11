@@ -11,6 +11,8 @@ import SnapKit
 
 final class InviteAlertView: UIView {
     
+    weak var delegate: AlertDelegate?
+    
     // MARK: - UI Components
     
     private lazy var exitButton: UIButton = {
@@ -71,6 +73,7 @@ final class InviteAlertView: UIView {
         super.init(frame: frame)
         
         setUI()
+        setAddTarget()
         setLayout()
     }
     
@@ -85,6 +88,12 @@ private extension InviteAlertView {
     func setUI() {
         self.backgroundColor = .UmbbaWhite
         self.layer.cornerRadius = 16
+    }
+    
+    func setAddTarget() {
+        copyButton.addTarget(self, action: #selector(copyButtonTapped), for: .touchUpInside)
+        exitButton.addTarget(self, action: #selector(exitButtonTapped), for: .touchUpInside)
+        shareButton.addTarget(self, action: #selector(shareButtonTapped), for: .touchUpInside)
     }
     
     func setLayout() {
@@ -123,5 +132,19 @@ private extension InviteAlertView {
             $0.height.equalTo(48)
             $0.leading.trailing.equalToSuperview().inset(38)
         }
+    }
+    
+    // MARK: - @objc Functions
+    
+    @objc func copyButtonTapped() {
+        UIPasteboard.general.string = inviteCode.text
+    }
+    
+    @objc func exitButtonTapped() {
+        delegate?.alertDismissTapped()
+    }
+    
+    @objc func shareButtonTapped() {
+        delegate?.colorButtonTapped()
     }
 }
