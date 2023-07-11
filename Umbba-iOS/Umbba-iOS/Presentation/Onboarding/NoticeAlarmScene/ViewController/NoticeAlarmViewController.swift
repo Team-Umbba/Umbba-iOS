@@ -12,12 +12,12 @@ final class NoticeAlarmViewController: UIViewController {
     // MARK: - UI Components
     
     private let noticeAlarmView = NoticeAlarmView()
-    private lazy var nextButton = noticeAlarmView.nextButton
     
     // MARK: - Life Cycles
     
     override func loadView() {
         super.loadView()
+        
         view = noticeAlarmView
     }
     
@@ -25,7 +25,6 @@ final class NoticeAlarmViewController: UIViewController {
         super.viewDidLoad()
       
         setDelegate()
-        setAddTarget()
     }
 }
 
@@ -34,17 +33,8 @@ final class NoticeAlarmViewController: UIViewController {
 private extension NoticeAlarmViewController {
 
     func setDelegate() {
-        noticeAlarmView.delegate = self
-    }
-    
-    func setAddTarget() {
-        nextButton.addTarget(self, action: #selector(nextButtonTapped), for: .touchUpInside)
-    }
-    
-    @objc
-    func nextButtonTapped() {
-//        self.navigationController?.pushViewController(InviteViewController(), animated: true)
-        print("다음 화면으로 전환")
+        noticeAlarmView.navigationdelegate = self
+        noticeAlarmView.nextDelegate = self
     }
 }
 
@@ -56,5 +46,12 @@ extension NoticeAlarmViewController: NavigationBarDelegate {
     
     func completeButtonTapped() {
 
+    }
+}
+
+extension NoticeAlarmViewController: NextButtonDelegate {
+    func nextButtonTapped() {
+        self.navigationController?.pushViewController(CompleteViewController(), animated: true)
+        print("다음 화면으로 전환")
     }
 }

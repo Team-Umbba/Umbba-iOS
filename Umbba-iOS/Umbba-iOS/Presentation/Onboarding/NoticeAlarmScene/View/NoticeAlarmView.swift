@@ -13,7 +13,8 @@ final class NoticeAlarmView: UIView {
     
     // MARK: - Properties
     
-    weak var delegate: NavigationBarDelegate?
+    weak var navigationdelegate: NavigationBarDelegate?
+    weak var nextDelegate: NextButtonDelegate?
     
     // MARK: - UI Components
     
@@ -49,7 +50,7 @@ final class NoticeAlarmView: UIView {
         return label
     }()
     
-    lazy var nextButton: CustomButton = {
+    private lazy var nextButton: CustomButton = {
         let button = CustomButton(status: true, title: I18N.Common.nextButtonTitle)
         button.isEnabled = true
         return button
@@ -79,6 +80,7 @@ private extension NoticeAlarmView {
     
     func setAddTarget() {
         navigationBarView.leftButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
+        nextButton.addTarget(self, action: #selector(nextButtonTapped), for: .touchUpInside)
     }
 
     func setLayout() {
@@ -113,6 +115,11 @@ private extension NoticeAlarmView {
     
     @objc
     func backButtonTapped() {
-        delegate?.backButtonTapped()
+        navigationdelegate?.backButtonTapped()
+    }
+    
+    @objc
+    func nextButtonTapped() {
+        nextDelegate?.nextButtonTapped()
     }
 }
