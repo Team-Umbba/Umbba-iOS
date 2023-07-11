@@ -30,6 +30,12 @@ final class SettingTableViewCell: UITableViewCell, UITableViewRegisterable {
         return imageView
     }()
     
+    private let lineView: UIView = {
+        let line = UIView()
+        line.backgroundColor = .Gray400
+        return line
+    }()
+    
     // MARK: - Life Cycles
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -56,7 +62,7 @@ private extension SettingTableViewCell {
     }
     
     func setLayout() {
-        contentView.addSubviews(contentLabel, buttonImage)
+        contentView.addSubviews(contentLabel, buttonImage, lineView)
         
         contentLabel.snp.makeConstraints {
             $0.centerY.equalToSuperview()
@@ -67,6 +73,11 @@ private extension SettingTableViewCell {
             $0.centerY.equalToSuperview()
             $0.trailing.equalToSuperview().inset(24)
             $0.size.equalTo(18)
+        }
+        
+        lineView.snp.makeConstraints {
+            $0.bottom.leading.trailing.equalToSuperview()
+            $0.height.equalTo(1)
         }
     }
 }
