@@ -13,4 +13,15 @@ extension UIViewController {
         self.view.endEditing(true)
     }
     
+    func makeAlert(alertType: AlertType = .writeCancelAlert,
+                   okAction: (() -> Void)?) {
+        
+        let alertViewController = AlertViewController()
+        
+        alertViewController.alertType = alertType
+        alertViewController.okAction = okAction
+        alertViewController.modalTransitionStyle = .crossDissolve
+        alertViewController.modalPresentationStyle = .overCurrentContext
+        present(alertViewController, animated: true)
+    }
 }
