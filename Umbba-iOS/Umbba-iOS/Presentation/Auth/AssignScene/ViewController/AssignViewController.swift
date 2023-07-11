@@ -13,6 +13,7 @@ final class AssignViewController: UIViewController {
     
     override func loadView() {
         super.loadView()
+        
         self.view = assignView
     }
 

@@ -13,6 +13,9 @@ final class AssignView: UIView {
 
     // MARK: - UI Components
     
+    private lazy var buttons = [assignEntireCheck, assignFirstCheck, assignSecondCheck, assignThirdCheck]
+    private lazy var clickedButton = [false, false, false, false]
+    
     private let logoImage: UIImageView = {
         let image = UIImageView()
         image.image = ImageLiterals.Common.img_umbbaLogo
@@ -137,9 +140,6 @@ final class AssignView: UIView {
         button.isEnabled = false
         return button
     }()
-    
-    private lazy var buttons = [assignEntireCheck, assignFirstCheck, assignSecondCheck, assignThirdCheck]
-    private lazy var clickedButton = [false, false, false, false]
     
     // MARK: - Life Cycles
     
