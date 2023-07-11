@@ -18,6 +18,23 @@ final class EntryViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setDelegate()
     }
 
+}
+
+// MARK: - Extensions
+
+extension EntryViewController {
+    func setDelegate() {
+        entryView.nextDelegate = self
+    }
+}
+
+extension EntryViewController: NextButtonDelegate {
+    func nextButtonTapped() {
+        
+        self.navigationController?.pushViewController(UserInfoViewController(), animated: true)
+    }
 }

@@ -11,6 +11,11 @@ import SnapKit
 
 final class EntryView: UIView {
     
+    // MARK: - Properties
+    weak var nextDelegate: NextButtonDelegate?
+    
+    // MARK: - UI Components
+    
     private let logoImage: UIImageView = {
         let image = UIImageView()
         image.image = ImageLiterals.Common.img_umbbaLogo
@@ -49,7 +54,7 @@ final class EntryView: UIView {
     private let inviteText: UILabel = {
         let label = UILabel()
         label.text = I18N.Auth.inviteText
-        label.textColor = .Gray800
+        label.textColor = .UmbbaBlack
         label.font = .PretendardRegular(size: 16)
         return label
     }()
@@ -69,7 +74,7 @@ final class EntryView: UIView {
         setUI()
         setHierarchy()
         setLayout()
-        
+        setAddTarget()
     }
     
     required init?(coder: NSCoder) {
@@ -128,4 +133,12 @@ extension EntryView {
         }
     }
 
+    private func setAddTarget() {
+        entryButton.addTarget(self, action: #selector(entryButtonTapped), for: .touchUpInside)
+    }
+    
+    @objc
+    func entryButtonTapped() {
+        nextDelegate?.nextButtonTapped()
+    }
 }
