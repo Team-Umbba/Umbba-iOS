@@ -31,7 +31,6 @@ final class ArchivingSectionCollectionViewCell: UICollectionViewCell, UICollecti
         setUI()
         setHierarchy()
         setLayout()
-
     }
     
     required init?(coder: NSCoder) {
@@ -60,9 +59,5 @@ extension ArchivingSectionCollectionViewCell {
             $0.centerY.equalToSuperview()
             $0.leading.trailing.equalToSuperview().inset(16)
         }
-    }
-    
-    func setDataBind(model: ArchivingSectionItem) {
-        archivingSectionLabel.text = model.sectionTitle
     }
 }

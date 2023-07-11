@@ -43,7 +43,6 @@ final class ArchivingQuestionCollectionViewCell: UICollectionViewCell, UICollect
         setUI()
         setHierarchy()
         setLayout()
-
     }
     
     required init?(coder: NSCoder) {
@@ -52,19 +51,16 @@ final class ArchivingQuestionCollectionViewCell: UICollectionViewCell, UICollect
 }
 
 // MARK: - Extensions
-// MARK: - Extensions
 
 extension ArchivingQuestionCollectionViewCell {
     
     func setUI() {
         backgroundColor = .UmbbaWhite
-        
         self.isUserInteractionEnabled = true
     }
     
     func setHierarchy() {
-        
-        self.contentView.addSubviews(questionNumber, questionText, lineView)
+        contentView.addSubviews(questionNumber, questionText, lineView)
     }
     
     func setLayout() {
@@ -86,7 +82,7 @@ extension ArchivingQuestionCollectionViewCell {
     }
     
     func setDataBind(model: ArchivingQuestionItem) {
-        questionNumber.text = "#" + String(model.questions.id)
+        questionNumber.text = "#\(model.questions.id)"
         questionText.text = model.questions.question
     }
 }

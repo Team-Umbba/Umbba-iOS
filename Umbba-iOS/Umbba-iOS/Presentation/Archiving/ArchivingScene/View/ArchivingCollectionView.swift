@@ -26,7 +26,6 @@ final class ArchivingCollectionView: UIView {
         collectionView.isScrollEnabled = false
         collectionView.clipsToBounds = true
         collectionView.contentInsetAdjustmentBehavior = .never
-        collectionView.collectionViewLayout = self.setSectionLayout()
         collectionView.isUserInteractionEnabled = true
         collectionView.allowsSelection = true
         collectionView.backgroundColor = .UmbbaWhite
@@ -91,7 +90,7 @@ private extension ArchivingCollectionView {
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         
         let groupSize = NSCollectionLayoutSize(
-            widthDimension: .fractionalWidth(1.5),
+            widthDimension: .fractionalWidth(1.4),
             heightDimension: .absolute(26)
         )
         let group = NSCollectionLayoutGroup.horizontal(

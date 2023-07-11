@@ -24,7 +24,6 @@ final class ArchivingViewController: UIViewController {
     private let archivingCollectionView = ArchivingCollectionView()
     private lazy var collectionView = archivingCollectionView.ArchivingCollectionView
     
-    private let archivingSectionModel: [ArchivingSectionItem] = ArchivingSectionItem.archivingKeywordData()
     private let archivingQuestionModel: [ArchivingQuestionItem] = ArchivingQuestionItem.archivingQuestionDummy()
     
     private var selectedSectionIndexPath: Int?
@@ -112,7 +111,7 @@ extension ArchivingViewController: UICollectionViewDataSource {
         case .section:
             let cell =
                     ArchivingSectionCollectionViewCell.dequeueReusableCell(collectionView: collectionView, indexPath: indexPath)
-            cell.setDataBind(model: archivingSectionModel[indexPath.row])
+            cell.archivingSectionLabel.text = "# \(I18N.Archiving.sectionArray[indexPath.row])"
             if indexPath.item == 1 {
                 cell.backgroundColor = .Primary600
                 cell.archivingSectionLabel.textColor = .UmbbaWhite
@@ -130,7 +129,7 @@ extension ArchivingViewController: UICollectionViewDataSource {
         let sectionType = SectionType.allCases[section]
         switch sectionType {
         case .section:
-            return archivingSectionModel.count
+            return I18N.Archiving.sectionArray.count
         case .question:
             return archivingQuestionModel.count
         }

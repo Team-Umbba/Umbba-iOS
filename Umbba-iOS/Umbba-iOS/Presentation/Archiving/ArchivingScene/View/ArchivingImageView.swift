@@ -10,8 +10,6 @@ import UIKit
 import SnapKit
 
 final class ArchivingImageView: UIView {
-    
-    static let identifier = "ArchivingImageView"
 
     // MARK: - UI Components
     

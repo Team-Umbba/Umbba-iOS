@@ -59,19 +59,6 @@ extension ArchivingQuestionHeaderView {
     }
     
     func setDataBind(model: ArchivingQuestionItem) {
-        switch model.section {
-        case 0:
-            headerLabel.text = "어린 시절"
-        case 1:
-            headerLabel.text = "학창 시절"
-        case 2:
-            headerLabel.text = "청춘 시절"
-        case 3:
-            headerLabel.text = "연애 시절"
-        case 4:
-            headerLabel.text = "우리가 만나고"
-        default:
-            headerLabel.text = "어린 시절"
-        }
+        headerLabel.text = I18N.Archiving.sectionArray[model.section]
     }
 }

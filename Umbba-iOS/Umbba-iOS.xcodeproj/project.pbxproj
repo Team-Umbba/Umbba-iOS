@@ -105,7 +105,6 @@
 		A42723BF2A5537CD003C445F /* EntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42723BE2A5537CD003C445F /* EntryView.swift */; };
 		A42723C12A5537DA003C445F /* EntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42723C02A5537DA003C445F /* EntryViewController.swift */; };
 		A42723C52A5A6C04003C445F /* ArchivingSectionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42723C42A5A6C04003C445F /* ArchivingSectionCollectionViewCell.swift */; };
-		A42723C72A5A6E60003C445F /* ArchivingSectionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42723C62A5A6E60003C445F /* ArchivingSectionItem.swift */; };
 		A42723C92A5A8162003C445F /* ArchivingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42723C82A5A8162003C445F /* ArchivingViewController.swift */; };
 		A489BDF82A5AA5020027E817 /* ArchivingQuestionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A489BDF72A5AA5020027E817 /* ArchivingQuestionItem.swift */; };
 		A489BDFA2A5AA7C80027E817 /* ArchivingQuestionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A489BDF92A5AA7C80027E817 /* ArchivingQuestionHeaderView.swift */; };
@@ -116,7 +115,6 @@
 
 /* Begin PBXFileReference section */
 		14348E9C2A5B37DC0077A9B8 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
-		144F3F412A5C615B00D73A6B /* Umbba-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Umbba-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		144F3F422A5C655400D73A6B /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		144F3F442A5C883800D73A6B /* SettingTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableView.swift; sourceTree = "<group>"; };
 		144F3F462A5C963B00D73A6B /* AccountTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTableView.swift; sourceTree = "<group>"; };
@@ -201,7 +199,6 @@
 		A42723BE2A5537CD003C445F /* EntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryView.swift; sourceTree = "<group>"; };
 		A42723C02A5537DA003C445F /* EntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryViewController.swift; sourceTree = "<group>"; };
 		A42723C42A5A6C04003C445F /* ArchivingSectionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchivingSectionCollectionViewCell.swift; sourceTree = "<group>"; };
-		A42723C62A5A6E60003C445F /* ArchivingSectionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchivingSectionItem.swift; sourceTree = "<group>"; };
 		A42723C82A5A8162003C445F /* ArchivingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchivingViewController.swift; sourceTree = "<group>"; };
 		A489BDF72A5AA5020027E817 /* ArchivingQuestionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchivingQuestionItem.swift; sourceTree = "<group>"; };
 		A489BDF92A5AA7C80027E817 /* ArchivingQuestionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchivingQuestionHeaderView.swift; sourceTree = "<group>"; };
@@ -886,7 +883,6 @@
 		A489BDF32A5A8DEE0027E817 /* Item */ = {
 			isa = PBXGroup;
 			children = (
-				A42723C62A5A6E60003C445F /* ArchivingSectionItem.swift */,
 				A489BDF72A5AA5020027E817 /* ArchivingQuestionItem.swift */,
 			);
 			path = Item;
@@ -1040,7 +1036,6 @@
 				6991BA6E2A5731330091D52D /* UserInfoViewController.swift in Sources */,
 				697815772A52FF890047944C /* UITextField+.swift in Sources */,
 				A489BE062A5AFCE90027E817 /* ArchivingImageView.swift in Sources */,
-				A42723C72A5A6E60003C445F /* ArchivingSectionItem.swift in Sources */,
 				A42723C52A5A6C04003C445F /* ArchivingSectionCollectionViewCell.swift in Sources */,
 				14A01D432A57D8A200D4F860 /* SettingTableViewCell.swift in Sources */,
 				697815872A53003A0047944C /* UICollectionViewRegisterable.swift in Sources */,
