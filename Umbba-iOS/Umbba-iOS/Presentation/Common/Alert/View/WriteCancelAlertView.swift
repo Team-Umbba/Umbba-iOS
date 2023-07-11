@@ -12,8 +12,8 @@ import SnapKit
 // MARK: - Protocols
 
 protocol AlertDelegate: AnyObject {
-    func confirmButtonTapped()
-    func cancelButtonTapped()
+    func colorButtonTapped()
+    func alertDismissTapped()
 }
 
 final class WriteCancelAlertView: UIView {
@@ -116,10 +116,10 @@ private extension WriteCancelAlertView {
     // MARK: - @objc Functions
     
     @objc func cancelButtonTapped() {
-        delegate?.cancelButtonTapped()
+        delegate?.alertDismissTapped()
     }
     
     @objc func confirmButtonTapped() {
-        delegate?.confirmButtonTapped()
+        delegate?.colorButtonTapped()
     }
 }

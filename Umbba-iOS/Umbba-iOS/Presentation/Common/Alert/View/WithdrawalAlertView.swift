@@ -107,10 +107,10 @@ private extension WithdrawalAlertView {
     // MARK: - @objc Functions
     
     @objc func cancelButtonTapped() {
-        delegate?.confirmButtonTapped()
+        delegate?.alertDismissTapped()
     }
     
     @objc func confirmButtonTapped() {
-        delegate?.cancelButtonTapped()
+        delegate?.colorButtonTapped()
     }
 }

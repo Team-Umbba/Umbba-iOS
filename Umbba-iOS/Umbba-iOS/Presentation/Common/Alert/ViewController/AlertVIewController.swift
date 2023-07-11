@@ -73,7 +73,7 @@ private extension AlertViewController {
         writeSaveAlertView.isHidden = !writeSave
         withdrawalAlertView.isHidden = !withdrawal
     }
-
+    
     private func setLayout() {
         view.addSubviews(writeCancelAlertView,
                          writeSaveAlertView,
@@ -115,13 +115,13 @@ private extension AlertViewController {
 
 extension AlertViewController: AlertDelegate {
     
-    func cancelButtonTapped() {
+    func colorButtonTapped() {
         dismiss(animated: false) {
             (self.okAction ?? self.emptyActions)()
         }
     }
-
-    func confirmButtonTapped() {
+    
+    func alertDismissTapped() {
         dismiss(animated: true)
     }
 }
