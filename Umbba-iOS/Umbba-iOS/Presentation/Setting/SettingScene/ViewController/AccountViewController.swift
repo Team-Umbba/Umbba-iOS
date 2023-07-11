@@ -49,6 +49,7 @@ extension AccountViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = SettingTableViewCell.dequeueReusableCell(tableView: tableView, indexPath: indexPath)
         cell.contentLabel.text = I18N.Setting.accountSectionLabel[indexPath.row]
+        cell.buttonImage.isHidden = true
         return cell
     }
 }
