@@ -78,6 +78,7 @@ enum I18N {
         static let settingLabel = "알람 설정"
         static let userSectionLabel = ["계정 관리"]
         static let teamSectionLabel = ["About 엄빠도 어렸다", "이용약관", "공지사항"]
+        static let accountSectionLabel = ["로그아웃", "회원 탈퇴"]
     }
     
     enum Alert {
