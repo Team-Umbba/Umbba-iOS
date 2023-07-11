@@ -68,13 +68,13 @@ private extension AlertViewController {
         }
     }
     
-    private func setAlertView(writeCancel: Bool, writeSave: Bool, withdrawal: Bool) {
+    func setAlertView(writeCancel: Bool, writeSave: Bool, withdrawal: Bool) {
         writeCancelAlertView.isHidden = !writeCancel
         writeSaveAlertView.isHidden = !writeSave
         withdrawalAlertView.isHidden = !withdrawal
     }
     
-    private func setLayout() {
+    func setLayout() {
         view.addSubviews(writeCancelAlertView,
                          writeSaveAlertView,
                          withdrawalAlertView)
@@ -100,13 +100,13 @@ private extension AlertViewController {
         }
     }
     
-    private func setDelegate() {
+    func setDelegate() {
         writeCancelAlertView.delegate = self
         writeSaveAlertView.delegate = self
         withdrawalAlertView.delegate = self
     }
     
-    private func emptyActions() {
+    func emptyActions() {
         
     }
 }
