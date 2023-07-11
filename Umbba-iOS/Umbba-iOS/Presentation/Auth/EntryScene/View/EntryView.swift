@@ -54,7 +54,7 @@ final class EntryView: UIView {
     private let inviteText: UILabel = {
         let label = UILabel()
         label.text = I18N.Auth.inviteText
-        label.textColor = .UmbbaBlack
+        label.textColor = .Gray800
         label.font = .PretendardRegular(size: 16)
         return label
     }()
