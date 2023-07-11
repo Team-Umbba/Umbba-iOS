@@ -26,4 +26,8 @@ enum ImageLiterals {
         static var icn_setting: UIImage { .load(name: "setting_default") }
         static var icn_setting_selected: UIImage { .load(name: "setting_active") }
     }
+    
+    enum Auth {
+        static var icn_check_circle: UIImage { .load(name: "circle_check") }
+    }
 }
