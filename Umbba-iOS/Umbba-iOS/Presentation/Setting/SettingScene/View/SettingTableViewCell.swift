@@ -24,7 +24,7 @@ final class SettingTableViewCell: UITableViewCell, UITableViewRegisterable {
         return label
     }()
     
-    private lazy var buttonImage: UIImageView = {
+    lazy var buttonImage: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(systemName: "chevron.compact.right")?.withTintColor(.gray, renderingMode: .alwaysOriginal)
         return imageView
