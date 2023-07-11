@@ -13,6 +13,13 @@ final class AccountTableView: UIView {
     
     // MARK: - UI Components
     
+    private let navigationBarView: CustomNavigationBar = {
+        let view = CustomNavigationBar()
+        view.pretendardTitle = I18N.Setting.accountNavigationTitle
+        view.isLeftButtonIncluded = true
+        return view
+    }()
+    
     lazy var tableView = UITableView(frame: .zero, style: .plain)
     
     // MARK: - Life Cycles
@@ -36,23 +43,29 @@ final class AccountTableView: UIView {
 private extension AccountTableView {
     
     func setUI() {
-        backgroundColor = .Gray400
+        backgroundColor = .UmbbaWhite
     }
-    
+
     func setLayout() {
-        addSubview(tableView)
+        addSubviews(navigationBarView, tableView)
+        
+        navigationBarView.snp.makeConstraints {
+             $0.top.equalTo(self.safeAreaLayoutGuide)
+             $0.leading.trailing.equalToSuperview()
+        }
         
         tableView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
+            $0.top.equalTo(navigationBarView.snp.bottom)
+            $0.leading.trailing.bottom.equalToSuperview()
         }
     }
     
     func setTableView() {
-        tableView.backgroundColor = .Gray400
+        tableView.backgroundColor = .UmbbaWhite
+        tableView.isScrollEnabled = false
     }
     
     func registerCell() {
         SettingTableViewCell.register(target: tableView)
     }
 }
-
