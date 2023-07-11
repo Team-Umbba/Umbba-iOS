@@ -61,6 +61,7 @@ enum I18N {
 
     enum Archiving {
         static let navigationTitle = "리스트"
+        static let sectionArray = ["어린 시절", "학창 시절", "청춘 시절", "연애 시절", "우리가 만나고"]
     }
     
     enum Write {
