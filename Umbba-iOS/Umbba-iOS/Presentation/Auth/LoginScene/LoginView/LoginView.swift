@@ -13,57 +13,71 @@ final class LoginView: UIView {
     
     let screenSize = UIScreen.main.bounds.width
     
-    private lazy var loginViewImage: UIImageView = {
+    private let logoImage: UIImageView = {
         let image = UIImageView()
+        image.image = ImageLiterals.Common.img_umbbaLogo
         return image
     }()
     
-    private lazy var loginLabel: UILabel = {
+    private let logoTitle: UILabel = {
         let label = UILabel()
-        label.text = I18N.Auth.loginTitle
-        label.textColor = .UmbbaBlack
-        label.font = .PretendardRegular(size: 24)
+        label.text = I18N.Auth.logoTitle
+        label.font = .Cafe24Regular(size: 20)
+        label.textColor = .Primary500
         return label
     }()
     
-    lazy var loginAppleButton: UIButton = {
-        var config = UIButton.Configuration.plain()
-        var title = AttributedString.init(I18N.Auth.appleButtonTitle)
-        title.font = .PretendardBold(size: 16)
-        title.foregroundColor = .UmbbaWhite
-        config.attributedTitle = title
-        
-        let imageConfig = UIImage.SymbolConfiguration(pointSize: 24)
-        let image = UIImage(systemName: "apple.logo", withConfiguration: imageConfig)
-        config.image = image
-        config.imagePadding = 72 / 375 * screenSize
-        config.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 0)
-        
-        let button = UIButton(configuration: config)
-        button.backgroundColor = .gray
+    private let logoSubTitle: UILabel = {
+        let label = UILabel()
+        label.text = I18N.Auth.logoSubTitle
+        label.font = .PretendardRegular(size: 12)
+        label.textColor = .Primary500
+        return label
+    }()
+    
+    private let loginAppleImage: UIImageView = {
+        let image = UIImageView()
+        image.image = ImageLiterals.Auth.icn_apple
+        return image
+    }()
+    
+    private let loginAppleTitle: UILabel = {
+        let label = UILabel()
+        label.text = I18N.Auth.appleButtonTitle
+        label.font = .PretendardRegular(size: 16)
+        label.textColor = .white
+        label.textAlignment = .center
+        label.partFontChange(targetString: "애플", font: .PretendardSemiBold(size: 16))
+        return label
+    }()
+    
+    private lazy var loginAppleButton: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = .black
         button.layer.cornerRadius = 30
-        button.contentHorizontalAlignment = .left
-        
         return button
     }()
     
-    lazy var loginKakaoButton: UIButton = {
-        var config = UIButton.Configuration.plain()
-        var title = AttributedString.init(I18N.Auth.kakaoButtonTitle)
-        title.font = .PretendardBold(size: 16)
-        title.foregroundColor = .UmbbaWhite
-        config.attributedTitle = title
-        
-        let imageConfig = UIImage.SymbolConfiguration(pointSize: 24)
-        let image = UIImage(systemName: "message.fill", withConfiguration: imageConfig)
-        config.image = image
-        config.imagePadding = 72 / 375 * screenSize
-        config.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 0)
-        
-        let button = UIButton(configuration: config)
-        button.backgroundColor = .gray
+    private let loginKakaoImage: UIImageView = {
+        let image = UIImageView()
+        image.image = ImageLiterals.Auth.icn_kakao
+        return image
+    }()
+    
+    private let loginKakaoTitle: UILabel = {
+        let label = UILabel()
+        label.text = I18N.Auth.kakaoButtonTitle
+        label.font = .PretendardRegular(size: 16)
+        label.textColor = .black
+        label.textAlignment = .center
+        label.partFontChange(targetString: "카카오", font: .PretendardSemiBold(size: 16))
+        return label
+    }()
+    
+    private lazy var loginKakaoButton: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = .UmbbaYellow
         button.layer.cornerRadius = 30
-        button.contentHorizontalAlignment = .left
         return button
     }()
     
@@ -94,33 +108,62 @@ extension LoginView {
     }
     
     private func setHierarchy() {
-        addSubviews(loginViewImage, loginLabel, loginAppleButton, loginKakaoButton)
+        loginAppleButton.addSubviews(loginAppleImage, loginAppleTitle)
+        loginKakaoButton.addSubviews(loginKakaoImage, loginKakaoTitle)
+        addSubviews(logoImage, logoTitle, logoSubTitle, loginAppleButton, loginKakaoButton)
     }
     
     private func setLayout() {
-        
-        loginViewImage.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(85)
-            $0.leading.equalToSuperview().inset(24)
-            $0.width.equalTo(SizeLiterals.Screen.screenWidth * 86 / 375)
-            $0.height.equalTo(SizeLiterals.Screen.screenHeight * 22 / 375)
+        logoImage.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.top.equalToSuperview().inset(97)
+            $0.width.equalTo(67)
+            $0.height.equalTo(60)
         }
         
-        loginLabel.snp.makeConstraints {
-            $0.top.equalTo(loginViewImage.snp.bottom).offset(16)
-            $0.leading.equalToSuperview().inset(24)
+        logoTitle.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.top.equalTo(logoImage.snp.bottom).offset(2)
+        }
+        
+        logoSubTitle.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.top.equalTo(logoTitle.snp.bottom).offset(12)
         }
         
         loginAppleButton.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
             $0.bottom.equalToSuperview().inset(116)
-            $0.leading.trailing.equalToSuperview().inset(20)
+            $0.width.equalTo(SizeLiterals.Screen.screenWidth * 319 / 375)
             $0.height.equalTo(60)
         }
         
+        loginAppleImage.snp.makeConstraints {
+            $0.centerY.equalToSuperview()
+            $0.leading.equalToSuperview().inset(20)
+            $0.width.height.equalTo(24)
+        }
+        
+        loginAppleTitle.snp.makeConstraints {
+            $0.center.equalToSuperview()
+        }
+        
         loginKakaoButton.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
             $0.bottom.equalToSuperview().inset(44)
-            $0.leading.trailing.equalToSuperview().inset(20)
+            $0.width.equalTo(SizeLiterals.Screen.screenWidth * 319 / 375)
             $0.height.equalTo(60)
         }
+        
+        loginKakaoImage.snp.makeConstraints {
+            $0.centerY.equalToSuperview()
+            $0.leading.equalToSuperview().inset(20)
+            $0.width.height.equalTo(24)
+        }
+        
+        loginKakaoTitle.snp.makeConstraints {
+            $0.center.equalToSuperview()
+        }
+        
     }
 }
