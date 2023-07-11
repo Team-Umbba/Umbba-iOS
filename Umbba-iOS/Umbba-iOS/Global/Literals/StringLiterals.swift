@@ -59,6 +59,16 @@ enum I18N {
         static let dividingText = "--------------------- or ---------------------"
         static let inviteText = "초대 코드를 받으셨나요?"
         static let inviteButtonTitle = "초대코드 입력하기"
+        static let logoTitle = "엄빠도 어렸다"
+        static let logoSubTitle = "처음부터 다시 나누는 이야기"
+        static let assignEntireTitle = "전체 동의하기"
+        static let assignEntireSubTitle = "본인은 만 14세 이상이며, 엄빠도 어렸다 서비스 이용약관, 개인정보 수집 및 이용에 모두 동의합니다."
+        static let assignFirstTitle = "[필수] 만 14세 이상입니다."
+        static let assignFirstSubTitle = "엄빠도 어렸다 서비스를 이용하기 위해서는 만 14세 이상이 되어야 합니다. 만 14세 미만의 이용자의 경우 서비스의 이용이 제한됩니다."
+        static let assignSecondTitle = "[필수] 서비스 이용약관에 동의합니다."
+        static let assignThirdTitle = "[필수] 개인정보 수집 및 이용에 동의합니다."
+        static let assignThirdSubTitle = "\'(주)이승준 컴퍼니\'(이하 \'회사\')가 운영하는 \'엄빠도 어렸다\'는 개인정보보호법 제 30조 의거 이용자의 개인정보보호와 권익을 보호하고 관련된 고충 및 애로사항을 신속하게 처리하기 위해 아래의 개인정보처리방침을 제정·운영하고 있습니다."
+        static let assignNextButtonTitle = "다음으로"
     }
 
     enum Archiving {

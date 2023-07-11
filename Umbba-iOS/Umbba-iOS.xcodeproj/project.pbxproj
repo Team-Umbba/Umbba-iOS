@@ -108,6 +108,8 @@
 		A42723C12A5537DA003C445F /* EntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42723C02A5537DA003C445F /* EntryViewController.swift */; };
 		A42723C52A5A6C04003C445F /* ArchivingSectionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42723C42A5A6C04003C445F /* ArchivingSectionCollectionViewCell.swift */; };
 		A42723C92A5A8162003C445F /* ArchivingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42723C82A5A8162003C445F /* ArchivingViewController.swift */; };
+		A47BDA492A5D5FD6007B8E3E /* AssignView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47BDA482A5D5FD6007B8E3E /* AssignView.swift */; };
+		A47BDA4B2A5D5FE9007B8E3E /* AssignViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47BDA4A2A5D5FE9007B8E3E /* AssignViewController.swift */; };
 		A489BDF82A5AA5020027E817 /* ArchivingQuestionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A489BDF72A5AA5020027E817 /* ArchivingQuestionItem.swift */; };
 		A489BDFA2A5AA7C80027E817 /* ArchivingQuestionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A489BDF92A5AA7C80027E817 /* ArchivingQuestionHeaderView.swift */; };
 		A489BDFE2A5AAAB40027E817 /* ArchivingQuestionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A489BDFD2A5AAAB40027E817 /* ArchivingQuestionCollectionViewCell.swift */; };
@@ -204,6 +206,8 @@
 		A42723C02A5537DA003C445F /* EntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryViewController.swift; sourceTree = "<group>"; };
 		A42723C42A5A6C04003C445F /* ArchivingSectionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchivingSectionCollectionViewCell.swift; sourceTree = "<group>"; };
 		A42723C82A5A8162003C445F /* ArchivingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchivingViewController.swift; sourceTree = "<group>"; };
+		A47BDA482A5D5FD6007B8E3E /* AssignView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignView.swift; sourceTree = "<group>"; };
+		A47BDA4A2A5D5FE9007B8E3E /* AssignViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignViewController.swift; sourceTree = "<group>"; };
 		A489BDF72A5AA5020027E817 /* ArchivingQuestionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchivingQuestionItem.swift; sourceTree = "<group>"; };
 		A489BDF92A5AA7C80027E817 /* ArchivingQuestionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchivingQuestionHeaderView.swift; sourceTree = "<group>"; };
 		A489BDFD2A5AAAB40027E817 /* ArchivingQuestionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchivingQuestionCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -546,6 +550,7 @@
 		6978159B2A5302860047944C /* Auth */ = {
 			isa = PBXGroup;
 			children = (
+				A47BDA452A5D5F8D007B8E3E /* AssignScene */,
 				6978159C2A5302940047944C /* LoginScene */,
 				6978159D2A53029D0047944C /* EntryScene */,
 				6978159E2A5302A60047944C /* InviteScene */,
@@ -886,6 +891,31 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
+		A47BDA452A5D5F8D007B8E3E /* AssignScene */ = {
+			isa = PBXGroup;
+			children = (
+				A47BDA462A5D5FA6007B8E3E /* View */,
+				A47BDA472A5D5FAC007B8E3E /* ViewController */,
+			);
+			path = AssignScene;
+			sourceTree = "<group>";
+		};
+		A47BDA462A5D5FA6007B8E3E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A47BDA482A5D5FD6007B8E3E /* AssignView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A47BDA472A5D5FAC007B8E3E /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A47BDA4A2A5D5FE9007B8E3E /* AssignViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		A489BDF32A5A8DEE0027E817 /* Item */ = {
 			isa = PBXGroup;
 			children = (
@@ -1075,6 +1105,7 @@
 				691979FA2A5C6BDB0069FB63 /* WriteSaveAlertView.swift in Sources */,
 				697815D32A530BFA0047944C /* Detail.swift in Sources */,
 				697815902A53015D0047944C /* MakeVibrate.swift in Sources */,
+				A47BDA4B2A5D5FE9007B8E3E /* AssignViewController.swift in Sources */,
 				697815792A52FFA20047944C /* UIButton+.swift in Sources */,
 				697815E02A530DC80047944C /* AuthService.swift in Sources */,
 				A42723C92A5A8162003C445F /* ArchivingViewController.swift in Sources */,
@@ -1093,6 +1124,7 @@
 				697815F62A5311BA0047944C /* PushAlarm.swift in Sources */,
 				14AC19B32A57C27600A01E4F /* SettingViewController.swift in Sources */,
 				697815C32A530BB00047944C /* TabBar.swift in Sources */,
+				A47BDA492A5D5FD6007B8E3E /* AssignView.swift in Sources */,
 				697815DC2A530CF70047944C /* Config.swift in Sources */,
 				69DE6B912A53384C00F31812 /* UIColor+.swift in Sources */,
 				A489BDFE2A5AAAB40027E817 /* ArchivingQuestionCollectionViewCell.swift in Sources */,
