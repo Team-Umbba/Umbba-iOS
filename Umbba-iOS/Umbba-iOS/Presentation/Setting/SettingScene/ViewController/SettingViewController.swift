@@ -95,7 +95,6 @@ extension SettingViewController: UITableViewDataSource {
             return teamSection.count
         default:
             return 0
-            
         }
     }
     
@@ -111,7 +110,6 @@ extension SettingViewController: UITableViewDataSource {
             return UITableViewCell()
             
         }
-        
         return cell
     }
 }

@@ -60,12 +60,12 @@ private extension SettingTableViewCell {
         
         contentLabel.snp.makeConstraints {
             $0.centerY.equalToSuperview()
-            $0.leading.equalToSuperview().offset(24)
+            $0.leading.equalToSuperview().inset(24)
         }
         
         buttonImage.snp.makeConstraints {
             $0.centerY.equalToSuperview()
-            $0.trailing.equalToSuperview().offset(-24)
+            $0.trailing.equalToSuperview().inset(24)
             $0.size.equalTo(18)
         }
     }
