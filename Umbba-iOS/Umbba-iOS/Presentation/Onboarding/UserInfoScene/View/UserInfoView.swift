@@ -12,11 +12,19 @@ import SnapKit
 final class UserInfoView: UIView {
     
     // MARK: - Properties
+    weak var navigationdelegate: NavigationBarDelegate?
+    weak var nextDelegate: NextButtonDelegate?
     
     private var selectedButton: Int = 0
     private var genderButton: [UIButton] = []
     
     // MARK: - UI Components
+    private let navigationBarView: CustomNavigationBar = {
+        let view = CustomNavigationBar()
+        view.pretendardTitle = I18N.Onboarding.inviteNavigationTitle
+        view.isLeftButtonIncluded = true
+        return view
+    }()
     
     private let userInfoTitleLabel: UILabel = {
         let label = UILabel()
@@ -203,20 +211,27 @@ private extension UserInfoView {
     }
     
     func setAddTarget() {
+        navigationBarView.leftButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
+        nextButton.addTarget(self, action: #selector(nextButtonTapped), for: .touchUpInside)
         maleButton.addTarget(self, action: #selector(genderButtonTapped), for: .touchUpInside)
         femaleButton.addTarget(self, action: #selector(genderButtonTapped), for: .touchUpInside)
     }
     
     func setLayout() {
-        self.addSubviews(userInfoTitleLabel, scrollView, nextButton)
+        self.addSubviews(navigationBarView, userInfoTitleLabel, scrollView, nextButton)
         scrollView.addSubview(contentView)
         contentView.addSubviews(infoStackView)
         nameView.addSubviews(nameLabel, nameTextField, nameErrorLabel)
         genderView.addSubviews(genderLabel, genderStackView)
         birthView.addSubviews(birthLabel, birthTextField, birthErrorLabel)
         
+        navigationBarView.snp.makeConstraints {
+            $0.top.equalTo(self.safeAreaLayoutGuide)
+            $0.leading.trailing.equalToSuperview()
+        }
+        
         userInfoTitleLabel.snp.makeConstraints {
-            $0.top.equalTo(self.safeAreaLayoutGuide).inset(12)
+            $0.top.equalTo(navigationBarView.snp.bottom).offset(12)
             $0.leading.equalToSuperview().inset(24)
         }
         
@@ -341,6 +356,16 @@ private extension UserInfoView {
     }
     
     // MARK: - @objc Functions
+    
+    @objc
+    func backButtonTapped() {
+        navigationdelegate?.backButtonTapped()
+    }
+    
+    @objc
+    func nextButtonTapped() {
+        nextDelegate?.nextButtonTapped()
+    }
     
     @objc
     func genderButtonTapped(sender: UIButton) {
