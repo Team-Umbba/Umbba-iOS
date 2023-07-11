@@ -16,6 +16,10 @@
 		14AA29842A5685050038CDA1 /* NoticeAlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AA29832A5685050038CDA1 /* NoticeAlarmViewController.swift */; };
 		14AA29862A5685660038CDA1 /* NoticeAlarmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AA29852A5685660038CDA1 /* NoticeAlarmView.swift */; };
 		14AC19B32A57C27600A01E4F /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AC19B22A57C27600A01E4F /* SettingViewController.swift */; };
+		691979F22A5C61190069FB63 /* WriteCancelAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691979F12A5C61190069FB63 /* WriteCancelAlertView.swift */; };
+		691979F42A5C61450069FB63 /* AlertVIewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691979F32A5C61450069FB63 /* AlertVIewController.swift */; };
+		691979F82A5C6A4E0069FB63 /* WithdrawalAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691979F72A5C6A4E0069FB63 /* WithdrawalAlertView.swift */; };
+		691979FA2A5C6BDB0069FB63 /* WriteSaveAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691979F92A5C6BDB0069FB63 /* WriteSaveAlertView.swift */; };
 		69636FAD2A5A615C008B457A /* FamilyInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69636FAC2A5A615C008B457A /* FamilyInfoViewController.swift */; };
 		69636FAF2A5A616C008B457A /* FamilyInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69636FAE2A5A616C008B457A /* FamilyInfoView.swift */; };
 		69636FB32A5ADE4A008B457A /* CompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69636FB22A5ADE4A008B457A /* CompleteViewController.swift */; };
@@ -84,6 +88,9 @@
 		699455DD2A5AED19003C118A /* PushAlarmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 699455DC2A5AED19003C118A /* PushAlarmView.swift */; };
 		699455EB2A5C0C24003C118A /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 699455EA2A5C0C24003C118A /* LoginView.swift */; };
 		699455EE2A5C0C8B003C118A /* InviteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 699455ED2A5C0C8B003C118A /* InviteViewController.swift */; };
+		69A67D7B2A5C12CE00C43F49 /* AnswerWriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A67D7A2A5C12CE00C43F49 /* AnswerWriteView.swift */; };
+		69A67D7E2A5C12F100C43F49 /* AnswerWriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A67D7D2A5C12F100C43F49 /* AnswerWriteViewController.swift */; };
+		69A67D812A5C1BB600C43F49 /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A67D802A5C1BB600C43F49 /* CustomNavigationBar.swift */; };
 		69DE6B912A53384C00F31812 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DE6B902A53384C00F31812 /* UIColor+.swift */; };
 		69DE6B9B2A5341FF00F31812 /* Cafe24Classictype-v1.1.otf in Resources */ = {isa = PBXBuildFile; fileRef = 69DE6B9A2A5341FF00F31812 /* Cafe24Classictype-v1.1.otf */; };
 		69DE6B9F2A53421D00F31812 /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 69DE6B9C2A53421C00F31812 /* Pretendard-SemiBold.otf */; };
@@ -109,6 +116,10 @@
 		14AA29832A5685050038CDA1 /* NoticeAlarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeAlarmViewController.swift; sourceTree = "<group>"; };
 		14AA29852A5685660038CDA1 /* NoticeAlarmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeAlarmView.swift; sourceTree = "<group>"; };
 		14AC19B22A57C27600A01E4F /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		691979F12A5C61190069FB63 /* WriteCancelAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteCancelAlertView.swift; sourceTree = "<group>"; };
+		691979F32A5C61450069FB63 /* AlertVIewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertVIewController.swift; sourceTree = "<group>"; };
+		691979F72A5C6A4E0069FB63 /* WithdrawalAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithdrawalAlertView.swift; sourceTree = "<group>"; };
+		691979F92A5C6BDB0069FB63 /* WriteSaveAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteSaveAlertView.swift; sourceTree = "<group>"; };
 		69636FAC2A5A615C008B457A /* FamilyInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyInfoViewController.swift; sourceTree = "<group>"; };
 		69636FAE2A5A616C008B457A /* FamilyInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyInfoView.swift; sourceTree = "<group>"; };
 		69636FB22A5ADE4A008B457A /* CompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteViewController.swift; sourceTree = "<group>"; };
@@ -163,6 +174,10 @@
 		699455DC2A5AED19003C118A /* PushAlarmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushAlarmView.swift; sourceTree = "<group>"; };
 		699455EA2A5C0C24003C118A /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		699455ED2A5C0C8B003C118A /* InviteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteViewController.swift; sourceTree = "<group>"; };
+		69A67D782A5C0F9C00C43F49 /* Umbba-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Umbba-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		69A67D7A2A5C12CE00C43F49 /* AnswerWriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerWriteView.swift; sourceTree = "<group>"; };
+		69A67D7D2A5C12F100C43F49 /* AnswerWriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerWriteViewController.swift; sourceTree = "<group>"; };
+		69A67D802A5C1BB600C43F49 /* CustomNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBar.swift; sourceTree = "<group>"; };
 		69DE6B902A53384C00F31812 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		69DE6B9A2A5341FF00F31812 /* Cafe24Classictype-v1.1.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cafe24Classictype-v1.1.otf"; sourceTree = "<group>"; };
 		69DE6B9C2A53421C00F31812 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
@@ -239,6 +254,33 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		691979EE2A5C60C90069FB63 /* Alert */ = {
+			isa = PBXGroup;
+			children = (
+				691979F62A5C63120069FB63 /* ViewController */,
+				691979F52A5C63090069FB63 /* View */,
+			);
+			path = Alert;
+			sourceTree = "<group>";
+		};
+		691979F52A5C63090069FB63 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				691979F12A5C61190069FB63 /* WriteCancelAlertView.swift */,
+				691979F72A5C6A4E0069FB63 /* WithdrawalAlertView.swift */,
+				691979F92A5C6BDB0069FB63 /* WriteSaveAlertView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		691979F62A5C63120069FB63 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				691979F32A5C61450069FB63 /* AlertVIewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		69636FAA2A5A6123008B457A /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -275,7 +317,7 @@
 			isa = PBXGroup;
 			children = (
 				697815422A52FA370047944C /* Umbba-iOS */,
-				144F3F412A5C615B00D73A6B /* Umbba-iOS.app */,
+				69A67D782A5C0F9C00C43F49 /* Umbba-iOS.app */,
 			);
 			sourceTree = "<group>";
 		};
@@ -445,6 +487,7 @@
 		697815932A53021B0047944C /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				691979EE2A5C60C90069FB63 /* Alert */,
 				697815982A5302540047944C /* TabBar */,
 				697815942A53022A0047944C /* UIComponents */,
 			);
@@ -456,6 +499,7 @@
 			children = (
 				69DE6BAC2A5432CC00F31812 /* CustomTextField.swift */,
 				69DE6BAE2A5432E600F31812 /* CustomButton.swift */,
+				69A67D802A5C1BB600C43F49 /* CustomNavigationBar.swift */,
 			);
 			path = UIComponents;
 			sourceTree = "<group>";
@@ -591,6 +635,8 @@
 		697815AF2A5305200047944C /* WriteScene */ = {
 			isa = PBXGroup;
 			children = (
+				69A67D7C2A5C12DB00C43F49 /* ViewController */,
+				69A67D792A5C123700C43F49 /* View */,
 				697815D02A530BF10047944C /* Write.swift */,
 			);
 			path = WriteScene;
@@ -749,6 +795,22 @@
 			path = InviteViewController;
 			sourceTree = "<group>";
 		};
+		69A67D792A5C123700C43F49 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				69A67D7A2A5C12CE00C43F49 /* AnswerWriteView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		69A67D7C2A5C12DB00C43F49 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				69A67D7D2A5C12F100C43F49 /* AnswerWriteViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		69DE6BB02A543FDF00F31812 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -816,7 +878,7 @@
 				6978161B2A5317C10047944C /* FirebaseMessaging */,
 			);
 			productName = "Umbba-iOS";
-			productReference = 144F3F412A5C615B00D73A6B /* Umbba-iOS.app */;
+			productReference = 69A67D782A5C0F9C00C43F49 /* Umbba-iOS.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -910,6 +972,7 @@
 				69DE6BB82A54417F00F31812 /* String+.swift in Sources */,
 				69DE6BAD2A5432CC00F31812 /* CustomTextField.swift in Sources */,
 				144F3F432A5C655400D73A6B /* AccountViewController.swift in Sources */,
+				691979F22A5C61190069FB63 /* WriteCancelAlertView.swift in Sources */,
 				697815832A53000D0047944C /* UITableView+.swift in Sources */,
 				697815692A52FE850047944C /* SizeLiterals.swift in Sources */,
 				69636FB52A5ADE5D008B457A /* CompleteView.swift in Sources */,
@@ -931,21 +994,25 @@
 				69636FB32A5ADE4A008B457A /* CompleteViewController.swift in Sources */,
 				697815F42A5311AA0047944C /* Complete.swift in Sources */,
 				697815D12A530BF10047944C /* Write.swift in Sources */,
+				69A67D7E2A5C12F100C43F49 /* AnswerWriteViewController.swift in Sources */,
 				697815EC2A5311770047944C /* Animation.swift in Sources */,
 				699455DB2A5AED0B003C118A /* PushAlarmViewController.swift in Sources */,
 				14A6D3062A5A63EF003A83B3 /* SettingSectionHeaderView.swift in Sources */,
 				697815CF2A530BE70047944C /* Main.swift in Sources */,
 				14348E9D2A5B37DC0077A9B8 /* TabBarController.swift in Sources */,
+				691979F42A5C61450069FB63 /* AlertVIewController.swift in Sources */,
 				6991BA702A57314A0091D52D /* UserInfoView.swift in Sources */,
 				697815D52A530C050047944C /* Archiving.swift in Sources */,
 				697815DE2A530D2C0047944C /* NetworkResult.swift in Sources */,
 				6978156B2A52FE960047944C /* FontLiterals.swift in Sources */,
+				691979FA2A5C6BDB0069FB63 /* WriteSaveAlertView.swift in Sources */,
 				697815D32A530BFA0047944C /* Detail.swift in Sources */,
 				697815902A53015D0047944C /* MakeVibrate.swift in Sources */,
 				697815792A52FFA20047944C /* UIButton+.swift in Sources */,
 				697815E02A530DC80047944C /* AuthService.swift in Sources */,
 				69636FAD2A5A615C008B457A /* FamilyInfoViewController.swift in Sources */,
 				697815E32A530E140047944C /* User.swift in Sources */,
+				69A67D812A5C1BB600C43F49 /* CustomNavigationBar.swift in Sources */,
 				697815812A52FFF50047944C /* NSObject+.swift in Sources */,
 				A42723BF2A5537CD003C445F /* EntryView.swift in Sources */,
 				697815D72A530C120047944C /* Setting.swift in Sources */,
@@ -961,11 +1028,13 @@
 				69DE6B912A53384C00F31812 /* UIColor+.swift in Sources */,
 				69DE6BB42A54400500F31812 /* InviteView.swift in Sources */,
 				6978155B2A52FBD30047944C /* UserManager.swift in Sources */,
+				691979F82A5C6A4E0069FB63 /* WithdrawalAlertView.swift in Sources */,
 				697815EE2A53117F0047944C /* UserInfo.swift in Sources */,
 				697815F82A5311C30047944C /* Quest.swift in Sources */,
 				69DE6BAF2A5432E600F31812 /* CustomButton.swift in Sources */,
 				697815732A52FF650047944C /* UIImage+.swift in Sources */,
 				144F3F472A5C963B00D73A6B /* AccountTableView.swift in Sources */,
+				69A67D7B2A5C12CE00C43F49 /* AnswerWriteView.swift in Sources */,
 				6978156D2A52FEA00047944C /* StringLiterals.swift in Sources */,
 				697815462A52FA370047944C /* SceneDelegate.swift in Sources */,
 			);
