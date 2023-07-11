@@ -20,10 +20,14 @@ final class SettingViewController: UIViewController {
 
     // MARK: - Life Cycles
     
+    override func loadView() {
+        super.loadView()
+        view = settingTableView
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view = settingTableView
-        
+
         setDelegate()
     }
 }
@@ -95,7 +99,6 @@ extension SettingViewController: UITableViewDataSource {
             return teamSection.count
         default:
             return 0
-            
         }
     }
     
@@ -111,7 +114,6 @@ extension SettingViewController: UITableViewDataSource {
             return UITableViewCell()
             
         }
-        
         return cell
     }
 }

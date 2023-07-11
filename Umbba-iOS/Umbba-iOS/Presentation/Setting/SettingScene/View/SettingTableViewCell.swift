@@ -24,7 +24,7 @@ final class SettingTableViewCell: UITableViewCell, UITableViewRegisterable {
         return label
     }()
     
-    private lazy var buttonImage: UIImageView = {
+    lazy var buttonImage: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(systemName: "chevron.compact.right")?.withTintColor(.gray, renderingMode: .alwaysOriginal)
         return imageView
@@ -50,7 +50,7 @@ final class SettingTableViewCell: UITableViewCell, UITableViewRegisterable {
 private extension SettingTableViewCell {
     
     func setUI() {
-        self.backgroundColor = .white
+        self.backgroundColor = .UmbbaWhite
         separatorInset.left = 0
         self.selectionStyle = .none
     }
@@ -60,12 +60,12 @@ private extension SettingTableViewCell {
         
         contentLabel.snp.makeConstraints {
             $0.centerY.equalToSuperview()
-            $0.leading.equalToSuperview().offset(24)
+            $0.leading.equalToSuperview().inset(24)
         }
         
         buttonImage.snp.makeConstraints {
             $0.centerY.equalToSuperview()
-            $0.trailing.equalToSuperview().offset(-24)
+            $0.trailing.equalToSuperview().inset(24)
             $0.size.equalTo(18)
         }
     }
