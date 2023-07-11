@@ -21,6 +21,8 @@
 		691979F82A5C6A4E0069FB63 /* WithdrawalAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691979F72A5C6A4E0069FB63 /* WithdrawalAlertView.swift */; };
 		691979FA2A5C6BDB0069FB63 /* WriteSaveAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691979F92A5C6BDB0069FB63 /* WriteSaveAlertView.swift */; };
 		6951A6962A5D2B5300D49692 /* InviteAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6951A6952A5D2B5300D49692 /* InviteAlertView.swift */; };
+		6951A6982A5D89DA00D49692 /* NaviagionBarProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6951A6972A5D89DA00D49692 /* NaviagionBarProtocol.swift */; };
+		6951A69A2A5D8A8F00D49692 /* NextButtonProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6951A6992A5D8A8F00D49692 /* NextButtonProtocol.swift */; };
 		69636FAD2A5A615C008B457A /* FamilyInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69636FAC2A5A615C008B457A /* FamilyInfoViewController.swift */; };
 		69636FAF2A5A616C008B457A /* FamilyInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69636FAE2A5A616C008B457A /* FamilyInfoView.swift */; };
 		69636FB32A5ADE4A008B457A /* CompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69636FB22A5ADE4A008B457A /* CompleteViewController.swift */; };
@@ -128,6 +130,8 @@
 		691979F72A5C6A4E0069FB63 /* WithdrawalAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithdrawalAlertView.swift; sourceTree = "<group>"; };
 		691979F92A5C6BDB0069FB63 /* WriteSaveAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteSaveAlertView.swift; sourceTree = "<group>"; };
 		6951A6952A5D2B5300D49692 /* InviteAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteAlertView.swift; sourceTree = "<group>"; };
+		6951A6972A5D89DA00D49692 /* NaviagionBarProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaviagionBarProtocol.swift; sourceTree = "<group>"; };
+		6951A6992A5D8A8F00D49692 /* NextButtonProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextButtonProtocol.swift; sourceTree = "<group>"; };
 		69636FAC2A5A615C008B457A /* FamilyInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyInfoViewController.swift; sourceTree = "<group>"; };
 		69636FAE2A5A616C008B457A /* FamilyInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyInfoView.swift; sourceTree = "<group>"; };
 		69636FB22A5ADE4A008B457A /* CompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteViewController.swift; sourceTree = "<group>"; };
@@ -435,6 +439,8 @@
 			children = (
 				697815842A5300290047944C /* UITableViewRegiseterable.swift */,
 				697815862A53003A0047944C /* UICollectionViewRegisterable.swift */,
+				6951A6972A5D89DA00D49692 /* NaviagionBarProtocol.swift */,
+				6951A6992A5D8A8F00D49692 /* NextButtonProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -1018,6 +1024,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6951A69A2A5D8A8F00D49692 /* NextButtonProtocol.swift in Sources */,
 				69636FAF2A5A616C008B457A /* FamilyInfoView.swift in Sources */,
 				6978157B2A52FFBC0047944C /* UIViewController+.swift in Sources */,
 				697815752A52FF760047944C /* UIVIew+.swift in Sources */,
@@ -1061,6 +1068,7 @@
 				14348E9D2A5B37DC0077A9B8 /* TabBarController.swift in Sources */,
 				691979F42A5C61450069FB63 /* AlertVIewController.swift in Sources */,
 				6991BA702A57314A0091D52D /* UserInfoView.swift in Sources */,
+				6951A6982A5D89DA00D49692 /* NaviagionBarProtocol.swift in Sources */,
 				697815D52A530C050047944C /* Archiving.swift in Sources */,
 				697815DE2A530D2C0047944C /* NetworkResult.swift in Sources */,
 				6978156B2A52FE960047944C /* FontLiterals.swift in Sources */,

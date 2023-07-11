@@ -9,18 +9,11 @@ import UIKit
 
 import SnapKit
 
-// MARK: - Protocols
-
-protocol AnswrWriteDelegate: AnyObject {
-    func backButtonTapped()
-    func completeButtonTapped()
-}
-
 final class AnswerWriteView: UIView {
     
     // MARK: - Properties
     
-    weak var delegate: AnswrWriteDelegate?
+    weak var delegate: NavigationBarDelegate?
     
     // MARK: - UI Components
     
