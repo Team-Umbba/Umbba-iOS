@@ -8,6 +8,11 @@
 import UIKit
 
 enum ImageLiterals {
+    enum Common {
+        static var img_umbbaLogo: UIImage { .load(name: "umbbaLogo") }
+        static var icn_exit: UIImage { .load(name: "exit") }
+    }
+    
     enum NavigationBar {
         static var icn_back: UIImage { .load(name: "back") }
         static var icn_check: UIImage { .load(name: "check") }
