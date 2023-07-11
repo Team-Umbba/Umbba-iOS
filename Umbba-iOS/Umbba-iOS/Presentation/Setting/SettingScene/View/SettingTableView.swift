@@ -14,8 +14,6 @@ final class SettingTableView: UIView {
     // MARK: - UI Components
     
     lazy var tableView = UITableView(frame: .zero, style: .plain)
-    let userSection = Setting.section0()
-    let teamSection = Setting.section1()
     
     // MARK: - Life Cycles
     

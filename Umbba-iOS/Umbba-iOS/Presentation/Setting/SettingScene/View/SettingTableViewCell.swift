@@ -47,7 +47,7 @@ final class SettingTableViewCell: UITableViewCell, UITableViewRegisterable {
 
 // MARK: - Extensions
 
-extension SettingTableViewCell {
+private extension SettingTableViewCell {
     
     func setUI() {
         self.backgroundColor = .white
