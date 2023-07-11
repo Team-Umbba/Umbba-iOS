@@ -13,12 +13,21 @@ final class FamilyInfoView: UIView {
     
     // MARK: - Properties
     
+    weak var navigationdelegate: NavigationBarDelegate?
+    weak var nextDelegate: NextButtonDelegate?
+    
     private var selectedRelationButton: Int = 0
     private var relationButton: [UIButton] = []
     private var selectedGenderButton: Int = 0
     private var genderButton: [UIButton] = []
     
     // MARK: - UI Components
+    private let navigationBarView: CustomNavigationBar = {
+        let view = CustomNavigationBar()
+        view.pretendardTitle = I18N.Onboarding.inviteNavigationTitle
+        view.isLeftButtonIncluded = true
+        return view
+    }()
     
     private let familyInfoTitleLabel: UILabel = {
         let label = UILabel()
@@ -147,7 +156,7 @@ final class FamilyInfoView: UIView {
         return stackView
     }()
     
-    lazy var nextButton: CustomButton = {
+    private lazy var nextButton: CustomButton = {
         let button = CustomButton(status: false, title: I18N.Common.nextButtonTitle)
         button.isEnabled = false
         return button
@@ -176,6 +185,8 @@ private extension FamilyInfoView {
     }
     
     func setAddTarget() {
+        navigationBarView.leftButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
+        nextButton.addTarget(self, action: #selector(nextButtonTapped), for: .touchUpInside)
         parentButton.addTarget(self, action: #selector(relationButtonTapped), for: .touchUpInside)
         childButton.addTarget(self, action: #selector(relationButtonTapped), for: .touchUpInside)
         maleButton.addTarget(self, action: #selector(genderButtonTapped), for: .touchUpInside)
@@ -246,6 +257,8 @@ private extension FamilyInfoView {
         }
     }
     
+    // MARK: - Functions
+    
     func setGenderButtonTitle(male: String, female: String) {
         maleButton.setTitle(male, for: .normal)
         femaleButton.setTitle(female, for: .normal)
@@ -263,6 +276,18 @@ private extension FamilyInfoView {
     func updateGenderButtonUI() {
         maleButton.isSelected = false
         femaleButton.isSelected = false
+    }
+    
+    // MARK: - @objc Functions
+    
+    @objc
+    func backButtonTapped() {
+        navigationdelegate?.backButtonTapped()
+    }
+    
+    @objc
+    func nextButtonTapped() {
+        nextDelegate?.nextButtonTapped()
     }
     
     @objc

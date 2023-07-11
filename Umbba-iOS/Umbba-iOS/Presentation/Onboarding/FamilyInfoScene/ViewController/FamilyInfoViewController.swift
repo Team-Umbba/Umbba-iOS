@@ -9,8 +9,11 @@ import UIKit
 
 final class FamilyInfoViewController: UIViewController {
     
+    // MARK: - UI Components
+    
     private let familyInfoView = FamilyInfoView()
-    private lazy var nextButton = familyInfoView.nextButton
+    
+    // MARK: - Life Cycles
     
     override func loadView() {
         super.loadView()
@@ -21,21 +24,32 @@ final class FamilyInfoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setNavigationUI()
+        setDelegate()
     }
 }
 
-// MARK: - Methods
+// MARK: - Extensions
 
 extension FamilyInfoViewController {
-    func setNavigationUI() {
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "arrow.backward"), style: .plain, target: self, action: #selector(backButtonTapped))
-        navigationItem.leftBarButtonItem?.tintColor = .black
+    func setDelegate() {
+        familyInfoView.navigationdelegate = self
+        familyInfoView.nextDelegate = self
+    }
+}
+
+extension FamilyInfoViewController: NavigationBarDelegate {
+    func backButtonTapped() {
+        self.navigationController?.popViewController(animated: true)
     }
     
-    @objc
-    func backButtonTapped() {
-        print("이전 화면으로 이동")
-        self.navigationController?.popViewController(animated: true)
+    func completeButtonTapped() {
+        
+    }
+}
+
+extension FamilyInfoViewController: NextButtonDelegate {
+    func nextButtonTapped() {
+        // FixMe: - 단답화면으로 이동해야함
+        self.navigationController?.pushViewController(PushAlarmViewController(), animated: true)
     }
 }
