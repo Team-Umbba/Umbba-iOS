@@ -94,7 +94,7 @@ final class UserInfoView: UIView {
     private lazy var maleButton: UIButton = {
         let button = UIButton()
         button.setBackgroundColor(.Gray300, for: .normal)
-        button.setBackgroundColor(.Gray500, for: .selected)
+        button.setBackgroundColor(.Gray800, for: .selected)
         button.setTitle(I18N.Onboarding.male, for: .normal)
         button.setTitleColor(.UmbbaBlack, for: .normal)
         button.setTitleColor(.UmbbaWhite, for: .selected)
@@ -107,7 +107,7 @@ final class UserInfoView: UIView {
     private lazy var femaleButton: UIButton = {
         let button = UIButton()
         button.setBackgroundColor(.Gray300, for: .normal)
-        button.setBackgroundColor(.Gray500, for: .selected)
+        button.setBackgroundColor(.Gray800, for: .selected)
         button.setTitle(I18N.Onboarding.female, for: .normal)
         button.setTitleColor(.UmbbaBlack, for: .normal)
         button.setTitleColor(.UmbbaWhite, for: .selected)
