@@ -12,96 +12,106 @@ import SnapKit
 final class SettingViewController: UIViewController {
     
     // MARK: - UI Components
+        
+    private let settingTableView = SettingTableView()
+    private lazy var settingtableView = settingTableView.tableView
+    private let userSection = I18N.Setting.userSectionLabel
+    private let teamSection = I18N.Setting.teamSectionLabel
 
-    private let titleLabel: UILabel = {
-        let label = UILabel()
-        label.text = I18N.Setting.settingTitle
-        label.font = .PretendardRegular(size: 20)
-        label.textAlignment = .left
-        label.sizeToFit()
-        return label
-    }()
-    
-    private let tableView = UITableView(frame: .zero, style: .grouped)
-    private let dummy = Setting.dummy()
-    
     // MARK: - Life Cycles
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view = settingTableView
         
-        setUI()
-        setLayout()
-        setTableView()
-        registerCell()
         setDelegate()
-        setNavigationUI()
     }
 }
 
 // MARK: - Extensions
 
 private extension SettingViewController {
-    
-    func setUI() {
-        view.backgroundColor = .white
-    }
-    
-    func setLayout() {
-        view.addSubview(tableView)
-        
-        tableView.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaInsets)
-            $0.leading.trailing.bottom.equalToSuperview()
-        }
-    }
-    
-    func setTableView() {
-        tableView.backgroundColor = .white
-    }
-    
-    func registerCell() {
-        SettingTableViewCell.register(target: tableView)
-        SettingSectionHeaderView.register(target: tableView)
-    }
-    
+
     func setDelegate() {
-        tableView.delegate = self
-        tableView.dataSource = self
-    }
-    
-    func setNavigationUI() {
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont.PretendardRegular(size: 20), .foregroundColor: UIColor.UmbbaBlack]
-        navigationItem.leftBarButtonItem = UIBarButtonItem.init(customView: titleLabel)
+        settingtableView.delegate = self
+        settingtableView.dataSource = self
     }
 }
 
 extension SettingViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let header = SettingSectionHeaderView.dequeueReusableHeaderFooterView(tableView: tableView)
-        return header
+        if section == 1 {
+            let header = SettingSectionHeaderView.dequeueReusableHeaderFooterView(tableView: tableView)
+            return header
+        } else {
+            return UIView()
+        }
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 72
+        switch section {
+        case 0:
+            return 0
+        case 1:
+            return 72
+        default:
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 72
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        switch indexPath.section {
+        case 0:
+            let accountViewController = AccountViewController()
+            self.navigationController?.pushViewController(accountViewController, animated: true)
+        case 1:
+            if indexPath.row == 0 { print("--> \(indexPath.row)") }
+            if indexPath.row == 1 { print("--> \(indexPath.row)") }
+            if indexPath.row == 2 { print("--> \(indexPath.row)") }
+        default:
+            return
+        }
+        
+    }
 }
 
 extension SettingViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dummy.count
+        switch section {
+        case 0:
+            return userSection.count
+        case 1:
+            return teamSection.count
+        default:
+            return 0
+            
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = SettingTableViewCell.dequeueReusableCell(tableView: tableView, indexPath: indexPath)
-        cell.configureCell(dummy[indexPath.row])
+        
+        switch indexPath.section {
+        case 0:
+            cell.contentLabel.text = I18N.Setting.userSectionLabel[indexPath.row]
+        case 1:
+            cell.contentLabel.text = I18N.Setting.teamSectionLabel[indexPath.row]
+        default:
+            return UITableViewCell()
+            
+        }
+        
         return cell
     }
 }

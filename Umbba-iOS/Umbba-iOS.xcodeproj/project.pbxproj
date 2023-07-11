@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		14348E9D2A5B37DC0077A9B8 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14348E9C2A5B37DC0077A9B8 /* TabBarController.swift */; };
+		144F3F432A5C655400D73A6B /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144F3F422A5C655400D73A6B /* AccountViewController.swift */; };
+		144F3F452A5C883800D73A6B /* SettingTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144F3F442A5C883800D73A6B /* SettingTableView.swift */; };
+		144F3F472A5C963B00D73A6B /* AccountTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144F3F462A5C963B00D73A6B /* AccountTableView.swift */; };
 		14A01D432A57D8A200D4F860 /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A01D422A57D8A200D4F860 /* SettingTableViewCell.swift */; };
 		14A6D3062A5A63EF003A83B3 /* SettingSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A6D3052A5A63EF003A83B3 /* SettingSectionHeaderView.swift */; };
 		14AA29842A5685050038CDA1 /* NoticeAlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AA29832A5685050038CDA1 /* NoticeAlarmViewController.swift */; };
@@ -104,6 +107,10 @@
 
 /* Begin PBXFileReference section */
 		14348E9C2A5B37DC0077A9B8 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		144F3F412A5C615B00D73A6B /* Umbba-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Umbba-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		144F3F422A5C655400D73A6B /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
+		144F3F442A5C883800D73A6B /* SettingTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableView.swift; sourceTree = "<group>"; };
+		144F3F462A5C963B00D73A6B /* AccountTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTableView.swift; sourceTree = "<group>"; };
 		14A01D422A57D8A200D4F860 /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
 		14A6D3052A5A63EF003A83B3 /* SettingSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingSectionHeaderView.swift; sourceTree = "<group>"; };
 		14AA29832A5685050038CDA1 /* NoticeAlarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeAlarmViewController.swift; sourceTree = "<group>"; };
@@ -231,6 +238,7 @@
 			isa = PBXGroup;
 			children = (
 				14AC19B22A57C27600A01E4F /* SettingViewController.swift */,
+				144F3F422A5C655400D73A6B /* AccountViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -240,6 +248,8 @@
 			children = (
 				14A01D422A57D8A200D4F860 /* SettingTableViewCell.swift */,
 				14A6D3052A5A63EF003A83B3 /* SettingSectionHeaderView.swift */,
+				144F3F442A5C883800D73A6B /* SettingTableView.swift */,
+				144F3F462A5C963B00D73A6B /* AccountTableView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -961,6 +971,7 @@
 				697815BF2A530B8F0047944C /* Lottie.swift in Sources */,
 				69DE6BB82A54417F00F31812 /* String+.swift in Sources */,
 				69DE6BAD2A5432CC00F31812 /* CustomTextField.swift in Sources */,
+				144F3F432A5C655400D73A6B /* AccountViewController.swift in Sources */,
 				691979F22A5C61190069FB63 /* WriteCancelAlertView.swift in Sources */,
 				697815832A53000D0047944C /* UITableView+.swift in Sources */,
 				697815692A52FE850047944C /* SizeLiterals.swift in Sources */,
@@ -973,6 +984,7 @@
 				A42723C12A5537DA003C445F /* EntryViewController.swift in Sources */,
 				697815712A52FEC10047944C /* ColorLiterals.swift in Sources */,
 				697815482A52FA370047944C /* ViewController.swift in Sources */,
+				144F3F452A5C883800D73A6B /* SettingTableView.swift in Sources */,
 				A42723BB2A553069003C445F /* LoginViewController.swift in Sources */,
 				697815852A5300290047944C /* UITableViewRegiseterable.swift in Sources */,
 				6978158E2A5300F90047944C /* ButtonPress.swift in Sources */,
@@ -1021,6 +1033,7 @@
 				697815F82A5311C30047944C /* Quest.swift in Sources */,
 				69DE6BAF2A5432E600F31812 /* CustomButton.swift in Sources */,
 				697815732A52FF650047944C /* UIImage+.swift in Sources */,
+				144F3F472A5C963B00D73A6B /* AccountTableView.swift in Sources */,
 				69A67D7B2A5C12CE00C43F49 /* AnswerWriteView.swift in Sources */,
 				6978156D2A52FEA00047944C /* StringLiterals.swift in Sources */,
 				697815462A52FA370047944C /* SceneDelegate.swift in Sources */,

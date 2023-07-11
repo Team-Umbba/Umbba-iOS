@@ -6,16 +6,3 @@
 //
 
 import UIKit
-
-struct Setting {
-    let title: String
-}
-
-extension Setting {
-    static func dummy() -> [Setting] {
-        return [Setting(title: "About 엄빠도 어렸다"),
-                Setting(title: "이용약관"),
-                Setting(title: "공지사항")
-        ]
-    }
-}

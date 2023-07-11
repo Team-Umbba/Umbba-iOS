@@ -47,12 +47,12 @@ final class SettingTableViewCell: UITableViewCell, UITableViewRegisterable {
 
 // MARK: - Extensions
 
-extension SettingTableViewCell {
+private extension SettingTableViewCell {
     
     func setUI() {
-        contentView.backgroundColor = .white
+        self.backgroundColor = .white
         separatorInset.left = 0
-        selectionStyle = .none
+        self.selectionStyle = .none
     }
     
     func setLayout() {
@@ -68,9 +68,5 @@ extension SettingTableViewCell {
             $0.trailing.equalToSuperview().offset(-24)
             $0.size.equalTo(18)
         }
-    }
-    
-    func configureCell(_ setting: Setting) {
-        contentLabel.text = setting.title
     }
 }
