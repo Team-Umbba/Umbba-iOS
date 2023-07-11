@@ -53,8 +53,8 @@ enum I18N {
     
     struct Auth {
         static let loginTitle = "부모와 떠나는 시간 여행"
-        static let appleButtonTitle = "애플로 로그인"
-        static let kakaoButtonTitle = "카카오로 로그인"
+        static let appleButtonTitle = "애플로 연동하기"
+        static let kakaoButtonTitle = "카카오로 연동하기"
         static let entryButtonTitle = "시작하기"
         static let dividingText = "--------------------- or ---------------------"
         static let inviteText = "카카오톡 초대 코드를 받고 왔어요"
