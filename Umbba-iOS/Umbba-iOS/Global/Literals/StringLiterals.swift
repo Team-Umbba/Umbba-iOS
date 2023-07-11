@@ -93,6 +93,8 @@ enum I18N {
         static let userSectionLabel = ["계정 관리"]
         static let teamSectionLabel = ["About 엄빠도 어렸다", "이용약관", "공지사항"]
         static let accountSectionLabel = ["로그아웃", "회원 탈퇴"]
+        static let termsOfUseURL = "https://www.notion.so/f1a14bf60ed4421f9b3761ef88906adb"
+        static let privacyProcessURL = "https://www.notion.so/99fe0f58825d4f87bd3b987fadc623b6 "
     }
     
     enum Alert {
