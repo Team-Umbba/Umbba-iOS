@@ -11,6 +11,10 @@ import SnapKit
 
 final class AccountTableView: UIView {
     
+    // MARK: - Properties
+
+    weak var navigationdelegate: NavigationBarDelegate?
+    
     // MARK: - UI Components
     
     private let navigationBarView: CustomNavigationBar = {
@@ -28,6 +32,7 @@ final class AccountTableView: UIView {
         super.init(frame: frame)
         
         setUI()
+        setAddTarget()
         setLayout()
         setTableView()
         registerCell()
@@ -44,6 +49,10 @@ private extension AccountTableView {
     
     func setUI() {
         backgroundColor = .UmbbaWhite
+    }
+    
+    func setAddTarget() {
+        navigationBarView.leftButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
     }
 
     func setLayout() {
@@ -63,9 +72,15 @@ private extension AccountTableView {
     func setTableView() {
         tableView.backgroundColor = .UmbbaWhite
         tableView.isScrollEnabled = false
+        tableView.separatorStyle = .none
     }
     
     func registerCell() {
         SettingTableViewCell.register(target: tableView)
+    }
+    
+    @objc
+    func backButtonTapped() {
+        navigationdelegate?.backButtonTapped()
     }
 }
