@@ -12,7 +12,6 @@ final class UserInfoViewController: UIViewController {
     // MARK: - UI Components
     
     private let userInfoView = UserInfoView()
-    private lazy var nextButton = userInfoView.nextButton
     
     // MARK: - Life Cycles
     
@@ -25,21 +24,31 @@ final class UserInfoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setNavigationUI()
+        setDelegate()
     }
 }
 
 // MARK: - Extensions
 
 extension UserInfoViewController {
-    func setNavigationUI() {
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "arrow.backward"), style: .plain, target: self, action: #selector(backButtonTapped))
-        navigationItem.leftBarButtonItem?.tintColor = .black
+    func setDelegate() {
+        userInfoView.navigationdelegate = self
+        userInfoView.nextDelegate = self
+    }
+}
+
+extension UserInfoViewController: NavigationBarDelegate {
+    func backButtonTapped() {
+        self.navigationController?.popViewController(animated: true)
     }
     
-    @objc
-    func backButtonTapped() {
-        print("이전 화면으로 이동")
-        self.navigationController?.popViewController(animated: true)
+    func completeButtonTapped() {
+        
+    }
+}
+
+extension UserInfoViewController: NextButtonDelegate {
+    func nextButtonTapped() {
+        self.navigationController?.pushViewController(FamilyInfoViewController(), animated: true)
     }
 }

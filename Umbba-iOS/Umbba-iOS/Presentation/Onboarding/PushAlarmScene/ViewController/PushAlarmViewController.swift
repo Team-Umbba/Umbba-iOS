@@ -22,7 +22,6 @@ final class PushAlarmViewController: UIViewController {
     
     private let pushAlarmView = PushAlarmView()
     private lazy var pickerView = pushAlarmView.timePickerView
-    private lazy var nextButton = pushAlarmView.nextButton
     
     // MARK: - Life Cycles
     
@@ -35,8 +34,6 @@ final class PushAlarmViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setNavigationUI()
-        setAddTarget()
         setDelegate()
     }
 }
@@ -44,16 +41,10 @@ final class PushAlarmViewController: UIViewController {
 // MARK: - Extensions
 
 private extension PushAlarmViewController {
-    func setNavigationUI() {
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "arrow.backward"), style: .plain, target: self, action: #selector(backButtonTapped))
-        navigationItem.leftBarButtonItem?.tintColor = .black
-    }
-    
-    func setAddTarget() {
-        nextButton.addTarget(self, action: #selector(nextButtonTapped), for: .touchUpInside)
-    }
     
     func setDelegate() {
+        pushAlarmView.navigationdelegate = self
+        pushAlarmView.nextDelegate = self
         pickerView.delegate = self
         pickerView.dataSource = self
     }
@@ -80,13 +71,19 @@ private extension PushAlarmViewController {
             formattedTime = String(format: "%02d:%02d:00", Int(hourString) ?? 0, minute)
         }
     }
-    
-    @objc
+}
+
+extension PushAlarmViewController: NavigationBarDelegate {
     func backButtonTapped() {
         self.navigationController?.popViewController(animated: true)
     }
     
-    @objc
+    func completeButtonTapped() {
+        
+    }
+}
+
+extension PushAlarmViewController: NextButtonDelegate {
     func nextButtonTapped() {
         convertToTime(time: pushAlarmTime)
         print("\(formattedTime)")

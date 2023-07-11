@@ -15,17 +15,18 @@ final class InviteViewController: UIViewController {
     
     private let inviteView = InviteView()
     
-    // MARK: - View Life Cycle
+    // MARK: - Life Cycles
     
     override func loadView() {
         super.loadView()
+        
         view = inviteView
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setNavigationUI()
+        setDelegate()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -41,18 +42,28 @@ final class InviteViewController: UIViewController {
     }
 }
 
-// MARK: - Methods
+// MARK: - Extensions
 
 extension InviteViewController {
-    func setNavigationUI() {
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "arrow.backward"), style: .plain, target: self, action: #selector(backButtonTapped))
-        navigationItem.leftBarButtonItem?.tintColor = .UmbbaBlack
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont.PretendardRegular(size: 16), .foregroundColor: UIColor.UmbbaBlack]
-        navigationItem.title = I18N.Onboarding.inviteNavigationTitle
+    func setDelegate() {
+        inviteView.navigationdelegate = self
+        inviteView.nextDelegate = self
+    }
+}
+
+extension InviteViewController: NavigationBarDelegate {
+    func backButtonTapped() {
+        self.navigationController?.popViewController(animated: true)
     }
     
-    @objc
-    func backButtonTapped() {
-        print("이전 화면으로 이동")
+    func completeButtonTapped() {
+        
+    }
+}
+
+extension InviteViewController: NextButtonDelegate {
+    func nextButtonTapped() {
+        // FixMe: - 교신화면 만든 후 교신화면으로 이동
+        self.navigationController?.pushViewController(UserInfoViewController(), animated: true)
     }
 }

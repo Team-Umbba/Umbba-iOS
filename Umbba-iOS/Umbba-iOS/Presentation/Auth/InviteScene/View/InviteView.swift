@@ -11,14 +11,28 @@ import SnapKit
 
 final class InviteView: UIView {
     
+    // MARK: - Properties
+        
+    weak var navigationdelegate: NavigationBarDelegate?
+    weak var nextDelegate: NextButtonDelegate?
+
     // MARK: - UI Components
     
+    private let navigationBarView: CustomNavigationBar = {
+        let view = CustomNavigationBar()
+        view.pretendardTitle = I18N.Onboarding.inviteNavigationTitle
+        view.isLeftButtonIncluded = true
+        return view
+    }()
+
     private let inviteTitleLabel: UILabel = {
         let label = UILabel()
         label.text = I18N.Onboarding.inviteTitle
         label.font = .PretendardRegular(size: 24)
         label.numberOfLines = 0
-        label.setLineSpacingPartFontChange(lineSpacing: 5.0, targetString: I18N.Onboarding.inviteBoldTitle, font: .PretendardBold(size: 24))
+        label.setLineSpacingPartFontChange(lineSpacing: 5.0,
+                                           targetString: I18N.Onboarding.inviteBoldTitle,
+                                           font: .PretendardBold(size: 24))
         return label
     }()
     
@@ -62,7 +76,7 @@ final class InviteView: UIView {
 
 private extension InviteView {
     func setUI() {
-        self.backgroundColor = .white
+        self.backgroundColor = .UmbbaWhite
     }
     
     func setDelegate() {
@@ -70,14 +84,20 @@ private extension InviteView {
     }
     
     func setAddTarget() {
+        navigationBarView.leftButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
         nextButton.addTarget(self, action: #selector(nextButtonTapped), for: .touchUpInside)
     }
     
     func setLayout() {
-        self.addSubviews(inviteTitleLabel, inviteTextField, nextButton, errorLabel)
+        self.addSubviews(navigationBarView, inviteTitleLabel, inviteTextField, nextButton, errorLabel)
+        
+        navigationBarView.snp.makeConstraints {
+            $0.top.equalTo(self.safeAreaLayoutGuide)
+            $0.leading.trailing.equalToSuperview()
+        }
         
         inviteTitleLabel.snp.makeConstraints {
-            $0.top.equalTo(self.safeAreaLayoutGuide).inset(12)
+            $0.top.equalTo(navigationBarView.snp.bottom).offset(12)
             $0.leading.equalToSuperview().inset(24)
         }
         
@@ -100,14 +120,13 @@ private extension InviteView {
     }
     
     @objc
+    func backButtonTapped() {
+        navigationdelegate?.backButtonTapped()
+    }
+    
+    @objc
     func nextButtonTapped() {
-        // FixMe: - 초대코드 형식에 맞춰 수정 필요
-        if inviteTextField.text?.isContainNumberAndAlphabet() == false {
-            self.errorLabel.isHidden = false
-            inviteTextField.textFieldStatus = .uncorrectedType
-        } else {
-            print("다음 화면으로 이동")
-        }
+        nextDelegate?.nextButtonTapped()
     }
 }
 
