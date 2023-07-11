@@ -151,7 +151,6 @@ extension ArchivingViewController: UICollectionViewDataSource {
 }
 
 extension ArchivingViewController: UICollectionViewDelegateFlowLayout {
-    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return Section.allCases.count
     }
