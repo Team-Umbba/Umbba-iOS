@@ -20,10 +20,14 @@ final class SettingViewController: UIViewController {
 
     // MARK: - Life Cycles
     
+    override func loadView() {
+        super.loadView()
+        view = settingTableView
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view = settingTableView
-        
+
         setDelegate()
     }
 }

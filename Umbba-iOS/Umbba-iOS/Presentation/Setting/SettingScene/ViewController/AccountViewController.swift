@@ -17,9 +17,13 @@ final class AccountViewController: UIViewController {
     
     // MARK: - Life Cycles
     
+    override func loadView() {
+        super.loadView()
+        view = accountTableView
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view = accountTableView
         
         setDelegate()
     }
