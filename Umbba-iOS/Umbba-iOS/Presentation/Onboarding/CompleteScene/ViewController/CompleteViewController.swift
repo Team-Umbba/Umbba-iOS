@@ -12,7 +12,6 @@ final class CompleteViewController: UIViewController {
     // MARK: - UI Components
     
     private let completeView = CompleteView()
-    private lazy var nextButton = completeView.nextButton
     
     // MARK: - Life Cycles
     
@@ -25,31 +24,33 @@ final class CompleteViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setNavigationUI()
-        setAddTarget()
+        setDelegate()
     }
 }
 
 // MARK: - Extensions
 
 private extension CompleteViewController {
-    func setNavigationUI() {
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "arrow.backward"), style: .plain, target: self, action: #selector(backButtonTapped))
-        navigationItem.leftBarButtonItem?.tintColor = .black
-    }
-    
-    func setAddTarget() {
-        nextButton.addTarget(self, action: #selector(nextButtonTapped), for: .touchUpInside)
-    }
 
-    @objc
-    func nextButtonTapped() {
-        print("다음 화면으로 이동")
+    func setDelegate() {
+        completeView.navigationdelegate = self
+        completeView.nextDelegate = self
+    }
+}
+
+extension CompleteViewController: NavigationBarDelegate {
+    func backButtonTapped() {
+        self.navigationController?.popViewController(animated: true)
     }
     
-    @objc
-    func backButtonTapped() {
-        print("이전 화면으로 이동")
-        self.navigationController?.popViewController(animated: true)
+    func completeButtonTapped() {
+
+    }
+}
+
+extension CompleteViewController: NextButtonDelegate {
+    func nextButtonTapped() {
+        // FixMe: - Main화면으로 이동
+        self.navigationController?.pushViewController(CompleteViewController(), animated: true)
     }
 }
