@@ -104,11 +104,17 @@
 		A42723BB2A553069003C445F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42723BA2A553069003C445F /* LoginViewController.swift */; };
 		A42723BF2A5537CD003C445F /* EntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42723BE2A5537CD003C445F /* EntryView.swift */; };
 		A42723C12A5537DA003C445F /* EntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42723C02A5537DA003C445F /* EntryViewController.swift */; };
+		A42723C52A5A6C04003C445F /* ArchivingSectionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42723C42A5A6C04003C445F /* ArchivingSectionCollectionViewCell.swift */; };
+		A42723C92A5A8162003C445F /* ArchivingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42723C82A5A8162003C445F /* ArchivingViewController.swift */; };
+		A489BDF82A5AA5020027E817 /* ArchivingQuestionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A489BDF72A5AA5020027E817 /* ArchivingQuestionItem.swift */; };
+		A489BDFA2A5AA7C80027E817 /* ArchivingQuestionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A489BDF92A5AA7C80027E817 /* ArchivingQuestionHeaderView.swift */; };
+		A489BDFE2A5AAAB40027E817 /* ArchivingQuestionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A489BDFD2A5AAAB40027E817 /* ArchivingQuestionCollectionViewCell.swift */; };
+		A489BE062A5AFCE90027E817 /* ArchivingImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A489BE052A5AFCE90027E817 /* ArchivingImageView.swift */; };
+		A4A7635A2A5BC0B40055D413 /* ArchivingCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A763592A5BC0B40055D413 /* ArchivingCollectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		14348E9C2A5B37DC0077A9B8 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
-		144F3F412A5C615B00D73A6B /* Umbba-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Umbba-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		144F3F422A5C655400D73A6B /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		144F3F442A5C883800D73A6B /* SettingTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableView.swift; sourceTree = "<group>"; };
 		144F3F462A5C963B00D73A6B /* AccountTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTableView.swift; sourceTree = "<group>"; };
@@ -192,6 +198,13 @@
 		A42723BA2A553069003C445F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A42723BE2A5537CD003C445F /* EntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryView.swift; sourceTree = "<group>"; };
 		A42723C02A5537DA003C445F /* EntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryViewController.swift; sourceTree = "<group>"; };
+		A42723C42A5A6C04003C445F /* ArchivingSectionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchivingSectionCollectionViewCell.swift; sourceTree = "<group>"; };
+		A42723C82A5A8162003C445F /* ArchivingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchivingViewController.swift; sourceTree = "<group>"; };
+		A489BDF72A5AA5020027E817 /* ArchivingQuestionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchivingQuestionItem.swift; sourceTree = "<group>"; };
+		A489BDF92A5AA7C80027E817 /* ArchivingQuestionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchivingQuestionHeaderView.swift; sourceTree = "<group>"; };
+		A489BDFD2A5AAAB40027E817 /* ArchivingQuestionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchivingQuestionCollectionViewCell.swift; sourceTree = "<group>"; };
+		A489BE052A5AFCE90027E817 /* ArchivingImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchivingImageView.swift; sourceTree = "<group>"; };
+		A4A763592A5BC0B40055D413 /* ArchivingCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchivingCollectionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -604,6 +617,10 @@
 		697815A92A53048B0047944C /* ArchivingScene */ = {
 			isa = PBXGroup;
 			children = (
+				A489BDF32A5A8DEE0027E817 /* Item */,
+				A489BDF42A5A8E760027E817 /* Cell */,
+				A42723C22A5A6B45003C445F /* View */,
+				A42723C32A5A6B4D003C445F /* ViewController */,
 				697815D42A530C050047944C /* Archiving.swift */,
 			);
 			path = ArchivingScene;
@@ -846,6 +863,41 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
+		A42723C22A5A6B45003C445F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A489BE052A5AFCE90027E817 /* ArchivingImageView.swift */,
+				A4A763592A5BC0B40055D413 /* ArchivingCollectionView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A42723C32A5A6B4D003C445F /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A42723C82A5A8162003C445F /* ArchivingViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		A489BDF32A5A8DEE0027E817 /* Item */ = {
+			isa = PBXGroup;
+			children = (
+				A489BDF72A5AA5020027E817 /* ArchivingQuestionItem.swift */,
+			);
+			path = Item;
+			sourceTree = "<group>";
+		};
+		A489BDF42A5A8E760027E817 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				A42723C42A5A6C04003C445F /* ArchivingSectionCollectionViewCell.swift */,
+				A489BDF92A5AA7C80027E817 /* ArchivingQuestionHeaderView.swift */,
+				A489BDFD2A5AAAB40027E817 /* ArchivingQuestionCollectionViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -983,10 +1035,13 @@
 				6978156F2A52FEB00047944C /* ImageLiterals.swift in Sources */,
 				6991BA6E2A5731330091D52D /* UserInfoViewController.swift in Sources */,
 				697815772A52FF890047944C /* UITextField+.swift in Sources */,
+				A489BE062A5AFCE90027E817 /* ArchivingImageView.swift in Sources */,
+				A42723C52A5A6C04003C445F /* ArchivingSectionCollectionViewCell.swift in Sources */,
 				14A01D432A57D8A200D4F860 /* SettingTableViewCell.swift in Sources */,
 				697815872A53003A0047944C /* UICollectionViewRegisterable.swift in Sources */,
 				A42723C12A5537DA003C445F /* EntryViewController.swift in Sources */,
 				697815712A52FEC10047944C /* ColorLiterals.swift in Sources */,
+				A489BDFA2A5AA7C80027E817 /* ArchivingQuestionHeaderView.swift in Sources */,
 				697815482A52FA370047944C /* ViewController.swift in Sources */,
 				144F3F452A5C883800D73A6B /* SettingTableView.swift in Sources */,
 				A42723BB2A553069003C445F /* LoginViewController.swift in Sources */,
@@ -1014,12 +1069,14 @@
 				697815902A53015D0047944C /* MakeVibrate.swift in Sources */,
 				697815792A52FFA20047944C /* UIButton+.swift in Sources */,
 				697815E02A530DC80047944C /* AuthService.swift in Sources */,
+				A42723C92A5A8162003C445F /* ArchivingViewController.swift in Sources */,
 				69636FAD2A5A615C008B457A /* FamilyInfoViewController.swift in Sources */,
 				697815E32A530E140047944C /* User.swift in Sources */,
 				69A67D812A5C1BB600C43F49 /* CustomNavigationBar.swift in Sources */,
 				697815812A52FFF50047944C /* NSObject+.swift in Sources */,
 				A42723BF2A5537CD003C445F /* EntryView.swift in Sources */,
 				697815D72A530C120047944C /* Setting.swift in Sources */,
+				A489BDF82A5AA5020027E817 /* ArchivingQuestionItem.swift in Sources */,
 				14AA29862A5685660038CDA1 /* NoticeAlarmView.swift in Sources */,
 				699455DD2A5AED19003C118A /* PushAlarmView.swift in Sources */,
 				697815442A52FA370047944C /* AppDelegate.swift in Sources */,
@@ -1030,11 +1087,13 @@
 				697815C32A530BB00047944C /* TabBar.swift in Sources */,
 				697815DC2A530CF70047944C /* Config.swift in Sources */,
 				69DE6B912A53384C00F31812 /* UIColor+.swift in Sources */,
+				A489BDFE2A5AAAB40027E817 /* ArchivingQuestionCollectionViewCell.swift in Sources */,
 				69DE6BB42A54400500F31812 /* InviteView.swift in Sources */,
 				6978155B2A52FBD30047944C /* UserManager.swift in Sources */,
 				691979F82A5C6A4E0069FB63 /* WithdrawalAlertView.swift in Sources */,
 				697815EE2A53117F0047944C /* UserInfo.swift in Sources */,
 				697815F82A5311C30047944C /* Quest.swift in Sources */,
+				A4A7635A2A5BC0B40055D413 /* ArchivingCollectionView.swift in Sources */,
 				69DE6BAF2A5432E600F31812 /* CustomButton.swift in Sources */,
 				697815732A52FF650047944C /* UIImage+.swift in Sources */,
 				144F3F472A5C963B00D73A6B /* AccountTableView.swift in Sources */,

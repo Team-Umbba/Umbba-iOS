@@ -58,6 +58,11 @@ enum I18N {
         static let inviteText = "초대 코드를 받으셨나요?"
         static let inviteButtonTitle = "초대코드 입력하기"
     }
+
+    enum Archiving {
+        static let navigationTitle = "리스트"
+        static let sectionArray = ["어린 시절", "학창 시절", "청춘 시절", "연애 시절", "우리가 만나고"]
+    }
     
     enum Write {
         static let navigationTitle = "어린시절"
