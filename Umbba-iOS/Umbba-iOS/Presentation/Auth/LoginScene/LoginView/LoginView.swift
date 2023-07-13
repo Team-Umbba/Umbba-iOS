@@ -11,8 +11,6 @@ import SnapKit
 
 final class LoginView: UIView {
     
-    let screenSize = UIScreen.main.bounds.width
-    
     private let logoImage: UIImageView = {
         let image = UIImageView()
         image.image = ImageLiterals.Common.img_umbbaLogo
@@ -101,19 +99,19 @@ final class LoginView: UIView {
     
 }
 
-extension LoginView {
+private extension LoginView {
     
-    private func setUI() {
+    func setUI() {
         backgroundColor = .UmbbaWhite
     }
     
-    private func setHierarchy() {
+    func setHierarchy() {
         loginAppleButton.addSubviews(loginAppleImage, loginAppleTitle)
         loginKakaoButton.addSubviews(loginKakaoImage, loginKakaoTitle)
         addSubviews(logoImage, logoTitle, logoSubTitle, loginAppleButton, loginKakaoButton)
     }
     
-    private func setLayout() {
+    func setLayout() {
         logoImage.snp.makeConstraints {
             $0.centerX.equalToSuperview()
             $0.top.equalToSuperview().inset(97)

@@ -12,17 +12,18 @@ import SnapKit
 final class EntryView: UIView {
     
     // MARK: - Properties
+    
     weak var nextDelegate: NextButtonDelegate?
     
     // MARK: - UI Components
     
-    private let logoImage: UIImageView = {
+    private let loginImage: UIImageView = {
         let image = UIImageView()
         image.image = ImageLiterals.Common.img_umbbaLogo
         return image
     }()
     
-    private let logoTitle: UILabel = {
+    private let loginTitleLabel: UILabel = {
         let label = UILabel()
         label.text = I18N.Auth.logoTitle
         label.font = .Cafe24Regular(size: 20)
@@ -30,7 +31,7 @@ final class EntryView: UIView {
         return label
     }()
     
-    private let logoSubTitle: UILabel = {
+    private let loginSubTitleLabel: UILabel = {
         let label = UILabel()
         label.text = I18N.Auth.logoSubTitle
         label.font = .PretendardRegular(size: 12)
@@ -83,31 +84,31 @@ final class EntryView: UIView {
     
 }
 
-extension EntryView {
-    private func setUI() {
+private extension EntryView {
+    func setUI() {
         backgroundColor = .UmbbaWhite
     }
     
-    private func setHierarchy() {
-        addSubviews(logoImage, logoTitle, logoSubTitle, entryButton, dividingText, inviteText, inviteButton)
+    func setHierarchy() {
+        addSubviews(loginImage, loginTitleLabel, loginSubTitleLabel, entryButton, dividingText, inviteText, inviteButton)
     }
     
-    private func setLayout() {
-        logoImage.snp.makeConstraints {
+    func setLayout() {
+        loginImage.snp.makeConstraints {
             $0.centerX.equalToSuperview()
             $0.top.equalToSuperview().inset(97)
             $0.width.equalTo(67)
             $0.height.equalTo(60)
         }
         
-        logoTitle.snp.makeConstraints {
+        loginTitleLabel.snp.makeConstraints {
             $0.centerX.equalToSuperview()
-            $0.top.equalTo(logoImage.snp.bottom).offset(2)
+            $0.top.equalTo(loginImage.snp.bottom).offset(2)
         }
         
-        logoSubTitle.snp.makeConstraints {
+        loginSubTitleLabel.snp.makeConstraints {
             $0.centerX.equalToSuperview()
-            $0.top.equalTo(logoTitle.snp.bottom).offset(12)
+            $0.top.equalTo(loginTitleLabel.snp.bottom).offset(12)
         }
         
         entryButton.snp.makeConstraints {
@@ -133,7 +134,7 @@ extension EntryView {
         }
     }
 
-    private func setAddTarget() {
+    func setAddTarget() {
         entryButton.addTarget(self, action: #selector(entryButtonTapped), for: .touchUpInside)
     }
     

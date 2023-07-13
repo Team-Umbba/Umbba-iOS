@@ -34,7 +34,6 @@ extension EntryViewController {
 
 extension EntryViewController: NextButtonDelegate {
     func nextButtonTapped() {
-        
         self.navigationController?.pushViewController(UserInfoViewController(), animated: true)
     }
 }
