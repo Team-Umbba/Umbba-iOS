@@ -31,6 +31,12 @@ final class SettingSectionHeaderView: UITableViewHeaderFooterView, UITableViewHe
         return mySwitch
     }()
     
+    private let lineView: UIView = {
+        let line = UIView()
+        line.backgroundColor = .Gray400
+        return line
+    }()
+    
     // MARK: - Life Cycles
     
     override init(reuseIdentifier: String?) {
@@ -54,7 +60,7 @@ private extension SettingSectionHeaderView {
     }
     
     func setLayout() {
-        contentView.addSubviews(settingLabel, alarmSwitch)
+        contentView.addSubviews(settingLabel, alarmSwitch, lineView)
         
         settingLabel.snp.makeConstraints {
             $0.centerY.equalToSuperview()
@@ -64,6 +70,11 @@ private extension SettingSectionHeaderView {
         alarmSwitch.snp.makeConstraints {
             $0.centerY.equalToSuperview()
             $0.trailing.equalToSuperview().inset(24)
+        }
+        
+        lineView.snp.makeConstraints {
+            $0.bottom.leading.trailing.equalToSuperview()
+            $0.height.equalTo(1)
         }
     }
 }

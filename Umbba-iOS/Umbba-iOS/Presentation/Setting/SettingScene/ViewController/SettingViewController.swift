@@ -8,6 +8,7 @@
 import UIKit
 
 import SnapKit
+import SafariServices
 
 final class SettingViewController: UIViewController {
     
@@ -73,19 +74,18 @@ extension SettingViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
         switch indexPath.section {
         case 0:
             let accountViewController = AccountViewController()
             self.navigationController?.pushViewController(accountViewController, animated: true)
         case 1:
-            if indexPath.row == 0 { print("--> \(indexPath.row)") }
-            if indexPath.row == 1 { print("--> \(indexPath.row)") }
-            if indexPath.row == 2 { print("--> \(indexPath.row)") }
+            if let url = URL(string: I18N.Setting.urlArray[indexPath.row]) {
+                let safariViewController = SFSafariViewController(url: url)
+                present(safariViewController, animated: true, completion: nil)
+            }
         default:
             return
         }
-        
     }
 }
 
@@ -104,6 +104,7 @@ extension SettingViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = SettingTableViewCell.dequeueReusableCell(tableView: tableView, indexPath: indexPath)
+        cell.selectionStyle = .none
         
         switch indexPath.section {
         case 0:
@@ -112,7 +113,6 @@ extension SettingViewController: UITableViewDataSource {
             cell.contentLabel.text = I18N.Setting.teamSectionLabel[indexPath.row]
         default:
             return UITableViewCell()
-            
         }
         return cell
     }
