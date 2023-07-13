@@ -24,6 +24,23 @@ class CancelView: UIView {
         return view
     }()
     
+    private let quoteView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .white
+        view.layer.borderWidth = 1
+        view.layer.borderColor = UIColor.Gray400.cgColor
+        view.layer.cornerRadius = 12
+        return view
+    }()
+    
+    private let quoteLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .Primary600
+        label.text = I18N.Setting.quoteLabel
+        label.font = .PretendardSemiBold(size: 20)
+        return label
+    }()
+    
     // MARK: - Life Cycles
     
     override init(frame: CGRect) {
@@ -52,11 +69,17 @@ private extension CancelView {
     }
     
     func setLayout() {
-        addSubviews(navigationBarView)
+        addSubviews(navigationBarView, quoteView)
         
         navigationBarView.snp.makeConstraints {
              $0.top.equalTo(self.safeAreaLayoutGuide)
              $0.leading.trailing.equalToSuperview()
+        }
+        
+        quoteView.snp.makeConstraints {
+            $0.top.equalTo(navigationBarView.snp.bottom)
+            $0.leading.trailing.equalToSuperview().inset(58)
+            $0.height.equalTo(SizeLiterals.Screen.screenHeight * 120 / 812)
         }
     }
     
