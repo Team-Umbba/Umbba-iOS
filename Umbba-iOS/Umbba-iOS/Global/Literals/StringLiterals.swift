@@ -14,28 +14,27 @@ enum I18N {
     }
     
     enum Onboarding {
-        static let test = "test"
-        static let inviteNavigationTitle = "초대코드입력"
-        static let inviteTitle = "초대코드를\n입력해주세요."
+        static let inviteNavigationTitle = "초대코드 입력"
+        static let inviteTitle = "초대코드를 입력해줘."
         static let inviteBoldTitle = "초대코드"
-        static let inviteTextFieldPlaceholder = "초대코드를 입력해주세요."
-        static let inviteError = "*올바른 초대코드 형식이 아닙니다."
-        static let timeExplain = "오늘부터 매일, 과거로 시간 여행을 떠날 거야"
+        static let inviteTextFieldPlaceholder = "ex) ORWO-11yzwx"
+        static let inviteError = "*올바른 초대코드 형식이 아닙니다"
+        static let timeExplain = "오늘부터 매일,\n과거로 시간 여행을 떠날 거야"
         static let pastBold = "과거"
         static let timeNotice = "매일 밤 11시에\n교신을 보내줄게"
         static let subNotice = "초대자가 선택한 시간에 따라 푸시 알림을 보내드려요"
         static let userInfoTitle = "반가워!\n너에 대해 알고 싶어!"
         static let nameInfo = "너의 이름이 뭐야?"
-        static let namePlaceholder = "이름을 입력해주세요."
-        static let nameError = "*올바른 형식이 아닙니다."
+        static let namePlaceholder = "ex) 홍길동"
+        static let nameError = "*올바른 형식이 아닙니다"
         static let genderInfo = "너의 성별을 알려줘!"
         static let male = "남자"
         static let female = "여자"
         static let birthInfo = "태어난 연도는 언제야?"
-        static let birthPlaceholder = "태어난 연도를 입력해주세요."
+        static let birthPlaceholder = "ex) 1988"
         static let birthError = "*올바른 형식이 아닙니다."
-        static let familyInfoTitle = "오늘부터 매일,\n과거로 시간여행을 떠날거야"
-        static let relationInfo = "누구와 함께하겠어??"
+        static let familyInfoTitle = "오늘부터 매일\n과거로 시간여행을 떠날거야"
+        static let relationInfo = "누구와 함께 하겠어?"
         static let parent = "부모님"
         static let child = "자식"
         static let detailnfo = "더 자세히 알려줄 수 있어?"
@@ -44,14 +43,14 @@ enum I18N {
         static let daughter = "딸"
         static let son = "아들"
         static let pushAlarmTitle = "매일 밤\n교신을 보내줄게"
-        static let pushAlarmDescription = "선택한 시간에 따라 푸시 알림을 보내드립니다"
+        static let pushAlarmDescription = "선택한 시간에 따라 푸시 알림을 보내드려요"
         static let time = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"]
         static let minute = ["00", "30"]
         static let am = ["AM", "PM"]
-        static let completeTitle = "과거에 도착했어!\n앞으로 나눌 이야기가 많을거야"
+        static let completeTitle = "과거에 도착했어!\n앞으로 나눌 이야기가 많을 거야"
     }
     
-    struct Auth {
+    enum Auth {
         static let loginTitle = "부모와 떠나는 시간 여행"
         static let appleButtonTitle = "애플로 연동하기"
         static let kakaoButtonTitle = "카카오로 연동하기"

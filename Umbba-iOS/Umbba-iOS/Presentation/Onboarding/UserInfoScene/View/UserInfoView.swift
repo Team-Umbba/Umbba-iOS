@@ -30,6 +30,7 @@ final class UserInfoView: UIView {
     private let userInfoTitleLabel: UILabel = {
         let label = UILabel()
         label.text = I18N.Onboarding.userInfoTitle
+        label.textColor = .UmbbaBlack
         label.font = .PretendardRegular(size: 24)
         label.setLineSpacingPartFontChange(lineSpacing: 5.0, targetString: "너", font: .PretendardBold(size: 24))
         label.numberOfLines = 0
@@ -95,19 +96,21 @@ final class UserInfoView: UIView {
     private let genderLabel: UILabel = {
         let label = UILabel()
         label.text = I18N.Onboarding.genderInfo
-        label.textColor = .black
+        label.textColor = .UmbbaBlack
         label.font = .PretendardSemiBold(size: 20)
         return label
     }()
     
     private lazy var maleButton: UIButton = {
         let button = UIButton()
-        button.setBackgroundColor(.Gray300, for: .normal)
-        button.setBackgroundColor(.Gray800, for: .selected)
+        button.setBackgroundColor(.UmbbaWhite, for: .normal)
+        button.setBackgroundColor(.Primary500, for: .selected)
         button.setTitle(I18N.Onboarding.male, for: .normal)
         button.setTitleColor(.UmbbaBlack, for: .normal)
         button.setTitleColor(.UmbbaWhite, for: .selected)
         button.titleLabel?.font = .PretendardRegular(size: 16)
+        button.layer.borderColor = UIColor.Gray400.cgColor
+        button.layer.borderWidth = 1
         button.layer.cornerRadius = 24
         genderButton.append(button)
         return button
@@ -115,12 +118,14 @@ final class UserInfoView: UIView {
     
     private lazy var femaleButton: UIButton = {
         let button = UIButton()
-        button.setBackgroundColor(.Gray300, for: .normal)
-        button.setBackgroundColor(.Gray800, for: .selected)
+        button.setBackgroundColor(.UmbbaWhite, for: .normal)
+        button.setBackgroundColor(.Primary500, for: .selected)
         button.setTitle(I18N.Onboarding.female, for: .normal)
         button.setTitleColor(.UmbbaBlack, for: .normal)
         button.setTitleColor(.UmbbaWhite, for: .selected)
         button.titleLabel?.font = .PretendardRegular(size: 16)
+        button.layer.borderColor = UIColor.Gray400.cgColor
+        button.layer.borderWidth = 1
         button.layer.cornerRadius = 24
         genderButton.append(button)
         return button
@@ -148,7 +153,7 @@ final class UserInfoView: UIView {
     private let birthLabel: UILabel = {
         let label = UILabel()
         label.text = I18N.Onboarding.birthInfo
-        label.textColor = .black
+        label.textColor = .UmbbaBlack
         label.font = .PretendardSemiBold(size: 20)
         return label
     }()

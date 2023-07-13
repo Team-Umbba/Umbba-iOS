@@ -29,7 +29,7 @@ final class PushAlarmView: UIView {
         label.text = I18N.Onboarding.pushAlarmTitle
         label.font = .PretendardSemiBold(size: 24)
         label.textColor = .UmbbaBlack
-        label.numberOfLines = 0
+        label.numberOfLines = 2
         return label
     }()
     

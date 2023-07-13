@@ -28,8 +28,8 @@ final class InviteView: UIView {
     private let inviteTitleLabel: UILabel = {
         let label = UILabel()
         label.text = I18N.Onboarding.inviteTitle
+        label.textColor = .UmbbaBlack
         label.font = .PretendardRegular(size: 24)
-        label.numberOfLines = 0
         label.setLineSpacingPartFontChange(lineSpacing: 5.0,
                                            targetString: I18N.Onboarding.inviteBoldTitle,
                                            font: .PretendardBold(size: 24))

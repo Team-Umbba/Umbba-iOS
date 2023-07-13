@@ -32,6 +32,7 @@ final class FamilyInfoView: UIView {
     private let familyInfoTitleLabel: UILabel = {
         let label = UILabel()
         label.text = I18N.Onboarding.familyInfoTitle
+        label.textColor = .UmbbaBlack
         label.font = .PretendardRegular(size: 24)
         label.setLineSpacingPartFontChange(lineSpacing: 5.0, targetString: "과거", font: .PretendardBold(size: 24))
         label.numberOfLines = 0
@@ -58,12 +59,14 @@ final class FamilyInfoView: UIView {
     
     private lazy var parentButton: UIButton = {
         let button = UIButton()
-        button.setBackgroundColor(.Gray300, for: .normal)
-        button.setBackgroundColor(.Gray800, for: .selected)
+        button.setBackgroundColor(.UmbbaWhite, for: .normal)
+        button.setBackgroundColor(.Primary500, for: .selected)
         button.setTitle(I18N.Onboarding.parent, for: .normal)
         button.setTitleColor(.UmbbaBlack, for: .normal)
         button.setTitleColor(.UmbbaWhite, for: .selected)
         button.titleLabel?.font = .PretendardRegular(size: 16)
+        button.layer.borderColor = UIColor.Gray400.cgColor
+        button.layer.borderWidth = 1
         button.layer.cornerRadius = 24
         button.adjustsImageWhenHighlighted = false
         relationButton.append(button)
@@ -72,12 +75,14 @@ final class FamilyInfoView: UIView {
     
     private lazy var childButton: UIButton = {
         let button = UIButton()
-        button.setBackgroundColor(.Gray300, for: .normal)
-        button.setBackgroundColor(.Gray800, for: .selected)
-        button.setTitle(I18N.Onboarding.child, for: .normal)
+        button.setBackgroundColor(.UmbbaWhite, for: .normal)
+        button.setBackgroundColor(.Primary500, for: .selected)
+        button.setTitle(I18N.Onboarding.parent, for: .normal)
         button.setTitleColor(.UmbbaBlack, for: .normal)
         button.setTitleColor(.UmbbaWhite, for: .selected)
         button.titleLabel?.font = .PretendardRegular(size: 16)
+        button.layer.borderColor = UIColor.Gray400.cgColor
+        button.layer.borderWidth = 1
         button.layer.cornerRadius = 24
         button.adjustsImageWhenHighlighted = false
         relationButton.append(button)
@@ -107,18 +112,20 @@ final class FamilyInfoView: UIView {
     private let genderLabel: UILabel = {
         let label = UILabel()
         label.text = I18N.Onboarding.detailnfo
-        label.textColor = .black
+        label.textColor = .UmbbaBlack
         label.font = .PretendardSemiBold(size: 20)
         return label
     }()
     
     private lazy var maleButton: UIButton = {
         let button = UIButton()
-        button.setBackgroundColor(.Gray300, for: .normal)
-        button.setBackgroundColor(.Gray800, for: .selected)
+        button.setBackgroundColor(.UmbbaWhite, for: .normal)
+        button.setBackgroundColor(.Primary500, for: .selected)
         button.setTitleColor(.UmbbaBlack, for: .normal)
         button.setTitleColor(.UmbbaWhite, for: .selected)
         button.titleLabel?.font = .PretendardRegular(size: 16)
+        button.layer.borderColor = UIColor.Gray400.cgColor
+        button.layer.borderWidth = 1
         button.layer.cornerRadius = 24
         button.adjustsImageWhenHighlighted = false
         genderButton.append(button)
@@ -127,11 +134,13 @@ final class FamilyInfoView: UIView {
     
     private lazy var femaleButton: UIButton = {
         let button = UIButton()
-        button.setBackgroundColor(.Gray300, for: .normal)
-        button.setBackgroundColor(.Gray800, for: .selected)
+        button.setBackgroundColor(.UmbbaWhite, for: .normal)
+        button.setBackgroundColor(.Primary500, for: .selected)
         button.setTitleColor(.UmbbaBlack, for: .normal)
         button.setTitleColor(.UmbbaWhite, for: .selected)
         button.titleLabel?.font = .PretendardRegular(size: 16)
+        button.layer.borderColor = UIColor.Gray400.cgColor
+        button.layer.borderWidth = 1
         button.layer.cornerRadius = 24
         button.adjustsImageWhenHighlighted = false
         genderButton.append(button)

@@ -20,7 +20,7 @@ final class CustomTextField: UITextField {
         var borderColor: CGColor? {
             switch self {
             case .normal, .editing:
-                return UIColor.Gray800.cgColor
+                return UIColor.Gray400.cgColor
             case .uncorrectedType:
                 return UIColor.Error.cgColor
             }
@@ -29,7 +29,7 @@ final class CustomTextField: UITextField {
         var clearButtonColor: UIColor? {
             switch self {
             case .normal, .editing:
-                return UIColor.Gray800
+                return UIColor.Gray400
             case .uncorrectedType:
                 return UIColor.Error
             }
@@ -53,7 +53,7 @@ final class CustomTextField: UITextField {
         let buttonInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 16)
         button.largeContentImageInsets = buttonInsets
         button.addTarget(self, action: #selector(clearButtonTapped), for: .touchUpInside)
-        button.tintColor = UIColor.Gray800
+        button.tintColor = UIColor.Gray400
         return button
     }()
     
@@ -78,10 +78,11 @@ final class CustomTextField: UITextField {
 private extension CustomTextField {
     func setUI(placeHolder: String) {
         self.placeholder = "\(placeHolder)"
+        self.setPlaceholderColor(.Gray800)
         self.rightView = clearButton
         self.rightViewMode = .whileEditing
         self.layer.cornerRadius =  24
-        self.layer.borderColor = UIColor.Gray800.cgColor
+        self.layer.borderColor = UIColor.Gray400.cgColor
         self.layer.borderWidth = 1
         self.setLeftPadding(amount: 20)
     }

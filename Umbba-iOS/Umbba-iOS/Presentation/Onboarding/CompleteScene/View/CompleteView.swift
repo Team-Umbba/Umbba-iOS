@@ -29,7 +29,7 @@ final class CompleteView: UIView {
         label.text = I18N.Onboarding.completeTitle
         label.textColor = .UmbbaBlack
         label.font = .PretendardSemiBold(size: 24)
-        label.numberOfLines = 0
+        label.numberOfLines = 2
         return label
     }()
     
