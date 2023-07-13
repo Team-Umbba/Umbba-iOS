@@ -47,4 +47,16 @@ extension UIColor {
     static var UmbbaWhite: UIColor {
         return UIColor(hex: "#FCFAF8")
     }
+    
+    static var GradientLow: UIColor {
+        return UIColor(hex: "#F8C8AE")
+    }
+    
+    static var GradientMedium: UIColor {
+        return UIColor(hex: "#EBA787")
+    }
+    
+    static var GradientHigh: UIColor {
+        return UIColor(hex: "#D87E7E")
+    } 
 }
