@@ -65,14 +65,16 @@ final class EntryView: UIView {
         return label
     }()
     
-    private lazy var inviteButton: UIButton = {
-        let button = CustomButton(status: true, title: I18N.Auth.inviteButtonTitle)
-        button.setBackgroundColor(.UmbbaWhite, for: .normal)
-        button.setTitleColor(.Primary500, for: .normal)
-        button.layer.borderColor = UIColor.Primary500.cgColor
-        button.layer.borderWidth = 2
-        button.adjustsImageWhenHighlighted = false
-        return button
+    private lazy var inviteButton: CustomButton = {
+      let button = CustomButton(status: true, title: I18N.Auth.inviteButtonTitle)
+      button.setTitleColor(.Primary500, for: .normal)
+      button.layer.borderColor = UIColor.Primary500.cgColor
+      button.layer.borderWidth = 2
+        
+      var config = UIButton.Configuration.filled()
+      config.background.backgroundColor = .UmbbaWhite
+      button.configuration = config
+      return button
     }()
     
     override init(frame: CGRect) {

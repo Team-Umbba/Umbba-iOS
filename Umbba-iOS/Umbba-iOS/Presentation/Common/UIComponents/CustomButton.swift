@@ -51,7 +51,7 @@ private extension CustomButton {
         self.setBackgroundColor(.Gray400, for: .disabled)
         self.setTitle(title, for: .normal)
         self.setTitleColor(.white, for: .normal)
-        self.titleLabel?.font = .PretendardBold(size: 16)
+        self.titleLabel?.font = .PretendardSemiBold(size: 16)
         self.layer.cornerRadius = 30
     }
 }
