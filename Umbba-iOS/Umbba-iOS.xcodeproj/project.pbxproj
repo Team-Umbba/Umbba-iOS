@@ -108,8 +108,10 @@
 		A42723C12A5537DA003C445F /* EntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42723C02A5537DA003C445F /* EntryViewController.swift */; };
 		A42723C52A5A6C04003C445F /* ArchivingSectionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42723C42A5A6C04003C445F /* ArchivingSectionCollectionViewCell.swift */; };
 		A42723C92A5A8162003C445F /* ArchivingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42723C82A5A8162003C445F /* ArchivingViewController.swift */; };
-		A42740EB2A5FBA6D00D05B14 /* splash.JSON in Resources */ = {isa = PBXBuildFile; fileRef = A42740EA2A5FBA6D00D05B14 /* splash.JSON */; };
 		A42740EE2A5FBBE500D05B14 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = A42740ED2A5FBBE500D05B14 /* Lottie */; };
+		A42740F02A5FBCA100D05B14 /* LottieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42740EF2A5FBCA100D05B14 /* LottieViewController.swift */; };
+		A42740F22A5FBDF600D05B14 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42740F12A5FBDF600D05B14 /* LottieView.swift */; };
+		A42740F42A5FCE1C00D05B14 /* splash_iOS.json in Resources */ = {isa = PBXBuildFile; fileRef = A42740F32A5FCE1C00D05B14 /* splash_iOS.json */; };
 		A47BDA492A5D5FD6007B8E3E /* AssignView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47BDA482A5D5FD6007B8E3E /* AssignView.swift */; };
 		A47BDA4B2A5D5FE9007B8E3E /* AssignViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47BDA4A2A5D5FE9007B8E3E /* AssignViewController.swift */; };
 		A489BDF82A5AA5020027E817 /* ArchivingQuestionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A489BDF72A5AA5020027E817 /* ArchivingQuestionItem.swift */; };
@@ -208,7 +210,9 @@
 		A42723C02A5537DA003C445F /* EntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryViewController.swift; sourceTree = "<group>"; };
 		A42723C42A5A6C04003C445F /* ArchivingSectionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchivingSectionCollectionViewCell.swift; sourceTree = "<group>"; };
 		A42723C82A5A8162003C445F /* ArchivingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchivingViewController.swift; sourceTree = "<group>"; };
-		A42740EA2A5FBA6D00D05B14 /* splash.JSON */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = splash.JSON; path = ../../../../../../../Downloads/splash.JSON; sourceTree = "<group>"; };
+		A42740EF2A5FBCA100D05B14 /* LottieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieViewController.swift; sourceTree = "<group>"; };
+		A42740F12A5FBDF600D05B14 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
+		A42740F32A5FCE1C00D05B14 /* splash_iOS.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = splash_iOS.json; path = ../../../../../../../Downloads/splash_iOS.json; sourceTree = "<group>"; };
 		A47BDA482A5D5FD6007B8E3E /* AssignView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignView.swift; sourceTree = "<group>"; };
 		A47BDA4A2A5D5FE9007B8E3E /* AssignViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignViewController.swift; sourceTree = "<group>"; };
 		A489BDF72A5AA5020027E817 /* ArchivingQuestionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchivingQuestionItem.swift; sourceTree = "<group>"; };
@@ -467,8 +471,10 @@
 		697815622A52FCB60047944C /* Lottie */ = {
 			isa = PBXGroup;
 			children = (
-				A42740EA2A5FBA6D00D05B14 /* splash.JSON */,
+				A42740F32A5FCE1C00D05B14 /* splash_iOS.json */,
 				697815BE2A530B8F0047944C /* Lottie.swift */,
+				A42740F12A5FBDF600D05B14 /* LottieView.swift */,
+				A42740EF2A5FBCA100D05B14 /* LottieViewController.swift */,
 			);
 			path = Lottie;
 			sourceTree = "<group>";
@@ -1028,7 +1034,7 @@
 				69DE6B9F2A53421D00F31812 /* Pretendard-SemiBold.otf in Resources */,
 				69DE6BA12A53421D00F31812 /* Pretendard-Regular.otf in Resources */,
 				697815502A52FA380047944C /* LaunchScreen.storyboard in Resources */,
-				A42740EB2A5FBA6D00D05B14 /* splash.JSON in Resources */,
+				A42740F42A5FCE1C00D05B14 /* splash_iOS.json in Resources */,
 				6978154D2A52FA380047944C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1069,6 +1075,7 @@
 				699455EE2A5C0C8B003C118A /* InviteViewController.swift in Sources */,
 				6978157F2A52FFE10047944C /* UILabel+.swift in Sources */,
 				697815BF2A530B8F0047944C /* Lottie.swift in Sources */,
+				A42740F02A5FBCA100D05B14 /* LottieViewController.swift in Sources */,
 				69DE6BB82A54417F00F31812 /* String+.swift in Sources */,
 				69DE6BAD2A5432CC00F31812 /* CustomTextField.swift in Sources */,
 				144F3F432A5C655400D73A6B /* AccountViewController.swift in Sources */,
@@ -1092,6 +1099,7 @@
 				A42723BB2A553069003C445F /* LoginViewController.swift in Sources */,
 				697815852A5300290047944C /* UITableViewRegiseterable.swift in Sources */,
 				6978158E2A5300F90047944C /* ButtonPress.swift in Sources */,
+				A42740F22A5FBDF600D05B14 /* LottieView.swift in Sources */,
 				14AA29842A5685050038CDA1 /* NoticeAlarmViewController.swift in Sources */,
 				699455EB2A5C0C24003C118A /* LoginView.swift in Sources */,
 				697815C72A530BC90047944C /* Splash.swift in Sources */,
