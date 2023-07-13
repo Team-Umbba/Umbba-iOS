@@ -47,4 +47,8 @@ extension UIColor {
     static var UmbbaWhite: UIColor {
         return UIColor(hex: "#FCFAF8")
     }
+    
+    static var UmbbaYellow: UIColor {
+        return UIColor(hex: "#FBE44D")
+    }
 }

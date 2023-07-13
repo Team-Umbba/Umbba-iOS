@@ -11,16 +11,31 @@ import SnapKit
 
 final class EntryView: UIView {
     
-    private lazy var loginViewImage: UIImageView = {
+    // MARK: - Properties
+    
+    weak var nextDelegate: NextButtonDelegate?
+    
+    // MARK: - UI Components
+    
+    private let loginImage: UIImageView = {
         let image = UIImageView()
+        image.image = ImageLiterals.Common.img_umbbaLogo
         return image
     }()
     
-    private lazy var loginLabel: UILabel = {
+    private let loginTitleLabel: UILabel = {
         let label = UILabel()
-        label.text = I18N.Auth.loginTitle
-        label.textColor = .UmbbaBlack
-        label.font = .PretendardRegular(size: 24)
+        label.text = I18N.Auth.logoTitle
+        label.font = .Cafe24Regular(size: 20)
+        label.textColor = .Primary500
+        return label
+    }()
+    
+    private let loginSubTitleLabel: UILabel = {
+        let label = UILabel()
+        label.text = I18N.Auth.logoSubTitle
+        label.font = .PretendardRegular(size: 12)
+        label.textColor = .Primary500
         return label
     }()
     
@@ -29,36 +44,38 @@ final class EntryView: UIView {
         return button
     }()
     
-    private lazy var dividingText: UILabel = {
+    private let dividingText: UILabel = {
         let label = UILabel()
         label.text = I18N.Auth.dividingText
-        label.textColor = .lightGray
+        label.textColor = .Gray800
         label.font = .PretendardRegular(size: 16)
         return label
     }()
     
-    private lazy var inviteText: UILabel = {
+    private let inviteText: UILabel = {
         let label = UILabel()
         label.text = I18N.Auth.inviteText
-        label.textColor = .black
-        label.font = .systemFont(ofSize: 16)
+        label.textColor = .Gray800
+        label.font = .PretendardRegular(size: 16)
         return label
     }()
     
-    lazy var inviteButton: UIButton = {
-        let button = CustomButton(status: false, title: I18N.Auth.inviteButtonTitle)
+    private lazy var inviteButton: UIButton = {
+        let button = CustomButton(status: true, title: I18N.Auth.inviteButtonTitle)
+        button.setBackgroundColor(.UmbbaWhite, for: .normal)
+        button.setTitleColor(.Primary500, for: .normal)
+        button.layer.borderColor = UIColor.Primary500.cgColor
+        button.layer.borderWidth = 2
         return button
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        // MARK: - addsubView
+        setUI()
         setHierarchy()
-        
-        // MARK: - autolayout설정
         setLayout()
-        
+        setAddTarget()
     }
     
     required init?(coder: NSCoder) {
@@ -67,25 +84,31 @@ final class EntryView: UIView {
     
 }
 
-extension EntryView {
-    
-    private func setHierarchy() {
-        addSubviews(loginViewImage, loginLabel, entryButton, dividingText, inviteText, inviteButton)
+private extension EntryView {
+    func setUI() {
+        backgroundColor = .UmbbaWhite
     }
     
-    private func setLayout() {
-        backgroundColor = .white
-        
-        loginViewImage.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(85)
-            $0.leading.equalToSuperview().inset(24)
-            $0.width.equalTo(SizeLiterals.Screen.screenWidth * 86 / 375)
-            $0.height.equalTo(SizeLiterals.Screen.screenHeight * 22 / 375)
+    func setHierarchy() {
+        addSubviews(loginImage, loginTitleLabel, loginSubTitleLabel, entryButton, dividingText, inviteText, inviteButton)
+    }
+    
+    func setLayout() {
+        loginImage.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.top.equalToSuperview().inset(97)
+            $0.width.equalTo(67)
+            $0.height.equalTo(60)
         }
         
-        loginLabel.snp.makeConstraints {
-            $0.top.equalTo(loginViewImage.snp.bottom).offset(16)
-            $0.leading.equalToSuperview().inset(24)
+        loginTitleLabel.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.top.equalTo(loginImage.snp.bottom).offset(2)
+        }
+        
+        loginSubTitleLabel.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.top.equalTo(loginTitleLabel.snp.bottom).offset(12)
         }
         
         entryButton.snp.makeConstraints {
@@ -111,4 +134,12 @@ extension EntryView {
         }
     }
 
+    func setAddTarget() {
+        entryButton.addTarget(self, action: #selector(entryButtonTapped), for: .touchUpInside)
+    }
+    
+    @objc
+    func entryButtonTapped() {
+        nextDelegate?.nextButtonTapped()
+    }
 }
