@@ -14,7 +14,7 @@ final class LottieView: UIView {
     
     // MARK: - UI Components
 
-    let lottieSplashView: LottieAnimationView = LottieAnimationView(name: "splash_iOS")
+    let lottieSplashView: LottieAnimationView = LottieAnimationView(name: I18N.Lottie.lottieName)
     private let lottieTitleLabel: UILabel = {
         let label = UILabel()
         label.text = I18N.Auth.logoTitle

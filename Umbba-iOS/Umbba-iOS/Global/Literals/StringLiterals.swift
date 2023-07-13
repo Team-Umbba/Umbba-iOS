@@ -111,4 +111,8 @@ enum I18N {
         static let backButtonTitle = "돌아가기"
         static let saveButtonTitle = "저장"
     }
+    
+    enum Lottie {
+        static let lottieName = "splash_iOS"
+    }
 }
