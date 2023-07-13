@@ -113,7 +113,6 @@
 		A42740EE2A5FBBE500D05B14 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = A42740ED2A5FBBE500D05B14 /* Lottie */; };
 		A42740F02A5FBCA100D05B14 /* LottieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42740EF2A5FBCA100D05B14 /* LottieViewController.swift */; };
 		A42740F22A5FBDF600D05B14 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42740F12A5FBDF600D05B14 /* LottieView.swift */; };
-		A42740FA2A6014D500D05B14 /* splash_iOS.json in Resources */ = {isa = PBXBuildFile; fileRef = A42740F92A6014D500D05B14 /* splash_iOS.json */; };
 		A47BDA492A5D5FD6007B8E3E /* AssignView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47BDA482A5D5FD6007B8E3E /* AssignView.swift */; };
 		A47BDA4B2A5D5FE9007B8E3E /* AssignViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47BDA4A2A5D5FE9007B8E3E /* AssignViewController.swift */; };
 		A489BDF82A5AA5020027E817 /* ArchivingQuestionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A489BDF72A5AA5020027E817 /* ArchivingQuestionItem.swift */; };
@@ -216,7 +215,6 @@
 		A42723C82A5A8162003C445F /* ArchivingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchivingViewController.swift; sourceTree = "<group>"; };
 		A42740EF2A5FBCA100D05B14 /* LottieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieViewController.swift; sourceTree = "<group>"; };
 		A42740F12A5FBDF600D05B14 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
-		A42740F92A6014D500D05B14 /* splash_iOS.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = splash_iOS.json; path = ../../../../../../../Downloads/splash_iOS.json; sourceTree = "<group>"; };
 		A47BDA482A5D5FD6007B8E3E /* AssignView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignView.swift; sourceTree = "<group>"; };
 		A47BDA4A2A5D5FE9007B8E3E /* AssignViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignViewController.swift; sourceTree = "<group>"; };
 		A489BDF72A5AA5020027E817 /* ArchivingQuestionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchivingQuestionItem.swift; sourceTree = "<group>"; };
@@ -491,7 +489,6 @@
 		697815622A52FCB60047944C /* Lottie */ = {
 			isa = PBXGroup;
 			children = (
-				A42740F92A6014D500D05B14 /* splash_iOS.json */,
 				A42740F52A5FE73300D05B14 /* View */,
 				A42740F62A5FE73C00D05B14 /* ViewController */,
 				697815BE2A530B8F0047944C /* Lottie.swift */,
@@ -1070,7 +1067,6 @@
 				69DE6BA02A53421D00F31812 /* Pretendard-Bold.otf in Resources */,
 				69DE6B9B2A5341FF00F31812 /* Cafe24Classictype-v1.1.otf in Resources */,
 				69DE6B9F2A53421D00F31812 /* Pretendard-SemiBold.otf in Resources */,
-				A42740FA2A6014D500D05B14 /* splash_iOS.json in Resources */,
 				69DE6BA12A53421D00F31812 /* Pretendard-Regular.otf in Resources */,
 				697815502A52FA380047944C /* LaunchScreen.storyboard in Resources */,
 				6978154D2A52FA380047944C /* Assets.xcassets in Resources */,
@@ -1263,6 +1259,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "엄빠도 어렸다";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -1317,6 +1314,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "엄빠도 어렸다";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
