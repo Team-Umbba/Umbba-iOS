@@ -129,7 +129,6 @@ final class AnswerDetailView: UIView {
         
         setUI()
         setAddTarget()
-        setDelegate()
         setLayout()
     }
     
@@ -149,10 +148,6 @@ private extension AnswerDetailView {
     func setAddTarget() {
         navigationBarView.leftButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
         nextButton.addTarget(self, action: #selector(nextButtonTapped), for: .touchUpInside)
-    }
-    
-    func setDelegate() {
-        
     }
     
     func setLayout() {
