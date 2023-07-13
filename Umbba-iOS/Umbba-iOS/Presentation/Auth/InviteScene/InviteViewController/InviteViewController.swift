@@ -65,6 +65,6 @@ extension InviteViewController: NextButtonDelegate {
     func nextButtonTapped() {
         let userInfoViewController =  UserInfoViewController()
         self.navigationController?.pushViewController(userInfoViewController, animated: true)
-        userInfoViewController.isReciever = true
+        userInfoViewController.isReceiver = true
     }
 }

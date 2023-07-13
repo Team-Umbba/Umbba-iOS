@@ -11,7 +11,7 @@ final class UserInfoViewController: UIViewController {
     
     // MARK: - Properties
     
-    var isReciever: Bool = false
+    var isReceiver: Bool = false
     
     // MARK: - UI Components
     
@@ -54,7 +54,7 @@ extension UserInfoViewController: NavigationBarDelegate {
 
 extension UserInfoViewController: NextButtonDelegate {
     func nextButtonTapped() {
-        if isReciever {
+        if isReceiver {
             // FIX: - 단답질문뷰로 이동
             self.navigationController?.pushViewController(NoticeAlarmViewController(), animated: true)
         } else {
