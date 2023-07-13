@@ -63,7 +63,8 @@ extension InviteViewController: NavigationBarDelegate {
 
 extension InviteViewController: NextButtonDelegate {
     func nextButtonTapped() {
-        // FixMe: - 교신화면 만든 후 교신화면으로 이동
-        self.navigationController?.pushViewController(UserInfoViewController(), animated: true)
+        let userInfoViewController =  UserInfoViewController()
+        self.navigationController?.pushViewController(userInfoViewController, animated: true)
+        userInfoViewController.isReciever = true
     }
 }
