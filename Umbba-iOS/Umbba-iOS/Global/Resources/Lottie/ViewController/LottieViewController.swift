@@ -11,14 +11,13 @@ import SnapKit
 import Lottie
 
 final class LottieViewController: UIViewController {
-    
     // MARK: - UI Components
-    
+
     private let lottieView = LottieView()
-    
+
     // MARK: - Life Cycles
 
-    override func loadView() {
+    override func loadView()  {
         super.loadView()
 
         view = lottieView
@@ -39,7 +38,7 @@ extension LottieViewController {
             self.presentToLoginView()
         }
     }
-    
+
     func presentToLoginView() {
         let nav = LoginViewController()
         nav.modalPresentationStyle = .fullScreen
