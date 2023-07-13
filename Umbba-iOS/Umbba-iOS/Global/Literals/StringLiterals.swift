@@ -130,4 +130,8 @@ enum I18N {
     enum Lottie {
         static let lottieName = "splash_iOS"
     }
+    
+    enum Main {
+        static let questionButtonTitle = "질문 확인하기"
+    }
 }
