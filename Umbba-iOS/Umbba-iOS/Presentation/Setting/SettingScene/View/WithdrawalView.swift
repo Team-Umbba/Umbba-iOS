@@ -62,7 +62,7 @@ class WithdrawalView: UIView {
         label.textColor = .UmbbaBlack
         label.text = I18N.Setting.withdrawalContentLabel
         label.font = .PretendardRegular(size: 12)
-        label.numberOfLines = 2
+        label.numberOfLines = 0
         return label
     }()
     
@@ -135,7 +135,7 @@ private extension WithdrawalView {
         
         withdrawalContentLabel.snp.makeConstraints {
             $0.top.equalTo(withdrawalQuestLabel.snp.bottom).offset(24)
-            $0.leading.equalTo(withdrawalQuestLabel.snp.leading)
+            $0.leading.trailing.equalToSuperview().inset(24)
         }
         
         withdrawalButton.snp.makeConstraints {
