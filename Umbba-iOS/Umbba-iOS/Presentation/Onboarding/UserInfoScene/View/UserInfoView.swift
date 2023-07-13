@@ -112,6 +112,7 @@ final class UserInfoView: UIView {
         button.layer.borderColor = UIColor.Gray400.cgColor
         button.layer.borderWidth = 1
         button.layer.cornerRadius = 24
+        button.adjustsImageWhenHighlighted = false
         genderButton.append(button)
         return button
     }()
@@ -127,6 +128,7 @@ final class UserInfoView: UIView {
         button.layer.borderColor = UIColor.Gray400.cgColor
         button.layer.borderWidth = 1
         button.layer.cornerRadius = 24
+        button.adjustsImageWhenHighlighted = false
         genderButton.append(button)
         return button
     }()

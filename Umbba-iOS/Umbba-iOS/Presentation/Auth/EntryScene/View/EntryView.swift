@@ -71,6 +71,7 @@ final class EntryView: UIView {
         button.setTitleColor(.Primary500, for: .normal)
         button.layer.borderColor = UIColor.Primary500.cgColor
         button.layer.borderWidth = 2
+        button.adjustsImageWhenHighlighted = false
         return button
     }()
     
