@@ -35,14 +35,14 @@ final class LottieViewController: UIViewController {
 
 extension LottieViewController {
     func playAnimation() {
-        lottieView.lottieSplashView.play { (finished) in
-            self.moveToLoginView()
+        lottieView.lottieSplashView.play { _ in
+            self.presentToLoginView()
         }
     }
     
-    func moveToLoginView() {
+    func presentToLoginView() {
         let nav = LoginViewController()
         nav.modalPresentationStyle = .fullScreen
-        self.present(nav, animated: true)
+        self.present(nav, animated: false)
     }
 }
