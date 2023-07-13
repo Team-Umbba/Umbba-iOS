@@ -68,6 +68,14 @@ final class AnswerDetailView: UIView {
         return answerView
     }()
     
+    private lazy var partnerAnswerContent: UILabel = {
+        let label = UILabel()
+        label.textColor = .Gray800
+        label.text = I18N.Detail.noneAnswer
+        label.font = .PretendardRegular(size: 16)
+        return label
+    }()
+    
     private lazy var partnerNameLabel: UILabel = {
         let label = UILabel()
         label.textColor = .UmbbaBlack
@@ -97,6 +105,14 @@ final class AnswerDetailView: UIView {
         label.textColor = .UmbbaBlack
         label.text = I18N.Detail.myName
         label.font = .Cafe24Regular(size: 16)
+        return label
+    }()
+    
+    private lazy var myAnswerContent: UILabel = {
+        let label = UILabel()
+        label.textColor = .Gray800
+        label.text = I18N.Detail.pleaseAnswer
+        label.font = .PretendardRegular(size: 16)
         return label
     }()
     
@@ -141,8 +157,8 @@ private extension AnswerDetailView {
     
     func setLayout() {
         self.addSubviews(navigationBarView, themeStackView, nextButton, partnerQeustLabel, partnerAnswerView, myQuestLabel, myAnswerView)
-        partnerAnswerView.addSubviews(partnerNameLabel)
-        myAnswerView.addSubviews(myNameLabel)
+        partnerAnswerView.addSubviews(partnerNameLabel, partnerAnswerContent)
+        myAnswerView.addSubviews(myNameLabel, myAnswerContent)
         
         navigationBarView.snp.makeConstraints {
             $0.top.equalTo(self.safeAreaLayoutGuide)
@@ -169,6 +185,10 @@ private extension AnswerDetailView {
             $0.leading.bottom.equalToSuperview().inset(16)
         }
         
+        partnerAnswerContent.snp.makeConstraints {
+            $0.top.leading.equalToSuperview().inset(16)
+        }
+        
         myQuestLabel.snp.makeConstraints {
             $0.trailing.equalToSuperview().inset(24)
             $0.top.equalTo(partnerAnswerView.snp.bottom).offset(41)
@@ -182,6 +202,10 @@ private extension AnswerDetailView {
         
         myNameLabel.snp.makeConstraints {
             $0.trailing.bottom.equalToSuperview().inset(16)
+        }
+        
+        myAnswerContent.snp.makeConstraints {
+            $0.top.trailing.equalToSuperview().inset(16)
         }
         
         nextButton.snp.makeConstraints {
