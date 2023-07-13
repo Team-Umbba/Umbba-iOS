@@ -51,6 +51,39 @@ final class AnswerDetailView: UIView {
         return stackView
     }()
     
+    private let partnerQeustLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .UmbbaBlack
+        label.text = I18N.Detail.partnerQuestLabel
+        label.font = .PretendardSemiBold(size: 20)
+        return label
+    }()
+    
+    private lazy var partnerAnswerView: UIView = {
+        let answerView = UIView()
+        answerView.backgroundColor = .white
+        answerView.layer.borderWidth = 1
+        answerView.layer.borderColor = UIColor.Gray400.cgColor
+        answerView.layer.cornerRadius = 17
+        return answerView
+    }()
+    
+    private let myQuestLabel: UILabel = {
+        let label = UILabel()
+        label.text = I18N.Detail.myQuestLabel
+        label.font = .PretendardSemiBold(size: 20)
+        return label
+    }()
+    
+    private lazy var myAnswerView: UIView = {
+        let answerView = UIView()
+        answerView.backgroundColor = .white
+        answerView.layer.borderWidth = 1
+        answerView.layer.borderColor = UIColor.Gray400.cgColor
+        answerView.layer.cornerRadius = 17
+        return answerView
+    }()
+    
     private lazy var nextButton: CustomButton = {
         let button = CustomButton(status: true, title: I18N.Detail.answerButton)
         button.isEnabled = true
@@ -91,7 +124,7 @@ private extension AnswerDetailView {
     }
     
     func setLayout() {
-        self.addSubviews(navigationBarView, themeStackView, nextButton)
+        self.addSubviews(navigationBarView, themeStackView, nextButton, partnerQeustLabel, partnerAnswerView, myQuestLabel, myAnswerView)
         
         navigationBarView.snp.makeConstraints {
             $0.top.equalTo(self.safeAreaLayoutGuide)
@@ -101,6 +134,28 @@ private extension AnswerDetailView {
         themeStackView.snp.makeConstraints {
             $0.top.equalTo(navigationBarView.snp.bottom).offset(9)
             $0.centerX.equalToSuperview()
+        }
+        
+        partnerQeustLabel.snp.makeConstraints {
+            $0.leading.equalToSuperview().inset(24)
+            $0.top.equalTo(themeStackView.snp.bottom).offset(50)
+        }
+        
+        partnerAnswerView.snp.makeConstraints {
+            $0.top.equalTo(partnerQeustLabel.snp.bottom).offset(12)
+            $0.leading.trailing.equalToSuperview().inset(22)
+            $0.height.equalTo(SizeLiterals.Screen.screenHeight * 174 / 812)
+        }
+        
+        myQuestLabel.snp.makeConstraints {
+            $0.trailing.equalToSuperview().inset(24)
+            $0.top.equalTo(partnerAnswerView.snp.bottom).offset(41)
+        }
+        
+        myAnswerView.snp.makeConstraints {
+            $0.top.equalTo(myQuestLabel.snp.bottom).offset(12)
+            $0.leading.trailing.equalToSuperview().inset(22)
+            $0.height.equalTo(SizeLiterals.Screen.screenHeight * 174 / 812)
         }
         
         nextButton.snp.makeConstraints {
