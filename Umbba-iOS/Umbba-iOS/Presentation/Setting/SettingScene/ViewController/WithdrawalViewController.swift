@@ -33,6 +33,7 @@ private extension WithdrawalViewController {
     
     func setDelegate() {
         withdrawalView.navigationdelegate = self
+        withdrawalView.withdrawldelegate = self
     }
 }
 
@@ -45,4 +46,13 @@ extension WithdrawalViewController: NavigationBarDelegate {
     func completeButtonTapped() {
     }
     
+}
+
+extension WithdrawalViewController: WithdrawlDelegate {
+    func withdrawlButtonTapped() {
+        self.makeAlert(alertType: .withdrawalAlert) {
+            print("회원 탈퇴")
+            self.navigationController?.pushViewController(LoginViewController(), animated: true)
+        }
+    }
 }

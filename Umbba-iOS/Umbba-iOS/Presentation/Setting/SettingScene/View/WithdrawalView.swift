@@ -9,11 +9,16 @@ import UIKit
 
 import SnapKit
 
+protocol WithdrawlDelegate: AnyObject {
+    func withdrawlButtonTapped()
+}
+
 class WithdrawalView: UIView {
     
     // MARK: - Properties
     
     weak var navigationdelegate: NavigationBarDelegate?
+    weak var withdrawldelegate: WithdrawlDelegate?
 
     // MARK: - UI Components
     
@@ -101,6 +106,7 @@ private extension WithdrawalView {
     
     func setAddTarget() {
         navigationBarView.leftButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
+        withdrawalButton.addTarget(self, action: #selector(withdrawlButtonTapped), for: .touchUpInside)
     }
     
     func setLayout() {
@@ -148,5 +154,10 @@ private extension WithdrawalView {
     @objc
     func backButtonTapped() {
         navigationdelegate?.backButtonTapped()
+    }
+    
+    @objc
+    func withdrawlButtonTapped() {
+        withdrawldelegate?.withdrawlButtonTapped()
     }
 }
