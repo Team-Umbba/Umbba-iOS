@@ -66,6 +66,16 @@ class WithdrawalView: UIView {
         return label
     }()
     
+    private lazy var withdrawalButton: UIButton = {
+        let button = UIButton()
+        button.setTitle(I18N.Setting.withdrawalButton, for: .normal)
+        button.titleLabel?.font = .PretendardSemiBold(size: 16)
+        button.setTitleColor(UIColor.white, for: .normal)
+        button.layer.cornerRadius = 30
+        button.backgroundColor = .Error
+        return button
+    }()
+
     // MARK: - Life Cycles
     
     override init(frame: CGRect) {
@@ -94,7 +104,7 @@ private extension WithdrawalView {
     }
     
     func setLayout() {
-        addSubviews(navigationBarView, quoteView, withdrawalQuestLabel, withdrawalContentLabel)
+        addSubviews(navigationBarView, quoteView, withdrawalQuestLabel, withdrawalContentLabel, withdrawalButton)
         quoteView.addSubviews(quoteLabel, personLabel)
         
         navigationBarView.snp.makeConstraints {
@@ -126,6 +136,12 @@ private extension WithdrawalView {
         withdrawalContentLabel.snp.makeConstraints {
             $0.top.equalTo(withdrawalQuestLabel.snp.bottom).offset(24)
             $0.leading.equalTo(withdrawalQuestLabel.snp.leading)
+        }
+        
+        withdrawalButton.snp.makeConstraints {
+            $0.bottom.equalTo(safeAreaLayoutGuide.snp.bottom).inset(safeAreaInsets.bottom + 12)
+            $0.leading.trailing.equalToSuperview().inset(24)
+            $0.height.equalTo(60)
         }
     }
     
