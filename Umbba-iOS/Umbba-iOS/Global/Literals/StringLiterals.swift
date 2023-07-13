@@ -85,6 +85,16 @@ enum I18N {
         static let countText = "(0/100)"
     }
     
+    enum Detail {
+        static let navigationTitle = "어린시절"
+        static let numberTitle = "#1"
+        static let themeTitle = "가장 오래된 기억"
+        static let partnerQuestLabel = "할머니와 엄마의 꿈은 달랐어?"
+        static let myQuestLabel = "당신과 어머니의 꿈은 달라?"
+        static let partnerAnswerPlaceholder = "상대방은 아직 답변하지 않았어요"
+        static let myAnswerPlaceholder = "답변을 입력해주세요"
+    }
+    
     enum Setting {
         static let settingTitle = "설정"
         static let settingLabel = "알람 설정"
