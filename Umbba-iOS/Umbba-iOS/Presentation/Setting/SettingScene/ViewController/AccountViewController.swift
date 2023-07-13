@@ -44,6 +44,18 @@ extension AccountViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 72
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath.row {
+        case 0:
+            return
+        case 1:
+            let withdrawlViewController = WithdrawalViewController()
+            self.navigationController?.pushViewController(withdrawlViewController, animated: true)
+        default:
+            return
+        }
+    }
 }
 
 extension AccountViewController: UITableViewDataSource {
