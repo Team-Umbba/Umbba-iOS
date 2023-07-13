@@ -24,6 +24,31 @@ final class AnswerDetailView: UIView {
         view.isLeftButtonIncluded = true
         return view
     }()
+    
+    private let numberLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .UmbbaBlack
+        label.text = I18N.Write.numberTitle
+        label.font = .Cafe24Regular(size: 19)
+        return label
+    }()
+    
+    private let themeLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .UmbbaBlack
+        label.text = I18N.Write.themeTitle
+        label.font = .Cafe24Regular(size: 20)
+        return label
+    }()
+    
+    private lazy var themeStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .horizontal
+        stackView.spacing = 10
+        stackView.alignment = .center
+        stackView.addArrangedSubviews(numberLabel, themeLabel)
+        return stackView
+    }()
 
     // MARK: - Life Cycles
     
@@ -58,11 +83,16 @@ private extension AnswerDetailView {
     }
     
     func setLayout() {
-        self.addSubviews(navigationBarView)
+        self.addSubviews(navigationBarView, themeStackView)
         
         navigationBarView.snp.makeConstraints {
             $0.top.equalTo(self.safeAreaLayoutGuide)
             $0.leading.trailing.equalToSuperview()
+        }
+        
+        themeStackView.snp.makeConstraints {
+            $0.top.equalTo(navigationBarView.snp.bottom).offset(9)
+            $0.centerX.equalToSuperview()
         }
     }
     
