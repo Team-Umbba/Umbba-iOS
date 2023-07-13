@@ -68,6 +68,14 @@ final class AnswerDetailView: UIView {
         return answerView
     }()
     
+    private lazy var partnerNameLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .UmbbaBlack
+        label.text = I18N.Detail.partnerName
+        label.font = .Cafe24Regular(size: 16)
+        return label
+    }()
+    
     private let myQuestLabel: UILabel = {
         let label = UILabel()
         label.text = I18N.Detail.myQuestLabel
@@ -82,6 +90,14 @@ final class AnswerDetailView: UIView {
         answerView.layer.borderColor = UIColor.Gray400.cgColor
         answerView.layer.cornerRadius = 17
         return answerView
+    }()
+    
+    private lazy var myNameLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .UmbbaBlack
+        label.text = I18N.Detail.myName
+        label.font = .Cafe24Regular(size: 16)
+        return label
     }()
     
     private lazy var nextButton: CustomButton = {
@@ -125,6 +141,8 @@ private extension AnswerDetailView {
     
     func setLayout() {
         self.addSubviews(navigationBarView, themeStackView, nextButton, partnerQeustLabel, partnerAnswerView, myQuestLabel, myAnswerView)
+        partnerAnswerView.addSubviews(partnerNameLabel)
+        myAnswerView.addSubviews(myNameLabel)
         
         navigationBarView.snp.makeConstraints {
             $0.top.equalTo(self.safeAreaLayoutGuide)
@@ -147,6 +165,10 @@ private extension AnswerDetailView {
             $0.height.equalTo(SizeLiterals.Screen.screenHeight * 174 / 812)
         }
         
+        partnerNameLabel.snp.makeConstraints {
+            $0.leading.bottom.equalToSuperview().inset(16)
+        }
+        
         myQuestLabel.snp.makeConstraints {
             $0.trailing.equalToSuperview().inset(24)
             $0.top.equalTo(partnerAnswerView.snp.bottom).offset(41)
@@ -156,6 +178,10 @@ private extension AnswerDetailView {
             $0.top.equalTo(myQuestLabel.snp.bottom).offset(12)
             $0.leading.trailing.equalToSuperview().inset(22)
             $0.height.equalTo(SizeLiterals.Screen.screenHeight * 174 / 812)
+        }
+        
+        myNameLabel.snp.makeConstraints {
+            $0.trailing.bottom.equalToSuperview().inset(16)
         }
         
         nextButton.snp.makeConstraints {
