@@ -31,6 +31,8 @@ final class LottieViewController: UIViewController {
     }
 }
 
+// MARK: - Extensions
+
 extension LottieViewController {
     func playAnimation() {
         lottieView.lottieSplashView.play { (finished) in

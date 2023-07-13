@@ -48,7 +48,9 @@ final class LottieView: UIView {
     }
 }
 
-extension LottieView {
+// MARK: - Extensions
+
+private extension LottieView {
     func setUI() {
         backgroundColor = .UmbbaWhite
         

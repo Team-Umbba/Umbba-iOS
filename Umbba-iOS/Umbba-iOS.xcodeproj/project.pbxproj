@@ -471,10 +471,10 @@
 		697815622A52FCB60047944C /* Lottie */ = {
 			isa = PBXGroup;
 			children = (
+				A42740F52A5FE73300D05B14 /* View */,
+				A42740F62A5FE73C00D05B14 /* ViewController */,
 				A42740F32A5FCE1C00D05B14 /* splash_iOS.json */,
 				697815BE2A530B8F0047944C /* Lottie.swift */,
-				A42740F12A5FBDF600D05B14 /* LottieView.swift */,
-				A42740EF2A5FBCA100D05B14 /* LottieViewController.swift */,
 			);
 			path = Lottie;
 			sourceTree = "<group>";
@@ -898,6 +898,22 @@
 			isa = PBXGroup;
 			children = (
 				A42723C82A5A8162003C445F /* ArchivingViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		A42740F52A5FE73300D05B14 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A42740F12A5FBDF600D05B14 /* LottieView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A42740F62A5FE73C00D05B14 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A42740EF2A5FBCA100D05B14 /* LottieViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
