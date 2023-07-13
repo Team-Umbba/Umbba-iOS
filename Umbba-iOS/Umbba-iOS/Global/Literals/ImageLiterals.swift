@@ -29,5 +29,8 @@ enum ImageLiterals {
     
     enum Auth {
         static var icn_check_circle: UIImage { .load(name: "circle_check") }
+        static var icn_apple: UIImage { .load(name: "appleLogo") }
+        static var icn_kakao: UIImage { .load(name: "kakaoLogo") }
+        
     }
 }

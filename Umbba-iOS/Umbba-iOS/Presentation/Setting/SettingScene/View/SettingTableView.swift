@@ -65,6 +65,7 @@ private extension SettingTableView {
         tableView.sectionHeaderTopPadding = 1
         tableView.isScrollEnabled = false
         tableView.isUserInteractionEnabled = true
+        tableView.separatorStyle = .none
     }
     
     func registerCell() {

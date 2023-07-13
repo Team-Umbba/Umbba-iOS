@@ -48,6 +48,10 @@ extension UIColor {
         return UIColor(hex: "#FCFAF8")
     }
     
+    static var UmbbaYellow: UIColor {
+        return UIColor(hex: "#FBE44D")
+    }
+  
     static var GradientLow: UIColor {
         return UIColor(hex: "#F8C8AE")
     }
@@ -58,5 +62,5 @@ extension UIColor {
     
     static var GradientHigh: UIColor {
         return UIColor(hex: "#D87E7E")
-    } 
+    }  
 }

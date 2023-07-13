@@ -36,6 +36,7 @@ private extension AccountViewController {
     func setDelegate() {
         accounttableView.delegate = self
         accounttableView.dataSource = self
+        accountTableView.navigationdelegate = self
     }
 }
 
@@ -56,4 +57,15 @@ extension AccountViewController: UITableViewDataSource {
         cell.buttonImage.isHidden = true
         return cell
     }
+}
+
+extension AccountViewController: NavigationBarDelegate {
+    
+    func backButtonTapped() {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    func completeButtonTapped() {
+    }
+    
 }
