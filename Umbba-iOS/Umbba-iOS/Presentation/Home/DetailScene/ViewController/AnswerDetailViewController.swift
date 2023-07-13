@@ -7,9 +7,13 @@
 
 import UIKit
 
-class AnswerDetailViewController: UIViewController {
+final class AnswerDetailViewController: UIViewController {
+    
+    // MARK: - UI Components
     
     private let answerDetailView = AnswerDetailView()
+    
+    // MARK: - Life Cycles
     
     override func loadView() {
         super.loadView()
@@ -19,5 +23,33 @@ class AnswerDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setDelegate()
+    }
+}
+
+// MARK: - Extensions
+
+extension AnswerDetailViewController {
+    
+    func setDelegate() {
+        answerDetailView.delegate = self
+        answerDetailView.nextDelegate = self
+    }
+}
+
+extension AnswerDetailViewController: NavigationBarDelegate {
+    func backButtonTapped() {
+        self.navigationController?.popViewController(animated: true)
+    }
+
+    func completeButtonTapped() {
+        
+    }
+}
+
+extension AnswerDetailViewController: NextButtonDelegate {
+    func nextButtonTapped() {
+        self.navigationController?.pushViewController(AnswerWriteViewController(), animated: true)
     }
 }
