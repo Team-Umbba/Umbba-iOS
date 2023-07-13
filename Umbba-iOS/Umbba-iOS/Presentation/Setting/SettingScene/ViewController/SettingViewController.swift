@@ -74,8 +74,6 @@ extension SettingViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        
         switch indexPath.section {
         case 0:
             let accountViewController = AccountViewController()
@@ -106,6 +104,7 @@ extension SettingViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = SettingTableViewCell.dequeueReusableCell(tableView: tableView, indexPath: indexPath)
+        cell.selectionStyle = .none
         
         switch indexPath.section {
         case 0:
