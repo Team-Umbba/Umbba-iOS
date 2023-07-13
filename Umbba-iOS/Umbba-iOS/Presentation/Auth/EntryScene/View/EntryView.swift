@@ -9,11 +9,16 @@ import UIKit
 
 import SnapKit
 
+protocol EntryDelegate: AnyObject {
+    func entryButtonTapped()
+    func inviteButtonTapped()
+}
+
 final class EntryView: UIView {
     
     // MARK: - Properties
     
-    weak var nextDelegate: NextButtonDelegate?
+    weak var entryDelegate: EntryDelegate?
     
     // MARK: - UI Components
     
@@ -136,10 +141,16 @@ private extension EntryView {
 
     func setAddTarget() {
         entryButton.addTarget(self, action: #selector(entryButtonTapped), for: .touchUpInside)
+        inviteButton.addTarget(self, action: #selector(inviteButtonTapped), for: .touchUpInside)
     }
     
     @objc
     func entryButtonTapped() {
-        nextDelegate?.nextButtonTapped()
+        entryDelegate?.entryButtonTapped()
+    }
+    
+    @objc
+    func inviteButtonTapped() {
+        entryDelegate?.inviteButtonTapped()
     }
 }

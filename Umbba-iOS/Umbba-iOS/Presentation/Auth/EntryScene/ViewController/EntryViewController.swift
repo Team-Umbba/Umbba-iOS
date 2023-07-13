@@ -13,6 +13,7 @@ final class EntryViewController: UIViewController {
     
     override func loadView() {
         super.loadView()
+        
         self.view = entryView
     }
 
@@ -28,12 +29,16 @@ final class EntryViewController: UIViewController {
 
 extension EntryViewController {
     func setDelegate() {
-        entryView.nextDelegate = self
+        entryView.entryDelegate = self
     }
 }
 
-extension EntryViewController: NextButtonDelegate {
-    func nextButtonTapped() {
+extension EntryViewController: EntryDelegate {
+    func entryButtonTapped() {
         self.navigationController?.pushViewController(UserInfoViewController(), animated: true)
+    }
+    
+    func inviteButtonTapped() {
+        self.navigationController?.pushViewController(InviteViewController(), animated: true)
     }
 }
