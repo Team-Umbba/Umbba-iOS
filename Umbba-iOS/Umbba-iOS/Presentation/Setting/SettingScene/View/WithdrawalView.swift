@@ -9,7 +9,7 @@ import UIKit
 
 import SnapKit
 
-class CancelView: UIView {
+class WithdrawalView: UIView {
     
     // MARK: - Properties
     
@@ -41,6 +41,31 @@ class CancelView: UIView {
         return label
     }()
     
+    private let personLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .Primary600
+        label.text = I18N.Setting.personLabel
+        label.font = .PretendardRegular(size: 16)
+        return label
+    }()
+    
+    private let withdrawalQuestLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .UmbbaBlack
+        label.text = I18N.Setting.withdrawalQuestLabel
+        label.font = .PretendardSemiBold(size: 20)
+        return label
+    }()
+    
+    private let withdrawalContentLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .UmbbaBlack
+        label.text = I18N.Setting.withdrawalContentLabel
+        label.font = .PretendardRegular(size: 12)
+        label.numberOfLines = 2
+        return label
+    }()
+    
     // MARK: - Life Cycles
     
     override init(frame: CGRect) {
@@ -58,7 +83,7 @@ class CancelView: UIView {
 
 // MARK: - Extensions
 
-private extension CancelView {
+private extension WithdrawalView {
     
     func setUI() {
         backgroundColor = .UmbbaWhite
@@ -69,7 +94,8 @@ private extension CancelView {
     }
     
     func setLayout() {
-        addSubviews(navigationBarView, quoteView)
+        addSubviews(navigationBarView, quoteView, withdrawalQuestLabel, withdrawalContentLabel)
+        quoteView.addSubviews(quoteLabel, personLabel)
         
         navigationBarView.snp.makeConstraints {
              $0.top.equalTo(self.safeAreaLayoutGuide)
@@ -79,7 +105,27 @@ private extension CancelView {
         quoteView.snp.makeConstraints {
             $0.top.equalTo(navigationBarView.snp.bottom)
             $0.leading.trailing.equalToSuperview().inset(58)
-            $0.height.equalTo(SizeLiterals.Screen.screenHeight * 120 / 812)
+            $0.height.equalTo(120)
+        }
+        
+        quoteLabel.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(26)
+            $0.centerX.equalToSuperview()
+        }
+        
+        personLabel.snp.makeConstraints {
+            $0.top.equalTo(quoteLabel.snp.bottom).offset(24)
+            $0.centerX.equalToSuperview()
+        }
+        
+        withdrawalQuestLabel.snp.makeConstraints {
+            $0.top.equalTo(quoteView.snp.bottom).offset(29)
+            $0.leading.equalToSuperview().inset(24)
+        }
+        
+        withdrawalContentLabel.snp.makeConstraints {
+            $0.top.equalTo(withdrawalQuestLabel.snp.bottom).offset(24)
+            $0.leading.equalTo(withdrawalQuestLabel.snp.leading)
         }
     }
     

@@ -7,15 +7,15 @@
 
 import UIKit
 
-class CancelViewController: UIViewController {
+class WithdrawalViewController: UIViewController {
     
-    private let cancelView = CancelView()
+    private let withdrawalView = WithdrawalView()
     
     // MARK: - Life Cycles
     
     override func loadView() {
         super.loadView()
-        view = cancelView
+        view = withdrawalView
     }
     
     override func viewDidLoad() {
@@ -27,14 +27,14 @@ class CancelViewController: UIViewController {
 
 // MARK: - Extensions
 
-private extension CancelViewController {
+private extension WithdrawalViewController {
     
     func setDelegate() {
-        cancelView.navigationdelegate = self
+        withdrawalView.navigationdelegate = self
     }
 }
 
-extension CancelViewController: NavigationBarDelegate {
+extension WithdrawalViewController: NavigationBarDelegate {
     
     func backButtonTapped() {
         self.navigationController?.popViewController(animated: true)
