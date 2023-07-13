@@ -9,6 +9,8 @@ import UIKit
 
 class WithdrawalViewController: UIViewController {
     
+    // MARK: - UI Components
+    
     private let withdrawalView = WithdrawalView()
     
     // MARK: - Life Cycles
