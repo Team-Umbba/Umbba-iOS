@@ -95,6 +95,8 @@ enum I18N {
         static let myAnswerPlaceholder = "답변을 입력해주세요"
         static let answerButton = "답변하기"
         static let homeButton = "홈으로"
+        static let partnerName = "이승준."
+        static let myName = "김수연."
     }
     
     enum Setting {
