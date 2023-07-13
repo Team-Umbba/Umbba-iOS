@@ -77,7 +77,7 @@ final class FamilyInfoView: UIView {
         let button = UIButton()
         button.setBackgroundColor(.UmbbaWhite, for: .normal)
         button.setBackgroundColor(.Primary500, for: .selected)
-        button.setTitle(I18N.Onboarding.parent, for: .normal)
+        button.setTitle(I18N.Onboarding.child, for: .normal)
         button.setTitleColor(.UmbbaBlack, for: .normal)
         button.setTitleColor(.UmbbaWhite, for: .selected)
         button.titleLabel?.font = .PretendardRegular(size: 16)

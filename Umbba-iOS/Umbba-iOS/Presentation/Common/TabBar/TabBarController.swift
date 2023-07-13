@@ -97,14 +97,14 @@ private extension TabBarController {
     
     func setTabBar() {
         let home = makeTabBar(
-            viewController: NoticeAlarmViewController(),
+            viewController: ViewController(),
             title: "",
             tabBarImg: ImageLiterals.TabBar.icn_home,
             tabBarSelectedImg: ImageLiterals.TabBar.icn_home_selected,
             renderingMode: .alwaysOriginal
         )
         let list = makeTabBar(
-            viewController: ViewController(),
+            viewController: ArchivingViewController(),
             title: "",
             tabBarImg: ImageLiterals.TabBar.icn_list,
             tabBarSelectedImg: ImageLiterals.TabBar.icn_list_selected,

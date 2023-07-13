@@ -37,4 +37,10 @@ extension String {
         guard self.range(of: pattern, options: .regularExpression) != nil else { return false }
         return true
     }
+    
+    func isValidInviteCode() -> Bool {
+        let pattern = "^[A-Z]{4}-[a-zA-Z0-9]{6}$"
+        guard self.range(of: pattern, options: .regularExpression) != nil else { return false }
+        return true
+    }
 }

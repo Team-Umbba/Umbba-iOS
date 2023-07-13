@@ -9,8 +9,13 @@ import UIKit
 
 final class UserInfoViewController: UIViewController {
     
+    // MARK: - Properties
+    
+    var isReceiver: Bool = false
+    
     // MARK: - UI Components
     
+    private let inviteViewController = InviteViewController()
     private let userInfoView = UserInfoView()
     
     // MARK: - Life Cycles
@@ -49,6 +54,11 @@ extension UserInfoViewController: NavigationBarDelegate {
 
 extension UserInfoViewController: NextButtonDelegate {
     func nextButtonTapped() {
-        self.navigationController?.pushViewController(FamilyInfoViewController(), animated: true)
+        if isReceiver {
+            // FIX: - 단답질문뷰로 이동
+            self.navigationController?.pushViewController(NoticeAlarmViewController(), animated: true)
+        } else {
+            self.navigationController?.pushViewController(FamilyInfoViewController(), animated: true)
+        }
     }
 }
