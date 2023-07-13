@@ -93,6 +93,8 @@ enum I18N {
         static let myQuestLabel = "당신과 어머니의 꿈은 달라?"
         static let partnerAnswerPlaceholder = "상대방은 아직 답변하지 않았어요"
         static let myAnswerPlaceholder = "답변을 입력해주세요"
+        static let answerButton = "답변하기"
+        static let homeButton = "홈으로"
     }
     
     enum Setting {

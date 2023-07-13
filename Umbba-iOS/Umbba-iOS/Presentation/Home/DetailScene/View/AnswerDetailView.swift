@@ -14,6 +14,7 @@ final class AnswerDetailView: UIView {
     // MARK: - Properties
     
     weak var delegate: NavigationBarDelegate?
+    weak var nextDelegate: NextButtonDelegate?
     
     // MARK: - UI Components
     
@@ -49,6 +50,12 @@ final class AnswerDetailView: UIView {
         stackView.addArrangedSubviews(numberLabel, themeLabel)
         return stackView
     }()
+    
+    private lazy var nextButton: CustomButton = {
+        let button = CustomButton(status: true, title: I18N.Detail.answerButton)
+        button.isEnabled = true
+        return button
+    }()
 
     // MARK: - Life Cycles
     
@@ -76,6 +83,7 @@ private extension AnswerDetailView {
     
     func setAddTarget() {
         navigationBarView.leftButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
+        nextButton.addTarget(self, action: #selector(nextButtonTapped), for: .touchUpInside)
     }
     
     func setDelegate() {
@@ -83,7 +91,7 @@ private extension AnswerDetailView {
     }
     
     func setLayout() {
-        self.addSubviews(navigationBarView, themeStackView)
+        self.addSubviews(navigationBarView, themeStackView, nextButton)
         
         navigationBarView.snp.makeConstraints {
             $0.top.equalTo(self.safeAreaLayoutGuide)
@@ -94,10 +102,21 @@ private extension AnswerDetailView {
             $0.top.equalTo(navigationBarView.snp.bottom).offset(9)
             $0.centerX.equalToSuperview()
         }
+        
+        nextButton.snp.makeConstraints {
+            $0.bottom.equalTo(self.safeAreaLayoutGuide).offset(-12)
+            $0.trailing.leading.equalToSuperview().inset(20)
+            $0.height.equalTo(60)
+        }
     }
     
     @objc
     func backButtonTapped() {
         delegate?.backButtonTapped()
+    }
+    
+    @objc
+    func nextButtonTapped() {
+        nextDelegate?.nextButtonTapped()
     }
 }
