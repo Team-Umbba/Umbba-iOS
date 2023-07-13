@@ -15,7 +15,7 @@ enum I18N {
     
     enum Onboarding {
         static let inviteNavigationTitle = "초대코드 입력"
-        static let inviteTitle = "초대코드를 입력해줘."
+        static let inviteTitle = "초대코드를 입력해줘"
         static let inviteBoldTitle = "초대코드"
         static let inviteTextFieldPlaceholder = "ex) ORWO-11yzwx"
         static let inviteError = "*올바른 초대코드 형식이 아닙니다"
