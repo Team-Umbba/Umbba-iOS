@@ -11,6 +11,7 @@
 		144F3F432A5C655400D73A6B /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144F3F422A5C655400D73A6B /* AccountViewController.swift */; };
 		144F3F452A5C883800D73A6B /* SettingTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144F3F442A5C883800D73A6B /* SettingTableView.swift */; };
 		144F3F472A5C963B00D73A6B /* AccountTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144F3F462A5C963B00D73A6B /* AccountTableView.swift */; };
+		148B04BA2A6058D400E4808E /* splash_iOS.json in Resources */ = {isa = PBXBuildFile; fileRef = 148B04B92A6057E300E4808E /* splash_iOS.json */; };
 		149099E72A5FBB20007242C6 /* AnswerDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149099E62A5FBB20007242C6 /* AnswerDetailView.swift */; };
 		149099E92A5FBDF6007242C6 /* AnswerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149099E82A5FBDF6007242C6 /* AnswerDetailViewController.swift */; };
 		14A01D432A57D8A200D4F860 /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A01D422A57D8A200D4F860 /* SettingTableViewCell.swift */; };
@@ -127,6 +128,7 @@
 		144F3F422A5C655400D73A6B /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		144F3F442A5C883800D73A6B /* SettingTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableView.swift; sourceTree = "<group>"; };
 		144F3F462A5C963B00D73A6B /* AccountTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTableView.swift; sourceTree = "<group>"; };
+		148B04B92A6057E300E4808E /* splash_iOS.json */ = {isa = PBXFileReference; explicitFileType = text.json; path = splash_iOS.json; sourceTree = "<group>"; };
 		149099E62A5FBB20007242C6 /* AnswerDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerDetailView.swift; sourceTree = "<group>"; };
 		149099E82A5FBDF6007242C6 /* AnswerDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerDetailViewController.swift; sourceTree = "<group>"; };
 		14A01D422A57D8A200D4F860 /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
@@ -492,6 +494,7 @@
 				A42740F52A5FE73300D05B14 /* View */,
 				A42740F62A5FE73C00D05B14 /* ViewController */,
 				697815BE2A530B8F0047944C /* Lottie.swift */,
+				148B04B92A6057E300E4808E /* splash_iOS.json */,
 			);
 			path = Lottie;
 			sourceTree = "<group>";
@@ -1067,6 +1070,7 @@
 				69DE6BA02A53421D00F31812 /* Pretendard-Bold.otf in Resources */,
 				69DE6B9B2A5341FF00F31812 /* Cafe24Classictype-v1.1.otf in Resources */,
 				69DE6B9F2A53421D00F31812 /* Pretendard-SemiBold.otf in Resources */,
+				148B04BA2A6058D400E4808E /* splash_iOS.json in Resources */,
 				69DE6BA12A53421D00F31812 /* Pretendard-Regular.otf in Resources */,
 				697815502A52FA380047944C /* LaunchScreen.storyboard in Resources */,
 				6978154D2A52FA380047944C /* Assets.xcassets in Resources */,
