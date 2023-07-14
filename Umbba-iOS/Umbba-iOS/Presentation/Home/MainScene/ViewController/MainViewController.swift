@@ -20,12 +20,23 @@ final class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setDelegate()
         setDataBind()
     }
 }
 
-extension MainViewController {
-    private func setDataBind() {
+private extension MainViewController {
+    func setDelegate() {
+        mainView.mainDelegate = self
+    }
+    
+    func setDataBind() {
         mainView.setDataBind(model: mainModel)
+    }
+}
+
+extension MainViewController: MainDelegate {
+    func questionButtonTapped() {
+        self.navigationController?.pushViewController(AnswerDetailViewController(), animated: false)
     }
 }

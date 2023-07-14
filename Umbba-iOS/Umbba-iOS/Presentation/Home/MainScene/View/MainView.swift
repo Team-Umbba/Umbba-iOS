@@ -9,9 +9,16 @@ import UIKit
 
 import SnapKit
 
+protocol MainDelegate: AnyObject {
+    func questionButtonTapped()
+}
+
 final class MainView: UIView {
     
     // MARK: - UI Components
+    
+    weak var delegate: AlertDelegate?
+    weak var mainDelegate: MainDelegate?
     
     private let questionImage: UIImageView = {
         let image = UIImageView()
@@ -68,6 +75,7 @@ final class MainView: UIView {
         setUI()
         setHierarchy()
         setLayout()
+        setAddTarget()
     }
     
     @available(*, unavailable)
@@ -113,6 +121,10 @@ extension MainView {
             $0.height.equalTo(60)
         }
     }
+    
+    func setAddTarget() {
+        questionButton.addTarget(self, action: #selector(questionButtonTapped), for: .touchUpInside)
+    }
 
     func setDataBind(model: MainItem) {
         switch model.section {
@@ -131,5 +143,10 @@ extension MainView {
         }
         questionNumLabel.text = "#\(model.count)"
         questionTitleLabel.text = model.topic
+    }
+    
+    @objc
+    func questionButtonTapped() {
+        mainDelegate?.questionButtonTapped()
     }
 }
