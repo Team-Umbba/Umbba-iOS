@@ -32,6 +32,7 @@ final class AssignViewController: UIViewController {
 extension AssignViewController {
     func setDelegate() {
         assignView.assignDelegate = self
+        assignView.nextDelegate = self
     }
 }
 
@@ -49,5 +50,11 @@ extension AssignViewController: AssignDelegate {
         default:
             break
         }
+    }
+}
+
+extension AssignViewController: NextButtonDelegate {
+    func nextButtonTapped() {
+        self.navigationController?.pushViewController(EntryViewController(), animated: false)
     }
 }

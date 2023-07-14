@@ -12,6 +12,7 @@ import SafariServices
 
 protocol AssignDelegate: AnyObject {
     func presentURL(secton: Int)
+    func nextButtonTapped()
 }
 
 final class AssignView: UIView {
@@ -19,6 +20,7 @@ final class AssignView: UIView {
     // MARK: - Properties
     
     weak var assignDelegate: AssignDelegate?
+    weak var nextDelegate: NextButtonDelegate?
 
     // MARK: - UI Components
     
@@ -291,6 +293,7 @@ extension AssignView {
         assignFirstCheck.addTarget(self, action: #selector(clickedFirstCheck), for: .touchUpInside)
         assignSecondCheck.addTarget(self, action: #selector(clickedSecondCheck), for: .touchUpInside)
         assignThirdCheck.addTarget(self, action: #selector(clickedThirdCheck), for: .touchUpInside)
+        nextButton.addTarget(self, action: #selector(nextButtonTapped), for: .touchUpInside)
     }
     
     func checkAll() {
@@ -393,5 +396,10 @@ extension AssignView {
     @objc
     func presentURL(section: Int) {
         assignDelegate?.presentURL(secton: section)
+    }
+    
+    @objc
+    func nextButtonTapped() {
+        nextDelegate?.nextButtonTapped()
     }
 }
