@@ -22,6 +22,7 @@ final class MainView: UIView {
     
     private let questionImage: UIImageView = {
         let image = UIImageView()
+        image.contentMode = .scaleAspectFill
         return image
     }()
     
@@ -104,7 +105,8 @@ extension MainView {
         }
         
         questionView.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(63)
+//            $0.top.equalToSuperview().inset(SizeLiterals.Screen.screenHeight * 63 / 812)
+            $0.top.equalTo(safeAreaLayoutGuide.snp.top).offset(SizeLiterals.Screen.screenHeight * 18 / 812)
             $0.leading.equalToSuperview().inset(24)
             $0.height.equalTo(SizeLiterals.Screen.screenHeight * 56 / 812)
         }
