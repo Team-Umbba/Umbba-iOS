@@ -8,8 +8,17 @@
 import UIKit
 
 import SnapKit
+import SafariServices
+
+protocol AssignDelegate: AnyObject {
+    func presentURL(secton: Int)
+}
 
 final class AssignView: UIView {
+    
+    // MARK: - Properties
+    
+    weak var assignDelegate: AssignDelegate?
 
     // MARK: - UI Components
     
@@ -92,11 +101,14 @@ final class AssignView: UIView {
         return check
     }()
     
-    private let assignSecondTitle: UILabel = {
+    private lazy var assignSecondTitle: UILabel = {
         let label = UILabel()
         label.text = I18N.Auth.assignSecondTitle
         label.font = .PretendardRegular(size: 12)
         label.setUnderlinePartFontChange(targetString: "서비스 이용약관", font: .PretendardBold(size: 12))
+        label.isUserInteractionEnabled = true
+        let recognizer = UITapGestureRecognizer(target: self, action: #selector(secondTitleLabelTapped(_: )))
+        label.addGestureRecognizer(recognizer)
         label.textColor = .UmbbaBlack
         return label
     }()
@@ -108,11 +120,14 @@ final class AssignView: UIView {
         return check
     }()
     
-    private let assignThirdTitle: UILabel = {
+    private lazy var assignThirdTitle: UILabel = {
         let label = UILabel()
         label.text = I18N.Auth.assignThirdTitle
         label.font = .PretendardRegular(size: 12)
         label.setUnderlinePartFontChange(targetString: "개인정보 수집 및 이용", font: .PretendardBold(size: 12))
+        label.isUserInteractionEnabled = true
+        let recognizer = UITapGestureRecognizer(target: self, action: #selector(thirdTitleLabelTapped(_: )))
+        label.addGestureRecognizer(recognizer)
         label.textColor = .UmbbaBlack
         return label
     }()
@@ -163,7 +178,7 @@ final class AssignView: UIView {
 
 // MARK: - Extensions
 
-private extension AssignView {
+extension AssignView {
     
     func setUI() {
         backgroundColor = .UmbbaWhite
@@ -355,5 +370,28 @@ private extension AssignView {
     func clickedThirdCheck() {
         updateArray(section: 3)
         checkAll()
+    }
+    
+    @objc
+    func secondTitleLabelTapped(_ sender: UITapGestureRecognizer) {
+        let point = sender.location(in: assignSecondTitle)
+        if let servicRuleRect = assignSecondTitle.boundingRectForCharacterRange(subText: "서비스 이용약관"),
+           servicRuleRect.contains(point) {
+            presentURL(section: 1)
+        }
+    }
+    
+    @objc
+    func thirdTitleLabelTapped(_ sender: UITapGestureRecognizer) {
+        let point = sender.location(in: assignThirdTitle)
+        if let personalInfoRect = assignThirdTitle.boundingRectForCharacterRange(subText: "개인정보 수집 및 이용"),
+           personalInfoRect.contains(point) {
+            presentURL(section: 2)
+        }
+    }
+    
+    @objc
+    func presentURL(section: Int) {
+        assignDelegate?.presentURL(secton: section)
     }
 }
