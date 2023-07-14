@@ -13,6 +13,7 @@ final class QuestView: UIView {
     
     // MARK: - Properties
     
+    var section = 0
     weak var navigationdelegate: NavigationBarDelegate?
     weak var nextDelegate: NextButtonDelegate?
     
@@ -50,6 +51,19 @@ final class QuestView: UIView {
         return view
     }()
     
+    lazy var questCollectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.itemSize = CGSize(width: SizeLiterals.Screen.screenWidth - 48, height: 349)
+        layout.minimumLineSpacing = 48
+        layout.scrollDirection = .horizontal
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.backgroundColor = .UmbbaWhite
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.contentInset = UIEdgeInsets(top: 0, left: 24, bottom: 0, right: 24)
+        collectionView.isScrollEnabled = false
+        return collectionView
+    }()
+    
     private lazy var nextButton: CustomButton = {
         let button = CustomButton(status: true, title: I18N.Common.nextButtonTitle)
         button.isEnabled = true
@@ -84,7 +98,7 @@ private extension QuestView {
     }
     
     func setLayout() {
-        self.addSubviews(navigationBarView, questTitleLabel, questDescriptionLabel, progressView, nextButton)
+        self.addSubviews(navigationBarView, questTitleLabel, questDescriptionLabel, progressView, questCollectionView, nextButton)
         
         navigationBarView.snp.makeConstraints {
             $0.top.equalTo(self.safeAreaLayoutGuide)
@@ -104,6 +118,12 @@ private extension QuestView {
         progressView.snp.makeConstraints {
             $0.top.equalTo(questDescriptionLabel.snp.bottom).offset(11)
             $0.trailing.leading.equalToSuperview().inset(24)
+        }
+        
+        questCollectionView.snp.makeConstraints {
+            $0.top.equalTo(progressView.snp.bottom).offset(56)
+            $0.leading.trailing.equalToSuperview()
+            $0.height.equalTo(349)
         }
         
         nextButton.snp.makeConstraints {
