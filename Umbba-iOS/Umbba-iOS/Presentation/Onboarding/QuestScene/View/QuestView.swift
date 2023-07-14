@@ -43,7 +43,7 @@ final class QuestView: UIView {
         return label
     }()
     
-    private lazy var progressView: UIProgressView = {
+    lazy var progressView: UIProgressView = {
         let view = UIProgressView()
         view.trackTintColor = .Gray400
         view.progressTintColor = .Primary600
@@ -64,9 +64,9 @@ final class QuestView: UIView {
         return collectionView
     }()
     
-    private lazy var nextButton: CustomButton = {
-        let button = CustomButton(status: true, title: I18N.Common.nextButtonTitle)
-        button.isEnabled = true
+    lazy var nextButton: CustomButton = {
+        let button = CustomButton(status: false, title: I18N.Common.nextButtonTitle)
+        button.isEnabled = false
         return button
     }()
     

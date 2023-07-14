@@ -9,10 +9,16 @@ import UIKit
 
 import SnapKit
 
+protocol QuestDelegte: AnyObject {
+    func updateNextButton(isEnabled: Bool)
+}
+
 final class QuestCollectionViewCell: UICollectionViewCell, UICollectionViewRegisterable {
     
     static let isFromNib: Bool = false
     
+    // MARK: - Properties
+    weak var qusetDelegate: QuestDelegte?
     private var selectedButton: Int = 0
     private var answerButton: [UIButton] = []
     
@@ -142,9 +148,17 @@ extension QuestCollectionViewCell {
         skipButton.addTarget(self, action: #selector(questButtonTapped), for: .touchUpInside)
     }
     
+    func updateNextButton() {
+        if yesButton.isSelected || noButton.isSelected || skipButton.isSelected {
+            print(yesButton.isSelected || noButton.isSelected || skipButton.isSelected)
+            qusetDelegate?.updateNextButton(isEnabled: true)
+        } else {
+            qusetDelegate?.updateNextButton(isEnabled: false)
+        }
+    }
+    
     @objc
     func questButtonTapped(sender: UIButton) {
-//        updateNextButton()
         self.selectedButton = sender.tag
         answerButton.forEach { button in
             guard let gender = button.titleLabel?.text else { return }
@@ -153,5 +167,6 @@ extension QuestCollectionViewCell {
                 print(gender)
             }
         }
+        updateNextButton()
     }
 }

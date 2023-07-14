@@ -9,10 +9,16 @@ import UIKit
 
 final class QuestViewController: UIViewController {
     
+    // MARK: - Properties
+    
+    var isReceiver: Bool = false
+    
     // MARK: - UI Components
     
     private let questView = QuestView()
     private lazy var questCollectionView = questView.questCollectionView
+    private lazy var progressView = questView.progressView
+    private lazy var nextButton = questView.nextButton
     
     // MARK: - Life Cycles
     
@@ -48,7 +54,14 @@ private extension QuestViewController {
 
 extension QuestViewController: NavigationBarDelegate {
     func backButtonTapped() {
-        self.navigationController?.popViewController(animated: true)
+        guard let currentIndexPath = questCollectionView.indexPathsForVisibleItems.first else { return }
+        if currentIndexPath.item == 0 {
+            self.navigationController?.popViewController(animated: true)
+        } else {
+            progressView.progress = Float(currentIndexPath.item) * 0.2
+            let previousIndexPath = IndexPath(item: currentIndexPath.item - 1, section: currentIndexPath.section)
+            questCollectionView.scrollToItem(at: previousIndexPath, at: .centeredHorizontally, animated: true)
+        }
     }
     
     func completeButtonTapped() {
@@ -58,15 +71,17 @@ extension QuestViewController: NavigationBarDelegate {
 
 extension QuestViewController: NextButtonDelegate {
     func nextButtonTapped() {
-        print("클릭")
-        guard let currentIndexPath = questCollectionView.indexPathsForVisibleItems.first else {
-            return
+        guard let currentIndexPath = questCollectionView.indexPathsForVisibleItems.first else { return }
+        if currentIndexPath.item == 4 {
+            // 초대 받는 측인지 아닌지에 따른 분기처리 필요
+            self.navigationController?.pushViewController(PushAlarmViewController(), animated: true)
+        } else {
+            nextButton.isEnabled = false
+            progressView.progress = Float(currentIndexPath.item + 2) * 0.2
+            let nextIndexPath = IndexPath(item: currentIndexPath.item + 1, section: currentIndexPath.section)
+            questCollectionView.scrollToItem(at: nextIndexPath, at: .centeredHorizontally, animated: true)
         }
-        
-        let nextIndexPath = IndexPath(item: currentIndexPath.item + 1, section: currentIndexPath.section)
-        questCollectionView.scrollToItem(at: nextIndexPath, at: .centeredHorizontally, animated: true)
     }
-    //        self.navigationController?.pushViewController(), animated: true)
 }
 
 extension QuestViewController: UICollectionViewDelegate {
@@ -77,6 +92,7 @@ extension QuestViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = QuestCollectionViewCell.dequeueReusableCell(collectionView: collectionView, indexPath: indexPath)
         cell.questionLabel.text = "질문 질문 질문 질문 질문 질문 질문 질문 질문"
+        cell.qusetDelegate = self
         return cell
     }
     
@@ -85,8 +101,8 @@ extension QuestViewController: UICollectionViewDataSource {
     }
 }
 
-extension QuestViewController: UICollectionViewDelegateFlowLayout {
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
+extension QuestViewController: QuestDelegte {
+    func updateNextButton(isEnabled: Bool) {
+        nextButton.isEnabled = isEnabled
     }
 }
