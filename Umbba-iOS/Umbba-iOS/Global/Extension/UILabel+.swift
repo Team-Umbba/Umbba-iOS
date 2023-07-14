@@ -144,4 +144,43 @@ extension UILabel {
         self.attributedText = attributedString
     }
         
+    /// 라벨 일부 font 변경 및 밑줄 추가해주는 함수
+    /// - targerString에는 바꾸고자 하는 특정 문자열을 넣어주세요
+    /// - font에는 targetString에 적용하고자 하는 UIFont를 넣어주세요
+    func setUnderlinePartFontChange(targetString: String, font: UIFont) {
+        let fullText = self.text ?? ""
+        let range = (fullText as NSString).range(of: targetString)
+        let attributedString = NSMutableAttributedString(string: fullText)
+        attributedString.addAttribute(.font, value: font, range: range)
+        attributedString.addAttribute(NSAttributedString.Key.underlineStyle, value: NSUnderlineStyle.single.rawValue, range: range)
+        self.attributedText = attributedString
+    }
+    
+    /// 라벨 내 특정 문자열의 CGRect 반환
+    /// - Parameter subText: CGRect값을 알고 싶은 특정 문자열
+    func boundingRectForCharacterRange(subText: String) -> CGRect? {
+        guard let attributedText = attributedText else { return nil }
+        guard let text = self.text else { return nil }
+        
+        guard let subRange = text.range(of: subText) else { return nil }
+        let range = NSRange(subRange, in: text)
+        
+        let layoutManager = NSLayoutManager()
+        let textStorage = NSTextStorage(attributedString: attributedText)
+        textStorage.addLayoutManager(layoutManager)
+        
+        let textContainer = NSTextContainer(size: intrinsicContentSize)
+        textContainer.lineFragmentPadding = 0.0
+        layoutManager.addTextContainer(textContainer)
+        var glyphRange = NSRange()
+        layoutManager.characterRange(
+            forGlyphRange: range,
+            actualGlyphRange: &glyphRange
+        )
+        
+        return layoutManager.boundingRect(
+            forGlyphRange: glyphRange,
+            in: textContainer
+        )
+    }
 }
