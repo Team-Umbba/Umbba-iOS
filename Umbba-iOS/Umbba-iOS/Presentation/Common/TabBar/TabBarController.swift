@@ -97,7 +97,7 @@ private extension TabBarController {
     
     func setTabBar() {
         let home = makeTabBar(
-            viewController: ViewController(),
+            viewController: MainViewController(),
             title: "",
             tabBarImg: ImageLiterals.TabBar.icn_home,
             tabBarSelectedImg: ImageLiterals.TabBar.icn_home_selected,

@@ -124,6 +124,9 @@
 		A489BDFE2A5AAAB40027E817 /* ArchivingQuestionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A489BDFD2A5AAAB40027E817 /* ArchivingQuestionCollectionViewCell.swift */; };
 		A489BE062A5AFCE90027E817 /* ArchivingImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A489BE052A5AFCE90027E817 /* ArchivingImageView.swift */; };
 		A4A7635A2A5BC0B40055D413 /* ArchivingCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A763592A5BC0B40055D413 /* ArchivingCollectionView.swift */; };
+		A4C776102A60727100375378 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C7760F2A60727100375378 /* MainView.swift */; };
+		A4C776122A60727D00375378 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C776112A60727D00375378 /* MainViewController.swift */; };
+		A4C776152A614ACB00375378 /* MainItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C776142A614ACB00375378 /* MainItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -231,6 +234,9 @@
 		A489BDFD2A5AAAB40027E817 /* ArchivingQuestionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchivingQuestionCollectionViewCell.swift; sourceTree = "<group>"; };
 		A489BE052A5AFCE90027E817 /* ArchivingImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchivingImageView.swift; sourceTree = "<group>"; };
 		A4A763592A5BC0B40055D413 /* ArchivingCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchivingCollectionView.swift; sourceTree = "<group>"; };
+		A4C7760F2A60727100375378 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		A4C776112A60727D00375378 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		A4C776142A614ACB00375378 /* MainItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -468,8 +474,8 @@
 				697815782A52FFA20047944C /* UIButton+.swift */,
 				6978157A2A52FFBC0047944C /* UIViewController+.swift */,
 				6978157C2A52FFCB0047944C /* UIStackView+.swift */,
-				6978157E2A52FFE10047944C /* UILabel+.swift */,
 				697815802A52FFF50047944C /* NSObject+.swift */,
+				6978157E2A52FFE10047944C /* UILabel+.swift */,
 				697815822A53000D0047944C /* UITableView+.swift */,
 				69DE6B902A53384C00F31812 /* UIColor+.swift */,
 				69DE6BB72A54417F00F31812 /* String+.swift */,
@@ -700,6 +706,9 @@
 		697815AE2A5305180047944C /* MainScene */ = {
 			isa = PBXGroup;
 			children = (
+				A4C776132A614AC000375378 /* Item */,
+				A4C7760E2A60726000375378 /* View */,
+				A4C7760D2A60725600375378 /* ViewController */,
 				697815CE2A530BE70047944C /* Main.swift */,
 			);
 			path = MainScene;
@@ -994,6 +1003,30 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		A4C7760D2A60725600375378 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A4C776112A60727D00375378 /* MainViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		A4C7760E2A60726000375378 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A4C7760F2A60727100375378 /* MainView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A4C776132A614AC000375378 /* Item */ = {
+			isa = PBXGroup;
+			children = (
+				A4C776142A614ACB00375378 /* MainItem.swift */,
+			);
+			path = Item;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1119,6 +1152,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6951A69A2A5D8A8F00D49692 /* NextButtonProtocol.swift in Sources */,
+				A4C776102A60727100375378 /* MainView.swift in Sources */,
 				69636FAF2A5A616C008B457A /* FamilyInfoView.swift in Sources */,
 				6978157B2A52FFBC0047944C /* UIViewController+.swift in Sources */,
 				697815752A52FF760047944C /* UIVIew+.swift in Sources */,
@@ -1165,6 +1199,7 @@
 				14A6D3062A5A63EF003A83B3 /* SettingSectionHeaderView.swift in Sources */,
 				697815CF2A530BE70047944C /* Main.swift in Sources */,
 				14348E9D2A5B37DC0077A9B8 /* TabBarController.swift in Sources */,
+				A4C776122A60727D00375378 /* MainViewController.swift in Sources */,
 				691979F42A5C61450069FB63 /* AlertVIewController.swift in Sources */,
 				6991BA702A57314A0091D52D /* UserInfoView.swift in Sources */,
 				6951A6982A5D89DA00D49692 /* NaviagionBarProtocol.swift in Sources */,
@@ -1185,6 +1220,7 @@
 				A42723BF2A5537CD003C445F /* EntryView.swift in Sources */,
 				697815D72A530C120047944C /* Setting.swift in Sources */,
 				A489BDF82A5AA5020027E817 /* ArchivingQuestionItem.swift in Sources */,
+				A4C776152A614ACB00375378 /* MainItem.swift in Sources */,
 				14AA29862A5685660038CDA1 /* NoticeAlarmView.swift in Sources */,
 				699455DD2A5AED19003C118A /* PushAlarmView.swift in Sources */,
 				697815442A52FA370047944C /* AppDelegate.swift in Sources */,
