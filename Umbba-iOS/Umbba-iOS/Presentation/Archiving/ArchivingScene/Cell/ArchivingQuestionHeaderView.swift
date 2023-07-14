@@ -59,6 +59,6 @@ extension ArchivingQuestionHeaderView {
     }
     
     func setDataBind(model: ArchivingQuestionItem) {
-        headerLabel.text = I18N.Archiving.sectionArray[model.section]
+        headerLabel.text = I18N.Archiving.sectionArray[model.index]
     }
 }
