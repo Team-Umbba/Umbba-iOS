@@ -40,11 +40,11 @@ extension AssignViewController: AssignDelegate {
     func presentURL(secton section: Int) {
         switch section {
         case 1:
-            if let url = URL(string: I18N.Auth.serviceRuleURL) {
+            if let url = URL(string: I18N.Setting.urlArray[0]) {
                 let safariViewController = SFSafariViewController(url: url)
                 present(safariViewController, animated: true, completion: nil) }
         case 2:
-            if let url = URL(string: I18N.Auth.personalRuleURL) {
+            if let url = URL(string: I18N.Setting.urlArray[1]) {
                 let safariViewController = SFSafariViewController(url: url)
                 present(safariViewController, animated: true, completion: nil) }
         default:
