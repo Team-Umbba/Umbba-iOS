@@ -28,6 +28,7 @@
 		6951A6962A5D2B5300D49692 /* InviteAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6951A6952A5D2B5300D49692 /* InviteAlertView.swift */; };
 		6951A6982A5D89DA00D49692 /* NaviagionBarProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6951A6972A5D89DA00D49692 /* NaviagionBarProtocol.swift */; };
 		6951A69A2A5D8A8F00D49692 /* NextButtonProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6951A6992A5D8A8F00D49692 /* NextButtonProtocol.swift */; };
+		6951A69D2A61730600D49692 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6951A69C2A61730600D49692 /* GoogleService-Info.plist */; };
 		69636FAD2A5A615C008B457A /* FamilyInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69636FAC2A5A615C008B457A /* FamilyInfoViewController.swift */; };
 		69636FAF2A5A616C008B457A /* FamilyInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69636FAE2A5A616C008B457A /* FamilyInfoView.swift */; };
 		69636FB32A5ADE4A008B457A /* CompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69636FB22A5ADE4A008B457A /* CompleteViewController.swift */; };
@@ -147,6 +148,8 @@
 		6951A6952A5D2B5300D49692 /* InviteAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteAlertView.swift; sourceTree = "<group>"; };
 		6951A6972A5D89DA00D49692 /* NaviagionBarProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaviagionBarProtocol.swift; sourceTree = "<group>"; };
 		6951A6992A5D8A8F00D49692 /* NextButtonProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextButtonProtocol.swift; sourceTree = "<group>"; };
+		6951A69B2A616C8200D49692 /* Umbba-iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Umbba-iOS.entitlements"; sourceTree = "<group>"; };
+		6951A69C2A61730600D49692 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		69636FAC2A5A615C008B457A /* FamilyInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyInfoViewController.swift; sourceTree = "<group>"; };
 		69636FAE2A5A616C008B457A /* FamilyInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyInfoView.swift; sourceTree = "<group>"; };
 		69636FB22A5ADE4A008B457A /* CompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteViewController.swift; sourceTree = "<group>"; };
@@ -382,12 +385,14 @@
 		697815422A52FA370047944C /* Umbba-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				6951A69B2A616C8200D49692 /* Umbba-iOS.entitlements */,
 				697815572A52FB9E0047944C /* Application */,
 				6978155C2A52FBF40047944C /* Global */,
 				697815922A5301CF0047944C /* Network */,
 				697815912A53018B0047944C /* Presentation */,
 				697815512A52FA380047944C /* Info.plist */,
 				697815472A52FA370047944C /* ViewController.swift */,
+				6951A69C2A61730600D49692 /* GoogleService-Info.plist */,
 				697815FA2A5314BE0047944C /* .swiftlint.yml */,
 			);
 			path = "Umbba-iOS";
@@ -1074,6 +1079,7 @@
 			files = (
 				697815FB2A5314BE0047944C /* .swiftlint.yml in Resources */,
 				69DE6BA02A53421D00F31812 /* Pretendard-Bold.otf in Resources */,
+				6951A69D2A61730600D49692 /* GoogleService-Info.plist in Resources */,
 				69DE6B9B2A5341FF00F31812 /* Cafe24Classictype-v1.1.otf in Resources */,
 				69DE6B9F2A53421D00F31812 /* Pretendard-SemiBold.otf in Resources */,
 				148B04BA2A6058D400E4808E /* splash_iOS.json in Resources */,
@@ -1342,6 +1348,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Umbba-iOS/Umbba-iOS.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
@@ -1350,6 +1357,7 @@
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 9YCVZHNG67;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Umbba-iOS/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "엄빠도 어렸다";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
@@ -1376,6 +1384,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Umbba-iOS/Umbba-iOS.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
@@ -1384,6 +1393,7 @@
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 9YCVZHNG67;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Umbba-iOS/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "엄빠도 어렸다";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
