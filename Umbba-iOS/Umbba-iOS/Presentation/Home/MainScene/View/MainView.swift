@@ -120,6 +120,6 @@ extension MainView {
             questionImage.image = ImageLiterals.Home.main_1
         }
         questionNumLabel.text = "#\(model.count)"
-        questionLabel.text = model.topic
+        questionTitleLabel.text = model.topic
     }
 }
