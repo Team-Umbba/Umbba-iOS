@@ -25,11 +25,11 @@ final class MainView: UIView {
         return image
     }()
     
-    private let questionLabel: UIView = {
+    private let questionView: UIView = {
         let view = UIView()
         view.backgroundColor = .Primary600
         view.clipsToBounds = true
-        view.layer.cornerRadius = 30
+        view.layer.cornerRadius = (SizeLiterals.Screen.screenHeight * 56 / 812) / 2
         return view
     }()
     
@@ -93,8 +93,8 @@ extension MainView {
     }
     
     func setHierarchy() {
-        questionLabel.addSubview(questionStackView)
-        addSubviews(questionImage, questionLabel, questionButton)
+        questionView.addSubview(questionStackView)
+        addSubviews(questionImage, questionView, questionButton)
     }
     
     func setLayout() {
@@ -103,11 +103,10 @@ extension MainView {
             $0.bottom.equalTo(safeAreaInsets)
         }
         
-        questionLabel.snp.makeConstraints {
+        questionView.snp.makeConstraints {
             $0.top.equalToSuperview().inset(63)
             $0.leading.equalToSuperview().inset(24)
-            $0.width.equalTo(SizeLiterals.Screen.screenWidth * 261 / 375)
-            $0.height.equalTo(56)
+            $0.height.equalTo(SizeLiterals.Screen.screenHeight * 56 / 812)
         }
         
         questionStackView.snp.makeConstraints {
