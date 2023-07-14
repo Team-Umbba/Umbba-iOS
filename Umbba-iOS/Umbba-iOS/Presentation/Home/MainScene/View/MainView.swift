@@ -41,7 +41,11 @@ final class MainView: UIView {
     }()
     
     private lazy var questionButton: CustomButton = {
-        let button = CustomButton(status: true, title: I18N.Main.questionButtonTitle)
+        let button = CustomButton(status: true, title: I18N.Home.questionButtonTitle)
+        button.setBackgroundColor(.UmbbaWhite, for: .normal)
+        button.setTitleColor(.Primary500, for: .normal)
+        button.layer.borderColor = UIColor.Primary500.cgColor
+        button.layer.borderWidth = 2
         return button
     }()
     
@@ -77,13 +81,13 @@ extension MainView {
     func setLayout() {
         questionImage.snp.makeConstraints {
             $0.top.leading.trailing.equalToSuperview()
-            $0.bottom.equalToSuperview()
+            $0.bottom.equalTo(safeAreaInsets)
         }
         
         questionLabel.snp.makeConstraints {
             $0.top.equalToSuperview().inset(63)
             $0.leading.equalToSuperview().inset(24)
-            $0.width.equalTo(261)
+            $0.width.equalTo(SizeLiterals.Screen.screenWidth * 261 / 375)
             $0.height.equalTo(56)
         }
         
