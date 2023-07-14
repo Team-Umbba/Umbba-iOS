@@ -9,6 +9,7 @@ import UIKit
 
 final class MainViewController: UIViewController {
     
+    private let mainModel: MainItem = MainItem.mainDummy()
     private let mainView = MainView()
     
     override func loadView() {
@@ -18,6 +19,13 @@ final class MainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setDataBind()
+    }
+}
 
+extension MainViewController {
+    private func setDataBind() {
+        mainView.setDataBind(model: mainModel)
     }
 }

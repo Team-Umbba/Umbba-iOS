@@ -15,7 +15,6 @@ final class MainView: UIView {
     
     private let questionImage: UIImageView = {
         let image = UIImageView()
-        image.image = UIImage(systemName: "apple.logo")
         return image
     }()
     
@@ -30,7 +29,6 @@ final class MainView: UIView {
     private let questionNumLabel: UILabel = {
         let label = UILabel()
         label.font = .Cafe24Regular(size: 16)
-        label.text = "#1"
         label.textColor = .white
         return label
     }()
@@ -39,7 +37,6 @@ final class MainView: UIView {
         let label = UILabel()
         label.font = .Cafe24Regular(size: 20)
         label.textColor = .white
-        label.text = "가장 오래된 기억"
         return label
     }()
     
@@ -67,8 +64,7 @@ final class MainView: UIView {
 
 // MARK: - Extensions
 
-private extension MainView {
-    
+extension MainView {
     func setUI() {
         backgroundColor = .UmbbaWhite
     }
@@ -81,7 +77,7 @@ private extension MainView {
     func setLayout() {
         questionImage.snp.makeConstraints {
             $0.top.leading.trailing.equalToSuperview()
-            $0.bottom.equalToSuperview().inset(83)
+            $0.bottom.equalToSuperview()
         }
         
         questionLabel.snp.makeConstraints {
@@ -102,10 +98,28 @@ private extension MainView {
         }
         
         questionButton.snp.makeConstraints {
-            $0.bottom.equalToSuperview().inset(96)
+            $0.bottom.equalToSuperview().inset(13)
             $0.leading.trailing.equalToSuperview().inset(20)
             $0.height.equalTo(60)
         }
     }
 
+    func setDataBind(model: MainItem) {
+        switch model.section {
+        case "어린시절":
+            questionImage.image = ImageLiterals.Home.main_1
+        case "학창시절":
+            questionImage.image = ImageLiterals.Home.main_2
+        case "청춘시절":
+            questionImage.image = ImageLiterals.Home.main_3
+        case "연애시절":
+            questionImage.image = ImageLiterals.Home.main_4
+        case "우리가만나고":
+            questionImage.image = ImageLiterals.Home.main_5
+        default:
+            questionImage.image = ImageLiterals.Home.main_1
+        }
+        questionNumLabel.text = "#\(model.count)"
+        questionLabel.text = model.topic
+    }
 }
