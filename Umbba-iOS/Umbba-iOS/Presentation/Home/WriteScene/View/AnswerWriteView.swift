@@ -10,15 +10,15 @@ import UIKit
 import SnapKit
 
 protocol AnswerWriteDelegate: AnyObject {
-    func answerDataBind(answerWrite: AnswerWrite)
+    func answerDataBind(writePopUp: WritePopUp)
 }
 
 final class AnswerWriteView: UIView {
     
     // MARK: - Properties
     
-    var anserWrite: AnswerWrite = AnswerWrite()
-    var qusetionId: Int = 1 // 임시값
+    private var writePopUp: WritePopUp = WritePopUp()
+    private var qusetionId: Int = 1 // 임시값
     
     weak var answerWriteDelegate: AnswerWriteDelegate?
     weak var navigationDelegate: NavigationBarDelegate?
@@ -169,11 +169,11 @@ private extension AnswerWriteView {
     }
     
     func setData() {
-        anserWrite.section = navigationBarView.cafe24Title
-        anserWrite.topic = themeLabel.text
-        anserWrite.question = questionLabel.text
-        anserWrite.answer = answerTextView.text
-        anserWrite.number = qusetionId
+        writePopUp.section = navigationBarView.cafe24Title
+        writePopUp.topic = themeLabel.text
+        writePopUp.question = questionLabel.text
+        writePopUp.answer = answerTextView.text
+        writePopUp.number = qusetionId
     }
     
     @objc
@@ -187,7 +187,7 @@ private extension AnswerWriteView {
             print("답변을 입력해주세요")
         } else {
             setData()
-            answerWriteDelegate?.answerDataBind(answerWrite: anserWrite)
+            answerWriteDelegate?.answerDataBind(writePopUp: writePopUp)
             navigationDelegate?.completeButtonTapped()
         }
     }

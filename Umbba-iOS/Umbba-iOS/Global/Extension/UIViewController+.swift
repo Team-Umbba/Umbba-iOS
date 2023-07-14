@@ -25,14 +25,14 @@ extension UIViewController {
         present(alertViewController, animated: true)
     }
     
-    func makeAlert(answerWrite: AnswerWrite,
+    func makeAlert(writePopUp: WritePopUp,
                    alertType: AlertType = .writeSaveAlert,
                    okAction: (() -> Void)?) {
         
         let alertViewController = AlertViewController()
         
         alertViewController.setAlertType(alertType)
-        alertViewController.setDataBind(answerWrite: answerWrite)
+        alertViewController.setDataBind(wirtePopUp: writePopUp)
         alertViewController.okAction = okAction
         alertViewController.modalTransitionStyle = .crossDissolve
         alertViewController.modalPresentationStyle = .overCurrentContext

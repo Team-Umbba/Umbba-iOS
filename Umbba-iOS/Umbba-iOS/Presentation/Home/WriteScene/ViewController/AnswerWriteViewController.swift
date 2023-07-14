@@ -11,7 +11,7 @@ final class AnswerWriteViewController: UIViewController {
     
     // MARK: - Properties
     
-    private var answerWrite: AnswerWrite = AnswerWrite()
+    private var writePopUp: WritePopUp = WritePopUp()
 
     // MARK: - UI Components
     
@@ -40,8 +40,8 @@ extension AnswerWriteViewController {
 }
 
 extension AnswerWriteViewController: NavigationBarDelegate, AnswerWriteDelegate {
-    func answerDataBind(answerWrite: AnswerWrite) {
-        self.answerWrite = answerWrite
+    func answerDataBind(writePopUp: WritePopUp) {
+        self.writePopUp = writePopUp
     }
     
     func backButtonTapped() {
@@ -51,8 +51,9 @@ extension AnswerWriteViewController: NavigationBarDelegate, AnswerWriteDelegate 
     }
     
     func completeButtonTapped() {
-        self.makeAlert(answerWrite: self.answerWrite, alertType: .writeSaveAlert) {
-            print("작성 저장 API")
+        self.makeAlert(writePopUp: writePopUp, alertType: .writeSaveAlert) {
+            guard let answer = self.writePopUp.answer else { return }
+            print("작성 저장 API RequsetBody : \(answer) ")
         }
     }
 }

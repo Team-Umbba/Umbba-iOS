@@ -134,13 +134,13 @@ extension AlertViewController {
         self.alertType = type
     }
     
-    func setDataBind(answerWrite: AnswerWrite) {
+    func setDataBind(wirtePopUp: WritePopUp) {
         if alertType == .writeSaveAlert {
-            writeSaveAlertView.cafe24TitleLabel.text = answerWrite.section
-            writeSaveAlertView.numberLabel.text = "#\(answerWrite.number ?? 0)"
-            writeSaveAlertView.themeLabel.text = answerWrite.topic
-            writeSaveAlertView.questionLabel.text = answerWrite.question
-            writeSaveAlertView.answerLabel.text = answerWrite.answer
+            writeSaveAlertView.cafe24TitleLabel.text = wirtePopUp.section
+            writeSaveAlertView.numberLabel.text = "#\(wirtePopUp.number ?? 0)"
+            writeSaveAlertView.themeLabel.text = wirtePopUp.topic
+            writeSaveAlertView.questionLabel.text = wirtePopUp.question
+            writeSaveAlertView.answerLabel.text = wirtePopUp.answer
         }
     }
 }
