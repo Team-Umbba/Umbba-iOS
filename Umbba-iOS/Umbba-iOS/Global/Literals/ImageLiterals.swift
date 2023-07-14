@@ -39,5 +39,14 @@ enum ImageLiterals {
         static var main_3: UIImage { .load(name: "home3") }
         static var main_4: UIImage { .load(name: "home4") }
         static var main_5: UIImage { .load(name: "home5") }
+        static var SE_home1: UIImage { .load(name: "SE_home1") }
+    }
+    
+    enum Archiving {
+        static var list_img1: UIImage { .load(name: "list_img1") }
+        static var list_img2: UIImage { .load(name: "list_img2") }
+        static var list_img3: UIImage { .load(name: "list_img3") }
+        static var list_img4: UIImage { .load(name: "list_img4") }
+        static var list_img5: UIImage { .load(name: "list_img5") }
     }
 }
