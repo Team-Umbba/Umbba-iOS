@@ -31,6 +31,13 @@ enum ImageLiterals {
         static var icn_check_circle: UIImage { .load(name: "circle_check") }
         static var icn_apple: UIImage { .load(name: "appleLogo") }
         static var icn_kakao: UIImage { .load(name: "kakaoLogo") }
-        
+    }
+    
+    enum Home {
+        static var main_1: UIImage { .load(name: "home1") }
+        static var main_2: UIImage { .load(name: "home2") }
+        static var main_3: UIImage { .load(name: "home3") }
+        static var main_4: UIImage { .load(name: "home4") }
+        static var main_5: UIImage { .load(name: "home5") }
     }
 }
