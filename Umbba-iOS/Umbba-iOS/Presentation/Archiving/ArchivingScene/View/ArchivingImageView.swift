@@ -47,7 +47,7 @@ private extension ArchivingImageView {
     func setLayout() {
         imageView.snp.makeConstraints {
             $0.edges.equalToSuperview()
-            $0.height.equalTo(SizeLiterals.Screen.screenHeight * 360 / 812)
+            $0.height.equalTo(SizeLiterals.Screen.screenHeight * 375 / 812)
         }
     }
 }
