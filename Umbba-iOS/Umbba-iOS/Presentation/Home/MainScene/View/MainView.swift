@@ -18,12 +18,12 @@ final class MainView: UIView {
         return image
     }()
     
-    private let questionLabel: UILabel = {
-        let label = UILabel()
-        label.backgroundColor = .Primary600
-        label.clipsToBounds = true
-        label.layer.cornerRadius = 30
-        return label
+    private let questionLabel: UIView = {
+        let view = UIView()
+        view.backgroundColor = .Primary600
+        view.clipsToBounds = true
+        view.layer.cornerRadius = 30
+        return view
     }()
     
     private let questionNumLabel: UILabel = {
@@ -38,6 +38,17 @@ final class MainView: UIView {
         label.font = .Cafe24Regular(size: 20)
         label.textColor = .white
         return label
+    }()
+    
+    private lazy var questionStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .horizontal
+        stackView.spacing = 10
+        stackView.alignment = .center
+        stackView.backgroundColor = .Primary600
+        stackView.layer.cornerRadius = 30
+        stackView.addArrangedSubviews(questionNumLabel, questionTitleLabel)
+        return stackView
     }()
     
     private lazy var questionButton: CustomButton = {
@@ -74,7 +85,7 @@ extension MainView {
     }
     
     func setHierarchy() {
-        questionLabel.addSubviews(questionNumLabel, questionTitleLabel)
+        questionLabel.addSubview(questionStackView)
         addSubviews(questionImage, questionLabel, questionButton)
     }
     
@@ -91,14 +102,9 @@ extension MainView {
             $0.height.equalTo(56)
         }
         
-        questionNumLabel.snp.makeConstraints {
+        questionStackView.snp.makeConstraints {
+            $0.leading.trailing.equalToSuperview().inset(40)
             $0.centerY.equalToSuperview()
-            $0.leading.equalToSuperview().inset(40)
-        }
-        
-        questionTitleLabel.snp.makeConstraints {
-            $0.centerY.equalToSuperview()
-            $0.trailing.equalToSuperview().inset(40)
         }
         
         questionButton.snp.makeConstraints {
