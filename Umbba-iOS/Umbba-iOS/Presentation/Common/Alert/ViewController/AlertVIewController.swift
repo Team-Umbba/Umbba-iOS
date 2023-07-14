@@ -28,8 +28,8 @@ final class AlertViewController: UIViewController {
         return view
     }()
     
-    private let writeSaveAlertView: WriteSaveWriteView = {
-        let view = WriteSaveWriteView()
+    private let writeSaveAlertView: WriteSaveAlertView = {
+        let view = WriteSaveAlertView()
         return view
     }()
     

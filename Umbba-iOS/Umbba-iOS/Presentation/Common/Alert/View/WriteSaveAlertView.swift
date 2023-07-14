@@ -9,7 +9,7 @@ import UIKit
 
 import SnapKit
 
-final class WriteSaveWriteView: UIView {
+final class WriteSaveAlertView: UIView {
     
     // MARK: - Properties
     
@@ -26,7 +26,7 @@ final class WriteSaveWriteView: UIView {
     
     var cafe24TitleLabel: UILabel = {
         let label = UILabel()
-        label.text = I18N.Write.navigationTitle
+        label.text = ""
         label.textColor = .UmbbaWhite
         label.font = .Cafe24Regular(size: 16)
         return label
@@ -35,7 +35,7 @@ final class WriteSaveWriteView: UIView {
     var numberLabel: UILabel = {
         let label = UILabel()
         label.textColor = .UmbbaBlack
-        label.text = I18N.Write.numberTitle
+        label.text = ""
         label.font = .Cafe24Regular(size: 19)
         return label
     }()
@@ -43,7 +43,7 @@ final class WriteSaveWriteView: UIView {
     var themeLabel: UILabel = {
         let label = UILabel()
         label.textColor = .UmbbaBlack
-        label.text = I18N.Write.themeTitle
+        label.text = ""
         label.font = .Cafe24Regular(size: 20)
         return label
     }()
@@ -60,7 +60,9 @@ final class WriteSaveWriteView: UIView {
     var questionLabel: UILabel = {
         let label = UILabel()
         label.textColor = .UmbbaBlack
-        label.text = I18N.Write.questionTitle
+        label.text = ""
+        label.textAlignment = .center
+        label.numberOfLines = 0
         label.font = .PretendardSemiBold(size: 20)
         return label
     }()
@@ -131,7 +133,7 @@ final class WriteSaveWriteView: UIView {
 
 // MARK: - Extensions
 
-private extension WriteSaveWriteView {
+private extension WriteSaveAlertView {
     func setUI() {
         self.backgroundColor = .UmbbaWhite
         self.layer.cornerRadius = 16

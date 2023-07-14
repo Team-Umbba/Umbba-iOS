@@ -63,6 +63,8 @@ final class AnswerWriteView: UIView {
         let label = UILabel()
         label.textColor = .UmbbaBlack
         label.text = I18N.Write.questionTitle
+        label.textAlignment = .center
+        label.numberOfLines = 0
         label.font = .PretendardSemiBold(size: 20)
         return label
     }()

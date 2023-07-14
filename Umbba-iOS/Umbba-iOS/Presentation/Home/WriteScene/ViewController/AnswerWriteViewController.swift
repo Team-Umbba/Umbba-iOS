@@ -11,7 +11,7 @@ final class AnswerWriteViewController: UIViewController {
     
     // MARK: - Properties
     
-    var answerWrite: AnswerWrite = AnswerWrite()
+    private var answerWrite: AnswerWrite = AnswerWrite()
 
     // MARK: - UI Components
     
@@ -41,11 +41,7 @@ extension AnswerWriteViewController {
 
 extension AnswerWriteViewController: NavigationBarDelegate, AnswerWriteDelegate {
     func answerDataBind(answerWrite: AnswerWrite) {
-        self.answerWrite.section = answerWrite.section
-        self.answerWrite.number = answerWrite.number
-        self.answerWrite.topic = answerWrite.topic
-        self.answerWrite.question = answerWrite.question
-        self.answerWrite.answer = answerWrite.answer
+        self.answerWrite = answerWrite
     }
     
     func backButtonTapped() {
