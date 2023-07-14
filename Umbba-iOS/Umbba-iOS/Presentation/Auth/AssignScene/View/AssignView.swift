@@ -96,6 +96,7 @@ final class AssignView: UIView {
         let label = UILabel()
         label.text = I18N.Auth.assignSecondTitle
         label.font = .PretendardRegular(size: 12)
+        label.setUnderlinePartFontChange(targetString: "서비스 이용약관", font: .PretendardBold(size: 12))
         label.textColor = .UmbbaBlack
         return label
     }()
@@ -111,6 +112,7 @@ final class AssignView: UIView {
         let label = UILabel()
         label.text = I18N.Auth.assignThirdTitle
         label.font = .PretendardRegular(size: 12)
+        label.setUnderlinePartFontChange(targetString: "개인정보 수집 및 이용", font: .PretendardBold(size: 12))
         label.textColor = .UmbbaBlack
         return label
     }()
