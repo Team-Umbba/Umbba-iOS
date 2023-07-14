@@ -9,11 +9,19 @@ import UIKit
 
 import SnapKit
 
+protocol AnswerWriteDelegate: AnyObject {
+    func answerDataBind(writePopUp: WritePopUp)
+}
+
 final class AnswerWriteView: UIView {
     
     // MARK: - Properties
     
-    weak var delegate: NavigationBarDelegate?
+    private var writePopUp: WritePopUp = WritePopUp()
+    private var qusetionId: Int = 1 // 임시값
+    
+    weak var answerWriteDelegate: AnswerWriteDelegate?
+    weak var navigationDelegate: NavigationBarDelegate?
     
     // MARK: - UI Components
     
@@ -55,6 +63,8 @@ final class AnswerWriteView: UIView {
         let label = UILabel()
         label.textColor = .UmbbaBlack
         label.text = I18N.Write.questionTitle
+        label.textAlignment = .center
+        label.numberOfLines = 0
         label.font = .PretendardSemiBold(size: 20)
         return label
     }()
@@ -89,7 +99,7 @@ final class AnswerWriteView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
+    
         setUI()
         setAddTarget()
         setDelegate()
@@ -158,14 +168,28 @@ private extension AnswerWriteView {
         }
     }
     
+    func setData() {
+        writePopUp.section = navigationBarView.cafe24Title
+        writePopUp.topic = themeLabel.text
+        writePopUp.question = questionLabel.text
+        writePopUp.answer = answerTextView.text
+        writePopUp.number = qusetionId
+    }
+    
     @objc
     func backButtonTapped() {
-        delegate?.backButtonTapped()
+        navigationDelegate?.backButtonTapped()
     }
     
     @objc
     func completeButtonTapped() {
-        delegate?.completeButtonTapped()
+        if !answerTextView.hasText || answerTextView.text == I18N.Write.answerPlaceholder {
+            print("답변을 입력해주세요")
+        } else {
+            setData()
+            answerWriteDelegate?.answerDataBind(writePopUp: writePopUp)
+            navigationDelegate?.completeButtonTapped()
+        }
     }
 }
 

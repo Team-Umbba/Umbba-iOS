@@ -9,8 +9,14 @@ import UIKit
 
 final class AnswerWriteViewController: UIViewController {
     
-    private let answerWriteView = AnswerWriteView()
+    // MARK: - Properties
     
+    private var writePopUp: WritePopUp = WritePopUp()
+
+    // MARK: - UI Components
+    
+    private let answerWriteView = AnswerWriteView()
+   
     override func loadView() {
         super.loadView()
         
@@ -19,6 +25,7 @@ final class AnswerWriteViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setDelegate()
     }
 }
@@ -27,11 +34,16 @@ final class AnswerWriteViewController: UIViewController {
 
 extension AnswerWriteViewController {
     func setDelegate() {
-        answerWriteView.delegate = self
+        answerWriteView.answerWriteDelegate = self
+        answerWriteView.navigationDelegate = self
     }
 }
 
-extension AnswerWriteViewController: NavigationBarDelegate {
+extension AnswerWriteViewController: NavigationBarDelegate, AnswerWriteDelegate {
+    func answerDataBind(writePopUp: WritePopUp) {
+        self.writePopUp = writePopUp
+    }
+    
     func backButtonTapped() {
         self.makeAlert(alertType: .writeCancelAlert) {
             self.navigationController?.popViewController(animated: true)
@@ -39,8 +51,9 @@ extension AnswerWriteViewController: NavigationBarDelegate {
     }
     
     func completeButtonTapped() {
-        self.makeAlert(alertType: .writeSaveAlert) {
-            print("작성 저장 API")
+        self.makeAlert(writePopUp: writePopUp, alertType: .writeSaveAlert) {
+            guard let answer = self.writePopUp.answer else { return }
+            print("작성 저장 API RequsetBody : \(answer) ")
         }
     }
 }

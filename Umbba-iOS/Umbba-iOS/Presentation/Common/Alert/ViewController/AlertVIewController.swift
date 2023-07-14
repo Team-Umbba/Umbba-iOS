@@ -18,7 +18,7 @@ final class AlertViewController: UIViewController {
     
     // MARK: - Properties
     
-    var alertType: AlertType = .writeCancelAlert
+    var alertType: AlertType?
     var okAction: (() -> Void)?
     
     // MARK: - UI Components
@@ -28,8 +28,8 @@ final class AlertViewController: UIViewController {
         return view
     }()
     
-    private let writeSaveAlertView: WriteSaveWriteView = {
-        let view = WriteSaveWriteView()
+    private let writeSaveAlertView: WriteSaveAlertView = {
+        let view = WriteSaveAlertView()
         return view
     }()
     
@@ -48,16 +48,16 @@ final class AlertViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setDelegate()
         setUI()
         setAlertType()
         setLayout()
-        setDelegate()
     }
 }
 
 // MARK: - Extensions
 
-private extension AlertViewController {
+extension AlertViewController {
     
     func setUI() {
         view.backgroundColor = .black.withAlphaComponent(0.4)
@@ -73,6 +73,8 @@ private extension AlertViewController {
             setAlertView(writeCancel: false, writeSave: false, withdrawal: true, invite: false)
         case .inviteAlert:
             setAlertView(writeCancel: false, writeSave: false, withdrawal: false, invite: true)
+        default:
+            break
         }
     }
     
@@ -126,6 +128,20 @@ private extension AlertViewController {
     
     func emptyActions() {
         
+    }
+    
+    func setAlertType(_ type: AlertType) {
+        self.alertType = type
+    }
+    
+    func setDataBind(wirtePopUp: WritePopUp) {
+        if alertType == .writeSaveAlert {
+            writeSaveAlertView.cafe24TitleLabel.text = wirtePopUp.section
+            writeSaveAlertView.numberLabel.text = "#\(wirtePopUp.number ?? 0)"
+            writeSaveAlertView.themeLabel.text = wirtePopUp.topic
+            writeSaveAlertView.questionLabel.text = wirtePopUp.question
+            writeSaveAlertView.answerLabel.text = wirtePopUp.answer
+        }
     }
 }
 
