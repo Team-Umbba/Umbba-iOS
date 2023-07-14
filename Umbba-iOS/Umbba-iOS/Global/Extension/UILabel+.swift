@@ -144,7 +144,7 @@ extension UILabel {
         self.attributedText = attributedString
     }
         
-    /// 라벨 일부 font 변경해주는 함수
+    /// 라벨 일부 font 변경 및 밑줄 추가해주는 함수
     /// - targerString에는 바꾸고자 하는 특정 문자열을 넣어주세요
     /// - font에는 targetString에 적용하고자 하는 UIFont를 넣어주세요
     func setUnderlinePartFontChange(targetString: String, font: UIFont) {
