@@ -104,7 +104,7 @@ private extension TabBarController {
             renderingMode: .alwaysOriginal
         )
         let list = makeTabBar(
-            viewController: ViewController(),
+            viewController: ArchivingViewController(),
             title: "",
             tabBarImg: ImageLiterals.TabBar.icn_list,
             tabBarSelectedImg: ImageLiterals.TabBar.icn_list_selected,

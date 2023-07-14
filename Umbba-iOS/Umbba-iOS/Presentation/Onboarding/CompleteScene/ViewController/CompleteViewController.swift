@@ -50,7 +50,6 @@ extension CompleteViewController: NavigationBarDelegate {
 
 extension CompleteViewController: NextButtonDelegate {
     func nextButtonTapped() {
-        // FixMe: - Main화면으로 이동
-        self.navigationController?.pushViewController(CompleteViewController(), animated: true)
+        self.navigationController?.pushViewController(TabBarController(), animated: true)
     }
 }

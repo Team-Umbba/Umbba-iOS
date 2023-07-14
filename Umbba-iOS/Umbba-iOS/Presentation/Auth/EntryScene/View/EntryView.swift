@@ -9,11 +9,16 @@ import UIKit
 
 import SnapKit
 
+protocol EntryDelegate: AnyObject {
+    func entryButtonTapped()
+    func inviteButtonTapped()
+}
+
 final class EntryView: UIView {
     
     // MARK: - Properties
     
-    weak var nextDelegate: NextButtonDelegate?
+    weak var entryDelegate: EntryDelegate?
     
     // MARK: - UI Components
     
@@ -60,13 +65,16 @@ final class EntryView: UIView {
         return label
     }()
     
-    private lazy var inviteButton: UIButton = {
-        let button = CustomButton(status: true, title: I18N.Auth.inviteButtonTitle)
-        button.setBackgroundColor(.UmbbaWhite, for: .normal)
-        button.setTitleColor(.Primary500, for: .normal)
-        button.layer.borderColor = UIColor.Primary500.cgColor
-        button.layer.borderWidth = 2
-        return button
+    private lazy var inviteButton: CustomButton = {
+      let button = CustomButton(status: true, title: I18N.Auth.inviteButtonTitle)
+      button.setTitleColor(.Primary500, for: .normal)
+      button.layer.borderColor = UIColor.Primary500.cgColor
+      button.layer.borderWidth = 2
+        
+      var config = UIButton.Configuration.filled()
+      config.background.backgroundColor = .UmbbaWhite
+      button.configuration = config
+      return button
     }()
     
     override init(frame: CGRect) {
@@ -136,10 +144,16 @@ private extension EntryView {
 
     func setAddTarget() {
         entryButton.addTarget(self, action: #selector(entryButtonTapped), for: .touchUpInside)
+        inviteButton.addTarget(self, action: #selector(inviteButtonTapped), for: .touchUpInside)
     }
     
     @objc
     func entryButtonTapped() {
-        nextDelegate?.nextButtonTapped()
+        entryDelegate?.entryButtonTapped()
+    }
+    
+    @objc
+    func inviteButtonTapped() {
+        entryDelegate?.inviteButtonTapped()
     }
 }

@@ -15,7 +15,7 @@ enum I18N {
     
     enum Onboarding {
         static let inviteNavigationTitle = "초대코드 입력"
-        static let inviteTitle = "초대코드를 입력해줘."
+        static let inviteTitle = "초대코드를 입력해줘"
         static let inviteBoldTitle = "초대코드"
         static let inviteTextFieldPlaceholder = "ex) ORWO-11yzwx"
         static let inviteError = "*올바른 초대코드 형식이 아닙니다"
@@ -111,6 +111,12 @@ enum I18N {
         static let urlArray = ["https://www.notion.so/f1a14bf60ed4421f9b3761ef88906adb",
                                "https://www.notion.so/99fe0f58825d4f87bd3b987fadc623b6",
                                "https://www.notion.so/99fe0f58825d4f87bd3b987fadc623b6"]
+        static let cancelNavigatonTitle = "회원 탈퇴"
+        static let quoteLabel = "\"추억은 일종의 만남이다.\""
+        static let personLabel = "- 칼린 지브란 -"
+        static let withdrawalQuestLabel = "회원 탈퇴를 진행하시겠습니까?"
+        static let withdrawalContentLabel = "작성한 모든 문답 내역이 삭제되며 상대측에게는 더 이상 알림이 가지않습니다. 삭제한 내역은 복구할 수 없으니 신중하게 선택해주세요."
+        static let withdrawalButton = "탈퇴하기"
     }
     
     enum Alert {
