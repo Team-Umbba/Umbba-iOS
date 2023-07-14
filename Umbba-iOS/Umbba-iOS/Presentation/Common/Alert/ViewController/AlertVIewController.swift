@@ -18,7 +18,7 @@ final class AlertViewController: UIViewController {
     
     // MARK: - Properties
     
-    var alertType: AlertType = .writeCancelAlert
+    var alertType: AlertType?
     var okAction: (() -> Void)?
     
     // MARK: - UI Components
@@ -48,16 +48,16 @@ final class AlertViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setDelegate()
         setUI()
         setAlertType()
         setLayout()
-        setDelegate()
     }
 }
 
 // MARK: - Extensions
 
-private extension AlertViewController {
+extension AlertViewController {
     
     func setUI() {
         view.backgroundColor = .black.withAlphaComponent(0.4)
@@ -73,6 +73,8 @@ private extension AlertViewController {
             setAlertView(writeCancel: false, writeSave: false, withdrawal: true, invite: false)
         case .inviteAlert:
             setAlertView(writeCancel: false, writeSave: false, withdrawal: false, invite: true)
+        default:
+            break
         }
     }
     
@@ -126,6 +128,20 @@ private extension AlertViewController {
     
     func emptyActions() {
         
+    }
+    
+    func setAlertType(_ type: AlertType) {
+        self.alertType = type
+    }
+    
+    func setDataBind(answerWrite: AnswerWrite) {
+        if alertType == .writeSaveAlert {
+            writeSaveAlertView.cafe24TitleLabel.text = answerWrite.section
+            writeSaveAlertView.numberLabel.text = "#\(answerWrite.number ?? 0)"
+            writeSaveAlertView.themeLabel.text = answerWrite.topic
+            writeSaveAlertView.questionLabel.text = answerWrite.question
+            writeSaveAlertView.answerLabel.text = answerWrite.answer
+        }
     }
 }
 

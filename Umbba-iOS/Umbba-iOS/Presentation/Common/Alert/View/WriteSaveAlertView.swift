@@ -11,6 +11,8 @@ import SnapKit
 
 final class WriteSaveWriteView: UIView {
     
+    // MARK: - Properties
+    
     weak var delegate: AlertDelegate?
     
     // MARK: - UI Components
@@ -22,7 +24,7 @@ final class WriteSaveWriteView: UIView {
         return view
     }()
     
-    private let cafe24TitleLabel: UILabel = {
+    var cafe24TitleLabel: UILabel = {
         let label = UILabel()
         label.text = I18N.Write.navigationTitle
         label.textColor = .UmbbaWhite
@@ -30,7 +32,7 @@ final class WriteSaveWriteView: UIView {
         return label
     }()
     
-    private let numberLabel: UILabel = {
+    var numberLabel: UILabel = {
         let label = UILabel()
         label.textColor = .UmbbaBlack
         label.text = I18N.Write.numberTitle
@@ -38,7 +40,7 @@ final class WriteSaveWriteView: UIView {
         return label
     }()
     
-    private let themeLabel: UILabel = {
+    var themeLabel: UILabel = {
         let label = UILabel()
         label.textColor = .UmbbaBlack
         label.text = I18N.Write.themeTitle
@@ -55,7 +57,7 @@ final class WriteSaveWriteView: UIView {
         return stackView
     }()
     
-    private let questionLabel: UILabel = {
+    var questionLabel: UILabel = {
         let label = UILabel()
         label.textColor = .UmbbaBlack
         label.text = I18N.Write.questionTitle
@@ -63,7 +65,7 @@ final class WriteSaveWriteView: UIView {
         return label
     }()
     
-    private let answerLabel: UILabel = {
+    var answerLabel: UILabel = {
         let label = UILabel()
         label.textColor = .UmbbaBlack
         label.text = ""

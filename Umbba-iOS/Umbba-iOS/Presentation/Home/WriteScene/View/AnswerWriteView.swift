@@ -9,11 +9,19 @@ import UIKit
 
 import SnapKit
 
+protocol AnswerWriteDelegate: AnyObject {
+    func answerDataBind(answerWrite: AnswerWrite)
+}
+
 final class AnswerWriteView: UIView {
     
     // MARK: - Properties
     
-    weak var delegate: NavigationBarDelegate?
+    var anserWrite: AnswerWrite = AnswerWrite()
+    var qusetionId: Int = 1 // 임시값
+    
+    weak var answerWriteDelegate: AnswerWriteDelegate?
+    weak var navigationDelegate: NavigationBarDelegate?
     
     // MARK: - UI Components
     
@@ -89,7 +97,7 @@ final class AnswerWriteView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
+    
         setUI()
         setAddTarget()
         setDelegate()
@@ -158,14 +166,28 @@ private extension AnswerWriteView {
         }
     }
     
+    func setData() {
+        anserWrite.section = navigationBarView.cafe24Title
+        anserWrite.topic = themeLabel.text
+        anserWrite.question = questionLabel.text
+        anserWrite.answer = answerTextView.text
+        anserWrite.number = qusetionId
+    }
+    
     @objc
     func backButtonTapped() {
-        delegate?.backButtonTapped()
+        navigationDelegate?.backButtonTapped()
     }
     
     @objc
     func completeButtonTapped() {
-        delegate?.completeButtonTapped()
+        if !answerTextView.hasText || answerTextView.text == I18N.Write.answerPlaceholder {
+            print("답변을 입력해주세요")
+        } else {
+            setData()
+            answerWriteDelegate?.answerDataBind(answerWrite: anserWrite)
+            navigationDelegate?.completeButtonTapped()
+        }
     }
 }
 

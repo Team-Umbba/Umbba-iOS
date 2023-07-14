@@ -6,3 +6,11 @@
 //
 
 import Foundation
+
+struct AnswerWrite {
+    var section: String?
+    var number: Int?
+    var topic: String?
+    var question: String?
+    var answer: String?
+}
