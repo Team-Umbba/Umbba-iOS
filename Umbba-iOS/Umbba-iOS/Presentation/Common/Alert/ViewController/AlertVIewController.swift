@@ -12,6 +12,7 @@ enum AlertType {
     case writeSaveAlert
     case withdrawalAlert
     case inviteAlert
+    case disconnectAlert
 }
 
 final class AlertViewController: UIViewController {
@@ -43,6 +44,11 @@ final class AlertViewController: UIViewController {
         return view
     }()
     
+    private let disconnectAlertView: DisconnectAlertView = {
+        let view = DisconnectAlertView()
+        return view
+    }()
+    
     // MARK: - Life Cycles
     
     override func viewDidLoad() {
@@ -66,30 +72,34 @@ extension AlertViewController {
     func setAlertType() {
         switch alertType {
         case .writeCancelAlert:
-            setAlertView(writeCancel: true, writeSave: false, withdrawal: false, invite: false)
+            setAlertView(writeCancel: true, writeSave: false, withdrawal: false, invite: false, disconnect: false)
         case .writeSaveAlert:
-            setAlertView(writeCancel: false, writeSave: true, withdrawal: false, invite: false)
+            setAlertView(writeCancel: false, writeSave: true, withdrawal: false, invite: false, disconnect: false)
         case .withdrawalAlert:
-            setAlertView(writeCancel: false, writeSave: false, withdrawal: true, invite: false)
+            setAlertView(writeCancel: false, writeSave: false, withdrawal: true, invite: false, disconnect: false)
         case .inviteAlert:
-            setAlertView(writeCancel: false, writeSave: false, withdrawal: false, invite: true)
+            setAlertView(writeCancel: false, writeSave: false, withdrawal: false, invite: true, disconnect: false)
+        case .disconnectAlert:
+            setAlertView(writeCancel: false, writeSave: false, withdrawal: false, invite: true, disconnect: true)
         default:
             break
         }
     }
     
-    func setAlertView(writeCancel: Bool, writeSave: Bool, withdrawal: Bool, invite: Bool) {
+    func setAlertView(writeCancel: Bool, writeSave: Bool, withdrawal: Bool, invite: Bool, disconnect: Bool) {
         writeCancelAlertView.isHidden = !writeCancel
         writeSaveAlertView.isHidden = !writeSave
         withdrawalAlertView.isHidden = !withdrawal
         inviteAlertView.isHidden = !invite
+        disconnectAlertView.isHidden = !disconnect
     }
     
     func setLayout() {
         view.addSubviews(writeCancelAlertView,
                          writeSaveAlertView,
                          withdrawalAlertView,
-                         inviteAlertView)
+                         inviteAlertView,
+                         disconnectAlertView)
         
         writeCancelAlertView.snp.makeConstraints {
             let writeCancelWidth = SizeLiterals.Screen.screenWidth * 343 / 375
@@ -115,7 +125,14 @@ extension AlertViewController {
             let inviteWidth = SizeLiterals.Screen.screenWidth * 343 / 375
             $0.center.equalToSuperview()
             $0.width.equalTo(inviteWidth)
-            $0.height.equalTo(inviteWidth * 472 / 343)
+//            $0.height.equalTo(inviteWidth * 472 / 343)
+        }
+        
+        disconnectAlertView.snp.makeConstraints {
+            let disconnectWidth = SizeLiterals.Screen.screenWidth * 343 / 375
+            $0.center.equalToSuperview()
+            $0.width.equalTo(disconnectWidth)
+            $0.height.equalTo(disconnectWidth * 472 / 343)
         }
     }
     
@@ -124,6 +141,7 @@ extension AlertViewController {
         writeSaveAlertView.delegate = self
         withdrawalAlertView.delegate = self
         inviteAlertView.delegate = self
+        disconnectAlertView.delegate = self
     }
     
     func emptyActions() {
@@ -148,6 +166,10 @@ extension AlertViewController {
 // MARK: - AlertDelegate
 
 extension AlertViewController: AlertDelegate {
+    func copyButtonTapped(inviteCode: String) {
+        UIPasteboard.general.string = inviteCode
+        self.showToast(message: "초대코드가 복사되었습니다")
+    }
     
     func colorButtonTapped() {
         dismiss(animated: false) {
