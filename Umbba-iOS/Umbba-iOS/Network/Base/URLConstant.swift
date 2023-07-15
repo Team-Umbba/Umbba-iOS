@@ -21,6 +21,8 @@ enum URLConstant {
     
     // MARK: - Home URL
     
+    static let mainURL = baseURL + "/home"
+    
     // MARK: - Archiving URL
  
 }
