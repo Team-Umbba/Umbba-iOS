@@ -27,7 +27,6 @@ final class ArchivingViewController: UIViewController {
     
     private var archivingQuestionModel: [ArchivingQuestionItem] = ArchivingQuestionItem.archivingQuestionDummy()
     
-    private var selectedSectionIndexPath: Int?
     private let deviceRatio = UIScreen.main.bounds.width / UIScreen.main.bounds.height
     
     // MARK: - Life Cycles
@@ -84,8 +83,9 @@ extension ArchivingViewController: UICollectionViewDelegate {
         let sectionType = Section.allCases[indexPath.section]
         switch sectionType {
         case .section:
-            selectedSectionIndexPath = indexPath.row
             if let cell = collectionView.cellForItem(at: indexPath) as? ArchivingSectionCollectionViewCell {
+                labelTapped(index: indexPath.row)
+                cell.selectedSectionIndexPath = indexPath.row
                 cell.backgroundColor = .Primary600
                 cell.archivingSectionLabel.textColor = .UmbbaWhite
             }
@@ -123,6 +123,7 @@ extension ArchivingViewController: UICollectionViewDataSource {
         case .section:
             let cell =
                     ArchivingSectionCollectionViewCell.dequeueReusableCell(collectionView: collectionView, indexPath: indexPath)
+            cell.delegate = self
             cell.archivingSectionLabel.text = "# \(I18N.Archiving.sectionArray[indexPath.row])"
             if indexPath.item == 0 {
                 cell.backgroundColor = .Primary600
@@ -170,5 +171,24 @@ extension ArchivingViewController: UICollectionViewDataSource {
 extension ArchivingViewController: UICollectionViewDelegateFlowLayout {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return Section.allCases.count
+    }
+}
+
+extension ArchivingViewController: ArchivingDelegate {
+    func labelTapped(index: Int) {
+        guard let cell = collectionView.cellForItem(at: IndexPath(item: 0, section: 0)) as? ArchivingSectionCollectionViewCell else { return }
+        
+        for visibleCell in collectionView.visibleCells {
+            guard let archivingCell = visibleCell as? ArchivingSectionCollectionViewCell else { continue }
+            
+            print(archivingCell.ind)
+            // 선택된 라벨의 인덱스와 현재 순회 중인 셀의 인덱스를 비교하여 선택 상태를 설정합니다
+//            if archivingCell.index == index {
+//                print("🍔🍔🍔🍔🍔")
+//            } else {
+//                archivingCell.isSelected = false
+//            }
+        }
+        
     }
 }

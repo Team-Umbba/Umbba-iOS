@@ -77,4 +77,3 @@ extension ArchivingImageView {
         imageView.image = imageSeArray[section]
     }
 }
-
