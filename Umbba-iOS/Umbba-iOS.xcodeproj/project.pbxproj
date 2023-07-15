@@ -17,6 +17,7 @@
 		149099EB2A602EB0007242C6 /* WithdrawalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149099EA2A602EB0007242C6 /* WithdrawalView.swift */; };
 		149099ED2A603143007242C6 /* WithdrawalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149099EC2A603143007242C6 /* WithdrawalViewController.swift */; };
 		14A01D432A57D8A200D4F860 /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A01D422A57D8A200D4F860 /* SettingTableViewCell.swift */; };
+		14A0ACE82A62A50600C42097 /* BlurredLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A0ACE72A62A50600C42097 /* BlurredLabel.swift */; };
 		14A6D3062A5A63EF003A83B3 /* SettingSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A6D3052A5A63EF003A83B3 /* SettingSectionHeaderView.swift */; };
 		14AA29842A5685050038CDA1 /* NoticeAlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AA29832A5685050038CDA1 /* NoticeAlarmViewController.swift */; };
 		14AA29862A5685660038CDA1 /* NoticeAlarmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AA29852A5685660038CDA1 /* NoticeAlarmView.swift */; };
@@ -32,6 +33,8 @@
 		6951A6A52A61B59400D49692 /* QuestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6951A6A42A61B59400D49692 /* QuestView.swift */; };
 		6951A6A72A61B5A600D49692 /* QuestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6951A6A62A61B5A600D49692 /* QuestViewController.swift */; };
 		6951A6AA2A61B82300D49692 /* QuestCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6951A6A92A61B82300D49692 /* QuestCollectionCell.swift */; };
+		6951A6AC2A62CBD100D49692 /* DisconnectAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6951A6AB2A62CBD100D49692 /* DisconnectAlertView.swift */; };
+		6951A6AE2A62D93A00D49692 /* ShowToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6951A6AD2A62D93A00D49692 /* ShowToast.swift */; };
 		69636FAD2A5A615C008B457A /* FamilyInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69636FAC2A5A615C008B457A /* FamilyInfoViewController.swift */; };
 		69636FAF2A5A616C008B457A /* FamilyInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69636FAE2A5A616C008B457A /* FamilyInfoView.swift */; };
 		69636FB32A5ADE4A008B457A /* CompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69636FB22A5ADE4A008B457A /* CompleteViewController.swift */; };
@@ -143,6 +146,7 @@
 		149099EA2A602EB0007242C6 /* WithdrawalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithdrawalView.swift; sourceTree = "<group>"; };
 		149099EC2A603143007242C6 /* WithdrawalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithdrawalViewController.swift; sourceTree = "<group>"; };
 		14A01D422A57D8A200D4F860 /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
+		14A0ACE72A62A50600C42097 /* BlurredLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurredLabel.swift; sourceTree = "<group>"; };
 		14A6D3052A5A63EF003A83B3 /* SettingSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingSectionHeaderView.swift; sourceTree = "<group>"; };
 		14AA29832A5685050038CDA1 /* NoticeAlarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeAlarmViewController.swift; sourceTree = "<group>"; };
 		14AA29852A5685660038CDA1 /* NoticeAlarmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeAlarmView.swift; sourceTree = "<group>"; };
@@ -159,6 +163,8 @@
 		6951A6A42A61B59400D49692 /* QuestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestView.swift; sourceTree = "<group>"; };
 		6951A6A62A61B5A600D49692 /* QuestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestViewController.swift; sourceTree = "<group>"; };
 		6951A6A92A61B82300D49692 /* QuestCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestCollectionCell.swift; sourceTree = "<group>"; };
+		6951A6AB2A62CBD100D49692 /* DisconnectAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisconnectAlertView.swift; sourceTree = "<group>"; };
+		6951A6AD2A62D93A00D49692 /* ShowToast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowToast.swift; sourceTree = "<group>"; };
 		69636FAC2A5A615C008B457A /* FamilyInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyInfoViewController.swift; sourceTree = "<group>"; };
 		69636FAE2A5A616C008B457A /* FamilyInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyInfoView.swift; sourceTree = "<group>"; };
 		69636FB22A5ADE4A008B457A /* CompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteViewController.swift; sourceTree = "<group>"; };
@@ -342,6 +348,7 @@
 				691979F72A5C6A4E0069FB63 /* WithdrawalAlertView.swift */,
 				691979F92A5C6BDB0069FB63 /* WriteSaveAlertView.swift */,
 				6951A6952A5D2B5300D49692 /* InviteAlertView.swift */,
+				6951A6AB2A62CBD100D49692 /* DisconnectAlertView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -551,6 +558,8 @@
 			children = (
 				6978158D2A5300F90047944C /* ButtonPress.swift */,
 				6978158F2A53015D0047944C /* MakeVibrate.swift */,
+				14A0ACE72A62A50600C42097 /* BlurredLabel.swift */,
+				6951A6AD2A62D93A00D49692 /* ShowToast.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -639,7 +648,7 @@
 		6978159C2A5302940047944C /* LoginScene */ = {
 			isa = PBXGroup;
 			children = (
-				699455E92A5C0C03003C118A /* LoginView */,
+				699455E92A5C0C03003C118A /* View */,
 				A42723B92A553054003C445F /* ViewController */,
 			);
 			path = LoginScene;
@@ -896,12 +905,12 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
-		699455E92A5C0C03003C118A /* LoginView */ = {
+		699455E92A5C0C03003C118A /* View */ = {
 			isa = PBXGroup;
 			children = (
 				699455EA2A5C0C24003C118A /* LoginView.swift */,
 			);
-			path = LoginView;
+			path = View;
 			sourceTree = "<group>";
 		};
 		699455EC2A5C0C38003C118A /* InviteViewController */ = {
@@ -1206,6 +1215,7 @@
 				697815772A52FF890047944C /* UITextField+.swift in Sources */,
 				149099E92A5FBDF6007242C6 /* AnswerDetailViewController.swift in Sources */,
 				A489BE062A5AFCE90027E817 /* ArchivingImageView.swift in Sources */,
+				14A0ACE82A62A50600C42097 /* BlurredLabel.swift in Sources */,
 				A42723C52A5A6C04003C445F /* ArchivingSectionCollectionViewCell.swift in Sources */,
 				14A01D432A57D8A200D4F860 /* SettingTableViewCell.swift in Sources */,
 				697815872A53003A0047944C /* UICollectionViewRegisterable.swift in Sources */,
@@ -1243,11 +1253,13 @@
 				6951A6A52A61B59400D49692 /* QuestView.swift in Sources */,
 				691979FA2A5C6BDB0069FB63 /* WriteSaveAlertView.swift in Sources */,
 				697815D32A530BFA0047944C /* Detail.swift in Sources */,
+				6951A6AE2A62D93A00D49692 /* ShowToast.swift in Sources */,
 				697815902A53015D0047944C /* MakeVibrate.swift in Sources */,
 				A47BDA4B2A5D5FE9007B8E3E /* AssignViewController.swift in Sources */,
 				697815792A52FFA20047944C /* UIButton+.swift in Sources */,
 				697815E02A530DC80047944C /* AuthService.swift in Sources */,
 				A42723C92A5A8162003C445F /* ArchivingViewController.swift in Sources */,
+				6951A6AC2A62CBD100D49692 /* DisconnectAlertView.swift in Sources */,
 				69636FAD2A5A615C008B457A /* FamilyInfoViewController.swift in Sources */,
 				697815E32A530E140047944C /* User.swift in Sources */,
 				6951A6AA2A61B82300D49692 /* QuestCollectionCell.swift in Sources */,

@@ -15,7 +15,7 @@ final class ArchivingQuestionHeaderView: UICollectionReusableView, UICollectionH
 
     // MARK: - UI Components
     
-    private let headerLabel: UILabel = {
+    lazy var headerLabel: UILabel = {
         let label = UILabel()
         label.font = .Cafe24Regular(size: 20)
         label.textColor = .Primary600
@@ -56,9 +56,5 @@ extension ArchivingQuestionHeaderView {
             $0.centerY.equalToSuperview().inset(12)
             $0.leading.equalToSuperview().inset(21)
         }
-    }
-    
-    func setDataBind(model: ArchivingQuestionItem) {
-        headerLabel.text = I18N.Archiving.sectionArray[model.section]
     }
 }

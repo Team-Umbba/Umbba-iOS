@@ -12,9 +12,9 @@ final class PushAlarmViewController: UIViewController {
     // MARK: - Properties
     
     private var pushAlarmTime: [String: Any] = [
-        "hour": "1",
+        "hour": "11",
         "minute": "00",
-        "period": "AM"
+        "period": "PM"
     ]
     private var formattedTime = ""
     
@@ -35,12 +35,23 @@ final class PushAlarmViewController: UIViewController {
         super.viewDidLoad()
         
         setDelegate()
+        setUI()
     }
 }
 
 // MARK: - Extensions
 
 private extension PushAlarmViewController {
+    
+    func setUI() {
+        let initialHourIndex = I18N.Onboarding.time.firstIndex(of: "11") ?? 0
+        let initialMinuteIndex = I18N.Onboarding.minute.firstIndex(of: "00") ?? 0
+        let initialAMIndex = I18N.Onboarding.am.firstIndex(of: "PM") ?? 0
+        
+        self.pickerView.selectRow(initialHourIndex, inComponent: 0, animated: false)
+        self.pickerView.selectRow(initialMinuteIndex, inComponent: 1, animated: false )
+        self.pickerView.selectRow(initialAMIndex, inComponent: 2, animated: false)
+    }
     
     func setDelegate() {
         pushAlarmView.navigationdelegate = self
@@ -68,7 +79,7 @@ private extension PushAlarmViewController {
                     hourString = "00"
                 }
             }
-            formattedTime = String(format: "%02d:%02d:00", Int(hourString) ?? 0, minute)
+            formattedTime = String(format: "%02d:%02d", Int(hourString) ?? 0, minute)
         }
     }
 }

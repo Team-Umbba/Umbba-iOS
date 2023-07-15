@@ -34,6 +34,7 @@ final class InviteAlertView: UIView {
     private let logoImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = ImageLiterals.Common.img_umbbaLogo
+        imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     
@@ -75,6 +76,7 @@ final class InviteAlertView: UIView {
         setUI()
         setAddTarget()
         setLayout()
+        enableCopyOnTouch()
     }
     
     required init?(coder: NSCoder) {
@@ -91,7 +93,7 @@ private extension InviteAlertView {
     }
     
     func setAddTarget() {
-        copyButton.addTarget(self, action: #selector(copyButtonTapped), for: .touchUpInside)
+        copyButton.addTarget(self, action: #selector(copyButtonTapped(sender:)), for: .touchUpInside)
         exitButton.addTarget(self, action: #selector(exitButtonTapped), for: .touchUpInside)
         shareButton.addTarget(self, action: #selector(shareButtonTapped), for: .touchUpInside)
     }
@@ -112,14 +114,14 @@ private extension InviteAlertView {
         logoImageView.snp.makeConstraints {
             $0.top.equalTo(inviteTitle.snp.bottom).offset(19)
             $0.width.equalTo(SizeLiterals.Screen.screenWidth * 173 / 375)
-            $0.height.equalTo(SizeLiterals.Screen.screenHeight * 160 / 812)
             $0.centerX.equalToSuperview()
         }
         
         copyButton.snp.makeConstraints {
             $0.top.equalTo(logoImageView.snp.bottom).offset(8)
             $0.height.equalTo(35)
-            $0.leading.trailing.equalToSuperview().inset(112)
+            $0.centerX.equalToSuperview()
+            $0.width.equalTo(SizeLiterals.Screen.screenWidth * 119 / 375)
         }
         
         inviteCode.snp.makeConstraints {
@@ -130,14 +132,24 @@ private extension InviteAlertView {
         shareButton.snp.makeConstraints {
             $0.top.equalTo(inviteCode.snp.bottom).offset(42)
             $0.height.equalTo(48)
-            $0.leading.trailing.equalToSuperview().inset(38)
+            $0.bottom.equalToSuperview().inset(32)
+            $0.centerX.equalToSuperview()
+            $0.width.equalTo(SizeLiterals.Screen.screenWidth * 268 / 375)
         }
+    }
+    
+    func enableCopyOnTouch() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(copyButtonTapped(sender:)))
+        inviteCode.isUserInteractionEnabled = true
+        inviteCode.addGestureRecognizer(tapGesture)
     }
     
     // MARK: - @objc Functions
     
-    @objc func copyButtonTapped() {
-        UIPasteboard.general.string = inviteCode.text
+    @objc func copyButtonTapped(sender: UITapGestureRecognizer) {
+        if let inviteCode = inviteCode.text {
+            delegate?.copyButtonTapped(inviteCode: inviteCode)
+        }
     }
     
     @objc func exitButtonTapped() {

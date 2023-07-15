@@ -9,6 +9,8 @@ import UIKit
 
 final class MainViewController: UIViewController {
     
+    var response_case: Int = 1
+    
     private let mainModel: MainItem = MainItem.mainDummy()
     private let mainView = MainView()
     
@@ -28,6 +30,13 @@ final class MainViewController: UIViewController {
 private extension MainViewController {
     func setDelegate() {
         mainView.mainDelegate = self
+        
+        let deviceRatio = UIScreen.main.bounds.width / UIScreen.main.bounds.height
+        if deviceRatio > 0.5 {
+            mainView.setSEImageBind(model: mainModel)
+        } else {
+            mainView.setImageBind(model: mainModel)
+        }
     }
     
     func setDataBind() {
@@ -37,6 +46,15 @@ private extension MainViewController {
 
 extension MainViewController: MainDelegate {
     func questionButtonTapped() {
-        self.navigationController?.pushViewController(AnswerDetailViewController(), animated: false)
+        switch response_case {
+        case 1: // 답변 화면으로 이동
+            self.navigationController?.pushViewController(AnswerDetailViewController(), animated: true)
+        case 2:
+            self.makeAlert(alertType: .inviteAlert) {}
+        case 3:
+            self.makeAlert(alertType: .disconnectAlert) {}
+        default:
+            break
+        }
     }
 }

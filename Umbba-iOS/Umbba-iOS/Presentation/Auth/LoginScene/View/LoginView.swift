@@ -9,7 +9,18 @@ import UIKit
 
 import SnapKit
 
+protocol LoginDelegate: AnyObject {
+    func kakaoLogin()
+    func appleLogin()
+}
+
 final class LoginView: UIView {
+    
+    // MARK: - Properties
+    
+    weak var loginDelegate: LoginDelegate?
+    
+    // MARK: - UI Components
     
     private let logoImage: UIImageView = {
         let image = UIImageView()
@@ -82,15 +93,10 @@ final class LoginView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        // MARK: - UI Components
         setUI()
-        
-        // MARK: - addsubView
         setHierarchy()
-        
-        // MARK: - autolayout설정
         setLayout()
-        
+        setAddTarget()
     }
     
     required init?(coder: NSCoder) {
@@ -98,6 +104,8 @@ final class LoginView: UIView {
     }
     
 }
+
+// MARK: - Extensions
 
 private extension LoginView {
     
@@ -163,5 +171,20 @@ private extension LoginView {
             $0.center.equalToSuperview()
         }
         
+    }
+    
+    func setAddTarget() {
+        loginKakaoButton.addTarget(self, action: #selector(kakaoLogin), for: .touchUpInside)
+        loginAppleButton.addTarget(self, action: #selector(appleLogin), for: .touchUpInside)
+    }
+    
+    @objc
+    func kakaoLogin() {
+        loginDelegate?.kakaoLogin()
+    }
+    
+    @objc
+    func appleLogin() {
+        loginDelegate?.appleLogin()
     }
 }

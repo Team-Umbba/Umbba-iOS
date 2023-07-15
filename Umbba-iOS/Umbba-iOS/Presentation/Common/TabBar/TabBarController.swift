@@ -80,10 +80,12 @@ private extension TabBarController {
         }
         upperLineView = UIView(frame: CGRect(x: tabView.frame.minX - 1, y: tabView.frame.minY - 1, width: tabView.frame.size.width + 2, height: 1))
         upperLineView.backgroundColor = UIColor.Primary500
+        
+        tabBar.addSubview(upperLineView)
     }
     
     func setLayout() {
-        tabBar.addSubviews(defaultLineView, upperLineView)
+        tabBar.addSubview(defaultLineView)
         
         defaultLineView.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview()

@@ -10,6 +10,12 @@ import UIKit
 import SnapKit
 
 final class ArchivingImageView: UIView {
+    
+    // MARK: - Properties
+    
+    private let imageArray = [ImageLiterals.Archiving.list_img1, ImageLiterals.Archiving.list_img2, ImageLiterals.Archiving.list_img3, ImageLiterals.Archiving.list_img4, ImageLiterals.Archiving.list_img5]
+    
+    private let imageSeArray = [ImageLiterals.Archiving.list_se_img1, ImageLiterals.Archiving.list_se_img2, ImageLiterals.Archiving.list_se_img3, ImageLiterals.Archiving.list_se_img4, ImageLiterals.Archiving.list_se_img5]
 
     // MARK: - UI Components
     
@@ -25,6 +31,7 @@ final class ArchivingImageView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
     
+        setUI()
         setHierarchy()
         setLayout()
     }
@@ -38,7 +45,11 @@ final class ArchivingImageView: UIView {
 
 // MARK: - Extensions
 
-private extension ArchivingImageView {
+extension ArchivingImageView {
+    
+    func setUI() {
+        imageView.contentMode = .scaleAspectFill
+    }
     
     func setHierarchy() {
         addSubview(imageView)
@@ -47,7 +58,16 @@ private extension ArchivingImageView {
     func setLayout() {
         imageView.snp.makeConstraints {
             $0.edges.equalToSuperview()
-            $0.height.equalTo(SizeLiterals.Screen.screenHeight * 360 / 812)
+            $0.width.equalTo(SizeLiterals.Screen.screenWidth * 375 / 812)
+            $0.height.equalTo(SizeLiterals.Screen.screenHeight * 375 / 812)
         }
+    }
+    
+    func setDataBind(section: Int) {
+        imageView.image = imageArray[section]
+    }
+    
+    func setSEDataBind(section: Int) {
+        imageView.image = imageSeArray[section]
     }
 }

@@ -12,6 +12,7 @@ import SnapKit
 // MARK: - Protocols
 
 protocol AlertDelegate: AnyObject {
+    func copyButtonTapped(inviteCode: String)
     func colorButtonTapped()
     func alertDismissTapped()
 }

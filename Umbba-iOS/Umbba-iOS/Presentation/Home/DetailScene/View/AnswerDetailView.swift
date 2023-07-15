@@ -18,6 +18,9 @@ final class AnswerDetailView: UIView {
     
     // MARK: - UI Components
     
+    private let isOpponentAnswer: Bool = true
+    private let isMyAnswer: Bool = false
+    
     private let navigationBarView: CustomNavigationBar = {
         let view = CustomNavigationBar()
         view.cafe24Title = I18N.Write.navigationTitle
@@ -56,6 +59,7 @@ final class AnswerDetailView: UIView {
         label.textColor = .UmbbaBlack
         label.text = I18N.Detail.partnerQuestLabel
         label.font = .PretendardSemiBold(size: 20)
+        label.numberOfLines = 0
         return label
     }()
     
@@ -68,11 +72,12 @@ final class AnswerDetailView: UIView {
         return answerView
     }()
     
-    private lazy var partnerAnswerContent: UILabel = {
-        let label = UILabel()
+    private lazy var partnerAnswerContent: BlurLabel = {
+        let label = BlurLabel()
         label.textColor = .Gray800
         label.text = I18N.Detail.noneAnswer
         label.font = .PretendardRegular(size: 16)
+        label.numberOfLines = 0
         return label
     }()
     
@@ -88,6 +93,7 @@ final class AnswerDetailView: UIView {
         let label = UILabel()
         label.text = I18N.Detail.myQuestLabel
         label.font = .PretendardSemiBold(size: 20)
+        label.numberOfLines = 0
         return label
     }()
     
@@ -113,6 +119,8 @@ final class AnswerDetailView: UIView {
         label.textColor = .Gray800
         label.text = I18N.Detail.pleaseAnswer
         label.font = .PretendardRegular(size: 16)
+        label.textAlignment = .right
+        label.numberOfLines = 0
         return label
     }()
     
@@ -130,6 +138,7 @@ final class AnswerDetailView: UIView {
         setUI()
         setAddTarget()
         setLayout()
+        updateUI()
     }
     
     required init?(coder: NSCoder) {
@@ -166,8 +175,8 @@ private extension AnswerDetailView {
         }
         
         partnerQeustLabel.snp.makeConstraints {
-            $0.leading.equalToSuperview().inset(24)
-            $0.top.equalTo(themeStackView.snp.bottom).offset(50)
+            $0.trailing.leading.equalToSuperview().inset(24)
+            $0.top.equalTo(themeStackView.snp.bottom).offset(24)
         }
         
         partnerAnswerView.snp.makeConstraints {
@@ -181,12 +190,12 @@ private extension AnswerDetailView {
         }
         
         partnerAnswerContent.snp.makeConstraints {
-            $0.top.leading.equalToSuperview().inset(16)
+            $0.top.leading.trailing.equalToSuperview().inset(16)
         }
         
         myQuestLabel.snp.makeConstraints {
-            $0.trailing.equalToSuperview().inset(24)
-            $0.top.equalTo(partnerAnswerView.snp.bottom).offset(41)
+            $0.leading.trailing.equalToSuperview().inset(24)
+            $0.top.equalTo(partnerAnswerView.snp.bottom).offset(32)
         }
         
         myAnswerView.snp.makeConstraints {
@@ -200,13 +209,19 @@ private extension AnswerDetailView {
         }
         
         myAnswerContent.snp.makeConstraints {
-            $0.top.trailing.equalToSuperview().inset(16)
+            $0.top.leading.trailing.equalToSuperview().inset(16)
         }
         
         nextButton.snp.makeConstraints {
             $0.bottom.equalTo(self.safeAreaLayoutGuide).offset(-12)
             $0.trailing.leading.equalToSuperview().inset(20)
             $0.height.equalTo(60)
+        }
+    }
+    
+    func updateUI() {
+        if isOpponentAnswer && !isMyAnswer {
+            partnerAnswerContent.isBlurring = true
         }
     }
     
