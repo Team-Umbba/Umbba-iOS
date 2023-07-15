@@ -17,6 +17,7 @@
 		149099EB2A602EB0007242C6 /* WithdrawalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149099EA2A602EB0007242C6 /* WithdrawalView.swift */; };
 		149099ED2A603143007242C6 /* WithdrawalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149099EC2A603143007242C6 /* WithdrawalViewController.swift */; };
 		14A01D432A57D8A200D4F860 /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A01D422A57D8A200D4F860 /* SettingTableViewCell.swift */; };
+		14A0ACE82A62A50600C42097 /* BlurredLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A0ACE72A62A50600C42097 /* BlurredLabel.swift */; };
 		14A6D3062A5A63EF003A83B3 /* SettingSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A6D3052A5A63EF003A83B3 /* SettingSectionHeaderView.swift */; };
 		14AA29842A5685050038CDA1 /* NoticeAlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AA29832A5685050038CDA1 /* NoticeAlarmViewController.swift */; };
 		14AA29862A5685660038CDA1 /* NoticeAlarmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AA29852A5685660038CDA1 /* NoticeAlarmView.swift */; };
@@ -136,6 +137,7 @@
 		149099EA2A602EB0007242C6 /* WithdrawalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithdrawalView.swift; sourceTree = "<group>"; };
 		149099EC2A603143007242C6 /* WithdrawalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithdrawalViewController.swift; sourceTree = "<group>"; };
 		14A01D422A57D8A200D4F860 /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
+		14A0ACE72A62A50600C42097 /* BlurredLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurredLabel.swift; sourceTree = "<group>"; };
 		14A6D3052A5A63EF003A83B3 /* SettingSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingSectionHeaderView.swift; sourceTree = "<group>"; };
 		14AA29832A5685050038CDA1 /* NoticeAlarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeAlarmViewController.swift; sourceTree = "<group>"; };
 		14AA29852A5685660038CDA1 /* NoticeAlarmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeAlarmView.swift; sourceTree = "<group>"; };
@@ -510,6 +512,7 @@
 			children = (
 				6978158D2A5300F90047944C /* ButtonPress.swift */,
 				6978158F2A53015D0047944C /* MakeVibrate.swift */,
+				14A0ACE72A62A50600C42097 /* BlurredLabel.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1133,6 +1136,7 @@
 				697815772A52FF890047944C /* UITextField+.swift in Sources */,
 				149099E92A5FBDF6007242C6 /* AnswerDetailViewController.swift in Sources */,
 				A489BE062A5AFCE90027E817 /* ArchivingImageView.swift in Sources */,
+				14A0ACE82A62A50600C42097 /* BlurredLabel.swift in Sources */,
 				A42723C52A5A6C04003C445F /* ArchivingSectionCollectionViewCell.swift in Sources */,
 				14A01D432A57D8A200D4F860 /* SettingTableViewCell.swift in Sources */,
 				697815872A53003A0047944C /* UICollectionViewRegisterable.swift in Sources */,
