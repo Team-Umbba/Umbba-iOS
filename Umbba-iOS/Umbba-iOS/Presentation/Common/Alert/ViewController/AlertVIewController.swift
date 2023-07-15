@@ -125,7 +125,7 @@ extension AlertViewController {
             let inviteWidth = SizeLiterals.Screen.screenWidth * 343 / 375
             $0.center.equalToSuperview()
             $0.width.equalTo(inviteWidth)
-            $0.height.equalTo(inviteWidth * 472 / 343)
+//            $0.height.equalTo(inviteWidth * 472 / 343)
         }
         
         disconnectAlertView.snp.makeConstraints {
@@ -166,6 +166,10 @@ extension AlertViewController {
 // MARK: - AlertDelegate
 
 extension AlertViewController: AlertDelegate {
+    func copyButtonTapped(inviteCode: String) {
+        UIPasteboard.general.string = inviteCode
+        self.showToast(message: "초대코드가 복사되었습니다")
+    }
     
     func colorButtonTapped() {
         dismiss(animated: false) {
