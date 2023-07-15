@@ -47,8 +47,15 @@ private extension MainViewController {
 extension MainViewController: MainDelegate {
     func questionButtonTapped() {
         switch response_case {
-        case 1: // 답변 화면으로 이동
-            self.navigationController?.pushViewController(AnswerDetailViewController(), animated: true)
+        case 1:
+            guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+                  let keyWindow = windowScene.windows.first else {
+                return
+            }
+            keyWindow.rootViewController = UINavigationController(rootViewController: AnswerDetailViewController())
+            if let navigationController = keyWindow.rootViewController as? UINavigationController {
+                navigationController.isNavigationBarHidden = true
+            }
         case 2:
             self.makeAlert(alertType: .inviteAlert) {}
         case 3:
