@@ -71,7 +71,7 @@ final class WriteSaveAlertView: UIView {
         let label = UILabel()
         label.textColor = .UmbbaBlack
         label.text = ""
-        label.textAlignment = .left
+        label.textAlignment = .center
         label.font = .PretendardRegular(size: 16)
         label.numberOfLines = 0
         return label
