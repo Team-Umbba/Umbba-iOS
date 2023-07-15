@@ -31,7 +31,6 @@ final class AnswerDetailViewController: UIViewController {
 // MARK: - Extensions
 
 extension AnswerDetailViewController {
-    
     func setDelegate() {
         answerDetailView.delegate = self
         answerDetailView.nextDelegate = self
