@@ -9,7 +9,7 @@ import UIKit
 
 final class MainViewController: UIViewController {
     
-    var response_case: Int = 2
+    var response_case: Int = 1
     
     private let mainModel: MainItem = MainItem.mainDummy()
     private let mainView = MainView()
