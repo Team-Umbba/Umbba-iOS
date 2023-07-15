@@ -27,6 +27,7 @@ final class ArchivingViewController: UIViewController {
     private let archivingQuestionModel: [ArchivingQuestionItem] = ArchivingQuestionItem.archivingQuestionDummy()
     
     private var selectedSectionIndexPath: Int?
+    private let deviceRatio = UIScreen.main.bounds.width / UIScreen.main.bounds.height
     
     // MARK: - Life Cycles
     
@@ -85,7 +86,12 @@ extension ArchivingViewController: UICollectionViewDelegate {
                 cell.backgroundColor = .Primary600
                 cell.archivingSectionLabel.textColor = .UmbbaWhite
             }
-            archivingImageView.setDataBind(section: indexPath.row)
+
+            if deviceRatio > 0.5 {
+                archivingImageView.setSEDataBind(section: indexPath.row)
+            } else {
+                archivingImageView.setDataBind(section: indexPath.row)
+            }
         case .question:
             break
         }
@@ -117,7 +123,12 @@ extension ArchivingViewController: UICollectionViewDataSource {
                 cell.backgroundColor = .Primary600
                 cell.archivingSectionLabel.textColor = .UmbbaWhite
                 collectionView.selectItem(at: indexPath, animated: false, scrollPosition: .init())
-                archivingImageView.setDataBind(section: 0)
+                
+                if deviceRatio > 0.5 {
+                    archivingImageView.setSEDataBind(section: indexPath.row)
+                } else {
+                    archivingImageView.setDataBind(section: indexPath.row)
+                }
             }
             return cell
         case .question:

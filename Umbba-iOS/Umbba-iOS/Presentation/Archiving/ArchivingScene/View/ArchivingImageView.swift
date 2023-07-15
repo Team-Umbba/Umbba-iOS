@@ -73,4 +73,21 @@ extension ArchivingImageView {
             imageView.image = ImageLiterals.Archiving.list_img1
         }
     }
+    
+    func setSEDataBind(section: Int) {
+        switch section {
+        case 0:
+            imageView.image = ImageLiterals.Archiving.list_se_img1
+        case 1:
+            imageView.image = ImageLiterals.Archiving.list_se_img2
+        case 2:
+            imageView.image = ImageLiterals.Archiving.list_se_img3
+        case 3:
+            imageView.image = ImageLiterals.Archiving.list_se_img4
+        case 4:
+            imageView.image = ImageLiterals.Archiving.list_se_img5
+        default:
+            imageView.image = ImageLiterals.Archiving.list_se_img1
+        }
+    }
 }
