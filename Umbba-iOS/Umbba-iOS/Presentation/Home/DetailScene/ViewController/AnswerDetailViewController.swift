@@ -39,7 +39,11 @@ extension AnswerDetailViewController {
 
 extension AnswerDetailViewController: NavigationBarDelegate {
     func backButtonTapped() {
-        self.navigationController?.popViewController(animated: true)
+        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+              let keyWindow = windowScene.windows.first else {
+            return
+        }
+        keyWindow.rootViewController = TabBarController()
     }
 
     func completeButtonTapped() {
