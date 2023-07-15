@@ -109,7 +109,7 @@ private extension WriteCancelAlertView {
         }
 
         buttonStackView.snp.makeConstraints {
-            $0.top.equalTo(alertTitle.snp.bottom).offset(24)
+            $0.bottom.equalToSuperview().inset(29)
             $0.leading.trailing.equalToSuperview().inset(32)
         }
     }
