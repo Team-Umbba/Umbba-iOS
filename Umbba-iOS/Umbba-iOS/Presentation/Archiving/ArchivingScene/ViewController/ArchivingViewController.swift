@@ -49,6 +49,8 @@ extension ArchivingViewController {
     
     private func setUI() {
         view.backgroundColor = .UmbbaWhite
+        
+        archivingImageView.contentMode = .scaleAspectFill
     }
     
     private func setHierarchy() {
@@ -57,8 +59,9 @@ extension ArchivingViewController {
     
     private func setLayout() {
         archivingImageView.snp.makeConstraints {
-            $0.top.equalToSuperview()
-            $0.centerX.equalToSuperview()
+            $0.top.leading.trailing.equalToSuperview()
+            $0.width.equalTo(SizeLiterals.Screen.screenWidth * 375 / 812)
+            $0.height.equalTo(SizeLiterals.Screen.screenHeight * 375 / 812)
         }
         
         collectionView.snp.makeConstraints {
