@@ -30,6 +30,7 @@
 		6951A6982A5D89DA00D49692 /* NaviagionBarProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6951A6972A5D89DA00D49692 /* NaviagionBarProtocol.swift */; };
 		6951A69A2A5D8A8F00D49692 /* NextButtonProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6951A6992A5D8A8F00D49692 /* NextButtonProtocol.swift */; };
 		6951A69F2A619AD300D49692 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6951A69E2A619AD300D49692 /* GoogleService-Info.plist */; };
+		6951A6AC2A62CBD100D49692 /* DisconnectAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6951A6AB2A62CBD100D49692 /* DisconnectAlertView.swift */; };
 		69636FAD2A5A615C008B457A /* FamilyInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69636FAC2A5A615C008B457A /* FamilyInfoViewController.swift */; };
 		69636FAF2A5A616C008B457A /* FamilyInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69636FAE2A5A616C008B457A /* FamilyInfoView.swift */; };
 		69636FB32A5ADE4A008B457A /* CompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69636FB22A5ADE4A008B457A /* CompleteViewController.swift */; };
@@ -155,6 +156,7 @@
 		6951A6992A5D8A8F00D49692 /* NextButtonProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextButtonProtocol.swift; sourceTree = "<group>"; };
 		6951A69B2A616C8200D49692 /* Umbba-iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Umbba-iOS.entitlements"; sourceTree = "<group>"; };
 		6951A69E2A619AD300D49692 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		6951A6AB2A62CBD100D49692 /* DisconnectAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisconnectAlertView.swift; sourceTree = "<group>"; };
 		69636FAC2A5A615C008B457A /* FamilyInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyInfoViewController.swift; sourceTree = "<group>"; };
 		69636FAE2A5A616C008B457A /* FamilyInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyInfoView.swift; sourceTree = "<group>"; };
 		69636FB22A5ADE4A008B457A /* CompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteViewController.swift; sourceTree = "<group>"; };
@@ -338,6 +340,7 @@
 				691979F72A5C6A4E0069FB63 /* WithdrawalAlertView.swift */,
 				691979F92A5C6BDB0069FB63 /* WriteSaveAlertView.swift */,
 				6951A6952A5D2B5300D49692 /* InviteAlertView.swift */,
+				6951A6AB2A62CBD100D49692 /* DisconnectAlertView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1217,6 +1220,7 @@
 				697815792A52FFA20047944C /* UIButton+.swift in Sources */,
 				697815E02A530DC80047944C /* AuthService.swift in Sources */,
 				A42723C92A5A8162003C445F /* ArchivingViewController.swift in Sources */,
+				6951A6AC2A62CBD100D49692 /* DisconnectAlertView.swift in Sources */,
 				69636FAD2A5A615C008B457A /* FamilyInfoViewController.swift in Sources */,
 				697815E32A530E140047944C /* User.swift in Sources */,
 				69A67D812A5C1BB600C43F49 /* CustomNavigationBar.swift in Sources */,
