@@ -27,6 +27,11 @@ enum ImageLiterals {
         static var icn_setting_selected: UIImage { .load(name: "setting_active") }
     }
     
+    enum Onboarding {
+        static var img_arrive: UIImage { .load(name: "arrive") }
+        static var img_depart: UIImage { .load(name: "depart") }
+    }
+    
     enum Auth {
         static var icn_check_circle: UIImage { .load(name: "circle_check") }
         static var icn_apple: UIImage { .load(name: "appleLogo") }
