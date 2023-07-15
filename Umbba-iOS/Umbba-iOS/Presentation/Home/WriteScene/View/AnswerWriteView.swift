@@ -183,13 +183,9 @@ private extension AnswerWriteView {
     
     @objc
     func completeButtonTapped() {
-        if !answerTextView.hasText || answerTextView.text == I18N.Write.answerPlaceholder {
-            print("답변을 입력해주세요")
-        } else {
-            setData()
-            answerWriteDelegate?.answerDataBind(writePopUp: writePopUp)
-            navigationDelegate?.completeButtonTapped()
-        }
+        setData()
+        answerWriteDelegate?.answerDataBind(writePopUp: writePopUp)
+        navigationDelegate?.completeButtonTapped()
     }
 }
 

@@ -12,11 +12,11 @@ final class AnswerWriteViewController: UIViewController {
     // MARK: - Properties
     
     private var writePopUp: WritePopUp = WritePopUp()
-
+    
     // MARK: - UI Components
     
     private let answerWriteView = AnswerWriteView()
-   
+    
     override func loadView() {
         super.loadView()
         
@@ -51,9 +51,13 @@ extension AnswerWriteViewController: NavigationBarDelegate, AnswerWriteDelegate 
     }
     
     func completeButtonTapped() {
-        self.makeAlert(writePopUp: writePopUp, alertType: .writeSaveAlert) {
-            guard let answer = self.writePopUp.answer else { return }
-            print("작성 저장 API RequsetBody : \(answer) ")
+        if writePopUp.answer == I18N.Write.answerPlaceholder || writePopUp.answer == "" {
+            self.showToast(message: "답변을 입력해주세요")
+        } else {
+            self.makeAlert(writePopUp: writePopUp, alertType: .writeSaveAlert) {
+                guard let answer = self.writePopUp.answer else { return }
+                print("작성 저장 API RequsetBody : \(answer) ")
+            }
         }
     }
 }
