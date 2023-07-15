@@ -97,6 +97,26 @@
 		697816182A5317C10047944C /* FirebaseInAppMessaging-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = 697816172A5317C10047944C /* FirebaseInAppMessaging-Beta */; };
 		6978161A2A5317C10047944C /* FirebaseInAppMessagingSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = 697816192A5317C10047944C /* FirebaseInAppMessagingSwift-Beta */; };
 		6978161C2A5317C10047944C /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 6978161B2A5317C10047944C /* FirebaseMessaging */; };
+		697E19992A631CD100D4752D /* GenericResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697E19982A631CD100D4752D /* GenericResponse.swift */; };
+		697E199B2A631D5A00D4752D /* NetworkConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697E199A2A631D5A00D4752D /* NetworkConstant.swift */; };
+		697E199D2A631D9800D4752D /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697E199C2A631D9800D4752D /* BaseService.swift */; };
+		697E19A52A6320EA00D4752D /* LoginEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697E19A42A6320EA00D4752D /* LoginEntity.swift */; };
+		697E19AB2A63216B00D4752D /* LogoutEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697E19AA2A63216B00D4752D /* LogoutEntity.swift */; };
+		697E19AD2A63217E00D4752D /* ReIssueEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697E19AC2A63217E00D4752D /* ReIssueEntity.swift */; };
+		697E19B22A6321E200D4752D /* ListEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697E19B12A6321E200D4752D /* ListEntity.swift */; };
+		697E19B52A63220400D4752D /* DetailEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697E19B42A63220400D4752D /* DetailEntity.swift */; };
+		697E19BB2A6322D700D4752D /* MatchEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697E19BA2A6322D700D4752D /* MatchEntity.swift */; };
+		697E19BF2A63230400D4752D /* ReceiveEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697E19BE2A63230400D4752D /* ReceiveEntity.swift */; };
+		697E19C12A63230C00D4752D /* InviteEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697E19C02A63230C00D4752D /* InviteEntity.swift */; };
+		697E19C82A6323CC00D4752D /* PushAlarmEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697E19C72A6323CC00D4752D /* PushAlarmEntity.swift */; };
+		697E19CA2A63242500D4752D /* ResponseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697E19C92A63242500D4752D /* ResponseEntity.swift */; };
+		697E19CC2A63242F00D4752D /* AnswerEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697E19CB2A63242F00D4752D /* AnswerEntity.swift */; };
+		697E19CE2A63243700D4752D /* TodayEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697E19CD2A63243700D4752D /* TodayEntity.swift */; };
+		697E19D02A63244200D4752D /* MainEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697E19CF2A63244200D4752D /* MainEntity.swift */; };
+		697E19D22A63246300D4752D /* URLConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697E19D12A63246300D4752D /* URLConstant.swift */; };
+		697E19D42A63284C00D4752D /* OnBoardingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697E19D32A63284C00D4752D /* OnBoardingService.swift */; };
+		697E19D62A63285D00D4752D /* HomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697E19D52A63285D00D4752D /* HomeService.swift */; };
+		697E19D82A63286C00D4752D /* ArchivingListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697E19D72A63286C00D4752D /* ArchivingListService.swift */; };
 		6991BA6E2A5731330091D52D /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6991BA6D2A5731330091D52D /* UserInfoViewController.swift */; };
 		6991BA702A57314A0091D52D /* UserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6991BA6F2A57314A0091D52D /* UserInfoView.swift */; };
 		699455DB2A5AED0B003C118A /* PushAlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 699455DA2A5AED0B003C118A /* PushAlarmViewController.swift */; };
@@ -213,6 +233,26 @@
 		697815F52A5311BA0047944C /* PushAlarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushAlarm.swift; sourceTree = "<group>"; };
 		697815F72A5311C30047944C /* Quest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quest.swift; sourceTree = "<group>"; };
 		697815FA2A5314BE0047944C /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		697E19982A631CD100D4752D /* GenericResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericResponse.swift; sourceTree = "<group>"; };
+		697E199A2A631D5A00D4752D /* NetworkConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConstant.swift; sourceTree = "<group>"; };
+		697E199C2A631D9800D4752D /* BaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
+		697E19A42A6320EA00D4752D /* LoginEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginEntity.swift; sourceTree = "<group>"; };
+		697E19AA2A63216B00D4752D /* LogoutEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutEntity.swift; sourceTree = "<group>"; };
+		697E19AC2A63217E00D4752D /* ReIssueEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReIssueEntity.swift; sourceTree = "<group>"; };
+		697E19B12A6321E200D4752D /* ListEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListEntity.swift; sourceTree = "<group>"; };
+		697E19B42A63220400D4752D /* DetailEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailEntity.swift; sourceTree = "<group>"; };
+		697E19BA2A6322D700D4752D /* MatchEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchEntity.swift; sourceTree = "<group>"; };
+		697E19BE2A63230400D4752D /* ReceiveEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiveEntity.swift; sourceTree = "<group>"; };
+		697E19C02A63230C00D4752D /* InviteEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteEntity.swift; sourceTree = "<group>"; };
+		697E19C72A6323CC00D4752D /* PushAlarmEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushAlarmEntity.swift; sourceTree = "<group>"; };
+		697E19C92A63242500D4752D /* ResponseEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseEntity.swift; sourceTree = "<group>"; };
+		697E19CB2A63242F00D4752D /* AnswerEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerEntity.swift; sourceTree = "<group>"; };
+		697E19CD2A63243700D4752D /* TodayEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayEntity.swift; sourceTree = "<group>"; };
+		697E19CF2A63244200D4752D /* MainEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainEntity.swift; sourceTree = "<group>"; };
+		697E19D12A63246300D4752D /* URLConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLConstant.swift; sourceTree = "<group>"; };
+		697E19D32A63284C00D4752D /* OnBoardingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingService.swift; sourceTree = "<group>"; };
+		697E19D52A63285D00D4752D /* HomeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeService.swift; sourceTree = "<group>"; };
+		697E19D72A63286C00D4752D /* ArchivingListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchivingListService.swift; sourceTree = "<group>"; };
 		6991BA6D2A5731330091D52D /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
 		6991BA6F2A57314A0091D52D /* UserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoView.swift; sourceTree = "<group>"; };
 		699455DA2A5AED0B003C118A /* PushAlarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushAlarmViewController.swift; sourceTree = "<group>"; };
@@ -777,6 +817,10 @@
 			isa = PBXGroup;
 			children = (
 				697815DD2A530D2C0047944C /* NetworkResult.swift */,
+				697E19982A631CD100D4752D /* GenericResponse.swift */,
+				697E199A2A631D5A00D4752D /* NetworkConstant.swift */,
+				697E199C2A631D9800D4752D /* BaseService.swift */,
+				697E19D12A63246300D4752D /* URLConstant.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -792,7 +836,10 @@
 		697815DA2A530CD90047944C /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				697E19D52A63285D00D4752D /* HomeService.swift */,
 				697815DF2A530DC80047944C /* AuthService.swift */,
+				697E19D32A63284C00D4752D /* OnBoardingService.swift */,
+				697E19D72A63286C00D4752D /* ArchivingListService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -800,6 +847,10 @@
 		697815E12A530DFB0047944C /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				697E19A12A63203B00D4752D /* Auth */,
+				697E19A02A63203400D4752D /* OnBoarding */,
+				697E19A22A63204200D4752D /* Home */,
+				697E19AE2A6321AA00D4752D /* ArchivingList */,
 				697815E22A530E140047944C /* User.swift */,
 			);
 			path = Entity;
@@ -871,6 +922,167 @@
 				697815EF2A53118E0047944C /* FamilyInfo.swift */,
 			);
 			path = FamilyInfoScene;
+			sourceTree = "<group>";
+		};
+		697E19A02A63203400D4752D /* OnBoarding */ = {
+			isa = PBXGroup;
+			children = (
+				697E19B62A63221D00D4752D /* Match */,
+				697E19B92A63228800D4752D /* Receive */,
+				697E19B72A63224300D4752D /* Invite */,
+			);
+			path = OnBoarding;
+			sourceTree = "<group>";
+		};
+		697E19A12A63203B00D4752D /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				697E19A32A6320CE00D4752D /* Login */,
+				697E19A82A63210500D4752D /* WithDrawal */,
+				697E19A72A6320FE00D4752D /* Logout */,
+				697E19A62A6320EE00D4752D /* ReIssue */,
+				697E19C62A6323A700D4752D /* PushAlarm */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		697E19A22A63204200D4752D /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				697E19C22A63233800D4752D /* Main */,
+				697E19C42A63238800D4752D /* Today */,
+				697E19C52A63239800D4752D /* Answer */,
+				697E19C32A63234000D4752D /* Response */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		697E19A32A6320CE00D4752D /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				697E19A42A6320EA00D4752D /* LoginEntity.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		697E19A62A6320EE00D4752D /* ReIssue */ = {
+			isa = PBXGroup;
+			children = (
+				697E19AC2A63217E00D4752D /* ReIssueEntity.swift */,
+			);
+			path = ReIssue;
+			sourceTree = "<group>";
+		};
+		697E19A72A6320FE00D4752D /* Logout */ = {
+			isa = PBXGroup;
+			children = (
+				697E19AA2A63216B00D4752D /* LogoutEntity.swift */,
+			);
+			path = Logout;
+			sourceTree = "<group>";
+		};
+		697E19A82A63210500D4752D /* WithDrawal */ = {
+			isa = PBXGroup;
+			children = (
+				697E19A92A63215300D4752D /* WithDrawalEntity */,
+			);
+			path = WithDrawal;
+			sourceTree = "<group>";
+		};
+		697E19A92A63215300D4752D /* WithDrawalEntity */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = WithDrawalEntity;
+			sourceTree = "<group>";
+		};
+		697E19AE2A6321AA00D4752D /* ArchivingList */ = {
+			isa = PBXGroup;
+			children = (
+				697E19AF2A6321CC00D4752D /* List */,
+				697E19B02A6321D500D4752D /* Detail */,
+			);
+			path = ArchivingList;
+			sourceTree = "<group>";
+		};
+		697E19AF2A6321CC00D4752D /* List */ = {
+			isa = PBXGroup;
+			children = (
+				697E19B12A6321E200D4752D /* ListEntity.swift */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		697E19B02A6321D500D4752D /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				697E19B42A63220400D4752D /* DetailEntity.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		697E19B62A63221D00D4752D /* Match */ = {
+			isa = PBXGroup;
+			children = (
+				697E19BA2A6322D700D4752D /* MatchEntity.swift */,
+			);
+			path = Match;
+			sourceTree = "<group>";
+		};
+		697E19B72A63224300D4752D /* Invite */ = {
+			isa = PBXGroup;
+			children = (
+				697E19C02A63230C00D4752D /* InviteEntity.swift */,
+			);
+			path = Invite;
+			sourceTree = "<group>";
+		};
+		697E19B92A63228800D4752D /* Receive */ = {
+			isa = PBXGroup;
+			children = (
+				697E19BE2A63230400D4752D /* ReceiveEntity.swift */,
+			);
+			path = Receive;
+			sourceTree = "<group>";
+		};
+		697E19C22A63233800D4752D /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				697E19CF2A63244200D4752D /* MainEntity.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		697E19C32A63234000D4752D /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				697E19C92A63242500D4752D /* ResponseEntity.swift */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
+		697E19C42A63238800D4752D /* Today */ = {
+			isa = PBXGroup;
+			children = (
+				697E19CD2A63243700D4752D /* TodayEntity.swift */,
+			);
+			path = Today;
+			sourceTree = "<group>";
+		};
+		697E19C52A63239800D4752D /* Answer */ = {
+			isa = PBXGroup;
+			children = (
+				697E19CB2A63242F00D4752D /* AnswerEntity.swift */,
+			);
+			path = Answer;
+			sourceTree = "<group>";
+		};
+		697E19C62A6323A700D4752D /* PushAlarm */ = {
+			isa = PBXGroup;
+			children = (
+				697E19C72A6323CC00D4752D /* PushAlarmEntity.swift */,
+			);
+			path = PushAlarm;
 			sourceTree = "<group>";
 		};
 		6991BA6B2A57303D0091D52D /* View */ = {
@@ -1198,14 +1410,19 @@
 				69636FAF2A5A616C008B457A /* FamilyInfoView.swift in Sources */,
 				6978157B2A52FFBC0047944C /* UIViewController+.swift in Sources */,
 				697815752A52FF760047944C /* UIVIew+.swift in Sources */,
+				697E19D02A63244200D4752D /* MainEntity.swift in Sources */,
 				699455EE2A5C0C8B003C118A /* InviteViewController.swift in Sources */,
 				6978157F2A52FFE10047944C /* UILabel+.swift in Sources */,
 				697815BF2A530B8F0047944C /* Lottie.swift in Sources */,
+				697E19A52A6320EA00D4752D /* LoginEntity.swift in Sources */,
 				A42740F02A5FBCA100D05B14 /* LottieViewController.swift in Sources */,
 				69DE6BB82A54417F00F31812 /* String+.swift in Sources */,
 				69DE6BAD2A5432CC00F31812 /* CustomTextField.swift in Sources */,
 				144F3F432A5C655400D73A6B /* AccountViewController.swift in Sources */,
 				691979F22A5C61190069FB63 /* WriteCancelAlertView.swift in Sources */,
+				697E19C12A63230C00D4752D /* InviteEntity.swift in Sources */,
+				697E19BF2A63230400D4752D /* ReceiveEntity.swift in Sources */,
+				697E19D82A63286C00D4752D /* ArchivingListService.swift in Sources */,
 				697815832A53000D0047944C /* UITableView+.swift in Sources */,
 				6951A6962A5D2B5300D49692 /* InviteAlertView.swift in Sources */,
 				697815692A52FE850047944C /* SizeLiterals.swift in Sources */,
@@ -1216,6 +1433,7 @@
 				149099E92A5FBDF6007242C6 /* AnswerDetailViewController.swift in Sources */,
 				A489BE062A5AFCE90027E817 /* ArchivingImageView.swift in Sources */,
 				14A0ACE82A62A50600C42097 /* BlurredLabel.swift in Sources */,
+				697E19B22A6321E200D4752D /* ListEntity.swift in Sources */,
 				A42723C52A5A6C04003C445F /* ArchivingSectionCollectionViewCell.swift in Sources */,
 				14A01D432A57D8A200D4F860 /* SettingTableViewCell.swift in Sources */,
 				697815872A53003A0047944C /* UICollectionViewRegisterable.swift in Sources */,
@@ -1223,27 +1441,35 @@
 				697815712A52FEC10047944C /* ColorLiterals.swift in Sources */,
 				A489BDFA2A5AA7C80027E817 /* ArchivingQuestionHeaderView.swift in Sources */,
 				697815482A52FA370047944C /* ViewController.swift in Sources */,
+				697E19992A631CD100D4752D /* GenericResponse.swift in Sources */,
 				144F3F452A5C883800D73A6B /* SettingTableView.swift in Sources */,
 				A42723BB2A553069003C445F /* LoginViewController.swift in Sources */,
 				697815852A5300290047944C /* UITableViewRegiseterable.swift in Sources */,
+				697E19AD2A63217E00D4752D /* ReIssueEntity.swift in Sources */,
 				6978158E2A5300F90047944C /* ButtonPress.swift in Sources */,
 				A42740F22A5FBDF600D05B14 /* LottieView.swift in Sources */,
 				14AA29842A5685050038CDA1 /* NoticeAlarmViewController.swift in Sources */,
 				699455EB2A5C0C24003C118A /* LoginView.swift in Sources */,
 				697815C72A530BC90047944C /* Splash.swift in Sources */,
 				69636FB32A5ADE4A008B457A /* CompleteViewController.swift in Sources */,
+				697E19CA2A63242500D4752D /* ResponseEntity.swift in Sources */,
+				697E19CC2A63242F00D4752D /* AnswerEntity.swift in Sources */,
+				697E199B2A631D5A00D4752D /* NetworkConstant.swift in Sources */,
 				697815F42A5311AA0047944C /* Complete.swift in Sources */,
 				697815D12A530BF10047944C /* Write.swift in Sources */,
 				149099EB2A602EB0007242C6 /* WithdrawalView.swift in Sources */,
 				69A67D7E2A5C12F100C43F49 /* AnswerWriteViewController.swift in Sources */,
 				697815EC2A5311770047944C /* Animation.swift in Sources */,
+				697E19D62A63285D00D4752D /* HomeService.swift in Sources */,
 				149099E72A5FBB20007242C6 /* AnswerDetailView.swift in Sources */,
 				699455DB2A5AED0B003C118A /* PushAlarmViewController.swift in Sources */,
 				14A6D3062A5A63EF003A83B3 /* SettingSectionHeaderView.swift in Sources */,
+				697E19D22A63246300D4752D /* URLConstant.swift in Sources */,
 				6951A6A72A61B5A600D49692 /* QuestViewController.swift in Sources */,
 				697815CF2A530BE70047944C /* Main.swift in Sources */,
 				14348E9D2A5B37DC0077A9B8 /* TabBarController.swift in Sources */,
 				A4C776122A60727D00375378 /* MainViewController.swift in Sources */,
+				697E19CE2A63243700D4752D /* TodayEntity.swift in Sources */,
 				691979F42A5C61450069FB63 /* AlertVIewController.swift in Sources */,
 				6991BA702A57314A0091D52D /* UserInfoView.swift in Sources */,
 				6951A6982A5D89DA00D49692 /* NaviagionBarProtocol.swift in Sources */,
@@ -1259,10 +1485,14 @@
 				697815792A52FFA20047944C /* UIButton+.swift in Sources */,
 				697815E02A530DC80047944C /* AuthService.swift in Sources */,
 				A42723C92A5A8162003C445F /* ArchivingViewController.swift in Sources */,
+				697E19D42A63284C00D4752D /* OnBoardingService.swift in Sources */,
 				6951A6AC2A62CBD100D49692 /* DisconnectAlertView.swift in Sources */,
+				697E19AB2A63216B00D4752D /* LogoutEntity.swift in Sources */,
 				69636FAD2A5A615C008B457A /* FamilyInfoViewController.swift in Sources */,
 				697815E32A530E140047944C /* User.swift in Sources */,
+				697E19BB2A6322D700D4752D /* MatchEntity.swift in Sources */,
 				6951A6AA2A61B82300D49692 /* QuestCollectionCell.swift in Sources */,
+				697E199D2A631D9800D4752D /* BaseService.swift in Sources */,
 				69A67D812A5C1BB600C43F49 /* CustomNavigationBar.swift in Sources */,
 				697815812A52FFF50047944C /* NSObject+.swift in Sources */,
 				A42723BF2A5537CD003C445F /* EntryView.swift in Sources */,
@@ -1275,6 +1505,7 @@
 				697815F02A53118E0047944C /* FamilyInfo.swift in Sources */,
 				6978157D2A52FFCB0047944C /* UIStackView+.swift in Sources */,
 				697815F62A5311BA0047944C /* PushAlarm.swift in Sources */,
+				697E19B52A63220400D4752D /* DetailEntity.swift in Sources */,
 				14AC19B32A57C27600A01E4F /* SettingViewController.swift in Sources */,
 				697815C32A530BB00047944C /* TabBar.swift in Sources */,
 				A47BDA492A5D5FD6007B8E3E /* AssignView.swift in Sources */,
@@ -1284,6 +1515,7 @@
 				A489BDFE2A5AAAB40027E817 /* ArchivingQuestionCollectionViewCell.swift in Sources */,
 				69DE6BB42A54400500F31812 /* InviteView.swift in Sources */,
 				6978155B2A52FBD30047944C /* UserManager.swift in Sources */,
+				697E19C82A6323CC00D4752D /* PushAlarmEntity.swift in Sources */,
 				691979F82A5C6A4E0069FB63 /* WithdrawalAlertView.swift in Sources */,
 				697815EE2A53117F0047944C /* UserInfo.swift in Sources */,
 				697815F82A5311C30047944C /* Quest.swift in Sources */,
@@ -1432,6 +1664,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				BASE_URL = "http://15.164.233.127";
 				CODE_SIGN_ENTITLEMENTS = "Umbba-iOS/Umbba-iOS.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -1468,6 +1701,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				BASE_URL = "http://15.164.233.127";
 				CODE_SIGN_ENTITLEMENTS = "Umbba-iOS/Umbba-iOS.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
