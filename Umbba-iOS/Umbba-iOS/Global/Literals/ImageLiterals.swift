@@ -44,6 +44,7 @@ enum ImageLiterals {
         static var SE_home3: UIImage { .load(name: "SE_home3") }
         static var SE_home4: UIImage { .load(name: "SE_home4") }
         static var SE_home5: UIImage { .load(name: "SE_home5") }
+        static var icn_disconnect: UIImage { .load(name: "icn_disconnect") }
     }
     
     enum Archiving {
