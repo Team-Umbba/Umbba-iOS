@@ -612,7 +612,7 @@
 		6978159C2A5302940047944C /* LoginScene */ = {
 			isa = PBXGroup;
 			children = (
-				699455E92A5C0C03003C118A /* LoginView */,
+				699455E92A5C0C03003C118A /* View */,
 				A42723B92A553054003C445F /* ViewController */,
 			);
 			path = LoginScene;
@@ -866,12 +866,12 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
-		699455E92A5C0C03003C118A /* LoginView */ = {
+		699455E92A5C0C03003C118A /* View */ = {
 			isa = PBXGroup;
 			children = (
 				699455EA2A5C0C24003C118A /* LoginView.swift */,
 			);
-			path = LoginView;
+			path = View;
 			sourceTree = "<group>";
 		};
 		699455EC2A5C0C38003C118A /* InviteViewController */ = {
