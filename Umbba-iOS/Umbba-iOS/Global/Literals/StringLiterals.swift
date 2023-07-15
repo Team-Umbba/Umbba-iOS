@@ -131,6 +131,8 @@ enum I18N {
         static let writeSaveTitle = "답변을 저장하시겠어요?"
         static let backButtonTitle = "돌아가기"
         static let saveButtonTitle = "저장"
+        static let disconnectTitle = "상대와의 연결이 끊어졌어요"
+        static let disconnectDiscription = "새로운 상대와 함께 하려면\n회원 탈퇴 후 이용해주세요"
     }
     
     enum Lottie {
