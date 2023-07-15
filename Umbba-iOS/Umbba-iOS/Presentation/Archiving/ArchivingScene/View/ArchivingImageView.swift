@@ -25,6 +25,7 @@ final class ArchivingImageView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
     
+        setUI()
         setHierarchy()
         setLayout()
     }
@@ -38,7 +39,11 @@ final class ArchivingImageView: UIView {
 
 // MARK: - Extensions
 
-private extension ArchivingImageView {
+extension ArchivingImageView {
+    
+    func setUI() {
+        imageView.contentMode = .scaleAspectFill
+    }
     
     func setHierarchy() {
         addSubview(imageView)
@@ -47,7 +52,25 @@ private extension ArchivingImageView {
     func setLayout() {
         imageView.snp.makeConstraints {
             $0.edges.equalToSuperview()
+            $0.width.equalTo(SizeLiterals.Screen.screenWidth * 375 / 812)
             $0.height.equalTo(SizeLiterals.Screen.screenHeight * 375 / 812)
+        }
+    }
+    
+    func setDataBind(section: Int) {
+        switch section {
+        case 0:
+            imageView.image = ImageLiterals.Archiving.list_img1
+        case 1:
+            imageView.image = ImageLiterals.Archiving.list_img2
+        case 2:
+            imageView.image = ImageLiterals.Archiving.list_img3
+        case 3:
+            imageView.image = ImageLiterals.Archiving.list_img4
+        case 4:
+            imageView.image = ImageLiterals.Archiving.list_img5
+        default:
+            imageView.image = ImageLiterals.Archiving.list_img1
         }
     }
 }

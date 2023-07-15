@@ -85,6 +85,7 @@ extension ArchivingViewController: UICollectionViewDelegate {
                 cell.backgroundColor = .Primary600
                 cell.archivingSectionLabel.textColor = .UmbbaWhite
             }
+            archivingImageView.setDataBind(section: indexPath.row)
         case .question:
             break
         }
@@ -112,10 +113,11 @@ extension ArchivingViewController: UICollectionViewDataSource {
             let cell =
                     ArchivingSectionCollectionViewCell.dequeueReusableCell(collectionView: collectionView, indexPath: indexPath)
             cell.archivingSectionLabel.text = "# \(I18N.Archiving.sectionArray[indexPath.row])"
-            if indexPath.item == 1 {
+            if indexPath.item == 0 {
                 cell.backgroundColor = .Primary600
                 cell.archivingSectionLabel.textColor = .UmbbaWhite
                 collectionView.selectItem(at: indexPath, animated: false, scrollPosition: .init())
+                archivingImageView.setDataBind(section: 0)
             }
             return cell
         case .question:
