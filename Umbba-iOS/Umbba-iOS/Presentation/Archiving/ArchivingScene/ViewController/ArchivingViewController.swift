@@ -49,7 +49,6 @@ extension ArchivingViewController {
     
     private func setUI() {
         view.backgroundColor = .UmbbaWhite
-        
         archivingImageView.contentMode = .scaleAspectFill
     }
     

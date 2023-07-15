@@ -10,6 +10,12 @@ import UIKit
 import SnapKit
 
 final class ArchivingImageView: UIView {
+    
+    // MARK: - Properties
+    
+    private let imageArray = [ImageLiterals.Archiving.list_img1, ImageLiterals.Archiving.list_img2, ImageLiterals.Archiving.list_img3, ImageLiterals.Archiving.list_img4, ImageLiterals.Archiving.list_img5]
+    
+    private let imageSeArray = [ImageLiterals.Archiving.list_se_img1, ImageLiterals.Archiving.list_se_img2, ImageLiterals.Archiving.list_se_img3, ImageLiterals.Archiving.list_se_img4, ImageLiterals.Archiving.list_se_img5]
 
     // MARK: - UI Components
     
@@ -58,36 +64,10 @@ extension ArchivingImageView {
     }
     
     func setDataBind(section: Int) {
-        switch section {
-        case 0:
-            imageView.image = ImageLiterals.Archiving.list_img1
-        case 1:
-            imageView.image = ImageLiterals.Archiving.list_img2
-        case 2:
-            imageView.image = ImageLiterals.Archiving.list_img3
-        case 3:
-            imageView.image = ImageLiterals.Archiving.list_img4
-        case 4:
-            imageView.image = ImageLiterals.Archiving.list_img5
-        default:
-            imageView.image = ImageLiterals.Archiving.list_img1
-        }
+        imageView.image = imageArray[section]
     }
     
     func setSEDataBind(section: Int) {
-        switch section {
-        case 0:
-            imageView.image = ImageLiterals.Archiving.list_se_img1
-        case 1:
-            imageView.image = ImageLiterals.Archiving.list_se_img2
-        case 2:
-            imageView.image = ImageLiterals.Archiving.list_se_img3
-        case 3:
-            imageView.image = ImageLiterals.Archiving.list_se_img4
-        case 4:
-            imageView.image = ImageLiterals.Archiving.list_se_img5
-        default:
-            imageView.image = ImageLiterals.Archiving.list_se_img1
-        }
+        imageView.image = imageSeArray[section]
     }
 }
