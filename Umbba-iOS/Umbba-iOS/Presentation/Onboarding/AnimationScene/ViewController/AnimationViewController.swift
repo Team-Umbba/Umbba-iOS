@@ -23,5 +23,21 @@ class AnimationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setDelegate()
+    }
+}
+
+// MARK: - Extensions
+
+extension AnimationViewController {
+    func setDelegate() {
+        animationView.nextDelegate = self
+    }
+}
+
+extension AnimationViewController: NextButtonDelegate {
+    func nextButtonTapped() {
+        self.navigationController?.pushViewController(UserInfoViewController(), animated: true)
     }
 }

@@ -22,6 +22,8 @@
 		14AA29842A5685050038CDA1 /* NoticeAlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AA29832A5685050038CDA1 /* NoticeAlarmViewController.swift */; };
 		14AA29862A5685660038CDA1 /* NoticeAlarmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AA29852A5685660038CDA1 /* NoticeAlarmView.swift */; };
 		14AC19B32A57C27600A01E4F /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AC19B22A57C27600A01E4F /* SettingViewController.swift */; };
+		14DBE1712A631DF200CD8E7E /* AnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DBE1702A631DF200CD8E7E /* AnimationView.swift */; };
+		14DBE1732A631E0100CD8E7E /* AnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DBE1722A631E0100CD8E7E /* AnimationViewController.swift */; };
 		691979F22A5C61190069FB63 /* WriteCancelAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691979F12A5C61190069FB63 /* WriteCancelAlertView.swift */; };
 		691979F42A5C61450069FB63 /* AlertVIewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691979F32A5C61450069FB63 /* AlertVIewController.swift */; };
 		691979F82A5C6A4E0069FB63 /* WithdrawalAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691979F72A5C6A4E0069FB63 /* WithdrawalAlertView.swift */; };
@@ -151,6 +153,8 @@
 		14AA29832A5685050038CDA1 /* NoticeAlarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeAlarmViewController.swift; sourceTree = "<group>"; };
 		14AA29852A5685660038CDA1 /* NoticeAlarmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeAlarmView.swift; sourceTree = "<group>"; };
 		14AC19B22A57C27600A01E4F /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		14DBE1702A631DF200CD8E7E /* AnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationView.swift; sourceTree = "<group>"; };
+		14DBE1722A631E0100CD8E7E /* AnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationViewController.swift; sourceTree = "<group>"; };
 		691979F12A5C61190069FB63 /* WriteCancelAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteCancelAlertView.swift; sourceTree = "<group>"; };
 		691979F32A5C61450069FB63 /* AlertVIewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertVIewController.swift; sourceTree = "<group>"; };
 		691979F72A5C6A4E0069FB63 /* WithdrawalAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithdrawalAlertView.swift; sourceTree = "<group>"; };
@@ -330,6 +334,22 @@
 				149099EA2A602EB0007242C6 /* WithdrawalView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		14DBE16E2A631DBF00CD8E7E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				14DBE1702A631DF200CD8E7E /* AnimationView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		14DBE16F2A631DC300CD8E7E /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				14DBE1722A631E0100CD8E7E /* AnimationViewController.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		691979EE2A5C60C90069FB63 /* Alert */ = {
@@ -848,6 +868,8 @@
 		697815E82A530F580047944C /* AnimationScene */ = {
 			isa = PBXGroup;
 			children = (
+				14DBE16F2A631DC300CD8E7E /* ViewController */,
+				14DBE16E2A631DBF00CD8E7E /* View */,
 				697815EB2A5311770047944C /* Animation.swift */,
 			);
 			path = AnimationScene;
@@ -1219,6 +1241,7 @@
 				A42723C52A5A6C04003C445F /* ArchivingSectionCollectionViewCell.swift in Sources */,
 				14A01D432A57D8A200D4F860 /* SettingTableViewCell.swift in Sources */,
 				697815872A53003A0047944C /* UICollectionViewRegisterable.swift in Sources */,
+				14DBE1732A631E0100CD8E7E /* AnimationViewController.swift in Sources */,
 				A42723C12A5537DA003C445F /* EntryViewController.swift in Sources */,
 				697815712A52FEC10047944C /* ColorLiterals.swift in Sources */,
 				A489BDFA2A5AA7C80027E817 /* ArchivingQuestionHeaderView.swift in Sources */,
@@ -1268,6 +1291,7 @@
 				A42723BF2A5537CD003C445F /* EntryView.swift in Sources */,
 				697815D72A530C120047944C /* Setting.swift in Sources */,
 				A489BDF82A5AA5020027E817 /* ArchivingQuestionItem.swift in Sources */,
+				14DBE1712A631DF200CD8E7E /* AnimationView.swift in Sources */,
 				A4C776152A614ACB00375378 /* MainItem.swift in Sources */,
 				14AA29862A5685660038CDA1 /* NoticeAlarmView.swift in Sources */,
 				699455DD2A5AED19003C118A /* PushAlarmView.swift in Sources */,

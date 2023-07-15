@@ -10,6 +10,10 @@ import SnapKit
 
 final class AnimationView: UIView {
     
+    // MARK: - Properties
+    
+    weak var nextDelegate: NextButtonDelegate?
+    
     // MARK: - UI Components
     
     private let backgroundImage: UIImageView = {
@@ -37,10 +41,9 @@ final class AnimationView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
     
-        setUI()
+        setAddTarget()
         setHierarchy()
         setLayout()
-        setAddTarget()
     }
     
     @available(*, unavailable)
@@ -52,9 +55,11 @@ final class AnimationView: UIView {
 // MARK: - Extensions
 
 extension AnimationView {
-    func setUI() {
-        
+    
+    func setAddTarget() {
+        callingButton.addTarget(self, action: #selector(nextButtonTapped), for: .touchUpInside)
     }
+    
     func setHierarchy() {
         addSubviews(backgroundImage, animationLabel, callingButton)
     }
@@ -74,7 +79,9 @@ extension AnimationView {
             $0.height.equalTo(60)
         }
     }
-    func setAddTarget() {
-        
+    
+    @objc
+    func nextButtonTapped() {
+        nextDelegate?.nextButtonTapped()
     }
 }
