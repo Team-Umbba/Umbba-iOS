@@ -127,6 +127,7 @@
 		A4C776102A60727100375378 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C7760F2A60727100375378 /* MainView.swift */; };
 		A4C776122A60727D00375378 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C776112A60727D00375378 /* MainViewController.swift */; };
 		A4C776152A614ACB00375378 /* MainItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C776142A614ACB00375378 /* MainItem.swift */; };
+		A4C777482A61CEA100375378 /* UIDeivce+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C777472A61CEA100375378 /* UIDeivce+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -237,6 +238,7 @@
 		A4C7760F2A60727100375378 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		A4C776112A60727D00375378 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		A4C776142A614ACB00375378 /* MainItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainItem.swift; sourceTree = "<group>"; };
+		A4C777472A61CEA100375378 /* UIDeivce+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDeivce+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -479,6 +481,7 @@
 				697815822A53000D0047944C /* UITableView+.swift */,
 				69DE6B902A53384C00F31812 /* UIColor+.swift */,
 				69DE6BB72A54417F00F31812 /* String+.swift */,
+				A4C777472A61CEA100375378 /* UIDeivce+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -1170,6 +1173,7 @@
 				69636FB52A5ADE5D008B457A /* CompleteView.swift in Sources */,
 				6978156F2A52FEB00047944C /* ImageLiterals.swift in Sources */,
 				6991BA6E2A5731330091D52D /* UserInfoViewController.swift in Sources */,
+				A4C777482A61CEA100375378 /* UIDeivce+.swift in Sources */,
 				697815772A52FF890047944C /* UITextField+.swift in Sources */,
 				149099E92A5FBDF6007242C6 /* AnswerDetailViewController.swift in Sources */,
 				A489BE062A5AFCE90027E817 /* ArchivingImageView.swift in Sources */,
