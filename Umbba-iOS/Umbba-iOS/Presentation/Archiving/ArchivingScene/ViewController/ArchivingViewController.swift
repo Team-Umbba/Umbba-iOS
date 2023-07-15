@@ -59,7 +59,6 @@ extension ArchivingViewController {
     private func setLayout() {
         archivingImageView.snp.makeConstraints {
             $0.top.leading.trailing.equalToSuperview()
-            $0.width.equalTo(SizeLiterals.Screen.screenWidth * 375 / 812)
             $0.height.equalTo(SizeLiterals.Screen.screenHeight * 375 / 812)
         }
         

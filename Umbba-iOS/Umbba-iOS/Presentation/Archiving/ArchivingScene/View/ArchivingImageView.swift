@@ -23,6 +23,7 @@ final class ArchivingImageView: UIView {
         let image = UIImageView()
         image.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
         image.layer.cornerRadius = 20
+        image.contentMode = .scaleAspectFill
         return image
     }()
     
@@ -58,8 +59,6 @@ extension ArchivingImageView {
     func setLayout() {
         imageView.snp.makeConstraints {
             $0.edges.equalToSuperview()
-            $0.width.equalTo(SizeLiterals.Screen.screenWidth * 375 / 812)
-            $0.height.equalTo(SizeLiterals.Screen.screenHeight * 375 / 812)
         }
     }
     
