@@ -82,7 +82,7 @@ extension ArchivingQuestionCollectionViewCell {
     }
     
     func setDataBind(model: ArchivingQuestionItem) {
-        questionNumber.text = "#\(model.qna_id)"
+        questionNumber.text = "#\(model.index)"
         questionText.text = model.question
     }
 }
