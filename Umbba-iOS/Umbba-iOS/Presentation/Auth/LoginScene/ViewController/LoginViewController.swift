@@ -8,6 +8,7 @@
 import UIKit
 
 import KakaoSDKUser
+import AuthenticationServices
 
 final class LoginViewController: UIViewController {
     
@@ -73,5 +74,44 @@ extension LoginViewController: LoginDelegate {
     
     func presentToAssignView() {
         self.navigationController?.pushViewController(AssignViewController(), animated: false)
+    }
+    
+    func appleLogin() {
+        let appleIDProvider = ASAuthorizationAppleIDProvider()
+        let request = appleIDProvider.createRequest()
+        request.requestedScopes = []
+        
+        let authorizationController = ASAuthorizationController(authorizationRequests: [request])
+        authorizationController.delegate = self
+        authorizationController.presentationContextProvider = self
+        authorizationController.performRequests()
+    }
+    
+    func postSocialLoginAppleData(socialToken: String, socialType: String) {
+        print("💛💛💛💛💛")
+    }
+}
+
+extension LoginViewController: ASAuthorizationControllerPresentationContextProviding {
+    func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
+        return self.view.window!
+    }
+}
+
+extension LoginViewController: ASAuthorizationControllerDelegate {
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
+        switch authorization.credential {
+        case let appleIDCredential as ASAuthorizationAppleIDCredential:
+            let userIdentifier = appleIDCredential.user
+            print("User ID : \(userIdentifier)")
+            let identityToken = appleIDCredential.identityToken
+            let tokenString = String(data: identityToken!, encoding: .utf8)
+            print(tokenString ?? "defaultstring")
+            if let token = tokenString {
+                postSocialLoginAppleData(socialToken: token, socialType: "APPLE")
+            }
+        default:
+            break
+        }
     }
 }

@@ -11,6 +11,7 @@ import SnapKit
 
 protocol LoginDelegate: AnyObject {
     func kakaoLogin()
+    func appleLogin()
 }
 
 final class LoginView: UIView {
@@ -174,10 +175,16 @@ private extension LoginView {
     
     func setAddTarget() {
         loginKakaoButton.addTarget(self, action: #selector(kakaoLogin), for: .touchUpInside)
+        loginAppleButton.addTarget(self, action: #selector(appleLogin), for: .touchUpInside)
     }
     
     @objc
     func kakaoLogin() {
         loginDelegate?.kakaoLogin()
+    }
+    
+    @objc
+    func appleLogin() {
+        loginDelegate?.appleLogin()
     }
 }
