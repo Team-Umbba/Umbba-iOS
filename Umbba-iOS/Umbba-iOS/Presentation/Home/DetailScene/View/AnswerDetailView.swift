@@ -119,6 +119,7 @@ final class AnswerDetailView: UIView {
         label.textColor = .Gray800
         label.text = I18N.Detail.pleaseAnswer
         label.font = .PretendardRegular(size: 16)
+        label.textAlignment = .right
         label.numberOfLines = 0
         return label
     }()
