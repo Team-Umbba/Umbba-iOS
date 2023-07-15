@@ -16,7 +16,7 @@ final class ArchivingImageView: UIView {
     private let imageArray = [ImageLiterals.Archiving.list_img1, ImageLiterals.Archiving.list_img2, ImageLiterals.Archiving.list_img3, ImageLiterals.Archiving.list_img4, ImageLiterals.Archiving.list_img5]
     
     private let imageSeArray = [ImageLiterals.Archiving.list_se_img1, ImageLiterals.Archiving.list_se_img2, ImageLiterals.Archiving.list_se_img3, ImageLiterals.Archiving.list_se_img4, ImageLiterals.Archiving.list_se_img5]
-
+    
     // MARK: - UI Components
     
     private let imageView: UIImageView = {
@@ -27,12 +27,19 @@ final class ArchivingImageView: UIView {
         return image
     }()
     
+    private let navigationBarView: CustomNavigationBar = {
+        let view = CustomNavigationBar()
+        view.pretendardTitle = I18N.Archiving.navigationTitle
+        view.isLeftButtonIncluded = false
+        view.backgroundColor = .clear
+        return  view
+    }()
+    
     // MARK: - Life Cycles
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-    
-        setUI()
+        
         setHierarchy()
         setLayout()
     }
@@ -41,22 +48,22 @@ final class ArchivingImageView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
 }
 
 // MARK: - Extensions
 
 extension ArchivingImageView {
-    
-    func setUI() {
-        imageView.contentMode = .scaleAspectFill
-    }
-    
     func setHierarchy() {
-        addSubview(imageView)
+        addSubviews(imageView, navigationBarView)
     }
     
     func setLayout() {
+        navigationBarView.snp.makeConstraints {
+            $0.top.equalTo(self.safeAreaLayoutGuide)
+            $0.leading.trailing.equalToSuperview()
+        }
+        
         imageView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
@@ -70,3 +77,4 @@ extension ArchivingImageView {
         imageView.image = imageSeArray[section]
     }
 }
+

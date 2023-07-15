@@ -39,7 +39,6 @@ final class ArchivingViewController: UIViewController {
         setDelegate()
         setHierarchy()
         setLayout()
-        setNavigationUI()
     }
 }
 
@@ -72,12 +71,7 @@ extension ArchivingViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
     }
-    
-    func setNavigationUI() {
-        navigationItem.title = I18N.Archiving.navigationTitle
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont.PretendardRegular(size: 16), .foregroundColor: UIColor.UmbbaBlack]
-    }
-    
+
     func updateHeaderLabel(_ text: String) {
         if let headerView = collectionView.supplementaryView(forElementKind: UICollectionView.elementKindSectionHeader, at: IndexPath(item: 0, section: 1)) as? ArchivingQuestionHeaderView {
             headerView.headerLabel.text = text
