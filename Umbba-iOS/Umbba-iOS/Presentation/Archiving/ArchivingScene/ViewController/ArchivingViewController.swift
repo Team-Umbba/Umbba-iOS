@@ -23,10 +23,12 @@ final class ArchivingViewController: UIViewController {
     private let archivingImageView = ArchivingImageView()
     private let archivingCollectionView = ArchivingCollectionView()
     private lazy var collectionView = archivingCollectionView.ArchivingCollectionView
+    private lazy var archivingHeaderview = ArchivingQuestionHeaderView()
     
-    private let archivingQuestionModel: [ArchivingQuestionItem] = ArchivingQuestionItem.archivingQuestionDummy()
+    private var archivingQuestionModel: [ArchivingQuestionItem] = ArchivingQuestionItem.archivingQuestionDummy()
     
     private var selectedSectionIndexPath: Int?
+    private let deviceRatio = UIScreen.main.bounds.width / UIScreen.main.bounds.height
     
     // MARK: - Life Cycles
     
@@ -47,6 +49,7 @@ extension ArchivingViewController {
     
     private func setUI() {
         view.backgroundColor = .UmbbaWhite
+        archivingImageView.contentMode = .scaleAspectFill
     }
     
     private func setHierarchy() {
@@ -56,6 +59,8 @@ extension ArchivingViewController {
     private func setLayout() {
         archivingImageView.snp.makeConstraints {
             $0.top.leading.trailing.equalToSuperview()
+            $0.width.equalTo(SizeLiterals.Screen.screenWidth * 375 / 812)
+            $0.height.equalTo(SizeLiterals.Screen.screenHeight * 375 / 812)
         }
         
         collectionView.snp.makeConstraints {
@@ -73,6 +78,12 @@ extension ArchivingViewController {
         navigationItem.title = I18N.Archiving.navigationTitle
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont.PretendardRegular(size: 16), .foregroundColor: UIColor.UmbbaBlack]
     }
+    
+    func updateHeaderLabel(_ text: String) {
+        if let headerView = collectionView.supplementaryView(forElementKind: UICollectionView.elementKindSectionHeader, at: IndexPath(item: 0, section: 1)) as? ArchivingQuestionHeaderView {
+            headerView.headerLabel.text = text
+        }
+    }
 }
 
 extension ArchivingViewController: UICollectionViewDelegate {
@@ -84,6 +95,14 @@ extension ArchivingViewController: UICollectionViewDelegate {
             if let cell = collectionView.cellForItem(at: indexPath) as? ArchivingSectionCollectionViewCell {
                 cell.backgroundColor = .Primary600
                 cell.archivingSectionLabel.textColor = .UmbbaWhite
+            }
+
+            if deviceRatio > 0.5 {
+                archivingImageView.setSEDataBind(section: indexPath.row)
+                updateHeaderLabel(I18N.Archiving.sectionArray[indexPath.row])
+            } else {
+                archivingImageView.setDataBind(section: indexPath.row)
+                updateHeaderLabel(I18N.Archiving.sectionArray[indexPath.row])
             }
         case .question:
             break
@@ -112,10 +131,16 @@ extension ArchivingViewController: UICollectionViewDataSource {
             let cell =
                     ArchivingSectionCollectionViewCell.dequeueReusableCell(collectionView: collectionView, indexPath: indexPath)
             cell.archivingSectionLabel.text = "# \(I18N.Archiving.sectionArray[indexPath.row])"
-            if indexPath.item == 1 {
+            if indexPath.item == 0 {
                 cell.backgroundColor = .Primary600
                 cell.archivingSectionLabel.textColor = .UmbbaWhite
                 collectionView.selectItem(at: indexPath, animated: false, scrollPosition: .init())
+                
+                if deviceRatio > 0.5 {
+                    archivingImageView.setSEDataBind(section: indexPath.row)
+                } else {
+                    archivingImageView.setDataBind(section: indexPath.row)
+                }
             }
             return cell
         case .question:
@@ -143,7 +168,7 @@ extension ArchivingViewController: UICollectionViewDataSource {
             return view
         case .question:
             let headerView = ArchivingQuestionHeaderView.dequeueReusableHeaderView(collectionView: collectionView, indexPath: indexPath)
-            headerView.setDataBind(model: archivingQuestionModel[indexPath.row])
+            headerView.headerLabel.text = I18N.Archiving.sectionArray[0]
             return headerView
         }
     }

@@ -28,6 +28,13 @@ final class MainViewController: UIViewController {
 private extension MainViewController {
     func setDelegate() {
         mainView.mainDelegate = self
+        
+        let deviceRatio = UIScreen.main.bounds.width / UIScreen.main.bounds.height
+        if deviceRatio > 0.5 {
+            mainView.setSEImageBind(model: mainModel)
+        } else {
+            mainView.setImageBind(model: mainModel)
+        }
     }
     
     func setDataBind() {

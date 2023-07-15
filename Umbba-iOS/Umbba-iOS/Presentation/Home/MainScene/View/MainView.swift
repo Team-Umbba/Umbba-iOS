@@ -127,6 +127,11 @@ extension MainView {
     }
 
     func setDataBind(model: MainItem) {
+        questionNumLabel.text = "#\(model.count)"
+        questionTitleLabel.text = model.topic
+    }
+    
+    func setImageBind(model: MainItem) {
         switch model.section {
         case "어린시절":
             questionImage.image = ImageLiterals.Home.main_1
@@ -141,8 +146,23 @@ extension MainView {
         default:
             questionImage.image = ImageLiterals.Home.main_1
         }
-        questionNumLabel.text = "#\(model.count)"
-        questionTitleLabel.text = model.topic
+    }
+    
+    func setSEImageBind(model: MainItem) {
+        switch model.section {
+        case "어린시절":
+            questionImage.image = ImageLiterals.Home.SE_home1
+        case "학창시절":
+            questionImage.image = ImageLiterals.Home.SE_home1
+        case "청춘시절":
+            questionImage.image = ImageLiterals.Home.SE_home1
+        case "연애시절":
+            questionImage.image = ImageLiterals.Home.SE_home1
+        case "우리가만나고":
+            questionImage.image = ImageLiterals.Home.SE_home1
+        default:
+            questionImage.image = ImageLiterals.Home.SE_home1
+        }
     }
     
     @objc
