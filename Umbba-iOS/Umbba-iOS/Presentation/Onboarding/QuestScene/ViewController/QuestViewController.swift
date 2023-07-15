@@ -73,8 +73,11 @@ extension QuestViewController: NextButtonDelegate {
     func nextButtonTapped() {
         guard let currentIndexPath = questCollectionView.indexPathsForVisibleItems.first else { return }
         if currentIndexPath.item == 4 {
-            // 초대 받는 측인지 아닌지에 따른 분기처리 필요
-            self.navigationController?.pushViewController(PushAlarmViewController(), animated: true)
+            if isReceiver {
+                self.navigationController?.pushViewController(NoticeAlarmViewController(), animated: true)
+            } else {
+                self.navigationController?.pushViewController(PushAlarmViewController(), animated: true)
+            }
         } else {
             nextButton.isEnabled = false
             progressView.progress = Float(currentIndexPath.item + 2) * 0.2
@@ -91,8 +94,8 @@ extension QuestViewController: UICollectionViewDelegate {
 extension QuestViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = QuestCollectionViewCell.dequeueReusableCell(collectionView: collectionView, indexPath: indexPath)
-        cell.questionLabel.text = "질문 질문 질문 질문 질문 질문 질문 질문 질문"
-        cell.qusetDelegate = self
+        cell.questionLabel.text = "질문 질문 질문 질문 질문 질문 질문 질문 질문 질문 질문"
+        cell.questDelegate = self
         return cell
     }
     

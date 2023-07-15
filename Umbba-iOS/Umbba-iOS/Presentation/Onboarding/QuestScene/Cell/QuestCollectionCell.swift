@@ -18,7 +18,7 @@ final class QuestCollectionViewCell: UICollectionViewCell, UICollectionViewRegis
     static let isFromNib: Bool = false
     
     // MARK: - Properties
-    weak var qusetDelegate: QuestDelegte?
+    weak var questDelegate: QuestDelegte?
     private var selectedButton: Int = 0
     private var answerButton: [UIButton] = []
     
@@ -151,12 +151,12 @@ extension QuestCollectionViewCell {
     func updateNextButton() {
         if yesButton.isSelected || noButton.isSelected || skipButton.isSelected {
             print(yesButton.isSelected || noButton.isSelected || skipButton.isSelected)
-            qusetDelegate?.updateNextButton(isEnabled: true)
+            questDelegate?.updateNextButton(isEnabled: true)
         } else {
-            qusetDelegate?.updateNextButton(isEnabled: false)
+            questDelegate?.updateNextButton(isEnabled: false)
         }
     }
-    
+
     @objc
     func questButtonTapped(sender: UIButton) {
         self.selectedButton = sender.tag
