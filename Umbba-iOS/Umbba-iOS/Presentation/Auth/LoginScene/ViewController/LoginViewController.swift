@@ -110,6 +110,7 @@ extension LoginViewController: ASAuthorizationControllerDelegate {
             if let token = tokenString {
                 postSocialLoginAppleData(socialToken: token, socialType: "APPLE")
             }
+            presentToAssignView()
         default:
             break
         }
