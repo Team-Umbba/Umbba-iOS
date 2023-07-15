@@ -57,7 +57,8 @@ extension ArchivingViewController {
     
     private func setLayout() {
         archivingImageView.snp.makeConstraints {
-            $0.top.leading.trailing.equalToSuperview()
+            $0.top.equalToSuperview()
+            $0.centerX.equalToSuperview()
         }
         
         collectionView.snp.makeConstraints {
