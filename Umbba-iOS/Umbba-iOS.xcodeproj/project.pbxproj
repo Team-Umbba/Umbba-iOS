@@ -30,6 +30,9 @@
 		6951A6982A5D89DA00D49692 /* NaviagionBarProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6951A6972A5D89DA00D49692 /* NaviagionBarProtocol.swift */; };
 		6951A69A2A5D8A8F00D49692 /* NextButtonProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6951A6992A5D8A8F00D49692 /* NextButtonProtocol.swift */; };
 		6951A69F2A619AD300D49692 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6951A69E2A619AD300D49692 /* GoogleService-Info.plist */; };
+		6951A6A52A61B59400D49692 /* QuestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6951A6A42A61B59400D49692 /* QuestView.swift */; };
+		6951A6A72A61B5A600D49692 /* QuestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6951A6A62A61B5A600D49692 /* QuestViewController.swift */; };
+		6951A6AA2A61B82300D49692 /* QuestCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6951A6A92A61B82300D49692 /* QuestCollectionCell.swift */; };
 		6951A6AC2A62CBD100D49692 /* DisconnectAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6951A6AB2A62CBD100D49692 /* DisconnectAlertView.swift */; };
 		6951A6AE2A62D93A00D49692 /* ShowToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6951A6AD2A62D93A00D49692 /* ShowToast.swift */; };
 		69636FAD2A5A615C008B457A /* FamilyInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69636FAC2A5A615C008B457A /* FamilyInfoViewController.swift */; };
@@ -157,6 +160,9 @@
 		6951A6992A5D8A8F00D49692 /* NextButtonProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextButtonProtocol.swift; sourceTree = "<group>"; };
 		6951A69B2A616C8200D49692 /* Umbba-iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Umbba-iOS.entitlements"; sourceTree = "<group>"; };
 		6951A69E2A619AD300D49692 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		6951A6A42A61B59400D49692 /* QuestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestView.swift; sourceTree = "<group>"; };
+		6951A6A62A61B5A600D49692 /* QuestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestViewController.swift; sourceTree = "<group>"; };
+		6951A6A92A61B82300D49692 /* QuestCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestCollectionCell.swift; sourceTree = "<group>"; };
 		6951A6AB2A62CBD100D49692 /* DisconnectAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisconnectAlertView.swift; sourceTree = "<group>"; };
 		6951A6AD2A62D93A00D49692 /* ShowToast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowToast.swift; sourceTree = "<group>"; };
 		69636FAC2A5A615C008B457A /* FamilyInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyInfoViewController.swift; sourceTree = "<group>"; };
@@ -353,6 +359,30 @@
 				691979F32A5C61450069FB63 /* AlertVIewController.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		6951A6A22A61B57600D49692 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				6951A6A62A61B5A600D49692 /* QuestViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		6951A6A32A61B57E00D49692 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6951A6A42A61B59400D49692 /* QuestView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6951A6A82A61B7F100D49692 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				6951A6A92A61B82300D49692 /* QuestCollectionCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		69636FAA2A5A6123008B457A /* View */ = {
@@ -778,6 +808,9 @@
 		697815E42A530EEC0047944C /* QuestScene */ = {
 			isa = PBXGroup;
 			children = (
+				6951A6A82A61B7F100D49692 /* Cell */,
+				6951A6A32A61B57E00D49692 /* View */,
+				6951A6A22A61B57600D49692 /* ViewController */,
 				697815F72A5311C30047944C /* Quest.swift */,
 			);
 			path = QuestScene;
@@ -1207,6 +1240,7 @@
 				149099E72A5FBB20007242C6 /* AnswerDetailView.swift in Sources */,
 				699455DB2A5AED0B003C118A /* PushAlarmViewController.swift in Sources */,
 				14A6D3062A5A63EF003A83B3 /* SettingSectionHeaderView.swift in Sources */,
+				6951A6A72A61B5A600D49692 /* QuestViewController.swift in Sources */,
 				697815CF2A530BE70047944C /* Main.swift in Sources */,
 				14348E9D2A5B37DC0077A9B8 /* TabBarController.swift in Sources */,
 				A4C776122A60727D00375378 /* MainViewController.swift in Sources */,
@@ -1216,6 +1250,7 @@
 				697815D52A530C050047944C /* Archiving.swift in Sources */,
 				697815DE2A530D2C0047944C /* NetworkResult.swift in Sources */,
 				6978156B2A52FE960047944C /* FontLiterals.swift in Sources */,
+				6951A6A52A61B59400D49692 /* QuestView.swift in Sources */,
 				691979FA2A5C6BDB0069FB63 /* WriteSaveAlertView.swift in Sources */,
 				697815D32A530BFA0047944C /* Detail.swift in Sources */,
 				6951A6AE2A62D93A00D49692 /* ShowToast.swift in Sources */,
@@ -1227,6 +1262,7 @@
 				6951A6AC2A62CBD100D49692 /* DisconnectAlertView.swift in Sources */,
 				69636FAD2A5A615C008B457A /* FamilyInfoViewController.swift in Sources */,
 				697815E32A530E140047944C /* User.swift in Sources */,
+				6951A6AA2A61B82300D49692 /* QuestCollectionCell.swift in Sources */,
 				69A67D812A5C1BB600C43F49 /* CustomNavigationBar.swift in Sources */,
 				697815812A52FFF50047944C /* NSObject+.swift in Sources */,
 				A42723BF2A5537CD003C445F /* EntryView.swift in Sources */,

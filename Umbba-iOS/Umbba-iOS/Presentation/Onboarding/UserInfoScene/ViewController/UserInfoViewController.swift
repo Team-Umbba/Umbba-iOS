@@ -55,8 +55,9 @@ extension UserInfoViewController: NavigationBarDelegate {
 extension UserInfoViewController: NextButtonDelegate {
     func nextButtonTapped() {
         if isReceiver {
-            // FIX: - 단답질문뷰로 이동
-            self.navigationController?.pushViewController(NoticeAlarmViewController(), animated: true)
+            let questViewController =  QuestViewController()
+            self.navigationController?.pushViewController(questViewController, animated: true)
+            questViewController.isReceiver = true
         } else {
             self.navigationController?.pushViewController(FamilyInfoViewController(), animated: true)
         }

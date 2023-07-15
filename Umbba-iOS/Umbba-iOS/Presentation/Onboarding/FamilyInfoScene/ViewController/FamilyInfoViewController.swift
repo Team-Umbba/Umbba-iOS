@@ -50,6 +50,6 @@ extension FamilyInfoViewController: NavigationBarDelegate {
 extension FamilyInfoViewController: NextButtonDelegate {
     func nextButtonTapped() {
         // FixMe: - 단답화면으로 이동해야함
-        self.navigationController?.pushViewController(PushAlarmViewController(), animated: true)
+        self.navigationController?.pushViewController(QuestViewController(), animated: true)
     }
 }
