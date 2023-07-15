@@ -90,14 +90,12 @@ enum I18N {
         static let themeTitle = "가장 오래된 기억"
         static let partnerQuestLabel = "할머니와 엄마의 꿈이 달랐어?"
         static let myQuestLabel = "당신과 어머니의 꿈은 달라?"
-        static let partnerAnswerPlaceholder = "상대방은 아직 답변하지 않았어요"
-        static let myAnswerPlaceholder = "답변을 입력해주세요"
         static let answerButton = "답변하기"
         static let homeButton = "홈으로"
         static let partnerName = "이승준."
         static let myName = "김수연."
         static let noneAnswer = "상대방은 아직 답변하지 않았어요"
-        static let pleaseAnswer = "답변을 입력해 주세요"
+        static let pleaseAnswer = "하단버튼을 눌러 답변을 입력하세요"
     }
     
     enum Setting {
