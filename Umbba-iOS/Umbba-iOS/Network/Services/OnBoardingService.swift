@@ -27,7 +27,7 @@ extension OnBoardingService {
             "invite_code": invite_code
         ]
         let dataRequest = AF.request(url,
-                                     method: .post,
+                                     method: .patch,
                                      parameters: body,
                                      encoding: JSONEncoding.default,
                                      headers: header)
