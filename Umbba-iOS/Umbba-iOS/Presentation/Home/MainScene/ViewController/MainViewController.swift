@@ -11,7 +11,7 @@ final class MainViewController: UIViewController {
     
     var response_case: Int = 1
     
-    private var mainEntity: MainEntity = MainEntity(section: "", topic: "", index: 0) {
+    private var mainEntity: MainEntity? {
         didSet {
             fetchData()
         }
@@ -37,6 +37,7 @@ private extension MainViewController {
     }
     
     func fetchData() {
+        guard let mainEntity = mainEntity else { return }
         mainView.setDataBind(model: mainEntity)
         if SizeLiterals.Screen.deviceRatio > 0.5 {
             mainView.setSEImageBind(model: mainEntity)

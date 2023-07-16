@@ -23,8 +23,8 @@ struct MatchEntity: Codable {
 // MARK: - ParentchildUser
 struct ParentchildUser: Codable {
     let userID: Int
-    let name, gender: String
-    let bornYear: Int
+    let name, gender: String?
+    let bornYear: Int?
     let meChild, hasAlarm: Bool
 
     enum CodingKeys: String, CodingKey {
