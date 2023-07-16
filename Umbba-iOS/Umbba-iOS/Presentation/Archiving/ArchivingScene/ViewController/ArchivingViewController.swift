@@ -180,15 +180,6 @@ extension ArchivingViewController: ArchivingDelegate {
         
         for visibleCell in collectionView.visibleCells {
             guard let archivingCell = visibleCell as? ArchivingSectionCollectionViewCell else { continue }
-            
-            print(archivingCell.index)
-            print(index)
-            // 선택된 라벨의 인덱스와 현재 순회 중인 셀의 인덱스를 비교하여 선택 상태를 설정합니다
-//            if archivingCell.index == index {
-//                print("🍔🍔🍔🍔🍔")
-//            } else {
-//                archivingCell.isSelected = false
-//            }
         }
         
     }

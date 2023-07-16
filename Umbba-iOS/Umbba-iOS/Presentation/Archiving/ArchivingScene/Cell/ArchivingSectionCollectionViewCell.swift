@@ -17,12 +17,6 @@ final class ArchivingSectionCollectionViewCell: UICollectionViewCell, UICollecti
     
     static let isFromNib: Bool = false
     
-//    var isTapped: Bool = false {
-//        didSet {
-//            tapped()
-//        }
-//    }
-//    var handler: ((Int) -> (Void))?
     var selectedSectionIndexPath: Int = 0
     
     weak var delegate: ArchivingDelegate?
@@ -78,20 +72,4 @@ extension ArchivingSectionCollectionViewCell {
     @objc func labelTapped(index: Int) {
         delegate?.labelTapped(index: index)
     }
-    
-//    func tapped() {
-//        if isTapped {
-//            print("🐙🐙🐙🐙🐙")
-//            print(selectedSectionIndexPath)
-//            print("🐙🐙🐙🐙🐙")
-//            self.backgroundColor = .UmbbaWhite
-//            archivingSectionLabel.textColor = .Primary600
-//        } else {
-//            print("🐝🐝🐝🐝🐝")
-//            print(selectedSectionIndexPath)
-//            print("🐝🐝🐝🐝🐝")
-//            self.backgroundColor = .Primary600
-//            archivingSectionLabel.textColor = .UmbbaWhite
-//        }
-//    }
 }
