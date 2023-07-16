@@ -18,9 +18,6 @@ final class AnswerDetailView: UIView {
     
     // MARK: - UI Components
     
-//    private let isOpponentAnswer: Bool = true
-//    private let isMyAnswer: Bool = false
-    
     private let navigationBarView: CustomNavigationBar = {
         let view = CustomNavigationBar()
         view.cafe24Title = I18N.Write.navigationTitle
@@ -232,6 +229,9 @@ private extension AnswerDetailView {
 
 extension AnswerDetailView {
     func setDataBind(model: AnswerEntity) {
+        navigationBarView.cafe24Title = model.section
+        numberLabel.text = "#\(model.qnaID)"
+        themeLabel.text = model.topic
         partnerQeustLabel.text = model.opponentQuestion
         if model.isOpponentAnswer && !model.isMyAnswer {
             partnerAnswerContent.text = model.opponentAnswer

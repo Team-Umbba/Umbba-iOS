@@ -53,8 +53,6 @@ extension HomeService {
             case .success:
                 guard let statusCode = response.response?.statusCode else { return }
                 guard let data = response.data else { return }
-                print("🫶🫶🫶🫶🫶")
-                print(data)
                 let networkResult = self.judgeStatus(by: statusCode,
                                                      data,
                                                      AnswerEntity.self)
