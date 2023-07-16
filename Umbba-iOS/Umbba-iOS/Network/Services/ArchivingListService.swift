@@ -18,14 +18,10 @@ final class ArchivingListService: BaseService {
 
 extension ArchivingListService {
     
-    private func makeArchivingURL(sectionId: Int) -> String {
-        let url = URLConstant.archivingURL + "/sectionId"
-        return url
-    }
-    
-    func getArchivingListAPI(completion: @escaping (NetworkResult<Any>) -> Void) {
+    func getArchivingListAPI(sectionId: Int, completion: @escaping (NetworkResult<Any>) -> Void) {
+        let url = URLConstant.archivingURL + "/\(sectionId)"
         let header: HTTPHeaders = NetworkConstant.hasTokenHeader
-        let dataRequest = AF.request(makeArchivingURL(sectionId: sectionId),
+        let dataRequest = AF.request(url,
                                      method: .get,
                                      encoding: JSONEncoding.default,
                                      headers: header)
@@ -37,7 +33,7 @@ extension ArchivingListService {
                 guard let data = response.data else { return }
                 let networkResult = self.judgeStatus(by: statusCode,
                                                      data,
-                                                     ListEntity.self)
+                                                     [ListEntity].self)
                 completion(networkResult)
             case .failure:
                 completion(.networkFail)

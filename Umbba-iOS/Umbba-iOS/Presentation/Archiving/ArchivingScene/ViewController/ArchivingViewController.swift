@@ -25,7 +25,7 @@ final class ArchivingViewController: UIViewController {
     private lazy var collectionView = archivingCollectionView.ArchivingCollectionView
     private lazy var archivingHeaderview = ArchivingQuestionHeaderView()
     
-    private var archivingQuestionModel: [ArchivingQuestionItem] = ArchivingQuestionItem.archivingQuestionDummy()
+    private var listEntity: [ListEntity] = []
     
     private var selectedSectionIndexPath: Int?
     private let deviceRatio = UIScreen.main.bounds.width / UIScreen.main.bounds.height
@@ -35,6 +35,7 @@ final class ArchivingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        getListAPI(row: 1)
         setUI()
         setDelegate()
         setHierarchy()
@@ -86,23 +87,43 @@ extension ArchivingViewController {
     }
 }
 
+// MARK: - Network
+
+private extension ArchivingViewController {
+    func getListAPI(row: Int) {
+        ArchivingListService.shared.getArchivingListAPI(sectionId: row) { networkResult in
+            switch networkResult {
+            case .success(let data):
+                if let data = data as? GenericResponse<[ListEntity]> {
+                    if let listData = data.data {
+                        self.listEntity = listData
+                        self.collectionView.reloadData()
+                    }
+                }
+            default:
+                break
+            }
+        }
+    }
+}
+
 extension ArchivingViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let sectionType = Section.allCases[indexPath.section]
         switch sectionType {
         case .section:
-            selectedSectionIndexPath = indexPath.row
             if let cell = collectionView.cellForItem(at: indexPath) as? ArchivingSectionCollectionViewCell {
                 cell.backgroundColor = .Primary600
                 cell.archivingSectionLabel.textColor = .UmbbaWhite
-            }
-
-            if deviceRatio > 0.5 {
-                archivingImageView.setSEDataBind(section: indexPath.row)
-                updateHeaderLabel(I18N.Archiving.sectionArray[indexPath.row])
-            } else {
-                archivingImageView.setDataBind(section: indexPath.row)
-                updateHeaderLabel(I18N.Archiving.sectionArray[indexPath.row])
+                
+                if SizeLiterals.Screen.deviceRatio > 0.5 {
+                    archivingImageView.setSEDataBind(section: indexPath.row)
+                    updateHeaderLabel(I18N.Archiving.sectionArray[indexPath.row])
+                } else {
+                    archivingImageView.setDataBind(section: indexPath.row)
+                    updateHeaderLabel(I18N.Archiving.sectionArray[indexPath.row])
+                }
+                getListAPI(row: indexPath.row + 1)
             }
         case .question:
             break
@@ -145,7 +166,7 @@ extension ArchivingViewController: UICollectionViewDataSource {
             return cell
         case .question:
             let cell = ArchivingQuestionCollectionViewCell.dequeueReusableCell(collectionView: collectionView, indexPath: indexPath)
-            cell.setDataBind(model: archivingQuestionModel[indexPath.row])
+            cell.setDataBind(model: listEntity[0])
             return cell
         }
     }
@@ -156,7 +177,7 @@ extension ArchivingViewController: UICollectionViewDataSource {
         case .section:
             return I18N.Archiving.sectionArray.count
         case .question:
-            return archivingQuestionModel.count
+            return listEntity.count
         }
     }
     
