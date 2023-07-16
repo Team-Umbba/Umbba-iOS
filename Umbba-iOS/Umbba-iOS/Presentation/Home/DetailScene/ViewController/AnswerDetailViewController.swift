@@ -11,7 +11,7 @@ final class AnswerDetailViewController: UIViewController {
     
     // MARK: - Properties
     
-    private var answerEntity: AnswerEntity? {
+    private var todayEntity: TodayEntity? {
         didSet {
             fetchData()
         }
@@ -32,7 +32,7 @@ final class AnswerDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        getAnswerAPI()
+        getTodayAPI()
         setDelegate()
     }
 }
@@ -46,8 +46,8 @@ extension AnswerDetailViewController {
     }
     
     func fetchData() {
-        guard let answerEntity = answerEntity else { return }
-        answerDetailView.setDataBind(model: answerEntity)
+        guard let todayEntity = todayEntity else { return }
+        answerDetailView.setDataBind(model: todayEntity)
     }
 }
 
@@ -74,14 +74,13 @@ extension AnswerDetailViewController: NextButtonDelegate {
 // MARK: - Network
 
 extension AnswerDetailViewController {
-    func getAnswerAPI() {
-        HomeService.shared.getAnswerAPI { networkResult in
+    func getTodayAPI() {
+        HomeService.shared.getTodayAPI { networkResult in
             switch networkResult {
             case .success(let data):
-                if let data = data as? GenericResponse<AnswerEntity> {
-                    if let answerData = data.data {
-                        dump(answerData)
-                        self.answerEntity = answerData
+                if let data = data as? GenericResponse<TodayEntity> {
+                    if let todayData = data.data {
+                        self.todayEntity = todayData
                     }
                 }
             default:
