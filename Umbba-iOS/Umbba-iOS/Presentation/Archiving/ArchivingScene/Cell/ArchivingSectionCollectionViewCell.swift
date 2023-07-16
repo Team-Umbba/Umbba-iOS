@@ -17,13 +17,9 @@ final class ArchivingSectionCollectionViewCell: UICollectionViewCell, UICollecti
     
     static let isFromNib: Bool = false
     
-    var selectedSectionIndexPath: Int = 0
-    
     weak var delegate: ArchivingDelegate?
     
     // MARK: - Properties
-    
-    weak var delegate: ArchivingDelegate?
     
     let archivingSectionLabel: UILabel = {
         let label = UILabel()
@@ -84,6 +80,6 @@ extension ArchivingSectionCollectionViewCell {
     // MARK: - @objc Functions
     
     @objc func labelTapped(index: Int) {
-             delegate?.labelTapped(index: index)
-         }
+        delegate?.labelTapped(index: index)
+    }
 }

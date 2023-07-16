@@ -26,6 +26,7 @@ final class ArchivingViewController: UIViewController {
     private lazy var archivingHeaderview = ArchivingQuestionHeaderView()
     
     private var listEntity: [ListEntity] = []
+    private var currentIndex: Int = 0
     
     private let deviceRatio = UIScreen.main.bounds.width / UIScreen.main.bounds.height
     
@@ -104,11 +105,9 @@ extension ArchivingViewController: UICollectionViewDelegate {
         let sectionType = Section.allCases[indexPath.section]
         switch sectionType {
         case .section:
+            
             if let cell = collectionView.cellForItem(at: indexPath) as? ArchivingSectionCollectionViewCell {
-                labelTapped(index: indexPath.row)
-                cell.selectedSectionIndexPath = indexPath.row
-                cell.backgroundColor = .Primary600
-                cell.archivingSectionLabel.textColor = .UmbbaWhite
+                cell.labelTapped(index: indexPath.item)
                 
                 if SizeLiterals.Screen.deviceRatio > 0.5 {
                     archivingImageView.setSEDataBind(section: indexPath.row)
@@ -129,8 +128,7 @@ extension ArchivingViewController: UICollectionViewDelegate {
         switch sectionType {
         case .section:
             if let cell = collectionView.cellForItem(at: indexPath) as? ArchivingSectionCollectionViewCell {
-                cell.backgroundColor = .UmbbaWhite
-                cell.archivingSectionLabel.textColor = .Primary600
+                cell.labelTapped(index: indexPath.item)
             }
         case .question:
             break
@@ -145,18 +143,17 @@ extension ArchivingViewController: UICollectionViewDataSource {
         case .section:
             let cell =
                     ArchivingSectionCollectionViewCell.dequeueReusableCell(collectionView: collectionView, indexPath: indexPath)
-            cell.tag = indexPath.item
+            cell.delegate = self
             cell.archivingSectionLabel.text = "# \(I18N.Archiving.sectionArray[indexPath.row])"
-            if indexPath.item == 0 {
-                cell.backgroundColor = .Primary600
-                cell.archivingSectionLabel.textColor = .UmbbaWhite
-                collectionView.selectItem(at: indexPath, animated: false, scrollPosition: .init())
-                
-                if deviceRatio > 0.5 {
-                    archivingImageView.setSEDataBind(section: indexPath.row)
-                } else {
-                    archivingImageView.setDataBind(section: indexPath.row)
-                }
+            cell.tag = indexPath.item
+            
+            let isSelected = currentIndex == indexPath.item
+            cell.updateCell(isSelected)
+
+            if SizeLiterals.Screen.deviceRatio > 0.5 {
+              archivingImageView.setSEDataBind(section: indexPath.row)
+            } else {
+              archivingImageView.setDataBind(section: indexPath.row)
             }
             return cell
         case .question:
