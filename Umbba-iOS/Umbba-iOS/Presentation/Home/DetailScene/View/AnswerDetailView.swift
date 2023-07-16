@@ -239,7 +239,9 @@ extension AnswerDetailView {
         }
         partnerNameLabel.text = model.opponentUsername
         myQuestLabel.text = model.myQuestion
-        myAnswerContent.text = model.myAnswer
+        if model.isMyAnswer {
+            myAnswerContent.text = model.myAnswer
+        }
         myNameLabel.text = model.myUsername
     }
 }

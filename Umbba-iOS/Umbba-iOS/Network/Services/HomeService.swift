@@ -53,6 +53,7 @@ extension HomeService {
             case .success:
                 guard let statusCode = response.response?.statusCode else { return }
                 guard let data = response.data else { return }
+
                 let networkResult = self.judgeStatus(by: statusCode,
                                                      data,
                                                      TodayEntity.self)
@@ -79,6 +80,34 @@ extension HomeService {
                 let networkResult = self.judgeStatus(by: statusCode,
                                                      data,
                                                      CaseEntity.self)
+                completion(networkResult)
+            case .failure:
+                completion(.networkFail)
+            }
+        }
+    }
+    
+    func postAnswerAPI(answer: String,
+                       completion: @escaping (NetworkResult<Any>) -> Void) {
+        let url = URLConstant.answerURL2
+        let header: HTTPHeaders = NetworkConstant.hasTokenHeader
+        let body: Parameters = [
+            "answer": answer
+        ]
+        let dataRequest = AF.request(url,
+                                     method: .post,
+                                     parameters: body,
+                                     encoding: JSONEncoding.default,
+                                     headers: header)
+        
+        dataRequest.responseData { response in
+            switch response.result {
+            case .success:
+                guard let statusCode = response.response?.statusCode else { return }
+                guard let data = response.data else { return }
+                let networkResult = self.judgeStatus(by: statusCode,
+                                                     data,
+                                                     AnswerEntity2.self)
                 completion(networkResult)
             case .failure:
                 completion(.networkFail)

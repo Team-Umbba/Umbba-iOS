@@ -120,6 +120,7 @@
 		697E19D42A63284C00D4752D /* OnBoardingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697E19D32A63284C00D4752D /* OnBoardingService.swift */; };
 		697E19D62A63285D00D4752D /* HomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697E19D52A63285D00D4752D /* HomeService.swift */; };
 		697E19D82A63286C00D4752D /* ArchivingListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697E19D72A63286C00D4752D /* ArchivingListService.swift */; };
+		697E19DA2A64205A00D4752D /* AnswerEntity2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697E19D92A64205A00D4752D /* AnswerEntity2.swift */; };
 		6991BA6E2A5731330091D52D /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6991BA6D2A5731330091D52D /* UserInfoViewController.swift */; };
 		6991BA702A57314A0091D52D /* UserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6991BA6F2A57314A0091D52D /* UserInfoView.swift */; };
 		699455DB2A5AED0B003C118A /* PushAlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 699455DA2A5AED0B003C118A /* PushAlarmViewController.swift */; };
@@ -259,6 +260,7 @@
 		697E19D32A63284C00D4752D /* OnBoardingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingService.swift; sourceTree = "<group>"; };
 		697E19D52A63285D00D4752D /* HomeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeService.swift; sourceTree = "<group>"; };
 		697E19D72A63286C00D4752D /* ArchivingListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchivingListService.swift; sourceTree = "<group>"; };
+		697E19D92A64205A00D4752D /* AnswerEntity2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerEntity2.swift; sourceTree = "<group>"; };
 		6991BA6D2A5731330091D52D /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
 		6991BA6F2A57314A0091D52D /* UserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoView.swift; sourceTree = "<group>"; };
 		699455DA2A5AED0B003C118A /* PushAlarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushAlarmViewController.swift; sourceTree = "<group>"; };
@@ -1098,6 +1100,7 @@
 			isa = PBXGroup;
 			children = (
 				697E19CB2A63242F00D4752D /* AnswerEntity.swift */,
+				697E19D92A64205A00D4752D /* AnswerEntity2.swift */,
 			);
 			path = Answer;
 			sourceTree = "<group>";
@@ -1479,6 +1482,7 @@
 				697815C72A530BC90047944C /* Splash.swift in Sources */,
 				69636FB32A5ADE4A008B457A /* CompleteViewController.swift in Sources */,
 				697E19CA2A63242500D4752D /* ResponseEntity.swift in Sources */,
+				697E19DA2A64205A00D4752D /* AnswerEntity2.swift in Sources */,
 				697E19CC2A63242F00D4752D /* AnswerEntity.swift in Sources */,
 				697E199B2A631D5A00D4752D /* NetworkConstant.swift in Sources */,
 				697815F42A5311AA0047944C /* Complete.swift in Sources */,

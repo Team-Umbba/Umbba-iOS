@@ -29,6 +29,12 @@ final class AnswerDetailViewController: UIViewController {
         view = answerDetailView
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        getTodayAPI()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
