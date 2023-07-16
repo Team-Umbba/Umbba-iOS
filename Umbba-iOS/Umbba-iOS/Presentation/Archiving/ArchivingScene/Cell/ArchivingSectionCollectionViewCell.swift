@@ -9,9 +9,17 @@ import UIKit
 
 import SnapKit
 
+protocol ArchivingDelegate: AnyObject {
+    func labelTapped(index: Int)
+}
+
 final class ArchivingSectionCollectionViewCell: UICollectionViewCell, UICollectionViewRegisterable {
     
     static let isFromNib: Bool = false
+    
+    var selectedSectionIndexPath: Int = 0
+    
+    weak var delegate: ArchivingDelegate?
     
     // MARK: - Properties
     
@@ -59,5 +67,9 @@ extension ArchivingSectionCollectionViewCell {
             $0.centerY.equalToSuperview()
             $0.leading.trailing.equalToSuperview().inset(16)
         }
+    }
+    
+    @objc func labelTapped(index: Int) {
+        delegate?.labelTapped(index: index)
     }
 }

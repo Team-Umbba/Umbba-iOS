@@ -17,7 +17,7 @@ final class LottieViewController: UIViewController {
 
     // MARK: - Life Cycles
 
-    override func loadView()  {
+    override func loadView() {
         super.loadView()
 
         view = lottieView

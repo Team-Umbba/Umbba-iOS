@@ -66,11 +66,11 @@ extension ArchivingQuestionCollectionViewCell {
     func setLayout() {
         questionNumber.snp.makeConstraints {
             $0.top.equalToSuperview().inset(20)
-            $0.leading.equalToSuperview().inset(39)
+            $0.leading.equalToSuperview().inset(24)
         }
         
         questionText.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(21)
+            $0.centerY.equalToSuperview()
             $0.leading.equalTo(questionNumber.snp.trailing).offset(16)
         }
         
