@@ -26,6 +26,8 @@ enum URLConstant {
     static let answerURL = baseURL + "/qna/today"
     static let answerURL2 = baseURL + "/qna/answer"
     
+    static let caseURL = baseURL + "/home/case"
+    
     // MARK: - Archiving URL
  
 }

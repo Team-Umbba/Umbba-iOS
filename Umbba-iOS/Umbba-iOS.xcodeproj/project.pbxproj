@@ -22,6 +22,7 @@
 		14AA29842A5685050038CDA1 /* NoticeAlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AA29832A5685050038CDA1 /* NoticeAlarmViewController.swift */; };
 		14AA29862A5685660038CDA1 /* NoticeAlarmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AA29852A5685660038CDA1 /* NoticeAlarmView.swift */; };
 		14AC19B32A57C27600A01E4F /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AC19B22A57C27600A01E4F /* SettingViewController.swift */; };
+		14AE602F2A63F72400BC43B8 /* CaseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AE602E2A63F72400BC43B8 /* CaseEntity.swift */; };
 		14DBE1712A631DF200CD8E7E /* AnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DBE1702A631DF200CD8E7E /* AnimationView.swift */; };
 		14DBE1732A631E0100CD8E7E /* AnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DBE1722A631E0100CD8E7E /* AnimationViewController.swift */; };
 		691979F22A5C61190069FB63 /* WriteCancelAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691979F12A5C61190069FB63 /* WriteCancelAlertView.swift */; };
@@ -174,6 +175,7 @@
 		14AA29832A5685050038CDA1 /* NoticeAlarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeAlarmViewController.swift; sourceTree = "<group>"; };
 		14AA29852A5685660038CDA1 /* NoticeAlarmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeAlarmView.swift; sourceTree = "<group>"; };
 		14AC19B22A57C27600A01E4F /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		14AE602E2A63F72400BC43B8 /* CaseEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseEntity.swift; sourceTree = "<group>"; };
 		14DBE1702A631DF200CD8E7E /* AnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationView.swift; sourceTree = "<group>"; };
 		14DBE1722A631E0100CD8E7E /* AnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationViewController.swift; sourceTree = "<group>"; };
 		691979F12A5C61190069FB63 /* WriteCancelAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteCancelAlertView.swift; sourceTree = "<group>"; };
@@ -1073,6 +1075,7 @@
 			isa = PBXGroup;
 			children = (
 				697E19CF2A63244200D4752D /* MainEntity.swift */,
+				14AE602E2A63F72400BC43B8 /* CaseEntity.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -1547,6 +1550,7 @@
 				691979F82A5C6A4E0069FB63 /* WithdrawalAlertView.swift in Sources */,
 				697815EE2A53117F0047944C /* UserInfo.swift in Sources */,
 				697815F82A5311C30047944C /* Quest.swift in Sources */,
+				14AE602F2A63F72400BC43B8 /* CaseEntity.swift in Sources */,
 				A4A7635A2A5BC0B40055D413 /* ArchivingCollectionView.swift in Sources */,
 				69DE6BAF2A5432E600F31812 /* CustomButton.swift in Sources */,
 				697815732A52FF650047944C /* UIImage+.swift in Sources */,

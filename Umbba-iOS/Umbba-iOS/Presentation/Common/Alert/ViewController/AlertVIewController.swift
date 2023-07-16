@@ -161,6 +161,12 @@ extension AlertViewController {
             writeSaveAlertView.answerLabel.text = wirtePopUp.answer
         }
     }
+    
+    func setInviteDataBind(inviteCode: String, inviteUsername: String, installURL: String) {
+        if alertType == .inviteAlert {
+            inviteAlertView.inviteCode.text = inviteCode
+        }
+    }
 }
 
 // MARK: - AlertDelegate

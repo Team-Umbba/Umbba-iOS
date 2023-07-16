@@ -228,7 +228,7 @@ private extension AnswerDetailView {
 }
 
 extension AnswerDetailView {
-    func setDataBind(model: AnswerEntity) {
+    func setDataBind(model: TodayEntity) {
         navigationBarView.cafe24Title = model.section
         numberLabel.text = "#\(model.qnaID)"
         themeLabel.text = model.topic

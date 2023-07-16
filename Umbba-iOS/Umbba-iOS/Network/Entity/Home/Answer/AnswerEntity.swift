@@ -28,3 +28,4 @@ struct AnswerEntity: Codable {
         case myUsername = "my_username"
     }
 }
+
