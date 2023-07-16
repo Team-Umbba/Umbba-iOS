@@ -87,8 +87,6 @@ extension HomeService {
         }
     }
     
-    // API : 질문에 답변하기
-    
     func postAnswerAPI(answer: String,
                        completion: @escaping (NetworkResult<Any>) -> Void) {
         let url = URLConstant.answerURL2
@@ -110,7 +108,6 @@ extension HomeService {
                 let networkResult = self.judgeStatus(by: statusCode,
                                                      data,
                                                      AnswerEntity2.self)
-                print(networkResult)
                 completion(networkResult)
             case .failure:
                 completion(.networkFail)

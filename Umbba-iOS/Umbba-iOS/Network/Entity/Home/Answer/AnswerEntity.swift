@@ -14,7 +14,7 @@ struct AnswerEntity: Codable {
     let myAnswer: String?
     let isOpponentAnswer, isMyAnswer: Bool
     let opponentUsername, myUsername: String?
-
+    
     enum CodingKeys: String, CodingKey {
         case qnaID = "qna_id"
         case section, topic
@@ -28,4 +28,3 @@ struct AnswerEntity: Codable {
         case myUsername = "my_username"
     }
 }
-

@@ -32,7 +32,7 @@ final class AnswerDetailViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        getAnswerAPI()
+        getTodayAPI()
     }
     
     override func viewDidLoad() {
