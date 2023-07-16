@@ -9,11 +9,17 @@ import UIKit
 
 import SnapKit
 
+protocol ArchivingDelegate: AnyObject {
+     func labelTapped(index: Int)
+ }
+
 final class ArchivingSectionCollectionViewCell: UICollectionViewCell, UICollectionViewRegisterable {
     
     static let isFromNib: Bool = false
     
     // MARK: - Properties
+    
+    weak var delegate: ArchivingDelegate?
     
     let archivingSectionLabel: UILabel = {
         let label = UILabel()
@@ -60,4 +66,20 @@ extension ArchivingSectionCollectionViewCell {
             $0.leading.trailing.equalToSuperview().inset(16)
         }
     }
+    
+    func updateCell(_ isSelected: Bool) {
+        if isSelected {
+            self.backgroundColor = .Primary600
+            archivingSectionLabel.textColor = .UmbbaWhite
+        } else {
+            self.backgroundColor = .UmbbaWhite
+            archivingSectionLabel.textColor = .Primary600
+        }
+    }
+    
+    // MARK: - @objc Functions
+    
+    @objc func labelTapped(index: Int) {
+             delegate?.labelTapped(index: index)
+         }
 }

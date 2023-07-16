@@ -151,6 +151,7 @@ extension ArchivingViewController: UICollectionViewDataSource {
         case .section:
             let cell =
                     ArchivingSectionCollectionViewCell.dequeueReusableCell(collectionView: collectionView, indexPath: indexPath)
+            cell.tag = indexPath.item
             cell.archivingSectionLabel.text = "# \(I18N.Archiving.sectionArray[indexPath.row])"
             if indexPath.item == 0 {
                 cell.backgroundColor = .Primary600
@@ -198,5 +199,15 @@ extension ArchivingViewController: UICollectionViewDataSource {
 extension ArchivingViewController: UICollectionViewDelegateFlowLayout {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return Section.allCases.count
+    }
+}
+
+extension ArchivingViewController: ArchivingDelegate {
+    func labelTapped(index: Int) {
+        collectionView.visibleCells.forEach { cell in
+            guard let cell = cell as? ArchivingSectionCollectionViewCell else { return }
+            let isSelected = cell.tag == index
+            cell.updateCell(isSelected)
+        }
     }
 }
