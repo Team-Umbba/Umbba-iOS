@@ -38,4 +38,18 @@ extension UIViewController {
         alertViewController.modalPresentationStyle = .overCurrentContext
         present(alertViewController, animated: true)
     }
+    
+    func makeAlert(inviteCode: String, inviteUsername: String, installURL: String,
+                   alertType: AlertType = .inviteAlert,
+                   okAction: (() -> Void)?) {
+        
+        let alertViewController = AlertViewController()
+        
+        alertViewController.setAlertType(alertType)
+        alertViewController.setInviteDataBind(inviteCode: inviteCode, inviteUsername: inviteUsername, installURL: installURL)
+        alertViewController.okAction = okAction
+        alertViewController.modalTransitionStyle = .crossDissolve
+        alertViewController.modalPresentationStyle = .overCurrentContext
+        present(alertViewController, animated: true)
+    }
 }

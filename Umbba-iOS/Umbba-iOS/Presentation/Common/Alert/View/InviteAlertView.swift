@@ -13,6 +13,11 @@ final class InviteAlertView: UIView {
     
     weak var delegate: AlertDelegate?
     
+    // MARK: - Properties
+    
+    var inviteUsername: String?
+    var installURL: String?
+    
     // MARK: - UI Components
     
     private lazy var exitButton: UIButton = {
@@ -50,7 +55,7 @@ final class InviteAlertView: UIView {
         return button
     }()
     
-    private let inviteCode: UILabel = {
+    let inviteCode: UILabel = {
         let label = UILabel()
         label.text = I18N.Alert.inviteCode
         label.font = .PretendardSemiBold(size: 20)

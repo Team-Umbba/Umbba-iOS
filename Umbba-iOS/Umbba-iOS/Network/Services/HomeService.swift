@@ -40,7 +40,7 @@ extension HomeService {
         }
     }
     
-    func getAnswerAPI(completion: @escaping (NetworkResult<Any>) -> Void) {
+    func getTodayAPI(completion: @escaping (NetworkResult<Any>) -> Void) {
         let url = URLConstant.answerURL
         let header: HTTPHeaders = NetworkConstant.hasTokenHeader
         let dataRequest = AF.request(url,
@@ -55,8 +55,30 @@ extension HomeService {
                 guard let data = response.data else { return }
                 let networkResult = self.judgeStatus(by: statusCode,
                                                      data,
-                                                     AnswerEntity.self)
-                print(networkResult)
+                                                     TodayEntity.self)
+                completion(networkResult)
+            case .failure:
+                completion(.networkFail)
+            }
+        }
+    }
+    
+    func getCaseAPI(completion: @escaping (NetworkResult<Any>) -> Void) {
+        let url = URLConstant.caseURL
+        let header: HTTPHeaders = NetworkConstant.hasTokenHeader
+        let dataRequest = AF.request(url,
+                                     method: .get,
+                                     encoding: JSONEncoding.default,
+                                     headers: header)
+        
+        dataRequest.responseData { response in
+            switch response.result {
+            case .success:
+                guard let statusCode = response.response?.statusCode else { return }
+                guard let data = response.data else { return }
+                let networkResult = self.judgeStatus(by: statusCode,
+                                                     data,
+                                                     CaseEntity.self)
                 completion(networkResult)
             case .failure:
                 completion(.networkFail)
