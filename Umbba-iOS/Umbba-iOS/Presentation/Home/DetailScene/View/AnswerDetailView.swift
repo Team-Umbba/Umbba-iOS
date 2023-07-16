@@ -18,8 +18,8 @@ final class AnswerDetailView: UIView {
     
     // MARK: - UI Components
     
-    private let isOpponentAnswer: Bool = true
-    private let isMyAnswer: Bool = false
+//    private let isOpponentAnswer: Bool = true
+//    private let isMyAnswer: Bool = false
     
     private let navigationBarView: CustomNavigationBar = {
         let view = CustomNavigationBar()
@@ -93,6 +93,7 @@ final class AnswerDetailView: UIView {
         let label = UILabel()
         label.text = I18N.Detail.myQuestLabel
         label.font = .PretendardSemiBold(size: 20)
+        label.textAlignment = .right
         label.numberOfLines = 0
         return label
     }()
@@ -138,7 +139,6 @@ final class AnswerDetailView: UIView {
         setUI()
         setAddTarget()
         setLayout()
-        updateUI()
     }
     
     required init?(coder: NSCoder) {
@@ -219,12 +219,6 @@ private extension AnswerDetailView {
         }
     }
     
-    func updateUI() {
-        if isOpponentAnswer && !isMyAnswer {
-            partnerAnswerContent.isBlurring = true
-        }
-    }
-    
     @objc
     func backButtonTapped() {
         delegate?.backButtonTapped()
@@ -233,5 +227,19 @@ private extension AnswerDetailView {
     @objc
     func nextButtonTapped() {
         nextDelegate?.nextButtonTapped()
+    }
+}
+
+extension AnswerDetailView {
+    func setDataBind(model: AnswerEntity) {
+        partnerQeustLabel.text = model.opponentQuestion
+        if model.isOpponentAnswer && !model.isMyAnswer {
+            partnerAnswerContent.text = model.opponentAnswer
+            partnerAnswerContent.isBlurring = true
+        }
+        partnerNameLabel.text = model.opponentUsername
+        myQuestLabel.text = model.myQuestion
+        myAnswerContent.text = model.myAnswer
+        myNameLabel.text = model.myUsername
     }
 }
