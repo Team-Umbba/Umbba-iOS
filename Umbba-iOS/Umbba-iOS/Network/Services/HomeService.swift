@@ -76,13 +76,9 @@ extension HomeService {
             case .success:
                 guard let statusCode = response.response?.statusCode else { return }
                 guard let data = response.data else { return }
-                print("❤️❤️❤️❤️❤️")
-                dump(data)
                 let networkResult = self.judgeStatus(by: statusCode,
                                                      data,
                                                      CaseEntity.self)
-                print("🫶🫶🫶🫶🫶")
-                dump(networkResult)
                 completion(networkResult)
             case .failure:
                 completion(.networkFail)
