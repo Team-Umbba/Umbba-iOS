@@ -18,23 +18,31 @@ final class CompleteView: UIView {
     
     // MARK: - UI Components
     
-    private let navigationBarView: CustomNavigationBar = {
+    let navigationBarView: CustomNavigationBar = {
         let view = CustomNavigationBar()
         view.isLeftButtonIncluded = true
+        view.leftButton.tintColor = .white
+        view.backgroundColor = .clear
         return view
     }()
     
-    private let completeTitleLabel: UILabel = {
+    let backgroundImageView: UIImageView = {
+        let animationImage = UIImageView()
+        animationImage.image = ImageLiterals.Onboarding.img_depart
+        return animationImage
+    }()
+    
+    let completeTitleLabel: UILabel = {
         let label = UILabel()
         label.text = I18N.Onboarding.completeTitle
-        label.textColor = .UmbbaBlack
+        label.textColor = .UmbbaWhite
         label.font = .PretendardSemiBold(size: 24)
         label.numberOfLines = 2
         return label
     }()
     
     lazy var nextButton: CustomButton = {
-        let button = CustomButton(status: true, title: I18N.Common.nextButtonTitle)
+        let button = CustomButton(status: true, title: I18N.Onboarding.completeButton)
         button.isEnabled = true
         return button
     }()
@@ -67,7 +75,11 @@ private extension CompleteView {
     }
     
     func setLayout() {
-        self.addSubviews(navigationBarView, completeTitleLabel, nextButton)
+        self.addSubviews(backgroundImageView, navigationBarView, completeTitleLabel, nextButton)
+        
+        backgroundImageView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
         
         navigationBarView.snp.makeConstraints {
             $0.top.equalTo(self.safeAreaLayoutGuide)
@@ -87,7 +99,7 @@ private extension CompleteView {
     }
     
     // MARK: - @objc Functions
-
+    
     @objc
     func backButtonTapped() {
         navigationdelegate?.backButtonTapped()
