@@ -7,8 +7,12 @@
 
 import UIKit
 
-class AnimationViewController: UIViewController {
+final class AnimationViewController: UIViewController {
 
+    // MARK: - Properties
+    
+    var isReceiver: Bool = false
+    
     // MARK: - UI Components
     
     private let animationView = AnimationView()
@@ -38,6 +42,8 @@ extension AnimationViewController {
 
 extension AnimationViewController: NextButtonDelegate {
     func nextButtonTapped() {
-        self.navigationController?.pushViewController(UserInfoViewController(), animated: true)
+        let userInfoViewController =  UserInfoViewController()
+        self.navigationController?.pushViewController(userInfoViewController, animated: true)
+        userInfoViewController.isReceiver = true
     }
 }

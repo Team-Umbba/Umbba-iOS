@@ -35,7 +35,7 @@ extension EntryViewController {
 
 extension EntryViewController: EntryDelegate {
     func entryButtonTapped() {
-        self.navigationController?.pushViewController(UserInfoViewController(), animated: true)
+        self.navigationController?.pushViewController(AnimationViewController(), animated: true)
     }
     
     func inviteButtonTapped() {
