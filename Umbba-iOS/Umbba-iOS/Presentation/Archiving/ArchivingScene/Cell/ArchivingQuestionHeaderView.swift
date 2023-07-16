@@ -19,6 +19,7 @@ final class ArchivingQuestionHeaderView: UICollectionReusableView, UICollectionH
         let label = UILabel()
         label.font = .Cafe24Regular(size: 20)
         label.textColor = .Primary600
+        label.text = I18N.Archiving.sectionArray[0]
         return label
     }()
     

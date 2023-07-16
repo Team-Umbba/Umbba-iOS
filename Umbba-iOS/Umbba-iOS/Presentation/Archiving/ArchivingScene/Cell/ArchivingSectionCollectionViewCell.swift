@@ -21,6 +21,18 @@ final class ArchivingSectionCollectionViewCell: UICollectionViewCell, UICollecti
     
     // MARK: - Properties
     
+    override var isSelected: Bool {
+        didSet {
+            if isSelected {
+                self.backgroundColor = .Primary600
+                archivingSectionLabel.textColor = .UmbbaWhite
+            } else {
+                self.backgroundColor = .UmbbaWhite
+                archivingSectionLabel.textColor = .Primary600
+            }
+        }
+    }
+    
     let archivingSectionLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
@@ -65,21 +77,5 @@ extension ArchivingSectionCollectionViewCell {
             $0.centerY.equalToSuperview()
             $0.leading.trailing.equalToSuperview().inset(16)
         }
-    }
-    
-    func updateCell(_ isSelected: Bool) {
-        if isSelected {
-            self.backgroundColor = .Primary600
-            archivingSectionLabel.textColor = .UmbbaWhite
-        } else {
-            self.backgroundColor = .UmbbaWhite
-            archivingSectionLabel.textColor = .Primary600
-        }
-    }
-    
-    // MARK: - @objc Functions
-    
-    @objc func labelTapped(index: Int) {
-        delegate?.labelTapped(index: index)
     }
 }
