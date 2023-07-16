@@ -11,7 +11,7 @@ final class AnswerDetailViewController: UIViewController {
     
     // MARK: - Properties
     
-    private var answerEntity = AnswerEntity(qnaID: 0, section: "", topic: "", opponentQuestion: "", myQuestion: "", opponentAnswer: "", myAnswer: "", isOpponentAnswer: false, isMyAnswer: false, opponentUsername: "", myUsername: "") {
+    private var answerEntity: AnswerEntity? {
         didSet {
             fetchData()
         }
@@ -46,6 +46,7 @@ extension AnswerDetailViewController {
     }
     
     func fetchData() {
+        guard let answerEntity = answerEntity else { return }
         answerDetailView.setDataBind(model: answerEntity)
     }
 }
