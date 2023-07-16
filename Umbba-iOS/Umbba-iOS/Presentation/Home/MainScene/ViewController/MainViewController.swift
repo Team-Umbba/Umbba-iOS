@@ -9,8 +9,11 @@ import UIKit
 
 final class MainViewController: UIViewController {
     
-    var response_case: Int = 1
+//    var response_case: Int = 1
     
+    // MARK: - Properties
+    
+    private var caseEntity: CaseEntity?
     private var mainEntity: MainEntity = MainEntity(section: "", topic: "", index: 0) {
         didSet {
             fetchData()
@@ -27,6 +30,7 @@ final class MainViewController: UIViewController {
         super.viewDidLoad()
         
         getMainAPI()
+        getCaseAPI()
         setDelegate()
     }
 }
@@ -48,7 +52,7 @@ private extension MainViewController {
 
 extension MainViewController: MainDelegate {
     func questionButtonTapped() {
-        switch response_case {
+        switch caseEntity?.responseCase {
         case 1:
             guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
                   let keyWindow = windowScene.windows.first else {
@@ -78,6 +82,23 @@ private extension MainViewController {
                 if let data = data as? GenericResponse<MainEntity> {
                     if let mainData = data.data {
                         self.mainEntity = mainData
+                    }
+                }
+            default:
+                break
+            }
+        }
+    }
+}
+
+extension MainViewController {
+    func getCaseAPI() {
+        HomeService.shared.getCaseAPI { networkResult in
+            switch networkResult {
+            case .success(let data):
+                if let data = data as? GenericResponse<CaseEntity> {
+                    if let caseData = data.data {
+                        self.caseEntity = caseData
                     }
                 }
             default:
