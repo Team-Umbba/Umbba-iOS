@@ -27,7 +27,6 @@ final class ArchivingViewController: UIViewController {
     
     private var listEntity: [ListEntity] = []
     
-    private var selectedSectionIndexPath: Int?
     private let deviceRatio = UIScreen.main.bounds.width / UIScreen.main.bounds.height
     
     // MARK: - Life Cycles
@@ -40,7 +39,6 @@ final class ArchivingViewController: UIViewController {
         setDelegate()
         setHierarchy()
         setLayout()
-        setNavigationUI()
     }
 }
 
@@ -60,7 +58,6 @@ extension ArchivingViewController {
     private func setLayout() {
         archivingImageView.snp.makeConstraints {
             $0.top.leading.trailing.equalToSuperview()
-            $0.width.equalTo(SizeLiterals.Screen.screenWidth * 375 / 812)
             $0.height.equalTo(SizeLiterals.Screen.screenHeight * 375 / 812)
         }
         
@@ -74,12 +71,7 @@ extension ArchivingViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
     }
-    
-    func setNavigationUI() {
-        navigationItem.title = I18N.Archiving.navigationTitle
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont.PretendardRegular(size: 16), .foregroundColor: UIColor.UmbbaBlack]
-    }
-    
+
     func updateHeaderLabel(_ text: String) {
         if let headerView = collectionView.supplementaryView(forElementKind: UICollectionView.elementKindSectionHeader, at: IndexPath(item: 0, section: 1)) as? ArchivingQuestionHeaderView {
             headerView.headerLabel.text = text
@@ -113,6 +105,8 @@ extension ArchivingViewController: UICollectionViewDelegate {
         switch sectionType {
         case .section:
             if let cell = collectionView.cellForItem(at: indexPath) as? ArchivingSectionCollectionViewCell {
+                labelTapped(index: indexPath.row)
+                cell.selectedSectionIndexPath = indexPath.row
                 cell.backgroundColor = .Primary600
                 cell.archivingSectionLabel.textColor = .UmbbaWhite
                 

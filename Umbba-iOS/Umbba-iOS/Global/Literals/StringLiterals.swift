@@ -50,6 +50,7 @@ enum I18N {
         static let completeTitle = "과거에 도착했어!\n앞으로 나눌 이야기가 많을 거야"
         static let animationLabel = "오래된 공중전화에서 수신음이 들린다"
         static let callingButton = "전화 받기"
+        static let completeButton = "시작하기"
     }
     
     enum Auth {

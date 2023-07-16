@@ -9,12 +9,17 @@ import UIKit
 
 import SnapKit
 
+protocol InviteDelegate: AnyObject {
+    func sendInviteCode(inviteCode: String)
+}
+
 final class InviteView: UIView {
     
     // MARK: - Properties
         
     weak var navigationdelegate: NavigationBarDelegate?
     weak var nextDelegate: NextButtonDelegate?
+    weak var inviteDelegate: InviteDelegate?
 
     // MARK: - UI Components
     
@@ -36,7 +41,7 @@ final class InviteView: UIView {
         return label
     }()
     
-    private lazy var inviteTextField: CustomTextField = {
+    lazy var inviteTextField: CustomTextField = {
         let textField = CustomTextField(placeHolder: I18N.Onboarding.inviteTextFieldPlaceholder)
         return textField
     }()
@@ -47,7 +52,7 @@ final class InviteView: UIView {
         return button
     }()
     
-    private let errorLabel: UILabel = {
+    let errorLabel: UILabel = {
         let label = UILabel()
         label.text = I18N.Onboarding.inviteError
         label.font = .PretendardRegular(size: 12)
@@ -127,6 +132,8 @@ private extension InviteView {
     @objc
     func nextButtonTapped() {
         nextDelegate?.nextButtonTapped()
+        guard let inviteCode = inviteTextField.text else { return }
+        inviteDelegate?.sendInviteCode(inviteCode: inviteCode)
     }
 }
 

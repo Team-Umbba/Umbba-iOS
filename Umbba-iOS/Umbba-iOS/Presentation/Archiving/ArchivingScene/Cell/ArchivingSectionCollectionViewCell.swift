@@ -17,6 +17,10 @@ final class ArchivingSectionCollectionViewCell: UICollectionViewCell, UICollecti
     
     static let isFromNib: Bool = false
     
+    var selectedSectionIndexPath: Int = 0
+    
+    weak var delegate: ArchivingDelegate?
+    
     // MARK: - Properties
     
     weak var delegate: ArchivingDelegate?
