@@ -53,6 +53,7 @@ extension HomeService {
             case .success:
                 guard let statusCode = response.response?.statusCode else { return }
                 guard let data = response.data else { return }
+
                 let networkResult = self.judgeStatus(by: statusCode,
                                                      data,
                                                      AnswerEntity.self)
@@ -64,7 +65,7 @@ extension HomeService {
         }
     }
     
-    //API : 질문에 답변하기
+    // API : 질문에 답변하기
     
     func postAnswerAPI(answer: String,
                        completion: @escaping (NetworkResult<Any>) -> Void) {

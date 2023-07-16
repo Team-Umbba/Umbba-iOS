@@ -56,8 +56,24 @@ extension AnswerWriteViewController: NavigationBarDelegate, AnswerWriteDelegate 
         } else {
             self.makeAlert(writePopUp: writePopUp, alertType: .writeSaveAlert) {
                 guard let answer = self.writePopUp.answer else { return }
-                print("작성 저장 API RequsetBody : \(answer) ")
+                self.postAnswerAPI(answer: answer)
             }
+        }
+    }
+}
+
+private extension AnswerWriteViewController {
+    func postAnswerAPI(answer: String) {
+        HomeService.shared.postAnswerAPI(answer: answer) { NetworkResult in
+            switch NetworkResult {
+            case .success:
+                self.navigationController?.popViewController(animated: true)
+            case .requestErr, .serverErr:
+                print("에러 발생")
+            default:
+                break
+            }
+            
         }
     }
 }
