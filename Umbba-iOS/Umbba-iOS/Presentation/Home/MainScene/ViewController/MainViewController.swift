@@ -11,7 +11,11 @@ final class MainViewController: UIViewController {
     
     var response_case: Int = 1
     
-    private let mainModel: MainItem = MainItem.mainDummy()
+    private var mainEntity: MainEntity = MainEntity(section: "", topic: "", index: 0) {
+        didSet {
+            fetchData()
+        }
+    }
     private let mainView = MainView()
     
     override func loadView() {
@@ -22,25 +26,23 @@ final class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        getMainAPI()
         setDelegate()
-        setDataBind()
     }
 }
 
 private extension MainViewController {
     func setDelegate() {
         mainView.mainDelegate = self
-        
-        let deviceRatio = UIScreen.main.bounds.width / UIScreen.main.bounds.height
-        if deviceRatio > 0.5 {
-            mainView.setSEImageBind(model: mainModel)
-        } else {
-            mainView.setImageBind(model: mainModel)
-        }
     }
     
-    func setDataBind() {
-        mainView.setDataBind(model: mainModel)
+    func fetchData() {
+        mainView.setDataBind(model: mainEntity)
+        if SizeLiterals.Screen.deviceRatio > 0.5 {
+            mainView.setSEImageBind(model: mainEntity)
+        } else {
+            mainView.setImageBind(model: mainEntity)
+        }
     }
 }
 
@@ -62,6 +64,25 @@ extension MainViewController: MainDelegate {
             self.makeAlert(alertType: .disconnectAlert) {}
         default:
             break
+        }
+    }
+}
+
+// MARK: - Network
+
+private extension MainViewController {
+    func getMainAPI() {
+        HomeService.shared.getHomeAPI { networkResult in
+            switch networkResult {
+            case .success(let data):
+                if let data = data as? GenericResponse<MainEntity> {
+                    if let mainData = data.data {
+                        self.mainEntity = mainData
+                    }
+                }
+            default:
+                break
+            }
         }
     }
 }

@@ -127,12 +127,12 @@ extension MainView {
         questionButton.addTarget(self, action: #selector(questionButtonTapped), for: .touchUpInside)
     }
 
-    func setDataBind(model: MainItem) {
-        questionNumLabel.text = "#\(model.count)"
+    func setDataBind(model: MainEntity) {
+        questionNumLabel.text = "#\(model.index)"
         questionTitleLabel.text = model.topic
     }
     
-    func setImageBind(model: MainItem) {
+    func setImageBind(model: MainEntity) {
         switch model.section {
         case "어린시절":
             questionImage.image = ImageLiterals.Home.main_1
@@ -149,7 +149,7 @@ extension MainView {
         }
     }
     
-    func setSEImageBind(model: MainItem) {
+    func setSEImageBind(model: MainEntity) {
         switch model.section {
         case "어린시절":
             questionImage.image = ImageLiterals.Home.SE_home1
