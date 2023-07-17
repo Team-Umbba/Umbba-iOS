@@ -9,12 +9,19 @@ import UIKit
 
 import SnapKit
 
+// MARK: - Protocols
+
+protocol HomeButtonDelegate: AnyObject {
+    func homeButtonTapped()
+}
+
 final class AnswerDetailView: UIView {
     
     // MARK: - Properties
     
     weak var delegate: NavigationBarDelegate?
     weak var nextDelegate: NextButtonDelegate?
+    weak var homeDelegate: HomeButtonDelegate?
     
     // MARK: - UI Components
     
@@ -127,6 +134,18 @@ final class AnswerDetailView: UIView {
         button.isEnabled = true
         return button
     }()
+    
+    private lazy var homeButton: CustomButton = {
+        let button = CustomButton(status: false, title: I18N.Detail.homeButton)
+        button.layer.borderColor = UIColor.Primary500.cgColor
+        button.layer.borderWidth = 2
+        button.setBackgroundColor(.UmbbaWhite, for: .normal)
+        button.setTitleColor(.Primary500, for: .normal)
+        button.adjustsImageWhenHighlighted = false
+        button.isEnabled = true
+        button.isHidden = true
+        return button
+    }()
 
     // MARK: - Life Cycles
     
@@ -154,10 +173,11 @@ private extension AnswerDetailView {
     func setAddTarget() {
         navigationBarView.leftButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
         nextButton.addTarget(self, action: #selector(nextButtonTapped), for: .touchUpInside)
+        homeButton.addTarget(self, action: #selector(homeButtonTapped), for: .touchUpInside)
     }
     
     func setLayout() {
-        self.addSubviews(navigationBarView, themeStackView, nextButton, partnerQeustLabel, partnerAnswerView, myQuestLabel, myAnswerView)
+        self.addSubviews(navigationBarView, themeStackView, nextButton, homeButton, partnerQeustLabel, partnerAnswerView, myQuestLabel, myAnswerView)
         partnerAnswerView.addSubviews(partnerNameLabel, partnerAnswerContent)
         myAnswerView.addSubviews(myNameLabel, myAnswerContent)
         
@@ -214,6 +234,12 @@ private extension AnswerDetailView {
             $0.trailing.leading.equalToSuperview().inset(20)
             $0.height.equalTo(60)
         }
+        
+        homeButton.snp.makeConstraints {
+            $0.bottom.equalTo(self.safeAreaLayoutGuide).offset(-12)
+            $0.trailing.leading.equalToSuperview().inset(20)
+            $0.height.equalTo(60)
+        }
     }
     
     @objc
@@ -225,23 +251,39 @@ private extension AnswerDetailView {
     func nextButtonTapped() {
         nextDelegate?.nextButtonTapped()
     }
+    
+    @objc
+    func homeButtonTapped() {
+        homeDelegate?.homeButtonTapped()
+    }
 }
 
 extension AnswerDetailView {
     func setDataBind(model: TodayEntity) {
-        navigationBarView.cafe24Title = model.section
-        numberLabel.text = "#\(model.qnaID)"
-        themeLabel.text = model.topic
-        partnerQeustLabel.text = model.opponentQuestion
+
+        if model.isMyAnswer {
+            myAnswerContent.text = model.myAnswer
+            myAnswerContent.textColor = .UmbbaBlack
+            nextButton.isHidden = true
+            homeButton.isHidden = false
+        }
+        
+        if model.isOpponentAnswer {
+            partnerAnswerContent.text = model.opponentAnswer
+            partnerAnswerContent.textColor = .UmbbaBlack
+        }
+     
         if model.isOpponentAnswer && !model.isMyAnswer {
             partnerAnswerContent.text = model.opponentAnswer
             partnerAnswerContent.isBlurring = true
         }
+        
+        navigationBarView.cafe24Title = model.section
+        numberLabel.text = "#\(model.index ?? 0)"
+        themeLabel.text = model.topic
+        partnerQeustLabel.text = model.opponentQuestion
         partnerNameLabel.text = model.opponentUsername
         myQuestLabel.text = model.myQuestion
-        if model.isMyAnswer {
-            myAnswerContent.text = model.myAnswer
-        }
         myNameLabel.text = model.myUsername
     }
 }
