@@ -104,14 +104,18 @@ extension QuestViewController: UICollectionViewDataSource {
         cell.skipButton.isSelected = false
 
         if indexPath.item < answerArray.count {
+            nextButton.isEnabled = true
             let answer = answerArray[indexPath.item]
             switch answer {
             case "응":
                 cell.yesButton.isSelected = true
+                cell.updateNextButton()
             case "아니":
                 cell.noButton.isSelected = true
+                cell.updateNextButton()
             case "애매해":
                 cell.skipButton.isSelected = true
+                cell.updateNextButton()
             default:
                 break
             }
