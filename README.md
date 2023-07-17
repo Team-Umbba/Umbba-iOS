@@ -8,7 +8,7 @@
 
 | [최영린](https://github.com/joeuni01) | [고아라](https://github.com/ahra1221) | [남유진](https://github.com/yujin-00)|
 | --- | --- | --- |
-| <img src = "https://github.com/Team-Umbba/Umbba-iOS/assets/75068759/e41de00d-4fed-4362-ae87-ae536801921d" width = "300">| <img src = "https://github.com/Team-Umbba/Umbba-iOS/assets/75068759/4ab130f6-c3f3-4ec2-b748-99f8e2111d7e" width = "300"> | <img src = "https://github.com/Team-Umbba/Umbba-iOS/assets/75068759/48adbc91-01fa-4108-af80-5dd458db330b" width = "300"> |
+| <img src = "https://github.com/Team-Umbba/Umbba-iOS/assets/79412889/7643c0b4-9526-4ab0-8d22-f9cfbbd8e2a1" width = "300">| <img src = "https://github.com/Team-Umbba/Umbba-iOS/assets/79412889/7f981eb3-a94c-41e1-aab9-6f995a53e26b" width = "300"> | <img src = "https://github.com/Team-Umbba/Umbba-iOS/assets/79412889/16a78f30-9a22-4d36-9e50-b4fbbca5ea5e" width = "300"> |
 
 ### 📒 Library
 | Library | Tag | Tool |

@@ -49,6 +49,7 @@ extension AnswerDetailViewController {
     func setDelegate() {
         answerDetailView.delegate = self
         answerDetailView.nextDelegate = self
+        answerDetailView.homeDelegate = self
     }
     
     func fetchData() {
@@ -74,6 +75,12 @@ extension AnswerDetailViewController: NavigationBarDelegate {
 extension AnswerDetailViewController: NextButtonDelegate {
     func nextButtonTapped() {
         self.navigationController?.pushViewController(AnswerWriteViewController(), animated: true)
+    }
+}
+
+extension AnswerDetailViewController: HomeButtonDelegate {
+    func homeButtonTapped() {
+        self.navigationController?.pushViewController(TabBarController(), animated: true)
     }
 }
 

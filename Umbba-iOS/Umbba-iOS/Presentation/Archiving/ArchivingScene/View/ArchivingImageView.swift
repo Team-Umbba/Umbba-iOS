@@ -40,6 +40,7 @@ final class ArchivingImageView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        setImage()
         setHierarchy()
         setLayout()
     }
@@ -54,6 +55,14 @@ final class ArchivingImageView: UIView {
 // MARK: - Extensions
 
 extension ArchivingImageView {
+    func setImage() {
+        if SizeLiterals.Screen.deviceRatio > 0.5 {
+            imageView.image = imageSeArray[0]
+        } else {
+            imageView.image = imageArray[0]
+        }
+    }
+    
     func setHierarchy() {
         addSubviews(imageView, navigationBarView)
     }
