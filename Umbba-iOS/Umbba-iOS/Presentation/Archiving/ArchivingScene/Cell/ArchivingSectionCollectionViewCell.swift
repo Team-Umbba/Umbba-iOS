@@ -33,6 +33,8 @@ final class ArchivingSectionCollectionViewCell: UICollectionViewCell, UICollecti
         }
     }
     
+    // MARK: - UI Components
+    
     let archivingSectionLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center

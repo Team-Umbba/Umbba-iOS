@@ -13,7 +13,7 @@ final class ArchivingViewController: UIViewController {
     
     private typealias SectionType = Section
     
-    var test = 0
+    var headerIndex = 0
     
     @frozen
     private enum Section: CaseIterable {
@@ -119,10 +119,10 @@ extension ArchivingViewController: UICollectionViewDelegate {
             
             if SizeLiterals.Screen.deviceRatio > 0.5 {
                 archivingImageView.setSEDataBind(section: indexPath.row)
-                test = indexPath.row
+                headerIndex = indexPath.row
             } else {
                 archivingImageView.setDataBind(section: indexPath.row)
-                test = indexPath.row
+                headerIndex = indexPath.row
             }
         case .question:
             break
@@ -189,7 +189,7 @@ extension ArchivingViewController: UICollectionViewDataSource {
             return view
         case .question:
             let headerView = ArchivingQuestionHeaderView.dequeueReusableHeaderView(collectionView: collectionView, indexPath: indexPath)
-            headerView.headerLabel.text = I18N.Archiving.sectionArray[test]
+            headerView.headerLabel.text = I18N.Archiving.sectionArray[headerIndex]
             return headerView
         }
     }
