@@ -17,5 +17,47 @@ final class AuthService: BaseService {
 }
 
 extension AuthService {
+    func patchLogOutAPI(completion: @escaping (NetworkResult<Any>) -> Void) {
+        let url = URLConstant.logoutURL
+        let header: HTTPHeaders = NetworkConstant.hasTokenHeader
+        let dataRequest = AF.request(url,
+                                     method: .patch,
+                                     encoding: JSONEncoding.default,
+                                     headers: header)
+        dataRequest.responseData { response in
+            switch response.result {
+            case .success:
+                guard let statusCode = response.response?.statusCode else { return }
+                guard let data = response.data else { return }
+                let networkResult = self.judgeStatus(by: statusCode,
+                                                     data,
+                                                     LogoutEntity.self)
+                completion(networkResult)
+            case .failure:
+                completion(.networkFail)
+            }
+        }
+    }
     
+    func patchSignOutAPI(completion: @escaping (NetworkResult<Any>) -> Void) {
+        let url = URLConstant.signoutURL
+        let header: HTTPHeaders = NetworkConstant.hasTokenHeader
+        let dataRequest = AF.request(url,
+                                     method: .patch,
+                                     encoding: JSONEncoding.default,
+                                     headers: header)
+        dataRequest.responseData { response in
+            switch response.result {
+            case .success:
+                guard let statusCode = response.response?.statusCode else { return }
+                guard let data = response.data else { return }
+                let networkResult = self.judgeStatus(by: statusCode,
+                                                     data,
+                                                     SignOutEntity.self)
+                completion(networkResult)
+            case .failure:
+                completion(.networkFail)
+            }
+        }
+    }
 }
