@@ -263,6 +263,7 @@ extension AnswerDetailView {
 
         if model.isMyAnswer {
             myAnswerContent.text = model.myAnswer
+            myAnswerContent.textColor = .UmbbaBlack
             nextButton.isHidden = true
             homeButton.isHidden = false
         }
