@@ -22,6 +22,17 @@ final class EntryView: UIView {
     
     // MARK: - UI Components
     
+    private let entryBackgroundImage: UIImageView = {
+        let backgroundimage = UIImageView()
+        backgroundimage.contentMode = .scaleAspectFill
+        if SizeLiterals.Screen.deviceRatio > 0.5 {
+            backgroundimage.image = ImageLiterals.Auth.SE_start
+        } else {
+            backgroundimage.image = ImageLiterals.Auth.img_start
+        }
+        return backgroundimage
+    }()
+    
     private let loginImage: UIImageView = {
         let image = UIImageView()
         image.image = ImageLiterals.Common.img_umbbaLogo
@@ -84,6 +95,7 @@ final class EntryView: UIView {
         setHierarchy()
         setLayout()
         setAddTarget()
+        updateUI()
     }
     
     required init?(coder: NSCoder) {
@@ -98,10 +110,15 @@ private extension EntryView {
     }
     
     func setHierarchy() {
-        addSubviews(loginImage, loginTitleLabel, loginSubTitleLabel, entryButton, dividingText, inviteText, inviteButton)
+        addSubviews(entryBackgroundImage, loginImage, loginTitleLabel, loginSubTitleLabel, entryButton, dividingText, inviteText, inviteButton)
     }
     
     func setLayout() {
+        entryBackgroundImage.snp.makeConstraints {
+            $0.top.leading.trailing.equalToSuperview()
+            $0.bottom.equalTo(safeAreaInsets)
+        }
+        
         loginImage.snp.makeConstraints {
             $0.centerX.equalToSuperview()
             $0.top.equalToSuperview().inset(97)
@@ -145,6 +162,12 @@ private extension EntryView {
     func setAddTarget() {
         entryButton.addTarget(self, action: #selector(entryButtonTapped), for: .touchUpInside)
         inviteButton.addTarget(self, action: #selector(inviteButtonTapped), for: .touchUpInside)
+    }
+    
+    func updateUI() {
+        if SizeLiterals.Screen.deviceRatio > 0.5 {
+            entryBackgroundImage.image = ImageLiterals.Auth.SE_start
+        }
     }
     
     @objc
