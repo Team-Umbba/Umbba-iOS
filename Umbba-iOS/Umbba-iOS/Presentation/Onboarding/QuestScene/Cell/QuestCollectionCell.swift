@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 
 protocol QuestDelegte: AnyObject {
-    func updateNextButton(isEnabled: Bool)
+    func updateNextButton(isEnabled: Bool, answer: String)
 }
 
 final class QuestCollectionViewCell: UICollectionViewCell, UICollectionViewRegisterable {
@@ -18,9 +18,11 @@ final class QuestCollectionViewCell: UICollectionViewCell, UICollectionViewRegis
     static let isFromNib: Bool = false
     
     // MARK: - Properties
+    
     weak var questDelegate: QuestDelegte?
     private var selectedButton: Int = 0
     private var answerButton: [UIButton] = []
+    private var answerArray: [String] = []
     
     // MARK: - UI Components
     
@@ -32,7 +34,7 @@ final class QuestCollectionViewCell: UICollectionViewCell, UICollectionViewRegis
         return label
     }()
     
-    private lazy var yesButton: UIButton = {
+    lazy var yesButton: UIButton = {
         let button = UIButton()
         button.setBackgroundColor(.UmbbaWhite, for: .normal)
         button.setBackgroundColor(.Primary500, for: .selected)
@@ -48,7 +50,7 @@ final class QuestCollectionViewCell: UICollectionViewCell, UICollectionViewRegis
         return button
     }()
     
-    private lazy var noButton: UIButton = {
+    lazy var noButton: UIButton = {
         let button = UIButton()
         button.setBackgroundColor(.UmbbaWhite, for: .normal)
         button.setBackgroundColor(.Primary500, for: .selected)
@@ -64,7 +66,7 @@ final class QuestCollectionViewCell: UICollectionViewCell, UICollectionViewRegis
         return button
     }()
     
-    private lazy var skipButton: UIButton = {
+    lazy var skipButton: UIButton = {
         let button = UIButton()
         button.setBackgroundColor(.UmbbaWhite, for: .normal)
         button.setBackgroundColor(.Primary500, for: .selected)
@@ -150,10 +152,9 @@ extension QuestCollectionViewCell {
     
     func updateNextButton() {
         if yesButton.isSelected || noButton.isSelected || skipButton.isSelected {
-            print(yesButton.isSelected || noButton.isSelected || skipButton.isSelected)
-            questDelegate?.updateNextButton(isEnabled: true)
+            questDelegate?.updateNextButton(isEnabled: true, answer: answerArray.last ?? "")
         } else {
-            questDelegate?.updateNextButton(isEnabled: false)
+            questDelegate?.updateNextButton(isEnabled: false, answer: answerArray.last ?? "")
         }
     }
 
@@ -165,6 +166,7 @@ extension QuestCollectionViewCell {
             button.isSelected = sender == button
             if button.isSelected {
                 print(gender)
+                answerArray.append(gender)
             }
         }
         updateNextButton()

@@ -12,6 +12,7 @@ final class QuestViewController: UIViewController {
     // MARK: - Properties
     
     var isReceiver: Bool = false
+    var answerArray: [String] = []
     
     // MARK: - UI Components
     
@@ -78,6 +79,7 @@ extension QuestViewController: NextButtonDelegate {
             } else {
                 self.navigationController?.pushViewController(PushAlarmViewController(), animated: true)
             }
+            print(answerArray)
         } else {
             nextButton.isEnabled = false
             progressView.progress = Float(currentIndexPath.item + 2) * 0.2
@@ -96,6 +98,26 @@ extension QuestViewController: UICollectionViewDataSource {
         let cell = QuestCollectionViewCell.dequeueReusableCell(collectionView: collectionView, indexPath: indexPath)
         cell.questionLabel.text = "질문 질문 질문 질문 질문 질문 질문 질문 질문 질문 질문"
         cell.questDelegate = self
+        
+        cell.yesButton.isSelected = false
+        cell.noButton.isSelected = false
+        cell.skipButton.isSelected = false
+        
+        if indexPath.item < answerArray.count {
+            let answer = answerArray[indexPath.item]
+            if answer == "응" {
+                cell.yesButton.isSelected = true
+            } else if answer == "아니" {
+                cell.noButton.isSelected = true
+            } else if answer == "애매해" {
+                cell.skipButton.isSelected = true
+            }
+            nextButton.isEnabled = true
+        } else {
+            cell.yesButton.isSelected = false
+            cell.noButton.isSelected = false
+            cell.skipButton.isSelected = false
+        }
         return cell
     }
     
@@ -105,7 +127,8 @@ extension QuestViewController: UICollectionViewDataSource {
 }
 
 extension QuestViewController: QuestDelegte {
-    func updateNextButton(isEnabled: Bool) {
+    func updateNextButton(isEnabled: Bool, answer: String) {
         nextButton.isEnabled = isEnabled
+        answerArray.append(answer)
     }
 }
