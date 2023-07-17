@@ -13,6 +13,8 @@ final class ArchivingViewController: UIViewController {
     
     private typealias SectionType = Section
     
+    var test = 0
+    
     @frozen
     private enum Section: CaseIterable {
         case section, question
@@ -25,11 +27,13 @@ final class ArchivingViewController: UIViewController {
     private lazy var collectionView = archivingCollectionView.ArchivingCollectionView
     private lazy var archivingHeaderview = ArchivingQuestionHeaderView()
     
-    private var listEntity: [ListEntity] = []
+    private var listEntity: [ListEntity] = [] {
+        didSet {
+            self.collectionView.reloadSections([1])
+        }
+    }
     
-    private var currentIndex: Int = 0
-    
-    private var selectedCycleIndex: [Int] = []
+    private var selectedIndex: [Int] = []
     
     private let deviceRatio = UIScreen.main.bounds.width / UIScreen.main.bounds.height
     
@@ -93,7 +97,6 @@ private extension ArchivingViewController {
                 if let data = data as? GenericResponse<[ListEntity]> {
                     if let listData = data.data {
                         self.listEntity = listData
-                        self.collectionView.reloadData()
                     }
                 }
             default:
@@ -111,17 +114,16 @@ extension ArchivingViewController: UICollectionViewDelegate {
             if let cell = collectionView.cellForItem(at: indexPath) as? ArchivingSectionCollectionViewCell {
                 cell.isSelected = true
             }
-            selectedCycleIndex.append(indexPath.row)
+            selectedIndex.append(indexPath.row)
             getListAPI(row: indexPath.row + 1)
             
             if SizeLiterals.Screen.deviceRatio > 0.5 {
                 archivingImageView.setSEDataBind(section: indexPath.row)
-                updateHeaderLabel(I18N.Archiving.sectionArray[indexPath.row])
+                test = indexPath.row
             } else {
                 archivingImageView.setDataBind(section: indexPath.row)
-                updateHeaderLabel(I18N.Archiving.sectionArray[indexPath.row])
+                test = indexPath.row
             }
-            
         case .question:
             break
         }
@@ -135,8 +137,8 @@ extension ArchivingViewController: UICollectionViewDelegate {
                 cell.isSelected = false
             }
             
-            if let index = selectedCycleIndex.firstIndex(of: indexPath.row) {
-                selectedCycleIndex.remove(at: index)
+            if let index = selectedIndex.firstIndex(of: indexPath.row) {
+                selectedIndex.remove(at: index)
             }
         case .question:
             break
@@ -153,10 +155,18 @@ extension ArchivingViewController: UICollectionViewDataSource {
                     ArchivingSectionCollectionViewCell.dequeueReusableCell(collectionView: collectionView, indexPath: indexPath)
             cell.archivingSectionLabel.text = "# \(I18N.Archiving.sectionArray[indexPath.row])"
             cell.tag = indexPath.item
+            
+            if indexPath.item == 0 {
+                collectionView.selectItem(at: indexPath, animated: false, scrollPosition: [])
+                cell.isSelected = true
+            } else {
+                cell.isSelected = false
+            }
+            
             return cell
         case .question:
             let cell = ArchivingQuestionCollectionViewCell.dequeueReusableCell(collectionView: collectionView, indexPath: indexPath)
-            cell.setDataBind(model: listEntity[0])
+            cell.setDataBind(model: listEntity[indexPath.item])
             return cell
         }
     }
@@ -179,6 +189,7 @@ extension ArchivingViewController: UICollectionViewDataSource {
             return view
         case .question:
             let headerView = ArchivingQuestionHeaderView.dequeueReusableHeaderView(collectionView: collectionView, indexPath: indexPath)
+            headerView.headerLabel.text = I18N.Archiving.sectionArray[test]
             return headerView
         }
     }
