@@ -6,12 +6,12 @@
 //
 
 struct TodayEntity: Codable {
-    let qnaID: Int
-    let section, topic, opponentQuestion, myQuestion: String
+    let qnaID: Int?
+    let section, topic, opponentQuestion, myQuestion: String?
     let opponentAnswer: String?
-    let myAnswer: String
+    let myAnswer: String?
     let isOpponentAnswer, isMyAnswer: Bool
-    let opponentUsername, myUsername: String
+    let opponentUsername, myUsername: String?
 
     enum CodingKeys: String, CodingKey {
         case qnaID = "qna_id"
