@@ -270,6 +270,7 @@ extension AnswerDetailView {
         
         if model.isOpponentAnswer {
             partnerAnswerContent.text = model.opponentAnswer
+            partnerAnswerContent.textColor = .UmbbaBlack
         }
      
         if model.isOpponentAnswer && !model.isMyAnswer {
@@ -278,7 +279,7 @@ extension AnswerDetailView {
         }
         
         navigationBarView.cafe24Title = model.section
-        numberLabel.text = "#\(model.qnaID ?? 0)"
+        numberLabel.text = "#\(model.index ?? 0)"
         themeLabel.text = model.topic
         partnerQeustLabel.text = model.opponentQuestion
         partnerNameLabel.text = model.opponentUsername

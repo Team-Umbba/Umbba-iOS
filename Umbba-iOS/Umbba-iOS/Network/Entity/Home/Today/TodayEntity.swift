@@ -6,7 +6,7 @@
 //
 
 struct TodayEntity: Codable {
-    let qnaID: Int?
+    let qnaID, index: Int?
     let section, topic, opponentQuestion, myQuestion: String?
     let opponentAnswer: String?
     let myAnswer: String?
@@ -15,7 +15,7 @@ struct TodayEntity: Codable {
 
     enum CodingKeys: String, CodingKey {
         case qnaID = "qna_id"
-        case section, topic
+        case index, section, topic
         case opponentQuestion = "opponent_question"
         case myQuestion = "my_question"
         case opponentAnswer = "opponent_answer"
