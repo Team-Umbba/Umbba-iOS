@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 
 protocol QuestDelegte: AnyObject {
-    func updateNextButton(isEnabled: Bool, answer: String)
+    func selectAnswer(_ cell: QuestCollectionViewCell, questionIndex: Int, answerIndex: Int)
 }
 
 final class QuestCollectionViewCell: UICollectionViewCell, UICollectionViewRegisterable {
@@ -23,6 +23,14 @@ final class QuestCollectionViewCell: UICollectionViewCell, UICollectionViewRegis
     private var selectedButton: Int = 0
     private var answerButton: [UIButton] = []
     private var answerArray: [String] = []
+    
+    var questionIndex: Int?
+    var answerIndex: Int? {
+        didSet {
+            let index = (answerIndex ?? -1)
+            updateButtonState(index)
+        }
+    }
     
     // MARK: - UI Components
     
@@ -46,6 +54,7 @@ final class QuestCollectionViewCell: UICollectionViewCell, UICollectionViewRegis
         button.layer.borderWidth = 1
         button.layer.cornerRadius = 24
         button.adjustsImageWhenHighlighted = false
+        button.tag = 0
         answerButton.append(button)
         return button
     }()
@@ -62,6 +71,7 @@ final class QuestCollectionViewCell: UICollectionViewCell, UICollectionViewRegis
         button.layer.borderWidth = 1
         button.layer.cornerRadius = 24
         button.adjustsImageWhenHighlighted = false
+        button.tag = 1
         answerButton.append(button)
         return button
     }()
@@ -78,6 +88,7 @@ final class QuestCollectionViewCell: UICollectionViewCell, UICollectionViewRegis
         button.layer.borderWidth = 1
         button.layer.cornerRadius = 24
         button.adjustsImageWhenHighlighted = false
+        button.tag = 2
         answerButton.append(button)
         return button
     }()
@@ -90,6 +101,10 @@ final class QuestCollectionViewCell: UICollectionViewCell, UICollectionViewRegis
         stackView.addArrangedSubviews(yesButton, noButton, skipButton)
         return stackView
     }()
+    
+    var isAnswered: Bool {
+        return yesButton.isSelected || noButton.isSelected || skipButton.isSelected
+    }
     
     // MARK: - Life Cycles
     
@@ -150,25 +165,17 @@ extension QuestCollectionViewCell {
         skipButton.addTarget(self, action: #selector(questButtonTapped), for: .touchUpInside)
     }
     
-    func updateNextButton() {
-        if yesButton.isSelected || noButton.isSelected || skipButton.isSelected {
-            questDelegate?.updateNextButton(isEnabled: true, answer: answerArray.last ?? "")
-        } else {
-            questDelegate?.updateNextButton(isEnabled: false, answer: answerArray.last ?? "")
-        }
+    @objc func questButtonTapped(sender: UIButton) {
+        answerIndex = sender.tag
+        updateButtonState(sender.tag)
+        questDelegate?.selectAnswer(self, questionIndex: questionIndex ?? -1, answerIndex: answerIndex ?? -1)
     }
-
-    @objc
-    func questButtonTapped(sender: UIButton) {
-        self.selectedButton = sender.tag
-        answerButton.forEach { button in
-            guard let gender = button.titleLabel?.text else { return }
-            button.isSelected = sender == button
-            if button.isSelected {
-                print(gender)
-                answerArray.append(gender)
+    
+    func updateButtonState(_ selectedButtonIndex: Int) {
+        [yesButton, noButton, skipButton]
+            .forEach { button in
+                let isSelected = button.tag == selectedButtonIndex
+                button.isSelected = isSelected
             }
-        }
-        updateNextButton()
     }
 }
