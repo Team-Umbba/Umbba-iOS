@@ -96,23 +96,25 @@ extension QuestViewController: UICollectionViewDelegate {
 extension QuestViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = QuestCollectionViewCell.dequeueReusableCell(collectionView: collectionView, indexPath: indexPath)
-        cell.questionLabel.text = "질문 질문 질문 질문 질문 질문 질문 질문 질문 질문 질문"
+        cell.questionLabel.text = I18N.Onboarding.questionArray[indexPath.item]
         cell.questDelegate = self
         
         cell.yesButton.isSelected = false
         cell.noButton.isSelected = false
         cell.skipButton.isSelected = false
-        
+
         if indexPath.item < answerArray.count {
             let answer = answerArray[indexPath.item]
-            if answer == "응" {
+            switch answer {
+            case "응":
                 cell.yesButton.isSelected = true
-            } else if answer == "아니" {
+            case "아니":
                 cell.noButton.isSelected = true
-            } else if answer == "애매해" {
+            case "애매해":
                 cell.skipButton.isSelected = true
+            default:
+                break
             }
-            nextButton.isEnabled = true
         } else {
             cell.yesButton.isSelected = false
             cell.noButton.isSelected = false

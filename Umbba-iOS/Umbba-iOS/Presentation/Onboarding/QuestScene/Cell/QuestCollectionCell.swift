@@ -30,7 +30,7 @@ final class QuestCollectionViewCell: UICollectionViewCell, UICollectionViewRegis
         let label = UILabel()
         label.font = .PretendardSemiBold(size: 20)
         label.textColor = .UmbbaBlack
-        label.numberOfLines = 0
+        label.numberOfLines = 2
         return label
     }()
     
