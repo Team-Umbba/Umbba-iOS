@@ -119,13 +119,16 @@ extension PushAlarmViewController: UIPickerViewDelegate, UIPickerViewDataSource 
         }
     }
     
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
         if component == 0 {
-            return I18N.Onboarding.time[row]
+            let attributedString = NSAttributedString(string: I18N.Onboarding.time[row], attributes: [NSAttributedString.Key.foregroundColor: UIColor.UmbbaBlack])
+            return attributedString
         } else if component == 1 {
-            return I18N.Onboarding.minute[row]
+            let attributedString = NSAttributedString(string: I18N.Onboarding.minute[row], attributes: [NSAttributedString.Key.foregroundColor: UIColor.UmbbaBlack])
+            return attributedString
         } else {
-            return I18N.Onboarding.am[row]
+            let attributedString = NSAttributedString(string: I18N.Onboarding.am[row], attributes: [NSAttributedString.Key.foregroundColor: UIColor.UmbbaBlack])
+            return attributedString
         }
     }
     
@@ -138,7 +141,7 @@ extension PushAlarmViewController: UIPickerViewDelegate, UIPickerViewDataSource 
             pushAlarmTime["period"] = I18N.Onboarding.am[row]
         }
     }
-    
+
     func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
         return 60
     }
