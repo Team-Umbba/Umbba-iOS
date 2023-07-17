@@ -15,6 +15,9 @@ enum URLConstant {
     
     // MARK: - Auth URL
     
+    static let logoutURL = baseURL + "/log-out"
+    static let signoutURL = baseURL + "/sign-out"
+    
     // MARK: - OnBoarding URL
     
     static let matchURL = baseURL + "/onboard/match"
