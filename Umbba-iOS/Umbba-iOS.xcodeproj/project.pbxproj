@@ -16,6 +16,7 @@
 		149099E92A5FBDF6007242C6 /* AnswerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149099E82A5FBDF6007242C6 /* AnswerDetailViewController.swift */; };
 		149099EB2A602EB0007242C6 /* WithdrawalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149099EA2A602EB0007242C6 /* WithdrawalView.swift */; };
 		149099ED2A603143007242C6 /* WithdrawalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149099EC2A603143007242C6 /* WithdrawalViewController.swift */; };
+		14A018092A65A1EB008C8518 /* SignOutEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A018082A65A1EB008C8518 /* SignOutEntity.swift */; };
 		14A01D432A57D8A200D4F860 /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A01D422A57D8A200D4F860 /* SettingTableViewCell.swift */; };
 		14A0ACE82A62A50600C42097 /* BlurredLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A0ACE72A62A50600C42097 /* BlurredLabel.swift */; };
 		14A6D3062A5A63EF003A83B3 /* SettingSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A6D3052A5A63EF003A83B3 /* SettingSectionHeaderView.swift */; };
@@ -169,6 +170,7 @@
 		149099E82A5FBDF6007242C6 /* AnswerDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerDetailViewController.swift; sourceTree = "<group>"; };
 		149099EA2A602EB0007242C6 /* WithdrawalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithdrawalView.swift; sourceTree = "<group>"; };
 		149099EC2A603143007242C6 /* WithdrawalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithdrawalViewController.swift; sourceTree = "<group>"; };
+		14A018082A65A1EB008C8518 /* SignOutEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignOutEntity.swift; sourceTree = "<group>"; };
 		14A01D422A57D8A200D4F860 /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
 		14A0ACE72A62A50600C42097 /* BlurredLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurredLabel.swift; sourceTree = "<group>"; };
 		14A6D3052A5A63EF003A83B3 /* SettingSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingSectionHeaderView.swift; sourceTree = "<group>"; };
@@ -356,6 +358,14 @@
 				149099E82A5FBDF6007242C6 /* AnswerDetailViewController.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		14A018072A65A159008C8518 /* SignOut */ = {
+			isa = PBXGroup;
+			children = (
+				14A018082A65A1EB008C8518 /* SignOutEntity.swift */,
+			);
+			path = SignOut;
 			sourceTree = "<group>";
 		};
 		14AC19B02A57C23900A01E4F /* ViewController */ = {
@@ -963,6 +973,7 @@
 		697E19A12A63203B00D4752D /* Auth */ = {
 			isa = PBXGroup;
 			children = (
+				14A018072A65A159008C8518 /* SignOut */,
 				697E19A32A6320CE00D4752D /* Login */,
 				697E19A82A63210500D4752D /* WithDrawal */,
 				697E19A72A6320FE00D4752D /* Logout */,
@@ -1475,6 +1486,7 @@
 				A42723BB2A553069003C445F /* LoginViewController.swift in Sources */,
 				697815852A5300290047944C /* UITableViewRegiseterable.swift in Sources */,
 				697E19AD2A63217E00D4752D /* ReIssueEntity.swift in Sources */,
+				14A018092A65A1EB008C8518 /* SignOutEntity.swift in Sources */,
 				6978158E2A5300F90047944C /* ButtonPress.swift in Sources */,
 				A42740F22A5FBDF600D05B14 /* LottieView.swift in Sources */,
 				14AA29842A5685050038CDA1 /* NoticeAlarmViewController.swift in Sources */,

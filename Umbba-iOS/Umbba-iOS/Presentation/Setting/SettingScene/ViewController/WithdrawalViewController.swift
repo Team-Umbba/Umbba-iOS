@@ -22,7 +22,7 @@ class WithdrawalViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setDelegate()
     }
 }
@@ -51,8 +51,29 @@ extension WithdrawalViewController: NavigationBarDelegate {
 extension WithdrawalViewController: WithdrawlDelegate {
     func withdrawlButtonTapped() {
         self.makeAlert(alertType: .withdrawalAlert) {
-            print("회원 탈퇴")
-            self.navigationController?.pushViewController(LoginViewController(), animated: true)
+            self.patchSignOutAPI()
+        }
+    }
+}
+
+// MARK: - Network
+    
+private extension WithdrawalViewController {
+    func patchSignOutAPI() {
+        AuthService.shared.patchSignOutAPI { NetworkResult in
+            switch NetworkResult {
+            case .success:
+                guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+                      let keyWindow = windowScene.windows.first else {
+                    return
+                }
+                keyWindow.rootViewController = UINavigationController(rootViewController: LottieViewController())
+                if let navigationController = keyWindow.rootViewController as? UINavigationController {
+                    navigationController.isNavigationBarHidden = true
+                }
+            default:
+                break
+            }
         }
     }
 }
