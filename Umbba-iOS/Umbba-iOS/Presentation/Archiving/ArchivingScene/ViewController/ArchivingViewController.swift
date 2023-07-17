@@ -104,6 +104,22 @@ private extension ArchivingViewController {
             }
         }
     }
+    
+    func getArchivingDetailAPI(row: Int) {
+        ArchivingListService.shared.getArchivingDetailAPI(qnaId: row) { networkResult in
+            switch networkResult {
+            case .success(let data):
+                if let data = data as? GenericResponse<DetailEntity> {
+                    dump(data)
+                    let nav = AnswerDetailViewController()
+                    self.navigationController?.pushViewController(nav, animated: true)
+                }
+            default:
+                break
+            }
+            
+        }
+    }
 }
 
 extension ArchivingViewController: UICollectionViewDelegate {
@@ -125,7 +141,8 @@ extension ArchivingViewController: UICollectionViewDelegate {
                 headerIndex = indexPath.row
             }
         case .question:
-            break
+            print(listEntity[indexPath.row].qnaID)
+            getArchivingDetailAPI(row: listEntity[indexPath.row].qnaID)
         }
     }
     
