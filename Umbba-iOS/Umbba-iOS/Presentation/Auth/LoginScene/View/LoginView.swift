@@ -22,6 +22,18 @@ final class LoginView: UIView {
     
     // MARK: - UI Components
     
+    private let loginBackgroundImage: UIImageView = {
+        let backgroundimage = UIImageView()
+        backgroundimage.contentMode = .scaleAspectFill
+        backgroundimage.contentMode = .scaleAspectFill
+        if SizeLiterals.Screen.deviceRatio > 0.5 {
+            backgroundimage.image = ImageLiterals.Auth.SE_login
+        } else {
+            backgroundimage.image = ImageLiterals.Auth.img_login
+        }
+        return backgroundimage
+    }()
+    
     private let logoImage: UIImageView = {
         let image = UIImageView()
         image.image = ImageLiterals.Common.img_umbbaLogo
@@ -116,10 +128,15 @@ private extension LoginView {
     func setHierarchy() {
         loginAppleButton.addSubviews(loginAppleImage, loginAppleTitle)
         loginKakaoButton.addSubviews(loginKakaoImage, loginKakaoTitle)
-        addSubviews(logoImage, logoTitle, logoSubTitle, loginAppleButton, loginKakaoButton)
+        addSubviews(loginBackgroundImage, logoImage, logoTitle, logoSubTitle, loginAppleButton, loginKakaoButton)
     }
     
     func setLayout() {
+        loginBackgroundImage.snp.makeConstraints {
+            $0.top.leading.trailing.equalToSuperview()
+            $0.bottom.equalTo(safeAreaInsets)
+        }
+        
         logoImage.snp.makeConstraints {
             $0.centerX.equalToSuperview()
             $0.top.equalToSuperview().inset(97)
