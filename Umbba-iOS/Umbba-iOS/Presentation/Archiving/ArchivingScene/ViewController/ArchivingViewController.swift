@@ -13,6 +13,8 @@ final class ArchivingViewController: UIViewController {
     
     private typealias SectionType = Section
     
+    var headerIndex = 0
+    
     @frozen
     private enum Section: CaseIterable {
         case section, question
@@ -25,7 +27,13 @@ final class ArchivingViewController: UIViewController {
     private lazy var collectionView = archivingCollectionView.ArchivingCollectionView
     private lazy var archivingHeaderview = ArchivingQuestionHeaderView()
     
-    private var archivingQuestionModel: [ArchivingQuestionItem] = ArchivingQuestionItem.archivingQuestionDummy()
+    private var listEntity: [ListEntity] = [] {
+        didSet {
+            self.collectionView.reloadSections([1])
+        }
+    }
+    
+    private var selectedIndex: [Int] = []
     
     private let deviceRatio = UIScreen.main.bounds.width / UIScreen.main.bounds.height
     
@@ -34,6 +42,7 @@ final class ArchivingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        getListAPI(row: 1)
         setUI()
         setDelegate()
         setHierarchy()
@@ -78,24 +87,42 @@ extension ArchivingViewController {
     }
 }
 
+// MARK: - Network
+
+private extension ArchivingViewController {
+    func getListAPI(row: Int) {
+        ArchivingListService.shared.getArchivingListAPI(sectionId: row) { networkResult in
+            switch networkResult {
+            case .success(let data):
+                if let data = data as? GenericResponse<[ListEntity]> {
+                    if let listData = data.data {
+                        self.listEntity = listData
+                    }
+                }
+            default:
+                break
+            }
+        }
+    }
+}
+
 extension ArchivingViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let sectionType = Section.allCases[indexPath.section]
         switch sectionType {
         case .section:
             if let cell = collectionView.cellForItem(at: indexPath) as? ArchivingSectionCollectionViewCell {
-                labelTapped(index: indexPath.row)
-                cell.selectedSectionIndexPath = indexPath.row
-                cell.backgroundColor = .Primary600
-                cell.archivingSectionLabel.textColor = .UmbbaWhite
+                cell.isSelected = true
             }
-
-            if deviceRatio > 0.5 {
+            selectedIndex.append(indexPath.row)
+            getListAPI(row: indexPath.row + 1)
+            
+            if SizeLiterals.Screen.deviceRatio > 0.5 {
                 archivingImageView.setSEDataBind(section: indexPath.row)
-                updateHeaderLabel(I18N.Archiving.sectionArray[indexPath.row])
+                headerIndex = indexPath.row
             } else {
                 archivingImageView.setDataBind(section: indexPath.row)
-                updateHeaderLabel(I18N.Archiving.sectionArray[indexPath.row])
+                headerIndex = indexPath.row
             }
         case .question:
             break
@@ -107,8 +134,11 @@ extension ArchivingViewController: UICollectionViewDelegate {
         switch sectionType {
         case .section:
             if let cell = collectionView.cellForItem(at: indexPath) as? ArchivingSectionCollectionViewCell {
-                cell.backgroundColor = .UmbbaWhite
-                cell.archivingSectionLabel.textColor = .Primary600
+                cell.isSelected = false
+            }
+            
+            if let index = selectedIndex.firstIndex(of: indexPath.row) {
+                selectedIndex.remove(at: index)
             }
         case .question:
             break
@@ -123,23 +153,20 @@ extension ArchivingViewController: UICollectionViewDataSource {
         case .section:
             let cell =
                     ArchivingSectionCollectionViewCell.dequeueReusableCell(collectionView: collectionView, indexPath: indexPath)
-            cell.delegate = self
             cell.archivingSectionLabel.text = "# \(I18N.Archiving.sectionArray[indexPath.row])"
+            cell.tag = indexPath.item
+            
             if indexPath.item == 0 {
-                cell.backgroundColor = .Primary600
-                cell.archivingSectionLabel.textColor = .UmbbaWhite
-                collectionView.selectItem(at: indexPath, animated: false, scrollPosition: .init())
-                
-                if deviceRatio > 0.5 {
-                    archivingImageView.setSEDataBind(section: indexPath.row)
-                } else {
-                    archivingImageView.setDataBind(section: indexPath.row)
-                }
+                collectionView.selectItem(at: indexPath, animated: false, scrollPosition: [])
+                cell.isSelected = true
+            } else {
+                cell.isSelected = false
             }
+            
             return cell
         case .question:
             let cell = ArchivingQuestionCollectionViewCell.dequeueReusableCell(collectionView: collectionView, indexPath: indexPath)
-            cell.setDataBind(model: archivingQuestionModel[indexPath.row])
+            cell.setDataBind(model: listEntity[indexPath.item])
             return cell
         }
     }
@@ -150,7 +177,7 @@ extension ArchivingViewController: UICollectionViewDataSource {
         case .section:
             return I18N.Archiving.sectionArray.count
         case .question:
-            return archivingQuestionModel.count
+            return listEntity.count
         }
     }
     
@@ -162,7 +189,7 @@ extension ArchivingViewController: UICollectionViewDataSource {
             return view
         case .question:
             let headerView = ArchivingQuestionHeaderView.dequeueReusableHeaderView(collectionView: collectionView, indexPath: indexPath)
-            headerView.headerLabel.text = I18N.Archiving.sectionArray[0]
+            headerView.headerLabel.text = I18N.Archiving.sectionArray[headerIndex]
             return headerView
         }
     }
@@ -171,16 +198,5 @@ extension ArchivingViewController: UICollectionViewDataSource {
 extension ArchivingViewController: UICollectionViewDelegateFlowLayout {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return Section.allCases.count
-    }
-}
-
-extension ArchivingViewController: ArchivingDelegate {
-    func labelTapped(index: Int) {
-        guard let cell = collectionView.cellForItem(at: IndexPath(item: 0, section: 0)) as? ArchivingSectionCollectionViewCell else { return }
-        
-        for visibleCell in collectionView.visibleCells {
-            guard let archivingCell = visibleCell as? ArchivingSectionCollectionViewCell else { continue }
-        }
-        
     }
 }
