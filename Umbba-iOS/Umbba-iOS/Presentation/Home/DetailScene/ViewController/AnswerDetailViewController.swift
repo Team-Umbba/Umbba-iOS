@@ -17,6 +17,8 @@ final class AnswerDetailViewController: UIViewController {
         }
     }
     
+    var questionId: Int = -1
+    
     // MARK: - UI Components
     
     private let answerDetailView = AnswerDetailView()
@@ -38,7 +40,7 @@ final class AnswerDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        getTodayAPI()
+        getAPI()
         setDelegate()
     }
 }
@@ -55,6 +57,14 @@ extension AnswerDetailViewController {
     func fetchData() {
         guard let todayEntity = todayEntity else { return }
         answerDetailView.setDataBind(model: todayEntity)
+    }
+    
+    func getAPI() {
+        if questionId == -1 {
+            getTodayAPI()
+        } else {
+            getArchivingDetailAPI(row: questionId)
+        }
     }
 }
 
@@ -95,6 +105,19 @@ extension AnswerDetailViewController {
                     if let todayData = data.data {
                         self.todayEntity = todayData
                     }
+                }
+            default:
+                break
+            }
+        }
+    }
+    
+    func getArchivingDetailAPI(row: Int) {
+        ArchivingListService.shared.getArchivingDetailAPI(qnaId: row) { networkResult in
+            switch networkResult {
+            case .success(let data):
+                if let data = data as? GenericResponse<DetailEntity> {
+                    dump(data)
                 }
             default:
                 break
