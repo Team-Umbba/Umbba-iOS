@@ -76,6 +76,7 @@ extension ArchivingViewController {
     }
     
     private func setDelegate() {
+        archivingCollectionView.archivingQuestionDelegate = self
         collectionView.delegate = self
         collectionView.dataSource = self
     }
@@ -84,6 +85,14 @@ extension ArchivingViewController {
         if let headerView = collectionView.supplementaryView(forElementKind: UICollectionView.elementKindSectionHeader, at: IndexPath(item: 0, section: 1)) as? ArchivingQuestionHeaderView {
             headerView.headerLabel.text = text
         }
+    }
+}
+
+extension ArchivingViewController: ArchivingQuestionDelegate {
+    func archivingQuestionID(qnaId: Int) {
+        let nav = AnswerDetailViewController()
+        nav.questionId = qnaId
+        self.navigationController?.pushViewController(nav, animated: true)
     }
 }
 
@@ -102,22 +111,6 @@ private extension ArchivingViewController {
             default:
                 break
             }
-        }
-    }
-    
-    func getArchivingDetailAPI(row: Int) {
-        ArchivingListService.shared.getArchivingDetailAPI(qnaId: row) { networkResult in
-            switch networkResult {
-            case .success(let data):
-                if let data = data as? GenericResponse<DetailEntity> {
-                    dump(data)
-                    let nav = AnswerDetailViewController()
-                    self.navigationController?.pushViewController(nav, animated: true)
-                }
-            default:
-                break
-            }
-            
         }
     }
 }
@@ -142,7 +135,8 @@ extension ArchivingViewController: UICollectionViewDelegate {
             }
         case .question:
             print(listEntity[indexPath.row].qnaID)
-            getArchivingDetailAPI(row: listEntity[indexPath.row].qnaID)
+            archivingQuestionID(qnaId: listEntity[indexPath.row].qnaID)
+//            getArchivingDetailAPI(row: listEntity[indexPath.row].qnaID)
         }
     }
     

@@ -9,6 +9,10 @@ import UIKit
 
 import SnapKit
 
+protocol ArchivingQuestionDelegate: AnyObject {
+    func archivingQuestionID(qnaId: Int)
+}
+
 final class ArchivingCollectionView: UIView {
     
     private typealias SectionType = Section
@@ -17,6 +21,8 @@ final class ArchivingCollectionView: UIView {
     private enum Section: CaseIterable {
         case section, question
     }
+    
+    weak var archivingQuestionDelegate: ArchivingQuestionDelegate?
     
     // MARK: - UI Components
     
@@ -62,6 +68,12 @@ private extension ArchivingCollectionView {
         ArchivingCollectionView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
+    }
+    
+    @objc
+    func archivingQuestionID(qnaId: Int) {
+        archivingQuestionDelegate?.archivingQuestionID(qnaId: qnaId)
+        print(qnaId)
     }
     
     private func registerCell() {
