@@ -63,6 +63,37 @@ extension CompleteViewController: NavigationBarDelegate {
 
 extension CompleteViewController: NextButtonDelegate {
     func nextButtonTapped() {
-        self.navigationController?.pushViewController(TabBarController(), animated: true)
+        self.postInviteAPI(user_info: InviteData.shared.userInfo,
+                           is_invitor_child: InviteData.shared.isInvitorChild,
+                           relation_info: InviteData.shared.relationInfo,
+                           push_time: InviteData.shared.pushTime,
+                           onboarding_answer_list: InviteData.shared.onboardingAnswerList)
+    }
+}
+
+// MARK: - Network
+
+extension CompleteViewController {
+    func postInviteAPI(user_info: User,
+                       is_invitor_child: Bool,
+                       relation_info: String,
+                       push_time: String,
+                       onboarding_answer_list: [String]) {
+        OnBoardingService.shared.postInviteAPI(user_Info: user_info,
+                                               is_invitor_child: is_invitor_child,
+                                               relation_Info: relation_info,
+                                               push_time: push_time,
+                                               onboarding_answer_list: onboarding_answer_list) { NetworkResult in
+            print(NetworkResult)
+            switch NetworkResult {
+            case .success(let data):
+                if let data = data as? GenericResponse<InviteEntity> {
+                    print(data)
+                    self.navigationController?.pushViewController(TabBarController(), animated: true)
+                }
+            default:
+                break
+            }
+        }
     }
 }
