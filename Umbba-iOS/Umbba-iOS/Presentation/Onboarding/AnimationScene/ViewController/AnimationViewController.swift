@@ -44,6 +44,6 @@ extension AnimationViewController: NextButtonDelegate {
     func nextButtonTapped() {
         let userInfoViewController =  UserInfoViewController()
         self.navigationController?.pushViewController(userInfoViewController, animated: true)
-        userInfoViewController.isReceiver = true
+        userInfoViewController.isReceiver = self.isReceiver
     }
 }

@@ -12,6 +12,8 @@ import SnapKit
 final class InviteViewController: UIViewController {
     
     // MARK: - Properties
+    
+    var isReceiver: Bool = false
     var inviteCode: String = ""
     
     // MARK: - UI Components
@@ -51,7 +53,6 @@ extension InviteViewController {
     func setDelegate() {
         inviteView.navigationdelegate = self
         inviteView.nextDelegate = self
-        inviteView.inviteDelegate = self
     }
 }
 
@@ -67,13 +68,8 @@ extension InviteViewController: NavigationBarDelegate {
 
 extension InviteViewController: NextButtonDelegate {
     func nextButtonTapped() {
+        guard let inviteCode = inviteView.inviteTextField.text else { return }
         patchMatchAPI(inviteCode: self.inviteCode)
-    }
-}
-
-extension InviteViewController: InviteDelegate {
-    func sendInviteCode(inviteCode: String) {
-        self.inviteCode = inviteCode
     }
 }
 

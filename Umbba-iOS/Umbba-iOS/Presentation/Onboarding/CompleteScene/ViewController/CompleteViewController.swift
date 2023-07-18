@@ -63,6 +63,56 @@ extension CompleteViewController: NavigationBarDelegate {
 
 extension CompleteViewController: NextButtonDelegate {
     func nextButtonTapped() {
-        self.navigationController?.pushViewController(TabBarController(), animated: true)
+//        self.postInviteAPI(user_info: UserData.shared.userInfo,
+//                           is_invitor_child: UserData.shared.isInvitorChild,
+//                           relation_info: UserData.shared.relationInfo,
+//                           push_time: UserData.shared.pushTime,
+//                           onboarding_answer_list: UserData.shared.onboardingAnswerList)
+        self.patchReceiveAPI(user_info: UserData.shared.userInfo,
+                             onboarding_answer_list: UserData.shared.onboardingAnswerList)
+    }
+}
+
+// MARK: - Network
+
+extension CompleteViewController {
+    func postInviteAPI(user_info: User,
+                       is_invitor_child: Bool,
+                       relation_info: String,
+                       push_time: String,
+                       onboarding_answer_list: [String]) {
+        OnBoardingService.shared.postInviteAPI(user_Info: user_info,
+                                               is_invitor_child: is_invitor_child,
+                                               relation_Info: relation_info,
+                                               push_time: push_time,
+                                               onboarding_answer_list: onboarding_answer_list) { NetworkResult in
+            print(NetworkResult)
+            switch NetworkResult {
+            case .success(let data):
+                if let data = data as? GenericResponse<InviteEntity> {
+                    print(data)
+                    self.navigationController?.pushViewController(TabBarController(), animated: true)
+                }
+            default:
+                break
+            }
+        }
+    }
+    
+    func patchReceiveAPI(user_info: User,
+                         onboarding_answer_list: [String]) {
+        OnBoardingService.shared.patchRecieveAPI(user_Info: user_info,
+                                                 onboarding_answer_list: onboarding_answer_list) { NetworkResult in
+            print(NetworkResult)
+            switch NetworkResult {
+            case .success(let data):
+                if let data = data as? GenericResponse<InviteEntity> {
+                    print(data)
+                    self.navigationController?.pushViewController(TabBarController(), animated: true)
+                }
+            default:
+                break
+            }
+        }
     }
 }

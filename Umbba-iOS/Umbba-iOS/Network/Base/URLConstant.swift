@@ -21,6 +21,8 @@ enum URLConstant {
     // MARK: - OnBoarding URL
     
     static let matchURL = baseURL + "/onboard/match"
+    static let inviteURL = baseURL + "/onboard/invite"
+    static let receiveURL = baseURL + "/onboard/receive"
     
     // MARK: - Home URL
     

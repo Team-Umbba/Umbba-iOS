@@ -7,11 +7,10 @@
 
 import Foundation
 
-// MARK: - DataClass
 struct MatchEntity: Codable {
-    let parentchildID: Int
-    let parentchildUsers: [ParentchildUser]
-    let parentchildRelation: String
+    let parentchildID: Int?
+    let parentchildUsers: [ParentchildUser]?
+    let parentchildRelation: String?
 
     enum CodingKeys: String, CodingKey {
         case parentchildID = "parentchild_id"
@@ -21,17 +20,17 @@ struct MatchEntity: Codable {
 }
 
 // MARK: - ParentchildUser
+
 struct ParentchildUser: Codable {
-    let userID: Int
+    let userID: Int?
     let name, gender: String?
     let bornYear: Int?
-    let meChild, hasAlarm: Bool
+    let isMeChild: Bool?
 
     enum CodingKeys: String, CodingKey {
         case userID = "user_id"
         case name, gender
         case bornYear = "born_year"
-        case meChild = "me_child"
-        case hasAlarm = "has_alarm"
+        case isMeChild = "is_me_child"
     }
 }
