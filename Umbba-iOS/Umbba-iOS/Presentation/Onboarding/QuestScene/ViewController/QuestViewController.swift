@@ -116,12 +116,12 @@ extension QuestViewController: NextButtonDelegate {
         guard let currentIndexPath = questCollectionView.indexPathsForVisibleItems.first else { return }
         
         if currentIndexPath.item + 1 == 5 {
+            answerListArray = convertToAnswerArray(questionModels: answerArray)
+            print(answerListArray)
+            UserData.shared.onboardingAnswerList = answerListArray
             if isReceiver {
                 self.navigationController?.pushViewController(NoticeAlarmViewController(), animated: true)
             } else {
-                answerListArray = convertToAnswerArray(questionModels: answerArray)
-                print(answerListArray)
-                UserData.shared.onboardingAnswerList =  answerListArray
                 self.navigationController?.pushViewController(PushAlarmViewController(), animated: true)
             }
         } else {

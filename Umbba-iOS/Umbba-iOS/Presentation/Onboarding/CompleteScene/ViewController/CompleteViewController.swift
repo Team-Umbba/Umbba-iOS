@@ -106,7 +106,7 @@ extension CompleteViewController {
             print(NetworkResult)
             switch NetworkResult {
             case .success(let data):
-                if let data = data as? GenericResponse<InviteEntity> {
+                if let data = data as? GenericResponse<ReceiveEntity> {
                     print(data)
                     self.navigationController?.pushViewController(TabBarController(), animated: true)
                 }
