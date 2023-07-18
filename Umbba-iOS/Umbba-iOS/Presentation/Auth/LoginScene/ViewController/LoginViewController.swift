@@ -99,7 +99,7 @@ extension LoginViewController: LoginDelegate {
     }
     
     func showKakaoLoginFailMessage() {
-        print("KakaoLoginFail")
+        makeAlert(title: "카카오톡 로그인에 실패하였습니다.", message: "")
     }
     
     func postSocialLoginData(socialToken: String, socialType: String) {
