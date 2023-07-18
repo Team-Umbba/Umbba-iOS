@@ -101,6 +101,9 @@ extension LoginViewController: LoginDelegate {
         if kakaoEntity.username != nil {
             presentToMainView()
         } else {
+            UserManager.shared.accessToken = kakaoEntity.tokenDto.accessToken
+            UserManager.shared.refreshToken = kakaoEntity.tokenDto.refreshToken
+            UserManager.shared.fcmToken = kakaoEntity.fcmToken
             NetworkConstant.accessToken = "Bearer \(kakaoEntity.tokenDto.accessToken)"
             presentToAssignView()
         }
