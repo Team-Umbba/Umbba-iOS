@@ -44,9 +44,6 @@ extension ArchivingListService {
     
     func getArchivingDetailAPI(qnaId: Int, completion: @escaping (NetworkResult<Any>) -> Void) {
         let url = URLConstant.qnaURL + "/\(qnaId)"
-        print("🍉🍉🍉🍉")
-        print(url)
-        print("🍉🍉🍉🍉")
         let header: HTTPHeaders = NetworkConstant.hasTokenHeader
         let dataRequest = AF.request(url,
                                      method: .get,

@@ -71,9 +71,6 @@ extension AnswerDetailViewController {
     }
     
     func getAPI() {
-        print("🍊🍊🍊🍊🍊")
-        print(questionId)
-        print("🍊🍊🍊🍊🍊")
         if questionId == -1 {
             getTodayAPI()
             
@@ -132,7 +129,6 @@ extension AnswerDetailViewController {
             switch networkResult {
             case .success(let data):
                 if let data = data as? GenericResponse<DetailEntity> {
-                    dump(data)
                     if let detailData = data.data {
                         self.detailEntity = detailData
                     }
