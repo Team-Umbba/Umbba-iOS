@@ -15,6 +15,7 @@ enum URLConstant {
     
     // MARK: - Auth URL
     
+    static let loginURL = baseURL + "/login"
     static let logoutURL = baseURL + "/log-out"
     static let signoutURL = baseURL + "/sign-out"
     
