@@ -149,6 +149,7 @@
 		A42740EE2A5FBBE500D05B14 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = A42740ED2A5FBBE500D05B14 /* Lottie */; };
 		A42740F02A5FBCA100D05B14 /* LottieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42740EF2A5FBCA100D05B14 /* LottieViewController.swift */; };
 		A42740F22A5FBDF600D05B14 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42740F12A5FBDF600D05B14 /* LottieView.swift */; };
+		A4743BA02A673D42007FB69C /* MakeAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4743B9F2A673D42007FB69C /* MakeAlert.swift */; };
 		A47BDA492A5D5FD6007B8E3E /* AssignView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47BDA482A5D5FD6007B8E3E /* AssignView.swift */; };
 		A47BDA4B2A5D5FE9007B8E3E /* AssignViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47BDA4A2A5D5FE9007B8E3E /* AssignViewController.swift */; };
 		A489BDF82A5AA5020027E817 /* ArchivingQuestionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A489BDF72A5AA5020027E817 /* ArchivingQuestionItem.swift */; };
@@ -291,6 +292,7 @@
 		A42723C82A5A8162003C445F /* ArchivingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchivingViewController.swift; sourceTree = "<group>"; };
 		A42740EF2A5FBCA100D05B14 /* LottieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieViewController.swift; sourceTree = "<group>"; };
 		A42740F12A5FBDF600D05B14 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
+		A4743B9F2A673D42007FB69C /* MakeAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeAlert.swift; sourceTree = "<group>"; };
 		A47BDA482A5D5FD6007B8E3E /* AssignView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignView.swift; sourceTree = "<group>"; };
 		A47BDA4A2A5D5FE9007B8E3E /* AssignViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignViewController.swift; sourceTree = "<group>"; };
 		A489BDF72A5AA5020027E817 /* ArchivingQuestionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchivingQuestionItem.swift; sourceTree = "<group>"; };
@@ -636,6 +638,7 @@
 				6978158F2A53015D0047944C /* MakeVibrate.swift */,
 				14A0ACE72A62A50600C42097 /* BlurredLabel.swift */,
 				6951A6AD2A62D93A00D49692 /* ShowToast.swift */,
+				A4743B9F2A673D42007FB69C /* MakeAlert.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1543,6 +1546,7 @@
 				697815812A52FFF50047944C /* NSObject+.swift in Sources */,
 				A42723BF2A5537CD003C445F /* EntryView.swift in Sources */,
 				697815D72A530C120047944C /* Setting.swift in Sources */,
+				A4743BA02A673D42007FB69C /* MakeAlert.swift in Sources */,
 				A489BDF82A5AA5020027E817 /* ArchivingQuestionItem.swift in Sources */,
 				14DBE1712A631DF200CD8E7E /* AnimationView.swift in Sources */,
 				A4C776152A614ACB00375378 /* MainItem.swift in Sources */,
