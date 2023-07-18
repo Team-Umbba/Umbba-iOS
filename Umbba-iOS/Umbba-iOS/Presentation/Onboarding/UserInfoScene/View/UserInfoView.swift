@@ -18,6 +18,7 @@ final class UserInfoView: UIView {
     
     private var selectedButton: Int = 0
     private var genderButton: [UIButton] = []
+    private var gender: String = ""
     
     // MARK: - UI Components
     
@@ -373,6 +374,9 @@ private extension UserInfoView {
     @objc
     func nextButtonTapped() {
         nextDelegate?.nextButtonTapped()
+        InviteData.shared.userInfo.name = nameTextField.text ?? ""
+        InviteData.shared.userInfo.gender = gender
+        InviteData.shared.userInfo.bornYear = Int(birthTextField.text ?? "") ?? 0
     }
     
     @objc
@@ -384,6 +388,7 @@ private extension UserInfoView {
             button.isSelected = sender == button
             if button.isSelected {
                 print(gender)
+                self.gender = gender
             }
         }
     }
