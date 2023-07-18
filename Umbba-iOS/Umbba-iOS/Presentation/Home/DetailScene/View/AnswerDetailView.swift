@@ -259,7 +259,7 @@ private extension AnswerDetailView {
 }
 
 extension AnswerDetailView {
-    func setDataBind(model: TodayEntity) {
+    func setTodayDataBind(model: TodayEntity) {
 
         if model.isMyAnswer {
             myAnswerContent.text = model.myAnswer
@@ -285,5 +285,18 @@ extension AnswerDetailView {
         partnerNameLabel.text = model.opponentUsername
         myQuestLabel.text = model.myQuestion
         myNameLabel.text = model.myUsername
+    }
+    
+    func setDetailDataBind(model: DetailEntity) {
+
+        navigationBarView.cafe24Title = model.section
+        numberLabel.text = "#\(model.index)"
+        themeLabel.text = model.topic
+        partnerQeustLabel.text = model.opponentQuestion
+        partnerNameLabel.text = model.opponentUsername
+        myQuestLabel.text = model.myQuestion
+        myNameLabel.text = model.myUsername
+        myAnswerContent.text = model.myAnswer
+        partnerAnswerContent.text = model.opponentAnswer
     }
 }
