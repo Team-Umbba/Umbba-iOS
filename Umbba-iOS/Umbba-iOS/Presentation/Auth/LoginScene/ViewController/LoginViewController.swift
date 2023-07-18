@@ -174,10 +174,8 @@ extension LoginViewController: ASAuthorizationControllerDelegate {
         switch authorization.credential {
         case let appleIDCredential as ASAuthorizationAppleIDCredential:
             let userIdentifier = appleIDCredential.user
-            print("User ID : \(userIdentifier)")
             let identityToken = appleIDCredential.identityToken
             let tokenString = String(data: identityToken!, encoding: .utf8)
-            print(tokenString ?? "defaultstring")
             if let token = tokenString {
                 postLoginAPI(socialToken: token, socialPlatform: "APPLE")
             }
