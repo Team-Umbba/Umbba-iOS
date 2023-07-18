@@ -15,6 +15,7 @@ final class LoginViewController: UIViewController {
     // MARK: - Properties
     
     private var kakaoEntity: LoginEntity?
+    private var appleEntity: LoginEntity?
     
     // MARK: - UI Components
     
@@ -42,10 +43,21 @@ extension LoginViewController {
             case .success(let data):
                 if let data = data as? GenericResponse<LoginEntity> {
                     dump(data)
-                    if let kakaoData = data.data {
-                        self.kakaoEntity = kakaoData
-                        self.checkUser()
+                    switch socialPlatform {
+                    case "KAKAO":
+                        if let kakaoData = data.data {
+                            self.kakaoEntity = kakaoData
+                            self.checkKakaoUser()
+                        }
+                    case "APPLE":
+                        if let appleData = data.data {
+                            self.appleEntity = appleData
+                            self.checkAppleUser()
+                        }
+                    default:
+                        break
                     }
+                    
                 }
             default:
                 break
@@ -88,14 +100,14 @@ extension LoginViewController: LoginDelegate {
     }
     
     func showKakaoLoginFailMessage() {
-        print("🍔🍔🍔🍔🍔")
+        print("KakaoLoginFail")
     }
     
     func postSocialLoginData(socialToken: String, socialType: String) {
         postLoginAPI(socialToken: socialToken, socialPlatform: socialType)
     }
     
-    func checkUser() {
+    func checkKakaoUser() {
         guard let kakaoEntity = kakaoEntity else { return }
         
         if kakaoEntity.username != nil {
@@ -105,6 +117,20 @@ extension LoginViewController: LoginDelegate {
             UserManager.shared.refreshToken = kakaoEntity.tokenDto.refreshToken
             UserManager.shared.fcmToken = kakaoEntity.fcmToken
             NetworkConstant.accessToken = "Bearer \(kakaoEntity.tokenDto.accessToken)"
+            presentToAssignView()
+        }
+    }
+    
+    func checkAppleUser() {
+        guard let appleEntity = appleEntity else { return }
+        
+        if appleEntity.username != nil {
+            presentToMainView()
+        } else {
+            UserManager.shared.accessToken = appleEntity.tokenDto.accessToken
+            UserManager.shared.refreshToken = appleEntity.tokenDto.refreshToken
+            UserManager.shared.fcmToken = appleEntity.fcmToken
+            NetworkConstant.accessToken = "Bearer \(appleEntity.tokenDto.accessToken)"
             presentToAssignView()
         }
     }
@@ -133,7 +159,7 @@ extension LoginViewController: LoginDelegate {
     }
     
     func postSocialLoginAppleData(socialToken: String, socialType: String) {
-        print("💛💛💛💛💛")
+        postSocialLoginData(socialToken: socialToken, socialType: socialType)
     }
 }
 
@@ -153,7 +179,7 @@ extension LoginViewController: ASAuthorizationControllerDelegate {
             let tokenString = String(data: identityToken!, encoding: .utf8)
             print(tokenString ?? "defaultstring")
             if let token = tokenString {
-                postSocialLoginAppleData(socialToken: token, socialType: "APPLE")
+                postLoginAPI(socialToken: token, socialPlatform: "APPLE")
             }
         default:
             break
