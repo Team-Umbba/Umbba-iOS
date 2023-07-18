@@ -13,7 +13,13 @@ final class AnswerDetailViewController: UIViewController {
     
     private var todayEntity: TodayEntity? {
         didSet {
-            fetchData()
+            fetchTodayData()
+        }
+    }
+    
+    private var detailEntity: DetailEntity? {
+        didSet {
+            fetchDetailData()
         }
     }
     
@@ -54,14 +60,23 @@ extension AnswerDetailViewController {
         answerDetailView.homeDelegate = self
     }
     
-    func fetchData() {
+    func fetchTodayData() {
         guard let todayEntity = todayEntity else { return }
-        answerDetailView.setDataBind(model: todayEntity)
+        answerDetailView.setTodayDataBind(model: todayEntity)
+    }
+    
+    func fetchDetailData() {
+        guard let detailEntity = detailEntity else { return }
+        answerDetailView.setDetailDataBind(model: detailEntity)
     }
     
     func getAPI() {
+        print("🍊🍊🍊🍊🍊")
+        print(questionId)
+        print("🍊🍊🍊🍊🍊")
         if questionId == -1 {
             getTodayAPI()
+            
         } else {
             getArchivingDetailAPI(row: questionId)
         }
@@ -118,6 +133,9 @@ extension AnswerDetailViewController {
             case .success(let data):
                 if let data = data as? GenericResponse<DetailEntity> {
                     dump(data)
+                    if let detailData = data.data {
+                        self.detailEntity = detailData
+                    }
                 }
             default:
                 break
