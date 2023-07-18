@@ -38,11 +38,10 @@ final class LoginViewController: UIViewController {
 
 extension LoginViewController {
     func postLoginAPI(socialToken: String, socialPlatform: String) {
-        AuthService.shared.postLoginAPI(social_platform: socialPlatform, social_token: socialToken, fcm_token: "z") { networkResult in
+        AuthService.shared.postLoginAPI(social_platform: socialPlatform, social_token: socialToken, fcm_token: UserManager.shared.fcmToken) { networkResult in
             switch networkResult {
             case .success(let data):
                 if let data = data as? GenericResponse<LoginEntity> {
-                    dump(data)
                     switch socialPlatform {
                     case "KAKAO":
                         if let kakaoData = data.data {
@@ -129,7 +128,6 @@ extension LoginViewController: LoginDelegate {
         } else {
             UserManager.shared.accessToken = appleEntity.tokenDto.accessToken
             UserManager.shared.refreshToken = appleEntity.tokenDto.refreshToken
-            UserManager.shared.fcmToken = appleEntity.fcmToken
             NetworkConstant.accessToken = "Bearer \(appleEntity.tokenDto.accessToken)"
             presentToAssignView()
         }
