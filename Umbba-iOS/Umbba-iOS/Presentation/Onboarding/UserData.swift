@@ -5,8 +5,8 @@
 //  Created by 최영린 on 2023/07/18.
 //
 
-class InviteData {
-    static let shared = InviteData()
+class UserData {
+    static let shared = UserData()
     
     var userInfo: User
     var isInvitorChild: Bool

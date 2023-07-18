@@ -304,8 +304,8 @@ private extension FamilyInfoView {
     @objc
     func nextButtonTapped() {
         nextDelegate?.nextButtonTapped()
-        InviteData.shared.isInvitorChild = isInvitorChild
-        InviteData.shared.relationInfo = gender
+        UserData.shared.isInvitorChild = isInvitorChild
+        UserData.shared.relationInfo = gender
     }
     
     @objc

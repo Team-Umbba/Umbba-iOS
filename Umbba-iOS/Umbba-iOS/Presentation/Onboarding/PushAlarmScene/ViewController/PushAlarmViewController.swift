@@ -98,7 +98,7 @@ extension PushAlarmViewController: NextButtonDelegate {
     func nextButtonTapped() {
         convertToTime(time: pushAlarmTime)
         print("\(formattedTime)")
-        InviteData.shared.pushTime = formattedTime
+        UserData.shared.pushTime = formattedTime
         self.navigationController?.pushViewController(CompleteViewController(), animated: true)
     }
 }

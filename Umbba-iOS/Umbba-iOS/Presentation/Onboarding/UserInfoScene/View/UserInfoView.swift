@@ -374,9 +374,9 @@ private extension UserInfoView {
     @objc
     func nextButtonTapped() {
         nextDelegate?.nextButtonTapped()
-        InviteData.shared.userInfo.name = nameTextField.text ?? ""
-        InviteData.shared.userInfo.gender = gender
-        InviteData.shared.userInfo.bornYear = Int(birthTextField.text ?? "") ?? 0
+        UserData.shared.userInfo.name = nameTextField.text ?? ""
+        UserData.shared.userInfo.gender = gender
+        UserData.shared.userInfo.bornYear = Int(birthTextField.text ?? "") ?? 0
     }
     
     @objc

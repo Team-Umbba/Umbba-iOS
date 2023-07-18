@@ -121,7 +121,7 @@ extension QuestViewController: NextButtonDelegate {
             } else {
                 answerListArray = convertToAnswerArray(questionModels: answerArray)
                 print(answerListArray)
-                InviteData.shared.onboardingAnswerList =  answerListArray
+                UserData.shared.onboardingAnswerList =  answerListArray
                 self.navigationController?.pushViewController(PushAlarmViewController(), animated: true)
             }
         } else {

@@ -120,8 +120,7 @@
 		697E19D42A63284C00D4752D /* OnBoardingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697E19D32A63284C00D4752D /* OnBoardingService.swift */; };
 		697E19D62A63285D00D4752D /* HomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697E19D52A63285D00D4752D /* HomeService.swift */; };
 		697E19D82A63286C00D4752D /* ArchivingListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697E19D72A63286C00D4752D /* ArchivingListService.swift */; };
-		697E19DC2A65D63100D4752D /* InviteData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697E19DB2A65D63100D4752D /* InviteData.swift */; };
-		697E19DE2A65DA5500D4752D /* RecieveData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697E19DD2A65DA5500D4752D /* RecieveData.swift */; };
+		697E19DC2A65D63100D4752D /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 697E19DB2A65D63100D4752D /* UserData.swift */; };
 		6991BA6E2A5731330091D52D /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6991BA6D2A5731330091D52D /* UserInfoViewController.swift */; };
 		6991BA702A57314A0091D52D /* UserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6991BA6F2A57314A0091D52D /* UserInfoView.swift */; };
 		699455DB2A5AED0B003C118A /* PushAlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 699455DA2A5AED0B003C118A /* PushAlarmViewController.swift */; };
@@ -261,8 +260,7 @@
 		697E19D32A63284C00D4752D /* OnBoardingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingService.swift; sourceTree = "<group>"; };
 		697E19D52A63285D00D4752D /* HomeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeService.swift; sourceTree = "<group>"; };
 		697E19D72A63286C00D4752D /* ArchivingListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchivingListService.swift; sourceTree = "<group>"; };
-		697E19DB2A65D63100D4752D /* InviteData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteData.swift; sourceTree = "<group>"; };
-		697E19DD2A65DA5500D4752D /* RecieveData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecieveData.swift; sourceTree = "<group>"; };
+		697E19DB2A65D63100D4752D /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		6991BA6D2A5731330091D52D /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
 		6991BA6F2A57314A0091D52D /* UserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoView.swift; sourceTree = "<group>"; };
 		699455DA2A5AED0B003C118A /* PushAlarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushAlarmViewController.swift; sourceTree = "<group>"; };
@@ -756,8 +754,7 @@
 				697815E62A530F2B0047944C /* CompleteScene */,
 				697815E52A530F140047944C /* PushAlarmScene */,
 				697815E42A530EEC0047944C /* QuestScene */,
-				697E19DB2A65D63100D4752D /* InviteData.swift */,
-				697E19DD2A65DA5500D4752D /* RecieveData.swift */,
+				697E19DB2A65D63100D4752D /* UserData.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -1493,7 +1490,7 @@
 				69A67D7E2A5C12F100C43F49 /* AnswerWriteViewController.swift in Sources */,
 				697815EC2A5311770047944C /* Animation.swift in Sources */,
 				697E19D62A63285D00D4752D /* HomeService.swift in Sources */,
-				697E19DC2A65D63100D4752D /* InviteData.swift in Sources */,
+				697E19DC2A65D63100D4752D /* UserData.swift in Sources */,
 				149099E72A5FBB20007242C6 /* AnswerDetailView.swift in Sources */,
 				699455DB2A5AED0B003C118A /* PushAlarmViewController.swift in Sources */,
 				14A6D3062A5A63EF003A83B3 /* SettingSectionHeaderView.swift in Sources */,
@@ -1553,7 +1550,6 @@
 				691979F82A5C6A4E0069FB63 /* WithdrawalAlertView.swift in Sources */,
 				697815EE2A53117F0047944C /* UserInfo.swift in Sources */,
 				697815F82A5311C30047944C /* Quest.swift in Sources */,
-				697E19DE2A65DA5500D4752D /* RecieveData.swift in Sources */,
 				14AE602F2A63F72400BC43B8 /* CaseEntity.swift in Sources */,
 				A4A7635A2A5BC0B40055D413 /* ArchivingCollectionView.swift in Sources */,
 				69DE6BAF2A5432E600F31812 /* CustomButton.swift in Sources */,

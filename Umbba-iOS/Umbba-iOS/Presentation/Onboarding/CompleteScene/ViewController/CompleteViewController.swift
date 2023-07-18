@@ -63,11 +63,11 @@ extension CompleteViewController: NavigationBarDelegate {
 
 extension CompleteViewController: NextButtonDelegate {
     func nextButtonTapped() {
-        self.postInviteAPI(user_info: InviteData.shared.userInfo,
-                           is_invitor_child: InviteData.shared.isInvitorChild,
-                           relation_info: InviteData.shared.relationInfo,
-                           push_time: InviteData.shared.pushTime,
-                           onboarding_answer_list: InviteData.shared.onboardingAnswerList)
+        self.postInviteAPI(user_info: UserData.shared.userInfo,
+                           is_invitor_child: UserData.shared.isInvitorChild,
+                           relation_info: UserData.shared.relationInfo,
+                           push_time: UserData.shared.pushTime,
+                           onboarding_answer_list: UserData.shared.onboardingAnswerList)
     }
 }
 
