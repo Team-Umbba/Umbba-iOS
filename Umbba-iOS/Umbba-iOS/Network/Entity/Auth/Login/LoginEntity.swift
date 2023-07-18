@@ -7,18 +7,18 @@
 
 struct LoginEntity: Codable {
     let userID: Int
-    let isNewUser: Bool
+    let isMatchFinish: Bool
     let username: String?
     let gender: String?
     let bornYear: Int?
     let tokenDto: TokenDto
     let fcmToken, socialPlatform, socialNickname: String
-    let socialProfileImage: String
+    let socialProfileImage: String?
     let socialAccessToken: String
 
     enum CodingKeys: String, CodingKey {
         case userID = "user_id"
-        case isNewUser = "is_new_user"
+        case isMatchFinish = "is_match_finish"
         case username, gender
         case bornYear = "born_year"
         case tokenDto = "token_dto"
