@@ -108,9 +108,9 @@ enum I18N {
         static let settingNavigationTitle = "설정"
         static let accountNavigationTitle = "계정 관리"
         static let userSectionLabel = ["계정 관리"]
-        static let teamSectionLabel = ["About 엄빠도 어렸다", "이용약관", "공지사항"]
+        static let teamSectionLabel = ["About 엄빠도 어렸다", "이용약관", "개인정보 처리방침"]
         static let accountSectionLabel = ["로그아웃", "회원 탈퇴"]
-        static let urlArray = ["https://www.notion.so/f1a14bf60ed4421f9b3761ef88906adb",
+        static let urlArray = ["https://brawny-guan-098.notion.site/7b3e5f70a471468f8acbe56a1a4f4ec9?pvs=4",
                                "https://www.notion.so/99fe0f58825d4f87bd3b987fadc623b6",
                                "https://www.notion.so/99fe0f58825d4f87bd3b987fadc623b6"]
         static let cancelNavigatonTitle = "회원 탈퇴"
