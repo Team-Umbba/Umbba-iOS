@@ -25,6 +25,7 @@ final class QuestViewController: UIViewController {
     var answerArray: [QuestionModel] = (0...4).map {
         .init(number: $0, answer: -1)
     }
+    var answerListArray: [String] = []
     
     // MARK: - UI Components
     
@@ -63,6 +64,25 @@ private extension QuestViewController {
     func registerCell() {
         QuestCollectionViewCell.register(target: questCollectionView)
     }
+    
+    func convertToAnswerArray(questionModels: [QuestionModel]) -> [String] {
+        let answerArray = questionModels.map { $0.answer }
+
+        let convertedArray = answerArray.map { answer -> String in
+            switch answer {
+            case 0:
+                return "응"
+            case 1:
+                return "아니"
+            case 2:
+                return "애매해"
+            default:
+                return ""
+            }
+        }
+
+        return convertedArray
+    }
 }
 
 extension QuestViewController: NavigationBarDelegate {
@@ -99,6 +119,9 @@ extension QuestViewController: NextButtonDelegate {
             if isReceiver {
                 self.navigationController?.pushViewController(NoticeAlarmViewController(), animated: true)
             } else {
+                answerListArray = convertToAnswerArray(questionModels: answerArray)
+                print(answerListArray)
+                InviteData.shared.onboardingAnswerList =  answerListArray
                 self.navigationController?.pushViewController(PushAlarmViewController(), animated: true)
             }
         } else {
