@@ -63,11 +63,13 @@ extension CompleteViewController: NavigationBarDelegate {
 
 extension CompleteViewController: NextButtonDelegate {
     func nextButtonTapped() {
-        self.postInviteAPI(user_info: UserData.shared.userInfo,
-                           is_invitor_child: UserData.shared.isInvitorChild,
-                           relation_info: UserData.shared.relationInfo,
-                           push_time: UserData.shared.pushTime,
-                           onboarding_answer_list: UserData.shared.onboardingAnswerList)
+//        self.postInviteAPI(user_info: UserData.shared.userInfo,
+//                           is_invitor_child: UserData.shared.isInvitorChild,
+//                           relation_info: UserData.shared.relationInfo,
+//                           push_time: UserData.shared.pushTime,
+//                           onboarding_answer_list: UserData.shared.onboardingAnswerList)
+        self.patchReceiveAPI(user_info: UserData.shared.userInfo,
+                             onboarding_answer_list: UserData.shared.onboardingAnswerList)
     }
 }
 
@@ -84,6 +86,23 @@ extension CompleteViewController {
                                                relation_Info: relation_info,
                                                push_time: push_time,
                                                onboarding_answer_list: onboarding_answer_list) { NetworkResult in
+            print(NetworkResult)
+            switch NetworkResult {
+            case .success(let data):
+                if let data = data as? GenericResponse<InviteEntity> {
+                    print(data)
+                    self.navigationController?.pushViewController(TabBarController(), animated: true)
+                }
+            default:
+                break
+            }
+        }
+    }
+    
+    func patchReceiveAPI(user_info: User,
+                         onboarding_answer_list: [String]) {
+        OnBoardingService.shared.patchRecieveAPI(user_Info: user_info,
+                                                 onboarding_answer_list: onboarding_answer_list) { NetworkResult in
             print(NetworkResult)
             switch NetworkResult {
             case .success(let data):
