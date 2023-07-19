@@ -34,8 +34,6 @@ final class CompleteView: UIView {
     
     let completeTitleLabel: UILabel = {
         let label = UILabel()
-        label.text = I18N.Onboarding.completeTitle
-        label.textColor = .UmbbaWhite
         label.font = .PretendardSemiBold(size: 24)
         label.numberOfLines = 2
         return label
