@@ -396,6 +396,24 @@ private extension UserInfoView {
     }
 }
 
+extension UserInfoView {
+    internal override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+        if let resultView = super.hitTest(point, with: event) {
+            if resultView.isMember(of: UITextField.self) ||
+                resultView.isKind(of: UITextField.self) ||
+                resultView.isMember(of: UITextView.self) ||
+                resultView.isKind(of: UITextView.self) {
+                return resultView
+            }
+            if !resultView.isMember(of: UITextField.self) && !resultView.isMember(of: UITextView.self) {
+                endEditing(true)
+            }
+            return resultView
+        }
+        return nil
+    }
+}
+
 // MARK: - TextFieldDelegate
 
 extension UserInfoView: UITextFieldDelegate {
