@@ -15,12 +15,15 @@ enum URLConstant {
     
     // MARK: - Auth URL
     
+    static let loginURL = baseURL + "/login"
     static let logoutURL = baseURL + "/log-out"
     static let signoutURL = baseURL + "/sign-out"
     
     // MARK: - OnBoarding URL
     
     static let matchURL = baseURL + "/onboard/match"
+    static let inviteURL = baseURL + "/onboard/invite"
+    static let receiveURL = baseURL + "/onboard/receive"
     
     // MARK: - Home URL
     
@@ -34,4 +37,5 @@ enum URLConstant {
     // MARK: - Archiving URL
  
     static let archivingURL = baseURL + "/qna/list"
+    static let qnaURL = baseURL + "/qna"
 }

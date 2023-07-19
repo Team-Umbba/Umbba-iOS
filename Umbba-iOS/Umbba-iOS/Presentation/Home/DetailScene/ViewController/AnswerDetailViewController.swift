@@ -13,9 +13,17 @@ final class AnswerDetailViewController: UIViewController {
     
     private var todayEntity: TodayEntity? {
         didSet {
-            fetchData()
+            fetchTodayData()
         }
     }
+    
+    private var detailEntity: DetailEntity? {
+        didSet {
+            fetchDetailData()
+        }
+    }
+    
+    var questionId: Int = -1
     
     // MARK: - UI Components
     
@@ -38,7 +46,7 @@ final class AnswerDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        getTodayAPI()
+        getAPI()
         setDelegate()
     }
 }
@@ -52,9 +60,23 @@ extension AnswerDetailViewController {
         answerDetailView.homeDelegate = self
     }
     
-    func fetchData() {
+    func fetchTodayData() {
         guard let todayEntity = todayEntity else { return }
-        answerDetailView.setDataBind(model: todayEntity)
+        answerDetailView.setTodayDataBind(model: todayEntity)
+    }
+    
+    func fetchDetailData() {
+        guard let detailEntity = detailEntity else { return }
+        answerDetailView.setDetailDataBind(model: detailEntity)
+    }
+    
+    func getAPI() {
+        if questionId == -1 {
+            getTodayAPI()
+            
+        } else {
+            getArchivingDetailAPI(row: questionId)
+        }
     }
 }
 
@@ -99,6 +121,21 @@ extension AnswerDetailViewController {
                 if let data = data as? GenericResponse<TodayEntity> {
                     if let todayData = data.data {
                         self.todayEntity = todayData
+                    }
+                }
+            default:
+                break
+            }
+        }
+    }
+    
+    func getArchivingDetailAPI(row: Int) {
+        ArchivingListService.shared.getArchivingDetailAPI(qnaId: row) { networkResult in
+            switch networkResult {
+            case .success(let data):
+                if let data = data as? GenericResponse<DetailEntity> {
+                    if let detailData = data.data {
+                        self.detailEntity = detailData
                     }
                 }
             default:

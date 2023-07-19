@@ -7,6 +7,10 @@
 
 import UIKit
 
+import KakaoSDKCommon
+import KakaoSDKTemplate
+import KakaoSDKShare
+
 final class MainViewController: UIViewController {
     
     // MARK: - Properties
@@ -17,13 +21,18 @@ final class MainViewController: UIViewController {
             fetchData()
         }
     }
+    var inviteCode: String = ""
+    var inviteUserName: String = ""
+    
+    // MARK: - UI Components
+    
     private let mainView = MainView()
     
     override func loadView() {
         super.loadView()
         self.view = mainView
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -47,6 +56,56 @@ private extension MainViewController {
             mainView.setImageBind(model: mainEntity)
         }
     }
+    
+    func kakao() {
+        let feedTemplateJsonStringData =
+            """
+            {
+                "object_type": "feed",
+                "content": {
+                    "title": "'\(inviteUserName)'으로부터 초대가 왔어요.\\n초대 코드 : \(inviteCode) ",
+                    "description": "과거로 떠나 함께 추억을 나누고,\\n공감대를 형성해보세요.",
+                    "image_url": "https://github.com/Team-Umbba/Umbba-iOS/assets/75068759/64ba7265-9148-4f06-8235-de5f4030e92f",
+                    "link": {
+                        "mobile_web_url": "https://developers.kakao.com",
+                        "web_url": "https://developers.kakao.com"
+                    }
+                },
+                "buttons": [
+                    {
+                        "title": "초대 받기",
+                        "link": {
+                            "android_execution_params": "key1=value1&key2=value2",
+                            "ios_execution_params": "key1=value1&key2=value2"
+                        }
+                    }
+                ]
+            }
+            """.data(using: .utf8)!
+        
+        if let templateJsonObject = SdkUtils.toJsonObject(feedTemplateJsonStringData) {
+            if ShareApi.isKakaoTalkSharingAvailable() {
+                ShareApi.shared.shareDefault(templateObject: templateJsonObject) {(linkResult, error) in
+                    if let error = error {
+                        print("error : \(error)")
+                    } else {
+                        print("defaultLink(templateObject:templateJsonObject) success.")
+                        guard let linkResult = linkResult else { return }
+                        UIApplication.shared.open(linkResult.url, options: [:], completionHandler: nil)
+                    }
+                }
+            } else {
+                let url = "itms-apps://itunes.apple.com/app/362057947"
+                if let url = URL(string: url), UIApplication.shared.canOpenURL(url) {
+                    if #available(iOS 10.0, *) {
+                        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                    } else {
+                        UIApplication.shared.openURL(url)
+                    }
+                }
+            }
+        }
+    }
 }
 
 extension MainViewController: MainDelegate {
@@ -66,7 +125,9 @@ extension MainViewController: MainDelegate {
             guard let inviteCode = caseEntity.inviteCode  else { return }
             guard let inviteUsername = caseEntity.inviteUsername else { return }
             guard let installURL = caseEntity.installURL else { return }
-            self.makeAlert(inviteCode: inviteCode, inviteUsername: inviteUsername, installURL: installURL) {}
+            self.makeAlert(inviteCode: inviteCode, inviteUsername: inviteUsername, installURL: installURL) {
+                self.kakao()
+            }
         case 3:
             self.makeAlert(alertType: .disconnectAlert) {}
         default:
@@ -102,6 +163,8 @@ extension MainViewController {
                 if let data = data as? GenericResponse<CaseEntity> {
                     if let caseData = data.data {
                         self.caseEntity = caseData
+                        self.inviteUserName = caseData.inviteUsername ?? ""
+                        self.inviteCode = caseData.inviteCode ?? ""
                     }
                 }
             default:

@@ -12,6 +12,11 @@ import AuthenticationServices
 
 final class LoginViewController: UIViewController {
     
+    // MARK: - Properties
+    
+    private var kakaoEntity: LoginEntity?
+    private var appleEntity: LoginEntity?
+    
     // MARK: - UI Components
     
     private let loginView = LoginView()
@@ -27,6 +32,37 @@ final class LoginViewController: UIViewController {
         setDelegate()
     }
 
+}
+
+// MARK: - Network
+
+extension LoginViewController {
+    func postLoginAPI(socialToken: String, socialPlatform: String) {
+        AuthService.shared.postLoginAPI(social_platform: socialPlatform, social_token: socialToken, fcm_token: UserManager.shared.fcmToken) { networkResult in
+            switch networkResult {
+            case .success(let data):
+                if let data = data as? GenericResponse<LoginEntity> {
+                    switch socialPlatform {
+                    case "KAKAO":
+                        if let kakaoData = data.data {
+                            self.kakaoEntity = kakaoData
+                            self.checkKakaoUser()
+                        }
+                    case "APPLE":
+                        if let appleData = data.data {
+                            self.appleEntity = appleData
+                            self.checkAppleUser()
+                        }
+                    default:
+                        break
+                    }
+                    
+                }
+            default:
+                break
+            }
+        }
+    }
 }
 
 // MARK: - Extensions
@@ -45,7 +81,6 @@ extension LoginViewController: LoginDelegate {
                     self.showKakaoLoginFailMessage()
                 } else {
                     if let accessToken = oauthToken?.accessToken {
-                        print("TOKEN", accessToken)
                         self.postSocialLoginData(socialToken: accessToken, socialType: "KAKAO")
                     }
                 }
@@ -58,22 +93,56 @@ extension LoginViewController: LoginDelegate {
                     if let accessToken = oauthToken?.accessToken {
                         self.postSocialLoginData(socialToken: accessToken, socialType: "KAKAO")
                     }
-                    self.presentToAssignView()
                 }
             }
         }
     }
     
     func showKakaoLoginFailMessage() {
-        print("🍔🍔🍔🍔🍔")
+        makeAlert(title: "카카오톡 로그인에 실패하였습니다.", message: "")
     }
     
     func postSocialLoginData(socialToken: String, socialType: String) {
-        print("🌐🌐🌐🌐")
+        postLoginAPI(socialToken: socialToken, socialPlatform: socialType)
+    }
+    
+    func checkKakaoUser() {
+        guard let kakaoEntity = kakaoEntity else { return }
+        
+        if kakaoEntity.username != nil {
+            presentToMainView()
+        } else {
+            UserManager.shared.accessToken = kakaoEntity.tokenDto.accessToken
+            UserManager.shared.refreshToken = kakaoEntity.tokenDto.refreshToken
+            UserManager.shared.fcmToken = kakaoEntity.fcmToken
+            NetworkConstant.accessToken = "Bearer \(kakaoEntity.tokenDto.accessToken)"
+            presentToAssignView()
+        }
+    }
+    
+    func checkAppleUser() {
+        guard let appleEntity = appleEntity else { return }
+        
+        if appleEntity.username != nil {
+            presentToMainView()
+        } else {
+            UserManager.shared.accessToken = appleEntity.tokenDto.accessToken
+            UserManager.shared.refreshToken = appleEntity.tokenDto.refreshToken
+            NetworkConstant.accessToken = "Bearer \(appleEntity.tokenDto.accessToken)"
+            presentToAssignView()
+        }
     }
     
     func presentToAssignView() {
         self.navigationController?.pushViewController(AssignViewController(), animated: false)
+    }
+    
+    func presentToMainView() {
+        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+              let keyWindow = windowScene.windows.first else {
+            return
+        }
+        keyWindow.rootViewController = TabBarController()
     }
     
     func appleLogin() {
@@ -88,7 +157,7 @@ extension LoginViewController: LoginDelegate {
     }
     
     func postSocialLoginAppleData(socialToken: String, socialType: String) {
-        print("💛💛💛💛💛")
+        postSocialLoginData(socialToken: socialToken, socialType: socialType)
     }
 }
 
@@ -103,14 +172,11 @@ extension LoginViewController: ASAuthorizationControllerDelegate {
         switch authorization.credential {
         case let appleIDCredential as ASAuthorizationAppleIDCredential:
             let userIdentifier = appleIDCredential.user
-            print("User ID : \(userIdentifier)")
             let identityToken = appleIDCredential.identityToken
             let tokenString = String(data: identityToken!, encoding: .utf8)
-            print(tokenString ?? "defaultstring")
             if let token = tokenString {
-                postSocialLoginAppleData(socialToken: token, socialType: "APPLE")
+                postLoginAPI(socialToken: token, socialPlatform: "APPLE")
             }
-            presentToAssignView()
         default:
             break
         }

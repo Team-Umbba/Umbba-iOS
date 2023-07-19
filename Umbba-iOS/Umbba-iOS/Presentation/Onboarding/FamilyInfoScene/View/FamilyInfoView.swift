@@ -20,6 +20,8 @@ final class FamilyInfoView: UIView {
     private var relationButton: [UIButton] = []
     private var selectedGenderButton: Int = 0
     private var genderButton: [UIButton] = []
+    private var isInvitorChild: Bool = false
+    private var gender: String = ""
     
     // MARK: - UI Components
     
@@ -302,6 +304,8 @@ private extension FamilyInfoView {
     @objc
     func nextButtonTapped() {
         nextDelegate?.nextButtonTapped()
+        UserData.shared.isInvitorChild = isInvitorChild
+        UserData.shared.relationInfo = gender
     }
     
     @objc
@@ -314,7 +318,7 @@ private extension FamilyInfoView {
             guard let relation = button.titleLabel?.text else { return }
             button.isSelected = sender == button
             if button.isSelected {
-                print(relation)
+                isInvitorChild = relation == "부모님" ? true : false
                 let maleTitle = relation == "부모님" ? I18N.Onboarding.dad : I18N.Onboarding.son
                 let femaleTitle = relation == "부모님" ? I18N.Onboarding.mom : I18N.Onboarding.daughter
                 setGenderButtonTitle(male: maleTitle, female: femaleTitle)
@@ -331,7 +335,7 @@ private extension FamilyInfoView {
             guard let gender = button.titleLabel?.text else { return }
             button.isSelected = sender == button
             if button.isSelected {
-                print(gender)
+                self.gender = gender
             }
         }
         isFilledAnswer()

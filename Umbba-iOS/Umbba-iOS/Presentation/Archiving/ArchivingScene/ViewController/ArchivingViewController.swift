@@ -76,6 +76,7 @@ extension ArchivingViewController {
     }
     
     private func setDelegate() {
+        archivingCollectionView.archivingQuestionDelegate = self
         collectionView.delegate = self
         collectionView.dataSource = self
     }
@@ -84,6 +85,14 @@ extension ArchivingViewController {
         if let headerView = collectionView.supplementaryView(forElementKind: UICollectionView.elementKindSectionHeader, at: IndexPath(item: 0, section: 1)) as? ArchivingQuestionHeaderView {
             headerView.headerLabel.text = text
         }
+    }
+}
+
+extension ArchivingViewController: ArchivingQuestionDelegate {
+    func archivingQuestionID(qnaId: Int) {
+        let nav = AnswerDetailViewController()
+        nav.questionId = qnaId
+        self.navigationController?.pushViewController(nav, animated: true)
     }
 }
 
@@ -125,7 +134,9 @@ extension ArchivingViewController: UICollectionViewDelegate {
                 headerIndex = indexPath.row
             }
         case .question:
-            break
+            print(listEntity[indexPath.row].qnaID)
+            archivingQuestionID(qnaId: listEntity[indexPath.row].qnaID)
+//            getArchivingDetailAPI(row: listEntity[indexPath.row].qnaID)
         }
     }
     
