@@ -101,10 +101,7 @@ extension PushAlarmViewController: NextButtonDelegate {
         convertToTime(time: pushAlarmTime)
         print("\(formattedTime)")
         UserData.shared.pushTime = formattedTime
-        //        let completeViewController = CompleteViewController()
-        //        completeViewController.isReceiver = self.isReceiver
         requestPermission()
-        //        self.navigationController?.pushViewController(completeViewController, animated: true)
     }
 }
 
@@ -165,6 +162,5 @@ extension PushAlarmViewController: UNUserNotificationCenterDelegate {
                 self.navigationController?.pushViewController(completeViewController, animated: true)
             }
         }
-//        UIApplication.shared.registerForRemoteNotifications()
     }
 }
