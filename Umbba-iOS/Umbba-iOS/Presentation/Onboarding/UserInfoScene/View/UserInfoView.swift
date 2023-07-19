@@ -434,4 +434,9 @@ extension UserInfoView: UITextFieldDelegate {
         textField.resignFirstResponder()
         return true
     }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        guard textField.text!.count < 7 else { return false } // 10 글자로 제한
+        return true
+    }
 }
