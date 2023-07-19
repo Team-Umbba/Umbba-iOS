@@ -1,5 +1,5 @@
 //
-//  makeAlert.swift
+//  MakeAlert.swift
 //  Umbba-iOS
 //
 //  Created by 고아라 on 2023/07/19.
@@ -35,3 +35,4 @@ extension UIViewController {
         self.present(alertViewController, animated: true, completion: completion)
     }
 }
+
