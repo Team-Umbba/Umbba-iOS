@@ -28,6 +28,7 @@ final class SettingSectionHeaderView: UITableViewHeaderFooterView, UITableViewHe
     private lazy var alarmSwitch: UISwitch = {
         let mySwitch = UISwitch()
         mySwitch.onTintColor = .Primary500
+        mySwitch.isOn = true
         return mySwitch
     }()
     
