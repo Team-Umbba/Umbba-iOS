@@ -76,7 +76,7 @@ final class AnswerDetailView: UIView {
         return answerView
     }()
     
-    private lazy var partnerAnswerContent: BlurLabel = {
+    lazy var partnerAnswerContent: BlurLabel = {
         let label = BlurLabel()
         label.textColor = .Gray800
         label.text = I18N.Detail.noneAnswer
