@@ -16,11 +16,11 @@ protocol InviteDelegate: AnyObject {
 final class InviteView: UIView {
     
     // MARK: - Properties
-        
+    
     weak var navigationdelegate: NavigationBarDelegate?
     weak var nextDelegate: NextButtonDelegate?
     weak var inviteDelegate: InviteDelegate?
-
+    
     // MARK: - UI Components
     
     private let navigationBarView: CustomNavigationBar = {
@@ -29,7 +29,7 @@ final class InviteView: UIView {
         view.isLeftButtonIncluded = true
         return view
     }()
-
+    
     private let inviteTitleLabel: UILabel = {
         let label = UILabel()
         label.text = I18N.Onboarding.inviteTitle
@@ -183,9 +183,17 @@ extension InviteView {
         if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
             let keyboardRectangle = keyboardFrame.cgRectValue
             let keyboardHeight = keyboardRectangle.height
-            let bottomContraint = (keyboardHeight) * (-1) + 20
-            nextButton.snp.updateConstraints {
-                $0.bottom.equalTo(self.safeAreaLayoutGuide).offset(bottomContraint)
+            if SizeLiterals.Screen.deviceRatio > 0.5 {
+                let bottomContraint = (keyboardHeight) * (-1) - 12
+                nextButton.snp.updateConstraints {
+                    $0.bottom.equalTo(self.safeAreaLayoutGuide).offset(bottomContraint)
+                }
+            } else {
+                let bottomContraint = (keyboardHeight) * (-1) + 20
+                
+                nextButton.snp.updateConstraints {
+                    $0.bottom.equalTo(self.safeAreaLayoutGuide).offset(bottomContraint)
+                }
             }
         }
         UIView.animate(withDuration: duration, delay: 0) {
