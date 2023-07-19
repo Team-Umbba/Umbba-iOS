@@ -30,6 +30,8 @@ enum ImageLiterals {
     enum Onboarding {
         static var img_arrive: UIImage { .load(name: "arrive") }
         static var img_depart: UIImage { .load(name: "depart") }
+        static var img_se_arrive: UIImage { .load(name: "SE_arrive") }
+        static var image_se_depart: UIImage { .load(name: "SE_depart") }
     }
     
     enum Auth {
