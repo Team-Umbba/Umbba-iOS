@@ -38,10 +38,11 @@ final class LoginViewController: UIViewController {
 
 extension LoginViewController {
     func postLoginAPI(socialToken: String, socialPlatform: String) {
-        AuthService.shared.postLoginAPI(social_platform: socialPlatform, social_token: socialToken, fcm_token: UserManager.shared.fcmToken) { networkResult in
+        AuthService.shared.postLoginAPI(social_platform: socialPlatform, social_token: socialToken, fcm_token: UserManager.shared.getFcmToken) { networkResult in
             switch networkResult {
             case .success(let data):
                 if let data = data as? GenericResponse<LoginEntity> {
+                    dump(data)
                     switch socialPlatform {
                     case "KAKAO":
                         if let kakaoData = data.data {
@@ -112,9 +113,7 @@ extension LoginViewController: LoginDelegate {
         if kakaoEntity.username != nil {
             presentToMainView()
         } else {
-            UserManager.shared.accessToken = kakaoEntity.tokenDto.accessToken
-            UserManager.shared.refreshToken = kakaoEntity.tokenDto.refreshToken
-            UserManager.shared.fcmToken = kakaoEntity.fcmToken
+            UserManager.shared.updateToken(kakaoEntity.tokenDto.accessToken, kakaoEntity.tokenDto.refreshToken)
             NetworkConstant.accessToken = "Bearer \(kakaoEntity.tokenDto.accessToken)"
             presentToAssignView()
         }
@@ -126,9 +125,7 @@ extension LoginViewController: LoginDelegate {
         if appleEntity.username != nil {
             presentToMainView()
         } else {
-            UserManager.shared.accessToken = appleEntity.tokenDto.accessToken
-            UserManager.shared.refreshToken = appleEntity.tokenDto.refreshToken
-            NetworkConstant.accessToken = "Bearer \(appleEntity.tokenDto.accessToken)"
+            UserManager.shared.updateToken(appleEntity.tokenDto.accessToken, appleEntity.tokenDto.refreshToken)
             presentToAssignView()
         }
     }
@@ -172,6 +169,7 @@ extension LoginViewController: ASAuthorizationControllerDelegate {
         switch authorization.credential {
         case let appleIDCredential as ASAuthorizationAppleIDCredential:
             let userIdentifier = appleIDCredential.user
+            UserManager.shared.setUserIdForApple(userId: userIdentifier)
             let identityToken = appleIDCredential.identityToken
             let tokenString = String(data: identityToken!, encoding: .utf8)
             if let token = tokenString {

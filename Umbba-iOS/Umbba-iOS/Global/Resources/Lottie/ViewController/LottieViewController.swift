@@ -35,12 +35,21 @@ final class LottieViewController: UIViewController {
 extension LottieViewController {
     func playAnimation() {
         lottieView.lottieSplashView.play { _ in
-            self.presentToLoginView()
+            if UserManager.shared.hasAccessToken {
+                self.presentToMainView()
+            } else {
+                self.presentToLoginView()
+            }
         }
     }
 
     func presentToLoginView() {
         let nav = LoginViewController()
+        self.navigationController?.pushViewController(nav, animated: false)
+    }
+    
+    func presentToMainView() {
+        let nav = TabBarController()
         self.navigationController?.pushViewController(nav, animated: false)
     }
 }

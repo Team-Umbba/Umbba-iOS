@@ -151,6 +151,7 @@
 		A42740F02A5FBCA100D05B14 /* LottieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42740EF2A5FBCA100D05B14 /* LottieViewController.swift */; };
 		A42740F22A5FBDF600D05B14 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42740F12A5FBDF600D05B14 /* LottieView.swift */; };
 		A4743BA02A673D42007FB69C /* MakeAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4743B9F2A673D42007FB69C /* MakeAlert.swift */; };
+		A4743BA42A681CBE007FB69C /* UserDefaultWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4743BA32A681CBE007FB69C /* UserDefaultWrapper.swift */; };
 		A47BDA492A5D5FD6007B8E3E /* AssignView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47BDA482A5D5FD6007B8E3E /* AssignView.swift */; };
 		A47BDA4B2A5D5FE9007B8E3E /* AssignViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47BDA4A2A5D5FE9007B8E3E /* AssignViewController.swift */; };
 		A489BDF82A5AA5020027E817 /* ArchivingQuestionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A489BDF72A5AA5020027E817 /* ArchivingQuestionItem.swift */; };
@@ -295,6 +296,7 @@
 		A42740EF2A5FBCA100D05B14 /* LottieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieViewController.swift; sourceTree = "<group>"; };
 		A42740F12A5FBDF600D05B14 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		A4743B9F2A673D42007FB69C /* MakeAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeAlert.swift; sourceTree = "<group>"; };
+		A4743BA32A681CBE007FB69C /* UserDefaultWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultWrapper.swift; sourceTree = "<group>"; };
 		A47BDA482A5D5FD6007B8E3E /* AssignView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignView.swift; sourceTree = "<group>"; };
 		A47BDA4A2A5D5FE9007B8E3E /* AssignViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignViewController.swift; sourceTree = "<group>"; };
 		A489BDF72A5AA5020027E817 /* ArchivingQuestionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchivingQuestionItem.swift; sourceTree = "<group>"; };
@@ -543,6 +545,7 @@
 			isa = PBXGroup;
 			children = (
 				6978155A2A52FBD30047944C /* UserManager.swift */,
+				A4743BA32A681CBE007FB69C /* UserDefaultWrapper.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -1509,6 +1512,7 @@
 				697E199B2A631D5A00D4752D /* NetworkConstant.swift in Sources */,
 				697815F42A5311AA0047944C /* Complete.swift in Sources */,
 				697815D12A530BF10047944C /* Write.swift in Sources */,
+				A4743BA42A681CBE007FB69C /* UserDefaultWrapper.swift in Sources */,
 				149099EB2A602EB0007242C6 /* WithdrawalView.swift in Sources */,
 				69A67D7E2A5C12F100C43F49 /* AnswerWriteViewController.swift in Sources */,
 				697815EC2A5311770047944C /* Animation.swift in Sources */,
