@@ -28,12 +28,6 @@ final class UserInfoView: UIView {
         return view
     }()
     
-    private let userView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .UmbbaWhite
-        return view
-    }()
-    
     private let userInfoTitleLabel: UILabel = {
         let label = UILabel()
         label.text = I18N.Onboarding.userInfoTitle
@@ -170,7 +164,7 @@ final class UserInfoView: UIView {
     
     private lazy var birthTextField: CustomTextField = {
         let textField = CustomTextField(placeHolder: I18N.Onboarding.birthPlaceholder)
-        textField.keyboardType = .numbersAndPunctuation
+        textField.keyboardType = .numberPad
         return textField
     }()
     
@@ -219,6 +213,7 @@ final class UserInfoView: UIView {
 private extension UserInfoView {
     func setUI() {
         self.backgroundColor = .UmbbaWhite
+        self.addToolbar(textfields: [nameTextField, birthTextField])
     }
     
     func setDelegate() {
