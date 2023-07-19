@@ -21,25 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         KakaoSDK.initSDK(appKey: "6bd3a68776c41b2f780a6ff2e4306101")
         FirebaseApp.configure()
         
-        let appleIDProvider = ASAuthorizationAppleIDProvider()
-        appleIDProvider.getCredentialState(forUserID: "00000.abcabcabcabc.0000(로그인에 사용한 UserIdentifier)") { (credentialState, error) in
-            switch credentialState {
-            case .authorized: // 이미 증명이 된 경우 (정상)
-                print("authorized")
-                // The Apple ID credential is valid.
-            case .revoked:    // 증명을 취소했을 때,
-                print("revoked")
-                // 로그인뷰로 이동하기
-            case .notFound:   // 증명이 존재하지 않을 경우
-                print("notFound")
-                // 로그인뷰로 이동하기
-                
-            default:
-                break
-            }
-        }
-        
-        UIApplication.shared.registerForRemoteNotifications()
+        application.registerForRemoteNotifications()
         Messaging.messaging().delegate = self
         
         return true
@@ -74,8 +56,9 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
 extension AppDelegate: MessagingDelegate {
     
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
+
         guard let fcmToken =  fcmToken else { return }
         print("✅✅✅✅✅✅✅\(fcmToken)✅✅✅✅✅✅✅")
-        UserManager.shared.fcmToken = fcmToken
+        UserManager.shared.updateFcmToken(fcmToken ?? "")
     }
 }

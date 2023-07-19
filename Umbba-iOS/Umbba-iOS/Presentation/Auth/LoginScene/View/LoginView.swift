@@ -155,9 +155,8 @@ private extension LoginView {
         }
         
         loginAppleButton.snp.makeConstraints {
-            $0.centerX.equalToSuperview()
+            $0.leading.trailing.equalToSuperview().inset(28)
             $0.bottom.equalToSuperview().inset(116)
-            $0.width.equalTo(SizeLiterals.Screen.screenWidth * 319 / 375)
             $0.height.equalTo(60)
         }
         
@@ -172,9 +171,8 @@ private extension LoginView {
         }
         
         loginKakaoButton.snp.makeConstraints {
-            $0.centerX.equalToSuperview()
+            $0.leading.trailing.equalToSuperview().inset(28)
             $0.bottom.equalToSuperview().inset(44)
-            $0.width.equalTo(SizeLiterals.Screen.screenWidth * 319 / 375)
             $0.height.equalTo(60)
         }
         

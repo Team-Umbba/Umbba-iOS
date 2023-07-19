@@ -2,7 +2,7 @@
 //  UserManager.swift
 //  Umbba-iOS
 //
-//  Created by 최영린 on 2023/07/03.
+//  Created by 고아라 on 2023/07/20.
 //
 
 import Foundation
@@ -10,9 +10,36 @@ import Foundation
 final class UserManager {
     static let shared = UserManager()
     
-    var accessToken = "accessToken"
-    var refreshToken = "refreshToken"
-    var fcmToken = "fcmToken"
+    @UserDefaultWrapper<String>(key: "socialToken") private(set) var socialToken
+    
+    @UserDefaultWrapper<String>(key: "accessToken") private(set) var accessToken
+    @UserDefaultWrapper<String>(key: "refreshToken") private(set) var refreshToken
+    @UserDefaultWrapper<String>(key: "fcmToken") private(set) var fcmToken
+    
+    @UserDefaultWrapper<String>(key: "userIdentifier") private(set) var appleUserIdentifier
+    
+    var hasAccessToken: Bool { return self.accessToken != nil }
+    
+    var getSocialToken: String { return self.socialToken ?? "" }
+    var getAccessToken: String { return self.accessToken ?? "" }
+    var getFcmToken: String { return self.fcmToken ?? "" }
     
     private init() {}
+}
+
+// MARK: - Methods
+
+extension UserManager {
+    func updateToken(_ accessToken: String, _ refreshToken: String) {
+        self.accessToken = accessToken
+        self.refreshToken = refreshToken
+    }
+    
+    func updateFcmToken( _ fcmToken: String) {
+        self.fcmToken = fcmToken
+    }
+
+    func setUserIdForApple(userId: String) {
+        self.appleUserIdentifier = userId
+    }
 }
