@@ -28,6 +28,12 @@ final class UserInfoView: UIView {
         return view
     }()
     
+    private let userView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .UmbbaWhite
+        return view
+    }()
+    
     private let userInfoTitleLabel: UILabel = {
         let label = UILabel()
         label.text = I18N.Onboarding.userInfoTitle
@@ -43,6 +49,7 @@ final class UserInfoView: UIView {
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.backgroundColor = .white
         scrollView.showsVerticalScrollIndicator = false
+        scrollView.backgroundColor = .UmbbaWhite
         return scrollView
     }()
     
@@ -163,7 +170,7 @@ final class UserInfoView: UIView {
     
     private lazy var birthTextField: CustomTextField = {
         let textField = CustomTextField(placeHolder: I18N.Onboarding.birthPlaceholder)
-        textField.keyboardType = .numberPad
+        textField.keyboardType = .numbersAndPunctuation
         return textField
     }()
     
@@ -176,7 +183,7 @@ final class UserInfoView: UIView {
         return label
     }()
     
-    private lazy var infoStackView: UIStackView = {
+    lazy var infoStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.alignment = .fill
@@ -249,10 +256,10 @@ private extension UserInfoView {
             make.bottom.leading.trailing.equalToSuperview()
         }
         
-        contentView.snp.makeConstraints { make in
-            make.edges.equalTo(scrollView.contentLayoutGuide)
-            make.height.greaterThanOrEqualTo(self.snp.height).priority(.low)
-            make.width.equalTo(scrollView.snp.width)
+        contentView.snp.makeConstraints {
+            $0.edges.equalTo(scrollView.contentLayoutGuide)
+            $0.height.greaterThanOrEqualTo(self.snp.height).priority(.low)
+            $0.width.equalTo(scrollView.snp.width)
         }
         
         infoStackView.snp.makeConstraints {

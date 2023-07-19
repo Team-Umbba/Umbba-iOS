@@ -13,6 +13,11 @@ extension UIViewController {
         self.view.endEditing(true)
     }
     
+    @objc
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
+
     func makeAlert(alertType: AlertType = .writeCancelAlert,
                    okAction: (() -> Void)?) {
         
