@@ -14,7 +14,6 @@ final class InviteViewController: UIViewController {
     // MARK: - Properties
     
     var isReceiver: Bool = false
-    var inviteCode: String = ""
     
     // MARK: - UI Components
     
@@ -69,13 +68,14 @@ extension InviteViewController: NavigationBarDelegate {
 extension InviteViewController: NextButtonDelegate {
     func nextButtonTapped() {
         guard let inviteCode = inviteView.inviteTextField.text else { return }
-        patchMatchAPI(inviteCode: self.inviteCode)
+        patchMatchAPI(inviteCode: inviteCode)
     }
 }
 
 extension InviteViewController {
     func patchMatchAPI(inviteCode: String) {
         OnBoardingService.shared.postMatchAPI(invite_code: inviteCode) { networkResult in
+            print(networkResult)
             switch networkResult {
             case .success:
                 let animationViewController =  AnimationViewController()

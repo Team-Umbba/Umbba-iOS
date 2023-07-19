@@ -11,6 +11,7 @@ final class PushAlarmViewController: UIViewController {
     
     // MARK: - Properties
     
+    var isReceiver: Bool = false
     private var pushAlarmTime: [String: Any] = [
         "hour": "11",
         "minute": "00",
@@ -99,7 +100,9 @@ extension PushAlarmViewController: NextButtonDelegate {
         convertToTime(time: pushAlarmTime)
         print("\(formattedTime)")
         UserData.shared.pushTime = formattedTime
-        self.navigationController?.pushViewController(CompleteViewController(), animated: true)
+        let completeViewController = CompleteViewController()
+        completeViewController.isReceiver = self.isReceiver
+        self.navigationController?.pushViewController(completeViewController, animated: true)
     }
 }
 

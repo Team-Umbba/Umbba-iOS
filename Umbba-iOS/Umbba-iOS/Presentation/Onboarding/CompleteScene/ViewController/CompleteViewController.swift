@@ -9,10 +9,13 @@ import UIKit
 
 final class CompleteViewController: UIViewController {
     
+    // MARK: - Properties
+    
+    var isReceiver: Bool = false
+    
     // MARK: - UI Components
     
     private let completeView = CompleteView()
-    //    private let imageView = completeView.backgroundImageView
     
     // MARK: - Life Cycles
     
@@ -63,13 +66,16 @@ extension CompleteViewController: NavigationBarDelegate {
 
 extension CompleteViewController: NextButtonDelegate {
     func nextButtonTapped() {
-//        self.postInviteAPI(user_info: UserData.shared.userInfo,
-//                           is_invitor_child: UserData.shared.isInvitorChild,
-//                           relation_info: UserData.shared.relationInfo,
-//                           push_time: UserData.shared.pushTime,
-//                           onboarding_answer_list: UserData.shared.onboardingAnswerList)
-        self.patchReceiveAPI(user_info: UserData.shared.userInfo,
-                             onboarding_answer_list: UserData.shared.onboardingAnswerList)
+        if isReceiver {
+            self.patchReceiveAPI(user_info: UserData.shared.userInfo,
+                                 onboarding_answer_list: UserData.shared.onboardingAnswerList)
+        } else {
+            self.postInviteAPI(user_info: UserData.shared.userInfo,
+                               is_invitor_child: UserData.shared.isInvitorChild,
+                               relation_info: UserData.shared.relationInfo,
+                               push_time: UserData.shared.pushTime,
+                               onboarding_answer_list: UserData.shared.onboardingAnswerList)
+        }
     }
 }
 
@@ -106,7 +112,7 @@ extension CompleteViewController {
             print(NetworkResult)
             switch NetworkResult {
             case .success(let data):
-                if let data = data as? GenericResponse<InviteEntity> {
+                if let data = data as? GenericResponse<ReceiveEntity> {
                     print(data)
                     self.navigationController?.pushViewController(TabBarController(), animated: true)
                 }

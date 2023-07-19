@@ -9,8 +9,12 @@ import UIKit
 
 final class NoticeAlarmViewController: UIViewController {
 
-    // MARK: - UI Components
+    // MARK: - Properties
     
+    var isReceiver: Bool = false
+    
+    // MARK: - UI Components
+
     private let noticeAlarmView = NoticeAlarmView()
     
     // MARK: - Life Cycles
@@ -40,7 +44,6 @@ private extension NoticeAlarmViewController {
 
 extension NoticeAlarmViewController: NavigationBarDelegate {
     func backButtonTapped() {
-        print("이전화면으로 이동")
         self.navigationController?.popViewController(animated: true)
     }
     
@@ -51,7 +54,8 @@ extension NoticeAlarmViewController: NavigationBarDelegate {
 
 extension NoticeAlarmViewController: NextButtonDelegate {
     func nextButtonTapped() {
-        self.navigationController?.pushViewController(CompleteViewController(), animated: true)
-        print("다음 화면으로 전환")
+        let completeViewController = CompleteViewController()
+        completeViewController.isReceiver = self.isReceiver
+        self.navigationController?.pushViewController(completeViewController, animated: true)
     }
 }

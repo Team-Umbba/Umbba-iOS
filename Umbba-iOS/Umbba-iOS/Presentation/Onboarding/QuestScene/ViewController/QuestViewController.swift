@@ -116,13 +116,17 @@ extension QuestViewController: NextButtonDelegate {
         guard let currentIndexPath = questCollectionView.indexPathsForVisibleItems.first else { return }
         
         if currentIndexPath.item + 1 == 5 {
+            answerListArray = convertToAnswerArray(questionModels: answerArray)
+            print(answerListArray)
+            UserData.shared.onboardingAnswerList = answerListArray
             if isReceiver {
-                self.navigationController?.pushViewController(NoticeAlarmViewController(), animated: true)
+                let noticeAlarmViewController = NoticeAlarmViewController()
+                noticeAlarmViewController.isReceiver = self.isReceiver
+                self.navigationController?.pushViewController(noticeAlarmViewController, animated: true)
             } else {
-                answerListArray = convertToAnswerArray(questionModels: answerArray)
-                print(answerListArray)
-                UserData.shared.onboardingAnswerList =  answerListArray
-                self.navigationController?.pushViewController(PushAlarmViewController(), animated: true)
+                let pushAlarmViewController = PushAlarmViewController()
+                pushAlarmViewController.isReceiver = self.isReceiver
+                self.navigationController?.pushViewController(pushAlarmViewController, animated: true)
             }
         } else {
             nextButton.isEnabled = false
