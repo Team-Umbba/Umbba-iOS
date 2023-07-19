@@ -96,6 +96,11 @@ extension AnswerDetailViewController: NavigationBarDelegate {
 
 extension AnswerDetailViewController: NextButtonDelegate {
     func nextButtonTapped() {
+        guard let todayEntity = todayEntity else { return }
+        TodayData.shared.section = todayEntity.section ?? ""
+        TodayData.shared.index = todayEntity.index ?? 0
+        TodayData.shared.topic = todayEntity.topic ?? ""
+        TodayData.shared.myQuestion = todayEntity.myQuestion ?? ""
         self.navigationController?.pushViewController(AnswerWriteViewController(), animated: true)
     }
 }

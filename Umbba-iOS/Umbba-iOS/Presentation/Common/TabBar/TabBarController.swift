@@ -122,7 +122,7 @@ private extension TabBarController {
 
         let tabs = [home, list, setting]
         self.setViewControllers(tabs, animated: false)
-        tabBar.backgroundColor = .white
+        tabBar.backgroundColor = .UmbbaWhite
         tabBar.isTranslucent = false
     }
 }

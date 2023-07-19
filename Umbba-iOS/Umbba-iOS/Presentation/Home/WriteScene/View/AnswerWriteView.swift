@@ -104,6 +104,7 @@ final class AnswerWriteView: UIView {
         setAddTarget()
         setDelegate()
         setLayout()
+        setTodayData()
     }
     
     required init?(coder: NSCoder) {
@@ -162,6 +163,13 @@ private extension AnswerWriteView {
         }
     }
     
+    func setTodayData() {
+        self.navigationBarView.cafe24Title = TodayData.shared.section
+        self.numberLabel.text = "#\(TodayData.shared.index)"
+        self.themeLabel.text = TodayData.shared.topic
+        self.questionLabel.text = TodayData.shared.myQuestion
+    }
+
     func checkMaxLength(_ textView: UITextView) {
         if (textView.text.count) > 100 {
             textView.deleteBackward()
