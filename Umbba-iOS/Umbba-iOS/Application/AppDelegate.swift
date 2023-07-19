@@ -85,7 +85,9 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
 extension AppDelegate: MessagingDelegate {
     
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
-        UserManager.shared.fcmToken = fcmToken!
+        guard let fcmToken =  fcmToken else { return }
+        print("✅✅✅✅✅✅✅\(fcmToken)✅✅✅✅✅✅✅")
+        UserManager.shared.fcmToken = fcmToken
     }
     
 }
