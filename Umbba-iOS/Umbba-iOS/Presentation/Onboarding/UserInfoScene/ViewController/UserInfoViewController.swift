@@ -15,8 +15,8 @@ final class UserInfoViewController: UIViewController {
     
     // MARK: - UI Components
     
-    private let inviteViewController = InviteViewController()
-    private let userInfoView = UserInfoView()
+    lazy var userInfoView = UserInfoView()
+    lazy var userInfoStackView = userInfoView.infoStackView
     
     // MARK: - Life Cycles
     
@@ -30,6 +30,15 @@ final class UserInfoViewController: UIViewController {
         super.viewDidLoad()
         
         setDelegate()
+        setupKeyboardEvent()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        setupKeyboardEvent()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        removeKeyboardEvent()
     }
 }
 
@@ -37,8 +46,47 @@ final class UserInfoViewController: UIViewController {
 
 extension UserInfoViewController {
     func setDelegate() {
+        dismissKeyboard()
         userInfoView.navigationdelegate = self
         userInfoView.nextDelegate = self
+    }
+    
+    private func setupKeyboardEvent() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(keyboardWillShow),
+                                               name: UIResponder.keyboardWillShowNotification,
+                                               object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(keyboardWillHide),
+                                               name: UIResponder.keyboardWillHideNotification,
+                                               object: nil)
+
+    }
+    
+    private func removeKeyboardEvent() {
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    @objc
+    private func keyboardWillShow(_ sender: Notification) {
+        guard let keyboardFrame = sender.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue,
+              let currentTextField = UIResponder.currentResponder as? UITextField else { return }
+        let keyboardTopY = keyboardFrame.cgRectValue.origin.y
+        let convertedTextFieldFrame = view.convert(currentTextField.frame, from: currentTextField.superview)
+        let textFieldBottomY = convertedTextFieldFrame.origin.y + convertedTextFieldFrame.size.height
+
+        if textFieldBottomY > keyboardTopY {
+            let keyboardOverlap = textFieldBottomY - keyboardTopY
+            view.frame.origin.y = -keyboardOverlap - 40
+        }
+    }
+    
+    @objc
+    private func keyboardWillHide(_ sender: Notification) {
+        if view.frame.origin.y != 0 {
+            view.frame.origin.y = 0
+        }
     }
 }
 

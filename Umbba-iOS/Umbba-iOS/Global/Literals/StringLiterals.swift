@@ -42,7 +42,7 @@ enum I18N {
         static let dad = "아빠"
         static let daughter = "딸"
         static let son = "아들"
-        static let questionArray = ["1질문질문질문질문질", "2질문질문질문질문질", "3질문질문질문질문질", "4질문질문질문질문질", "5질문질문질문질문질"]
+        static let questionArray = [" 지금 가족과 함께 살고 있어?", "고등학교를 졸업했어?", "결혼을 꼭 해야 한다고 생각해?", "뭔가를 크게 포기해본 경험이 있어?", "돌아가고 싶은 순간이 있어?"]
         static let pushAlarmTitle = "매일 밤\n교신을 보내줄게"
         static let pushAlarmDescription = "선택한 시간에 따라 푸시 알림을 보내드려요"
         static let time = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"]
