@@ -8,6 +8,7 @@
 import UIKit
 
 import KakaoSDKAuth
+import AuthenticationServices
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
@@ -39,8 +40,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     func sceneDidBecomeActive(_ scene: UIScene) {
-        // Called when the scene has moved from an inactive state to an active state.
-        // Use this method to restart any tasks that were paused (or not yet started) when the scene was inactive.
+        let appleIDProvider = ASAuthorizationAppleIDProvider()
+        appleIDProvider.getCredentialState(forUserID: UserManager.shared.appleUserIdentifier ?? "") { (credentialState, error) in
+            switch credentialState {
+            case .authorized:
+                print("authorized")
+            case .revoked:
+                print("revoked")
+            case .notFound:
+                print("notFound")
+            default:
+                break
+            }
+        }
     }
     
     func sceneWillResignActive(_ scene: UIScene) {
