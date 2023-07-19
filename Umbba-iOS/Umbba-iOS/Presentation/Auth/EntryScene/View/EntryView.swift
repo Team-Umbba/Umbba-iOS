@@ -137,23 +137,23 @@ private extension EntryView {
         }
         
         entryButton.snp.makeConstraints {
-            $0.bottom.equalToSuperview().inset(178)
+            $0.bottom.equalTo(dividingText.snp.top).offset(-12)
             $0.leading.trailing.equalToSuperview().inset(20)
             $0.height.equalTo(60)
         }
         
         dividingText.snp.makeConstraints {
-            $0.top.equalTo(entryButton.snp.bottom).offset(12)
+            $0.bottom.equalTo(inviteText.snp.top).offset(-12)
             $0.centerX.equalToSuperview()
         }
         
         inviteText.snp.makeConstraints {
-            $0.top.equalTo(dividingText.snp.bottom).offset(12)
+            $0.bottom.equalTo(inviteButton.snp.top).offset(-12)
             $0.centerX.equalToSuperview()
         }
         
         inviteButton.snp.makeConstraints {
-            $0.bottom.equalToSuperview().inset(44)
+            $0.bottom.equalTo(self.safeAreaLayoutGuide).offset(-12)
             $0.leading.trailing.equalToSuperview().inset(20)
             $0.height.equalTo(60)
         }

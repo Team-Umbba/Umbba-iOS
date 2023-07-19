@@ -43,6 +43,7 @@ final class UserInfoView: UIView {
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.backgroundColor = .white
         scrollView.showsVerticalScrollIndicator = false
+        scrollView.backgroundColor = .UmbbaWhite
         return scrollView
     }()
     
@@ -176,7 +177,7 @@ final class UserInfoView: UIView {
         return label
     }()
     
-    private lazy var infoStackView: UIStackView = {
+    lazy var infoStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.alignment = .fill
@@ -212,6 +213,7 @@ final class UserInfoView: UIView {
 private extension UserInfoView {
     func setUI() {
         self.backgroundColor = .UmbbaWhite
+        self.addToolbar(textfields: [nameTextField, birthTextField])
     }
     
     func setDelegate() {
@@ -249,10 +251,10 @@ private extension UserInfoView {
             make.bottom.leading.trailing.equalToSuperview()
         }
         
-        contentView.snp.makeConstraints { make in
-            make.edges.equalTo(scrollView.contentLayoutGuide)
-            make.height.greaterThanOrEqualTo(self.snp.height).priority(.low)
-            make.width.equalTo(scrollView.snp.width)
+        contentView.snp.makeConstraints {
+            $0.edges.equalTo(scrollView.contentLayoutGuide)
+            $0.height.greaterThanOrEqualTo(self.snp.height).priority(.low)
+            $0.width.equalTo(scrollView.snp.width)
         }
         
         infoStackView.snp.makeConstraints {
@@ -394,6 +396,24 @@ private extension UserInfoView {
     }
 }
 
+extension UserInfoView {
+    internal override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+        if let resultView = super.hitTest(point, with: event) {
+            if resultView.isMember(of: UITextField.self) ||
+                resultView.isKind(of: UITextField.self) ||
+                resultView.isMember(of: UITextView.self) ||
+                resultView.isKind(of: UITextView.self) {
+                return resultView
+            }
+            if !resultView.isMember(of: UITextField.self) && !resultView.isMember(of: UITextView.self) {
+                endEditing(true)
+            }
+            return resultView
+        }
+        return nil
+    }
+}
+
 // MARK: - TextFieldDelegate
 
 extension UserInfoView: UITextFieldDelegate {
@@ -430,6 +450,11 @@ extension UserInfoView: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
+        return true
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        guard textField.text!.count < 7 else { return false } // 10 글자로 제한
         return true
     }
 }

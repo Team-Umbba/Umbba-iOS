@@ -31,6 +31,8 @@
 		691979F42A5C61450069FB63 /* AlertVIewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691979F32A5C61450069FB63 /* AlertVIewController.swift */; };
 		691979F82A5C6A4E0069FB63 /* WithdrawalAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691979F72A5C6A4E0069FB63 /* WithdrawalAlertView.swift */; };
 		691979FA2A5C6BDB0069FB63 /* WriteSaveAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691979F92A5C6BDB0069FB63 /* WriteSaveAlertView.swift */; };
+		691B8C152A67DDFE0041CC7C /* UIResponder+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691B8C142A67DDFE0041CC7C /* UIResponder+.swift */; };
+		691B8C172A67EB440041CC7C /* AddToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691B8C162A67EB440041CC7C /* AddToolBar.swift */; };
 		6951A6962A5D2B5300D49692 /* InviteAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6951A6952A5D2B5300D49692 /* InviteAlertView.swift */; };
 		6951A6982A5D89DA00D49692 /* NaviagionBarProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6951A6972A5D89DA00D49692 /* NaviagionBarProtocol.swift */; };
 		6951A69A2A5D8A8F00D49692 /* NextButtonProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6951A6992A5D8A8F00D49692 /* NextButtonProtocol.swift */; };
@@ -188,6 +190,8 @@
 		691979F32A5C61450069FB63 /* AlertVIewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertVIewController.swift; sourceTree = "<group>"; };
 		691979F72A5C6A4E0069FB63 /* WithdrawalAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithdrawalAlertView.swift; sourceTree = "<group>"; };
 		691979F92A5C6BDB0069FB63 /* WriteSaveAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteSaveAlertView.swift; sourceTree = "<group>"; };
+		691B8C142A67DDFE0041CC7C /* UIResponder+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIResponder+.swift"; sourceTree = "<group>"; };
+		691B8C162A67EB440041CC7C /* AddToolBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToolBar.swift; sourceTree = "<group>"; };
 		6951A6952A5D2B5300D49692 /* InviteAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteAlertView.swift; sourceTree = "<group>"; };
 		6951A6972A5D89DA00D49692 /* NaviagionBarProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaviagionBarProtocol.swift; sourceTree = "<group>"; };
 		6951A6992A5D8A8F00D49692 /* NextButtonProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextButtonProtocol.swift; sourceTree = "<group>"; };
@@ -596,6 +600,7 @@
 				697815822A53000D0047944C /* UITableView+.swift */,
 				69DE6B902A53384C00F31812 /* UIColor+.swift */,
 				69DE6BB72A54417F00F31812 /* String+.swift */,
+				691B8C142A67DDFE0041CC7C /* UIResponder+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -641,6 +646,7 @@
 				14A0ACE72A62A50600C42097 /* BlurredLabel.swift */,
 				6951A6AD2A62D93A00D49692 /* ShowToast.swift */,
 				A4743B9F2A673D42007FB69C /* MakeAlert.swift */,
+				691B8C162A67EB440041CC7C /* AddToolBar.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1458,6 +1464,7 @@
 				69636FAF2A5A616C008B457A /* FamilyInfoView.swift in Sources */,
 				6978157B2A52FFBC0047944C /* UIViewController+.swift in Sources */,
 				697815752A52FF760047944C /* UIVIew+.swift in Sources */,
+				691B8C152A67DDFE0041CC7C /* UIResponder+.swift in Sources */,
 				697E19D02A63244200D4752D /* MainEntity.swift in Sources */,
 				699455EE2A5C0C8B003C118A /* InviteViewController.swift in Sources */,
 				6978157F2A52FFE10047944C /* UILabel+.swift in Sources */,
@@ -1565,6 +1572,7 @@
 				697815C32A530BB00047944C /* TabBar.swift in Sources */,
 				A47BDA492A5D5FD6007B8E3E /* AssignView.swift in Sources */,
 				697815DC2A530CF70047944C /* Config.swift in Sources */,
+				691B8C172A67EB440041CC7C /* AddToolBar.swift in Sources */,
 				69DE6B912A53384C00F31812 /* UIColor+.swift in Sources */,
 				149099ED2A603143007242C6 /* WithdrawalViewController.swift in Sources */,
 				A489BDFE2A5AAAB40027E817 /* ArchivingQuestionCollectionViewCell.swift in Sources */,
