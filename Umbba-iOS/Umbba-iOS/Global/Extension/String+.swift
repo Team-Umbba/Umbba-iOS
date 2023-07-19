@@ -33,7 +33,7 @@ extension String {
     }
     
     func isOnlyKorean() -> Bool {
-        let pattern = "^[가-힣ㄱ-ㅎㅏ-ㅣ]+$"
+        let pattern = "^[가-힣]*$"
         guard self.range(of: pattern, options: .regularExpression) != nil else { return false }
         return true
     }
