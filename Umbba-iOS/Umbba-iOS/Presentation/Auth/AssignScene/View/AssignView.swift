@@ -157,6 +157,7 @@ final class AssignView: UIView {
         button.setBackgroundColor(.UmbbaWhite, for: .normal)
         button.setTitleColor(.Primary500, for: .normal)
         button.isEnabled = false
+        button.adjustsImageWhenHighlighted = false
         return button
     }()
     
@@ -281,9 +282,8 @@ extension AssignView {
         }
         
         nextButton.snp.makeConstraints {
-            $0.centerX.equalToSuperview()
             $0.bottom.equalToSuperview().inset(44)
-            $0.width.equalTo(SizeLiterals.Screen.screenWidth * 319 / 375)
+            $0.leading.trailing.equalToSuperview().inset(28)
             $0.height.equalTo(60)
         }
     }

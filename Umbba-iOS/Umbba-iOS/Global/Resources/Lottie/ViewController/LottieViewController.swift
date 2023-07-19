@@ -41,7 +41,6 @@ extension LottieViewController {
 
     func presentToLoginView() {
         let nav = LoginViewController()
-        nav.modalPresentationStyle = .fullScreen
-        self.present(nav, animated: false)
+        self.navigationController?.pushViewController(nav, animated: false)
     }
 }
