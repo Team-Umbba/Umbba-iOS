@@ -39,7 +39,7 @@ final class AnswerDetailViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+
         getTodayAPI()
     }
     
@@ -63,6 +63,11 @@ extension AnswerDetailViewController {
     func fetchTodayData() {
         guard let todayEntity = todayEntity else { return }
         answerDetailView.setTodayDataBind(model: todayEntity)
+        if todayEntity.isMyAnswer && todayEntity.isOpponentAnswer {
+            answerDetailView.partnerAnswerContent.isBlurring = false
+        } else {
+            return
+        }
     }
     
     func fetchDetailData() {
@@ -73,7 +78,6 @@ extension AnswerDetailViewController {
     func getAPI() {
         if questionId == -1 {
             getTodayAPI()
-            
         } else {
             getArchivingDetailAPI(row: questionId)
         }

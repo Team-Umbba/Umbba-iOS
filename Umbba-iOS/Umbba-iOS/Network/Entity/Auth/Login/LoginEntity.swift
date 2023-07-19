@@ -6,15 +6,15 @@
 //
 
 struct LoginEntity: Codable {
-    let userID: Int
-    let isMatchFinish: Bool
+    let userID: Int?
+    let isMatchFinish: Bool?
     let username: String?
     let gender: String?
     let bornYear: Int?
     let tokenDto: TokenDto
-    let fcmToken, socialPlatform, socialNickname: String
+    let fcmToken, socialPlatform, socialNickname: String?
     let socialProfileImage: String?
-    let socialAccessToken: String
+    let socialAccessToken: String?
 
     enum CodingKeys: String, CodingKey {
         case userID = "user_id"

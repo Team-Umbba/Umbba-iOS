@@ -33,11 +33,14 @@ final class MainViewController: UIViewController {
         self.view = mainView
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
+    override func viewWillAppear(_ animated: Bool) {
         getMainAPI()
         getCaseAPI()
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
         setDelegate()
     }
 }
