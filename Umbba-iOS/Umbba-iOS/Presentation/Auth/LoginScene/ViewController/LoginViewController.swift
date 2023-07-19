@@ -126,6 +126,7 @@ extension LoginViewController: LoginDelegate {
             presentToMainView()
         } else {
             UserManager.shared.updateToken(appleEntity.tokenDto.accessToken, appleEntity.tokenDto.refreshToken)
+            NetworkConstant.accessToken = "Bearer \(appleEntity.tokenDto.accessToken)"
             presentToAssignView()
         }
     }
