@@ -109,12 +109,12 @@ extension LoginViewController: LoginDelegate {
     
     func checkKakaoUser() {
         guard let kakaoEntity = kakaoEntity else { return }
+        UserManager.shared.updateToken(kakaoEntity.tokenDto.accessToken, kakaoEntity.tokenDto.refreshToken)
+        UserManager.shared.updateFcmToken(kakaoEntity.fcmToken ?? "")
         
         if kakaoEntity.username != nil {
             presentToMainView()
         } else {
-            UserManager.shared.updateToken(kakaoEntity.tokenDto.accessToken, kakaoEntity.tokenDto.refreshToken)
-            NetworkConstant.accessToken = "Bearer \(kakaoEntity.tokenDto.accessToken)"
             presentToAssignView()
         }
     }
@@ -122,11 +122,12 @@ extension LoginViewController: LoginDelegate {
     func checkAppleUser() {
         guard let appleEntity = appleEntity else { return }
         
+        UserManager.shared.updateToken(appleEntity.tokenDto.accessToken, appleEntity.tokenDto.refreshToken)
+        UserManager.shared.updateFcmToken(appleEntity.fcmToken ?? "")
+        
         if appleEntity.username != nil {
             presentToMainView()
         } else {
-            UserManager.shared.updateToken(appleEntity.tokenDto.accessToken, appleEntity.tokenDto.refreshToken)
-            NetworkConstant.accessToken = "Bearer \(appleEntity.tokenDto.accessToken)"
             presentToAssignView()
         }
     }
