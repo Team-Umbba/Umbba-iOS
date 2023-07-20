@@ -213,20 +213,13 @@ extension AssignView {
             $0.top.equalTo(logoTitle.snp.bottom).offset(12)
         }
         
-        lineView.snp.makeConstraints {
-            $0.centerX.equalToSuperview()
-            $0.top.equalTo(logoSubTitle.snp.bottom).offset(60)
-            $0.width.equalTo(SizeLiterals.Screen.screenWidth * 300 / 375)
-            $0.height.equalTo(1)
-        }
-        
         assignEntireTitle.snp.makeConstraints {
-            $0.top.equalTo(lineView.snp.bottom).offset(67)
+            $0.bottom.equalTo(assignEntireSubTitle.snp.top).offset(-14)
             $0.leading.equalToSuperview().inset(36)
         }
         
         assignEntireSubTitle.snp.makeConstraints {
-            $0.top.equalTo(assignEntireTitle.snp.bottom).offset(14)
+            $0.bottom.equalTo(assignFirstTitle.snp.top).offset(-14)
             $0.leading.equalTo(assignEntireTitle.snp.leading)
             $0.trailing.equalTo(assignEntireCheck.snp.leading).offset(13)
         }
@@ -238,12 +231,12 @@ extension AssignView {
         }
         
         assignFirstTitle.snp.makeConstraints {
-            $0.top.equalTo(assignEntireSubTitle.snp.bottom).offset(29)
+            $0.bottom.equalTo(assignFirstSubTitle.snp.top).offset(-9)
             $0.leading.equalTo(assignEntireTitle.snp.leading)
         }
         
         assignFirstSubTitle.snp.makeConstraints {
-            $0.top.equalTo(assignFirstTitle.snp.bottom).offset(9)
+            $0.bottom.equalTo(assignSecondTitle.snp.top).offset(-29)
             $0.leading.equalTo(assignFirstTitle.snp.leading)
             $0.trailing.equalTo(assignFirstCheck.snp.leading).offset(6)
         }
@@ -255,7 +248,7 @@ extension AssignView {
         }
         
         assignSecondTitle.snp.makeConstraints {
-            $0.top.equalTo(assignFirstSubTitle.snp.bottom).offset(29)
+            $0.bottom.equalTo(assignThirdTitle.snp.top).offset(-33)
             $0.leading.equalTo(assignFirstTitle.snp.leading)
         }
         
@@ -265,14 +258,8 @@ extension AssignView {
         }
         
         assignThirdTitle.snp.makeConstraints {
-            $0.top.equalTo(assignSecondTitle.snp.bottom).offset(33)
+            $0.bottom.equalTo(assignThirdSubTitle.snp.top).offset(-8)
             $0.leading.equalTo(assignSecondTitle.snp.leading)
-        }
-        
-        assignThirdSubTitle.snp.makeConstraints {
-            $0.top.equalTo(assignThirdTitle.snp.bottom).offset(8)
-            $0.leading.equalTo(assignThirdTitle.snp.leading)
-            $0.trailing.equalTo(assignThirdCheck.snp.leading).offset(6)
         }
         
         assignThirdCheck.snp.makeConstraints {
@@ -285,6 +272,34 @@ extension AssignView {
             $0.bottom.equalToSuperview().inset(44)
             $0.leading.trailing.equalToSuperview().inset(28)
             $0.height.equalTo(60)
+        }
+        
+        if SizeLiterals.Screen.deviceRatio > 0.5 {
+            assignThirdSubTitle.snp.makeConstraints {
+                $0.bottom.equalTo(nextButton.snp.top).offset(-30)
+                $0.leading.equalTo(assignThirdTitle.snp.leading)
+                $0.trailing.equalTo(assignThirdCheck.snp.leading).offset(6)
+            }
+            
+            lineView.snp.makeConstraints {
+                $0.centerX.equalToSuperview()
+                $0.top.equalTo(logoSubTitle.snp.bottom).offset(30)
+                $0.width.equalTo(SizeLiterals.Screen.screenWidth * 300 / 375)
+                $0.height.equalTo(1)
+            }
+        } else {
+            assignThirdSubTitle.snp.makeConstraints {
+                $0.bottom.equalTo(nextButton.snp.top).offset(-72)
+                $0.leading.equalTo(assignThirdTitle.snp.leading)
+                $0.trailing.equalTo(assignThirdCheck.snp.leading).offset(6)
+            }
+            
+            lineView.snp.makeConstraints {
+                $0.centerX.equalToSuperview()
+                $0.top.equalTo(logoSubTitle.snp.bottom).offset(60)
+                $0.width.equalTo(SizeLiterals.Screen.screenWidth * 300 / 375)
+                $0.height.equalTo(1)
+            }
         }
     }
     
