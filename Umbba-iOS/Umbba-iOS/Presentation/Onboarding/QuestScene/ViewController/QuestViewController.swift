@@ -123,7 +123,7 @@ extension QuestViewController: NextButtonDelegate {
             print(answerListArray)
             UserData.shared.onboardingAnswerList = answerListArray
             if isReceiver {
-                //UserManager.shared.updateUserName( UserData.shared.userInfo.name)
+                UserManager.shared.updateUserName( UserData.shared.userInfo.name)
                 self.patchReceiveAPI(user_info: UserData.shared.userInfo,
                                      onboarding_answer_list: UserData.shared.onboardingAnswerList)
             } else {

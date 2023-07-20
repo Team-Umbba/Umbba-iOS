@@ -113,7 +113,6 @@ extension LoginViewController: LoginDelegate {
         UserManager.shared.updateToken(kakaoEntity.tokenDto.accessToken, kakaoEntity.tokenDto.refreshToken)
         UserManager.shared.updateFcmToken(kakaoEntity.fcmToken ?? "")
         UserManager.shared.updateUserName(kakaoEntity.username ?? "")
-        LoginViewController.isMatch = kakaoEntity.isMatchFinish ?? false
         
         if kakaoEntity.username != nil {
             presentToMainView()

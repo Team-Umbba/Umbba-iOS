@@ -74,13 +74,18 @@ extension InviteViewController: NextButtonDelegate {
 
 extension InviteViewController {
     func patchMatchAPI(inviteCode: String) {
-        OnBoardingService.shared.postMatchAPI(invite_code: inviteCode) { networkResult in
-            print(networkResult)
+        OnBoardingService.shared.patchMatchAPI(invite_code: inviteCode) { networkResult in
             switch networkResult {
-            case .success:
-                let animationViewController =  AnimationViewController()
-                self.navigationController?.pushViewController(animationViewController, animated: true)
-                animationViewController.isReceiver = true
+            case .success(let data):
+                dump(data)
+                if let data = data as? GenericResponse<MatchEntity> {
+                    if let matchEntity = data.data {
+                        let animationViewController =  AnimationViewController()
+                        self.navigationController?.pushViewController(animationViewController, animated: true)
+                        UserManager.shared.updateIsMatch(matchEntity.isMatchFinish ?? false)
+                        animationViewController.isReceiver = true
+                    }
+                }
             case .requestErr:
                 self.inviteView.inviteTextField.textFieldStatus = .uncorrectedType
                 self.inviteView.errorLabel.isHidden = false
