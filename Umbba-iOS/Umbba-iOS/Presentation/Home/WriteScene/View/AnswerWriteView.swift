@@ -18,7 +18,7 @@ final class AnswerWriteView: UIView {
     // MARK: - Properties
     
     private var writePopUp: WritePopUp = WritePopUp()
-    private var qusetionId: Int = 1 // 임시값
+    private var qusetionId: Int = 0
     
     weak var answerWriteDelegate: AnswerWriteDelegate?
     weak var navigationDelegate: NavigationBarDelegate?
@@ -181,7 +181,7 @@ private extension AnswerWriteView {
         writePopUp.topic = themeLabel.text
         writePopUp.question = questionLabel.text
         writePopUp.answer = answerTextView.text
-        writePopUp.number = qusetionId
+        writePopUp.number = numberLabel.text
     }
     
     @objc

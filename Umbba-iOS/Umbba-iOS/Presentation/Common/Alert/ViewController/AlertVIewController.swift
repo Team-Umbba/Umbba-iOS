@@ -155,7 +155,7 @@ extension AlertViewController {
     func setDataBind(wirtePopUp: WritePopUp) {
         if alertType == .writeSaveAlert {
             writeSaveAlertView.cafe24TitleLabel.text = wirtePopUp.section
-            writeSaveAlertView.numberLabel.text = "#\(wirtePopUp.number ?? 0)"
+            writeSaveAlertView.numberLabel.text = wirtePopUp.number
             writeSaveAlertView.themeLabel.text = wirtePopUp.topic
             writeSaveAlertView.questionLabel.text = wirtePopUp.question
             writeSaveAlertView.answerLabel.text = wirtePopUp.answer
