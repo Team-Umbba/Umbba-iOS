@@ -70,7 +70,7 @@ extension CompleteViewController: NextButtonDelegate {
         if isReceiver {
             self.navigationController?.pushViewController(TabBarController(), animated: true)
         } else {
-            //UserManager.shared.updateUserName( UserData.shared.userInfo.name)
+            UserManager.shared.updateUserName( UserData.shared.userInfo.name)
             self.postInviteAPI(user_info: UserData.shared.userInfo,
                                is_invitor_child: UserData.shared.isInvitorChild,
                                relation_info: UserData.shared.relationInfo,
