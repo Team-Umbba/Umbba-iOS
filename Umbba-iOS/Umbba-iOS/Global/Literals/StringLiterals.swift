@@ -23,7 +23,7 @@ enum I18N {
         static let pastBold = "과거"
         static let timeNotice = "매일 밤 11시에\n교신을 보내줄게"
         static let subNotice = "초대자가 선택한 시간에 따라 푸시 알림을 보내드려요"
-        static let userInfoTitle = "반가워!\n너에 대해 알고 싶어!"
+        static let userInfoTitle = "반가워!\n너에 대해 알고 싶어"
         static let nameInfo = "너의 이름이 뭐야?"
         static let namePlaceholder = "ex) 홍길동"
         static let nameError = "*올바른 형식이 아닙니다"
@@ -112,8 +112,8 @@ enum I18N {
         static let teamSectionLabel = ["About 엄빠도 어렸다", "이용약관", "개인정보 처리방침"]
         static let accountSectionLabel = ["로그아웃", "회원 탈퇴"]
         static let urlArray = ["https://brawny-guan-098.notion.site/7b3e5f70a471468f8acbe56a1a4f4ec9?pvs=4",
-                               "https://www.notion.so/99fe0f58825d4f87bd3b987fadc623b6",
-                               "https://www.notion.so/99fe0f58825d4f87bd3b987fadc623b6"]
+                               "https://www.notion.so/f1a14bf60ed4421f9b3761ef88906adb",
+                               "https://www.notion.so/99fe0f58825d4f87bd3b987fadc623b6?pvs=4"]
         static let cancelNavigatonTitle = "회원 탈퇴"
         static let quoteLabel = "\"추억은 일종의 만남이다.\""
         static let personLabel = "- 칼린 지브란 -"
