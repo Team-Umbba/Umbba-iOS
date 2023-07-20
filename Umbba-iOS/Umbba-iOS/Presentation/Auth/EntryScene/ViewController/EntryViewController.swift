@@ -42,10 +42,6 @@ extension EntryViewController: EntryDelegate {
         let inviteViewController = InviteViewController()
         inviteViewController.isReceiver = true
         
-        print("👛👛👛👛")
-        print(UserManager.shared.getIsMatch)
-        print("👛👛👛👛")
-        
         if UserManager.shared.getIsMatch {
             let animationViewController =  AnimationViewController()
             self.navigationController?.pushViewController(animationViewController, animated: true)
