@@ -129,6 +129,7 @@ extension ArchivingViewController: UICollectionViewDelegate {
                 archivingImageView.setDataBind(section: indexPath.item)
                 headerIndex = indexPath.item
             }
+            makeVibrate()
             collectionView.reloadData()
         case .question:
             archivingQuestionID(qnaId: listEntity[indexPath.item].qnaID)

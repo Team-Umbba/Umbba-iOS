@@ -77,11 +77,13 @@ final class EntryView: UIView {
     }()
     
     private lazy var inviteButton: CustomButton = {
-        let button = CustomButton(status: true, title: I18N.Auth.inviteButtonTitle)
+        let button = CustomButton(status: true, title: I18N.Home.questionButtonTitle)
+        button.setBackgroundColor(.UmbbaWhite, for: .normal)
         button.setTitleColor(.Primary500, for: .normal)
-        button.titleLabel?.font = .PretendardSemiBold(size: 16)
         button.layer.borderColor = UIColor.Primary500.cgColor
         button.layer.borderWidth = 2
+        button.adjustsImageWhenHighlighted = false
+        return button
         
         var config = UIButton.Configuration.filled()
         config.background.backgroundColor = .UmbbaWhite
