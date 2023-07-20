@@ -87,9 +87,13 @@ private extension QuestViewController {
 
 extension QuestViewController: NavigationBarDelegate {
     
+    
+    //여기 변경
     private func hasAnswer(_ number: Int) {
-        if answerArray[number].answer >= 0 {
+        if answerArray[number].answer != -1 {
             nextButton.isEnabled = true
+        } else {
+            nextButton.isEnabled = false
         }
     }
     
@@ -120,22 +124,24 @@ extension QuestViewController: NextButtonDelegate {
             print(answerListArray)
             UserData.shared.onboardingAnswerList = answerListArray
             if isReceiver {
-                let noticeAlarmViewController = NoticeAlarmViewController()
-                noticeAlarmViewController.isReceiver = self.isReceiver
-                self.navigationController?.pushViewController(noticeAlarmViewController, animated: true)
+                self.patchReceiveAPI(user_info: UserData.shared.userInfo,
+                                     onboarding_answer_list: UserData.shared.onboardingAnswerList)
+//                let noticeAlarmViewController = NoticeAlarmViewController()
+//                noticeAlarmViewController.isReceiver = self.isReceiver
+//                self.navigationController?.pushViewController(noticeAlarmViewController, animated: true)
             } else {
                 let pushAlarmViewController = PushAlarmViewController()
                 pushAlarmViewController.isReceiver = self.isReceiver
                 self.navigationController?.pushViewController(pushAlarmViewController, animated: true)
             }
         } else {
-            nextButton.isEnabled = false
             progressView.progress = Float(currentIndexPath.item + 2) * 0.2
             let nextIndexPath = IndexPath(item: currentIndexPath.item + 1, section: currentIndexPath.section)
             questCollectionView.scrollToItem(at: nextIndexPath, at: .centeredHorizontally, animated: true)
 
+            //트러블 슈팅 감
             let index = currentIndexPath.item
-            hasAnswer(currentIndexPath.item)
+            hasAnswer(index + 1)
             answerArray[index].answer = currentAnswer
         }
     }
@@ -178,6 +184,33 @@ extension QuestViewController: QuestDelegte {
         
         if questionIndex == 4 {
             answerArray[questionIndex].answer = currentAnswer
+        }
+    }
+}
+
+// MARK: - Network
+
+extension QuestViewController {
+    func patchReceiveAPI(user_info: User,
+                         onboarding_answer_list: [String]) {
+        OnBoardingService.shared.patchRecieveAPI(user_Info: user_info,
+                                                 onboarding_answer_list: onboarding_answer_list) { NetworkResult in
+            print(NetworkResult)
+            switch NetworkResult {
+            case .success(let data):
+                print("❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️")
+                print(data)
+                print("❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️")
+                if let data = data as? GenericResponse<ReceiveEntity> {
+                    print(data)
+                    let noticeAlarmViewController = NoticeAlarmViewController()
+                    noticeAlarmViewController.isReceiver = self.isReceiver
+                    noticeAlarmViewController.pushTime = data.data?.pushTime ?? ""
+                    self.navigationController?.pushViewController(noticeAlarmViewController, animated: true)
+                }
+            default:
+                break
+            }
         }
     }
 }
