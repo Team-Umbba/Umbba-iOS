@@ -27,7 +27,7 @@ final class QuestCollectionViewCell: UICollectionViewCell, UICollectionViewRegis
     var questionIndex: Int?
     var answerIndex: Int? {
         didSet {
-            let index = (answerIndex ?? -1)
+            guard let index = answerIndex else { return }
             updateButtonState(index)
         }
     }
@@ -167,8 +167,10 @@ extension QuestCollectionViewCell {
     
     @objc func questButtonTapped(sender: UIButton) {
         answerIndex = sender.tag
-        updateButtonState(sender.tag)
-        questDelegate?.selectAnswer(self, questionIndex: questionIndex ?? -1, answerIndex: answerIndex ?? -1)
+        if let questionIndex = questionIndex,
+           let answerIndex = answerIndex {
+            questDelegate?.selectAnswer(self, questionIndex: questionIndex, answerIndex: answerIndex)
+        }
     }
     
     func updateButtonState(_ selectedButtonIndex: Int) {
