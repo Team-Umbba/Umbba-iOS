@@ -15,7 +15,12 @@ final class MainViewController: UIViewController {
     
     // MARK: - Properties
     
-    private var caseEntity: CaseEntity?
+    private var caseEntity: CaseEntity? {
+        didSet {
+            fetchData()
+        }
+    }
+    
     private var mainEntity: MainEntity? {
         didSet {
             fetchData()
@@ -52,11 +57,39 @@ private extension MainViewController {
     
     func fetchData() {
         guard let mainEntity = mainEntity else { return }
+        guard let caseEntity = caseEntity else { return }
         mainView.setDataBind(model: mainEntity)
         if SizeLiterals.Screen.deviceRatio > 0.5 {
             mainView.setSEImageBind(model: mainEntity)
         } else {
             mainView.setImageBind(model: mainEntity)
+        }
+    }
+    
+    func setNextController() {
+        switch caseEntity?.responseCase {
+        case 1:
+            guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+                  let keyWindow = windowScene.windows.first else {
+                return
+            }
+            let answerDetailController = AnswerDetailViewController()
+            answerDetailController.isHome = true
+            keyWindow.rootViewController = UINavigationController(rootViewController: answerDetailController)
+            if let navigationController = keyWindow.rootViewController as? UINavigationController {
+                navigationController.isNavigationBarHidden = true
+            }
+        case 2:
+            guard let inviteCode = caseEntity?.inviteCode  else { return }
+            guard let inviteUsername = caseEntity?.inviteUsername else { return }
+            guard let installURL = caseEntity?.installURL else { return }
+            self.makeAlert(inviteCode: inviteCode, inviteUsername: inviteUsername, installURL: installURL) {
+                self.kakao()
+            }
+        case 3:
+            self.makeAlert(alertType: .disconnectAlert) {}
+        default:
+            break
         }
     }
     
@@ -113,33 +146,8 @@ private extension MainViewController {
 
 extension MainViewController: MainDelegate {
     func questionButtonTapped() {
-        // 수정한 부분
         getCaseAPI()
-        guard let caseEntity = caseEntity else { return }
-        switch caseEntity.responseCase {
-        case 1:
-            guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-                  let keyWindow = windowScene.windows.first else {
-                return
-            }
-            let answerDetailController = AnswerDetailViewController()
-            answerDetailController.isHome = true
-            keyWindow.rootViewController = UINavigationController(rootViewController: answerDetailController)
-            if let navigationController = keyWindow.rootViewController as? UINavigationController {
-                navigationController.isNavigationBarHidden = true
-            }
-        case 2:
-            guard let inviteCode = caseEntity.inviteCode  else { return }
-            guard let inviteUsername = caseEntity.inviteUsername else { return }
-            guard let installURL = caseEntity.installURL else { return }
-            self.makeAlert(inviteCode: inviteCode, inviteUsername: inviteUsername, installURL: installURL) {
-                self.kakao()
-            }
-        case 3:
-            self.makeAlert(alertType: .disconnectAlert) {}
-        default:
-            break
-        }
+        setNextController()
     }
 }
 
