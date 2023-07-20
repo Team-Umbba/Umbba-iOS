@@ -42,4 +42,12 @@ extension UserManager {
     func setUserIdForApple(userId: String) {
         self.appleUserIdentifier = userId
     }
+    
+    func clearAll() {
+        self.accessToken = nil
+        self.refreshToken = nil
+        self.fcmToken = nil
+        self.socialToken = nil
+        self.appleUserIdentifier = nil
+    }
 }
