@@ -42,7 +42,7 @@ final class NoticeAlarmViewController: UIViewController {
 private extension NoticeAlarmViewController {
     
     func updateUI() {
-        timeNoticeLabel.text = "매일 \(timeToString(pushTime)) 에\n교신을 보내줄게"
+        timeNoticeLabel.text = "매일 \(timeToString(pushTime))에\n교신을 보내줄게"
         timeNoticeLabel.partFontChange(targetString: timeToString(pushTime), font: .PretendardSemiBold(size: 24))
     }
     
