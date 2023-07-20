@@ -9,7 +9,7 @@ import Foundation
 
 struct WritePopUp {
     var section: String?
-    var number: Int?
+    var number: String?
     var topic: String?
     var question: String?
     var answer: String?

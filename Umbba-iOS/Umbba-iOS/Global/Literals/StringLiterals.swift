@@ -23,7 +23,7 @@ enum I18N {
         static let pastBold = "과거"
         static let timeNotice = "매일 밤 11시에\n교신을 보내줄게"
         static let subNotice = "초대자가 선택한 시간에 따라 푸시 알림을 보내드려요"
-        static let userInfoTitle = "반가워!\n너에 대해 알고 싶어!"
+        static let userInfoTitle = "반가워!\n너에 대해 알고 싶어"
         static let nameInfo = "너의 이름이 뭐야?"
         static let namePlaceholder = "ex) 홍길동"
         static let nameError = "*올바른 형식이 아닙니다"

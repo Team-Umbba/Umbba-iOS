@@ -132,7 +132,6 @@ extension ArchivingViewController: UICollectionViewDelegate {
             makeVibrate()
             collectionView.reloadData()
         case .question:
-            print(listEntity[indexPath.item].qnaID)
             archivingQuestionID(qnaId: listEntity[indexPath.item].qnaID)
         }
     }
