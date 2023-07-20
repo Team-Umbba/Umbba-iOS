@@ -155,7 +155,7 @@ extension PushAlarmViewController: UNUserNotificationCenterDelegate {
         UNUserNotificationCenter.current().delegate = self
         let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
         UNUserNotificationCenter.current().requestAuthorization(options: authOptions) { didAllow, error in
-            print(didAllow)
+            UserManager.shared.updateAllowAlarm(didAllow)
             DispatchQueue.main.async {
                 let completeViewController = CompleteViewController()
                 completeViewController.isReceiver = self.isReceiver
