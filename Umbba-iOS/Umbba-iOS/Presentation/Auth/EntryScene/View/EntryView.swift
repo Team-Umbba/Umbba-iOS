@@ -77,15 +77,16 @@ final class EntryView: UIView {
     }()
     
     private lazy var inviteButton: CustomButton = {
-      let button = CustomButton(status: true, title: I18N.Auth.inviteButtonTitle)
-      button.setTitleColor(.Primary500, for: .normal)
-      button.layer.borderColor = UIColor.Primary500.cgColor
-      button.layer.borderWidth = 2
+        let button = CustomButton(status: true, title: I18N.Auth.inviteButtonTitle)
+        button.setTitleColor(.Primary500, for: .normal)
+        button.titleLabel?.font = .PretendardSemiBold(size: 16)
+        button.layer.borderColor = UIColor.Primary500.cgColor
+        button.layer.borderWidth = 2
         
-      var config = UIButton.Configuration.filled()
-      config.background.backgroundColor = .UmbbaWhite
-      button.configuration = config
-      return button
+        var config = UIButton.Configuration.filled()
+        config.background.backgroundColor = .UmbbaWhite
+        button.configuration = config
+        return button
     }()
     
     override init(frame: CGRect) {
@@ -158,7 +159,7 @@ private extension EntryView {
             $0.height.equalTo(60)
         }
     }
-
+    
     func setAddTarget() {
         entryButton.addTarget(self, action: #selector(entryButtonTapped), for: .touchUpInside)
         inviteButton.addTarget(self, action: #selector(inviteButtonTapped), for: .touchUpInside)

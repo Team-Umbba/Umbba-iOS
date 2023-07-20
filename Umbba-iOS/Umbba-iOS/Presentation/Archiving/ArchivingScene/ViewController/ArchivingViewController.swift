@@ -91,6 +91,7 @@ extension ArchivingViewController: ArchivingQuestionDelegate {
     func archivingQuestionID(qnaId: Int) {
         let nav = AnswerDetailViewController()
         nav.questionId = qnaId
+        nav.isHome = false
         self.navigationController?.pushViewController(nav, animated: true)
     }
 }

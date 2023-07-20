@@ -10,6 +10,9 @@ import UIKit
 final class AnswerDetailViewController: UIViewController {
     
     // MARK: - Properties
+    // home으로 가야하면 true, list로 가야하면 false
+    
+    var isHome: Bool = true
     
     private var todayEntity: TodayEntity? {
         didSet {
@@ -86,11 +89,15 @@ extension AnswerDetailViewController {
 
 extension AnswerDetailViewController: NavigationBarDelegate {
     func backButtonTapped() {
-        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-              let keyWindow = windowScene.windows.first else {
-            return
+        if isHome {
+            guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+                  let keyWindow = windowScene.windows.first else {
+                return
+            }
+            keyWindow.rootViewController = TabBarController()
+        } else {
+            self.navigationController?.popViewController(animated: true)
         }
-        keyWindow.rootViewController = TabBarController()
     }
 
     func completeButtonTapped() {
@@ -111,7 +118,11 @@ extension AnswerDetailViewController: NextButtonDelegate {
 
 extension AnswerDetailViewController: HomeButtonDelegate {
     func homeButtonTapped() {
-        self.navigationController?.pushViewController(TabBarController(), animated: true)
+        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+              let keyWindow = windowScene.windows.first else {
+            return
+        }
+        keyWindow.rootViewController = TabBarController()
     }
 }
 

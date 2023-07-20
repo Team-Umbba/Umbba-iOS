@@ -7,7 +7,7 @@
 
 struct ReceiveEntity: Codable {
     let userInfo: UserInfo2?
-    let parentchildInfo: ParentchildInfo?
+    let parentchildInfo: ParentchildInfo2?
     let pushTime: String?
 
     enum CodingKeys: String, CodingKey {
@@ -18,10 +18,10 @@ struct ReceiveEntity: Codable {
 }
 
 // MARK: - ParentchildInfo
-struct ParentchildInfo: Codable {
-    let parentchildID: Int
-    let parentchildUsers: [UserInfo]
-    let parentchildRelation: String
+struct ParentchildInfo2: Codable {
+    let parentchildID: Int?
+    let parentchildUsers: [UserInfo2]?
+    let parentchildRelation: String?
 
     enum CodingKeys: String, CodingKey {
         case parentchildID = "parentchild_id"
@@ -32,10 +32,10 @@ struct ParentchildInfo: Codable {
 
 // MARK: - UserInfo
 struct UserInfo2: Codable {
-    let userID: Int
-    let name, gender: String
-    let bornYear: Int
-    let isMeChild: Bool
+    let userID: Int?
+    let name, gender: String?
+    let bornYear: Int?
+    let isMeChild: Bool?
 
     enum CodingKeys: String, CodingKey {
         case userID = "user_id"
@@ -44,4 +44,3 @@ struct UserInfo2: Codable {
         case isMeChild = "is_me_child"
     }
 }
-

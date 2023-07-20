@@ -32,7 +32,7 @@ final class NoticeAlarmView: UIView {
         return label
     }()
     
-    private let timeNoticeLabel: UILabel = {
+    let timeNoticeLabel: UILabel = {
         let label = UILabel()
         label.text = I18N.Onboarding.timeNotice
         label.textColor = .UmbbaBlack
@@ -41,43 +41,6 @@ final class NoticeAlarmView: UIView {
         label.partFontChange(targetString: "11시", font: .PretendardSemiBold(size: 24))
         return label
     }()
-    
-    // 시간 단위 분기처리
-    
-    func timeToString(_ time: String) -> String {
-        let components = time.split(separator: ":")
-        guard components.count == 2, let hour = Int(components[0]), let minute = Int(components[1]) else { return "" }
-
-        switch (hour, minute) {
-        case (0, 0):
-            return "밤 12시"
-        case (0, 30):
-            return "밤 12시 반"
-        case (1..<6, 0):
-            return "새벽 \(hour)시"
-        case (1..<6, 30):
-            return "새벽 \(hour)시 반"
-        case (6..<12, 0):
-            return "아침 \(hour)시"
-        case (6..<12, 30):
-            return "아침 \(hour)시 반"
-        case (12..<18, 0):
-            return "낮 \(hour)시"
-        case (12..<18, 30):
-            return "낮 \(hour)시 반"
-        case (18..<21, 0):
-            return "저녁 \(hour)시"
-        case (18..<21, 30):
-            return "저녁 \(hour)시 반"
-        case (21..<25, 0):
-            return "밤 \(hour)시"
-        case (21..<25, 30):
-            return "밤 \(hour)시 반"
-        default:
-            return "올바른 형식이 아닙니다"
-        }
-    }
-    
     
     private let subNoticeLabel: UILabel = {
         let label = UILabel()

@@ -13,10 +13,12 @@ final class NoticeAlarmViewController: UIViewController {
     // MARK: - Properties
     
     var isReceiver: Bool = false
+    var pushTime: String = ""
     
     // MARK: - UI Components
 
-    private let noticeAlarmView = NoticeAlarmView()
+    private lazy var noticeAlarmView = NoticeAlarmView()
+    private lazy var timeNoticeLabel = noticeAlarmView.timeNoticeLabel
     
     // MARK: - Life Cycles
     
@@ -30,16 +32,57 @@ final class NoticeAlarmViewController: UIViewController {
         super.viewDidLoad()
       
         setDelegate()
+        updateUI()
     }
+    
 }
 
 // MARK: - Extensions
 
 private extension NoticeAlarmViewController {
-
+    
+    func updateUI() {
+        timeNoticeLabel.text = "매일 \(timeToString(pushTime))에\n교신을 보내줄게"
+        timeNoticeLabel.partFontChange(targetString: timeToString(pushTime), font: .PretendardSemiBold(size: 24))
+    }
+    
     func setDelegate() {
         noticeAlarmView.navigationdelegate = self
         noticeAlarmView.nextDelegate = self
+    }
+    
+    func timeToString(_ time: String) -> String {
+        let components = time.split(separator: ":")
+        guard components.count == 2, let hour = Int(components[0]), let minute = Int(components[1]) else { return "" }
+
+        switch (hour, minute) {
+        case (0, 0):
+            return "밤 12시"
+        case (0, 30):
+            return "밤 12시 반"
+        case (1..<6, 0):
+            return "새벽 \(hour)시"
+        case (1..<6, 30):
+            return "새벽 \(hour)시 반"
+        case (6..<12, 0):
+            return "아침 \(hour)시"
+        case (6..<12, 30):
+            return "아침 \(hour)시 반"
+        case (12..<18, 0):
+            return "낮 \(hour)시"
+        case (12..<18, 30):
+            return "낮 \(hour)시 반"
+        case (18..<21, 0):
+            return "저녁 \(hour)시"
+        case (18..<21, 30):
+            return "저녁 \(hour)시 반"
+        case (21..<25, 0):
+            return "밤 \(hour)시"
+        case (21..<25, 30):
+            return "밤 \(hour)시 반"
+        default:
+            return "올바른 형식이 아닙니다"
+        }
     }
 }
 
@@ -73,4 +116,3 @@ extension NoticeAlarmViewController: UNUserNotificationCenterDelegate {
         }
     }
 }
-
