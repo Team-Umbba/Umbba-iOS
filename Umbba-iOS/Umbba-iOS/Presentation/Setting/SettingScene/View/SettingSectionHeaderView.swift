@@ -29,6 +29,7 @@ final class SettingSectionHeaderView: UITableViewHeaderFooterView, UITableViewHe
         let mySwitch = UISwitch()
         mySwitch.onTintColor = .Primary500
         mySwitch.isOn = UserManager.shared.getAllowAlarm
+        mySwitch.addTarget(self, action: #selector(self.onSwitchValueChanged(sender:)), for: .valueChanged)
         return mySwitch
     }()
     
@@ -78,4 +79,8 @@ private extension SettingSectionHeaderView {
             $0.height.equalTo(1)
         }
     }
+    
+    @objc private func onSwitchValueChanged(sender: UISwitch) {
+       UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
+   }
 }
