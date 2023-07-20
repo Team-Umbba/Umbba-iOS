@@ -212,7 +212,7 @@ private extension AnswerDetailView {
         
         myQuestLabel.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview().inset(24)
-            $0.top.equalTo(partnerAnswerView.snp.bottom).offset(32)
+            $0.top.equalTo(partnerAnswerView.snp.bottom).offset(16)
         }
         
         myAnswerView.snp.makeConstraints {
