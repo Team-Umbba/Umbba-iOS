@@ -288,7 +288,12 @@ extension AnswerDetailView {
     }
     
     func setDetailDataBind(model: DetailEntity) {
-
+        if model.myAnswer != "" && model.myQuestion != "" {
+            myAnswerContent.textColor = .UmbbaBlack
+            partnerAnswerContent.textColor = .UmbbaBlack
+            nextButton.isHidden = true
+            homeButton.isHidden = false
+        }
         navigationBarView.cafe24Title = model.section
         numberLabel.text = "#\(model.index)"
         themeLabel.text = model.topic

@@ -6,9 +6,9 @@
 //
 
 struct InviteEntity: Codable {
-    let parentchildID: Int
-    let userInfo: UserInfo
-    let parentchildRelation, pushTime, inviteCode: String
+    let parentchildID: Int?
+    let userInfo: UserInfo?
+    let parentchildRelation, pushTime, inviteCode: String?
 
     enum CodingKeys: String, CodingKey {
         case parentchildID = "parentchild_id"
@@ -21,15 +21,15 @@ struct InviteEntity: Codable {
 
 // MARK: - UserInfo
 struct UserInfo: Codable {
-    let userID: Int
-    let name, gender: String
-    let bornYear: Int
+    let userID: Int?
+    let name, gender: String?
+    let bornYear: Int?
     let meChild: Bool
 
     enum CodingKeys: String, CodingKey {
         case userID = "user_id"
         case name, gender
         case bornYear = "born_year"
-        case meChild = "me_child"
+        case meChild = "is_me_child"
     }
 }

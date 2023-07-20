@@ -36,7 +36,11 @@ extension LottieViewController {
     func playAnimation() {
         lottieView.lottieSplashView.play { _ in
             if UserManager.shared.hasAccessToken {
-                self.presentToMainView()
+                if UserManager.shared.haveUserName {
+                    self.presentToMainView()
+                } else {
+                    self.presentToEntryView()
+                }
             } else {
                 self.presentToLoginView()
             }
@@ -45,6 +49,11 @@ extension LottieViewController {
 
     func presentToLoginView() {
         let nav = LoginViewController()
+        self.navigationController?.pushViewController(nav, animated: false)
+    }
+    
+    func presentToEntryView() {
+        let nav = EntryViewController()
         self.navigationController?.pushViewController(nav, animated: false)
     }
     

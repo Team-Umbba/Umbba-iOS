@@ -72,6 +72,7 @@ enum I18N {
         static let assignThirdTitle = "[필수] 개인정보 수집 및 이용에 동의합니다."
         static let assignThirdSubTitle = "\'(주)이승준 컴퍼니\'(이하 \'회사\')가 운영하는 \'엄빠도 어렸다\'는 개인정보보호법 제 30조 의거 이용자의 개인정보보호와 권익을 보호하고 관련된 고충 및 애로사항을 신속하게 처리하기 위해 아래의 개인정보처리방침을 제정·운영하고 있습니다."
         static let assignNextButtonTitle = "다음으로"
+        static let kakaoFailMessage = "카카오톡 로그인에 실패하였습니다."
     }
 
     enum Archiving {

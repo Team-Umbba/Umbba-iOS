@@ -67,6 +67,7 @@ private extension WithdrawalViewController {
                       let keyWindow = windowScene.windows.first else {
                     return
                 }
+                UserManager.shared.clearAll()
                 keyWindow.rootViewController = UINavigationController(rootViewController: LottieViewController())
                 if let navigationController = keyWindow.rootViewController as? UINavigationController {
                     navigationController.isNavigationBarHidden = true

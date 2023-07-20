@@ -82,6 +82,7 @@ final class InviteView: UIView {
 private extension InviteView {
     func setUI() {
         self.backgroundColor = .UmbbaWhite
+        self.addToolbar(textfields: [inviteTextField])
     }
     
     func setDelegate() {
