@@ -55,31 +55,32 @@ private extension NoticeAlarmViewController {
         let components = time.split(separator: ":")
         guard components.count == 2, let hour = Int(components[0]), let minute = Int(components[1]) else { return "" }
 
-        switch (hour, minute) {
+        let formattedhour = hour > 12 ? hour - 12 : hour
+        switch (formattedhour, minute) {
         case (0, 0):
             return "밤 12시"
         case (0, 30):
             return "밤 12시 반"
         case (1..<6, 0):
-            return "새벽 \(hour)시"
+            return "새벽 \(formattedhour)시"
         case (1..<6, 30):
-            return "새벽 \(hour)시 반"
+            return "새벽 \(formattedhour)시 반"
         case (6..<12, 0):
-            return "아침 \(hour)시"
+            return "아침 \(formattedhour)시"
         case (6..<12, 30):
-            return "아침 \(hour)시 반"
+            return "아침 \(formattedhour)시 반"
         case (12..<18, 0):
-            return "낮 \(hour)시"
+            return "낮 \(formattedhour)시"
         case (12..<18, 30):
-            return "낮 \(hour)시 반"
+            return "낮 \(formattedhour)시 반"
         case (18..<21, 0):
-            return "저녁 \(hour)시"
+            return "저녁 \(formattedhour)시"
         case (18..<21, 30):
-            return "저녁 \(hour)시 반"
+            return "저녁 \(formattedhour)시 반"
         case (21..<25, 0):
-            return "밤 \(hour)시"
+            return "밤 \(formattedhour)시"
         case (21..<25, 30):
-            return "밤 \(hour)시 반"
+            return "밤 \(formattedhour)시 반"
         default:
             return "올바른 형식이 아닙니다"
         }
