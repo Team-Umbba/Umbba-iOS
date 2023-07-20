@@ -18,7 +18,7 @@ final class SettingViewController: UIViewController {
     private lazy var settingtableView = settingTableView.tableView
     private let userSection = I18N.Setting.userSectionLabel
     private let teamSection = I18N.Setting.teamSectionLabel
-
+    
     // MARK: - Life Cycles
     
     override func loadView() {
@@ -30,6 +30,7 @@ final class SettingViewController: UIViewController {
         super.viewDidLoad()
 
         setDelegate()
+        setNotification()
     }
 }
 
@@ -41,6 +42,20 @@ private extension SettingViewController {
         settingtableView.delegate = self
         settingtableView.dataSource = self
     }
+    
+    func setNotification() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(getAlert),
+                                               name: NSNotification.Name("Alert"),
+                                               object: nil)
+    }
+    
+    @objc
+        private func getAlert(_ notification: NSNotification) {
+            DispatchQueue.main.async {
+                self.settingtableView.reloadData()
+            }
+        }
 }
 
 extension SettingViewController: UITableViewDelegate {
@@ -48,6 +63,9 @@ extension SettingViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if section == 1 {
             let header = SettingSectionHeaderView.dequeueReusableHeaderFooterView(tableView: tableView)
+            header.alarmdelegate = self
+            header.alarmSwitch.isOn = UserManager.shared.getAllowAlarm
+
             return header
         } else {
             return UIView()
@@ -115,5 +133,11 @@ extension SettingViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         return cell
+    }
+}
+
+extension SettingViewController: AlarmSwitchDelegate {
+    func alarmSwitchTapped() {
+        UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
     }
 }

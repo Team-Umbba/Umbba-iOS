@@ -53,6 +53,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 break
             }
         }
+        let center = UNUserNotificationCenter.current()
+        
+        center.getNotificationSettings { settings in
+            print(settings)
+            switch settings.alertSetting {
+            case .enabled:
+                UserManager.shared.updateAllowAlarm(true)
+            default:
+                UserManager.shared.updateAllowAlarm(false)
+            }
+            NotificationCenter.default.post(name: NSNotification.Name("Alert"), object: nil)
+        }
     }
     
     func sceneWillResignActive(_ scene: UIScene) {
