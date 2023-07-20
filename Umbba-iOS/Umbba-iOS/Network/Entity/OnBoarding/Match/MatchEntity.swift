@@ -9,6 +9,7 @@ import Foundation
 
 struct MatchEntity: Codable {
     let parentchildID: Int?
+    let isMatchFinish: Bool?
     let parentchildUsers: [ParentchildUser]?
     let parentchildRelation: String?
 
@@ -16,6 +17,7 @@ struct MatchEntity: Codable {
         case parentchildID = "parentchild_id"
         case parentchildUsers = "parentchild_users"
         case parentchildRelation = "parentchild_relation"
+        case isMatchFinish = "is_match_finish"
     }
 }
 

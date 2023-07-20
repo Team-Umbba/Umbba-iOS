@@ -17,7 +17,7 @@ final class OnBoardingService: BaseService {
 }
 
 extension OnBoardingService {
-    func postMatchAPI(
+    func patchMatchAPI(
         invite_code: String,
         completion: @escaping (NetworkResult<Any>) -> Void) {
             let url = URLConstant.matchURL

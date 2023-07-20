@@ -18,12 +18,14 @@ final class UserManager {
     
     @UserDefaultWrapper<String>(key: "userIdentifier") private(set) var appleUserIdentifier
     @UserDefaultWrapper<String>(key: "userName") private(set) var userName
+    @UserDefaultWrapper<Bool>(key: "isMatch") private(set) var isMatch
     
     var hasAccessToken: Bool { return self.accessToken != nil }
     
     var getSocialToken: String { return self.socialToken ?? "" }
     var getAccessToken: String { return self.accessToken ?? "" }
     var getFcmToken: String { return self.fcmToken ?? "" }
+    var getIsMatch: Bool { return self.isMatch ?? false }
     
     var haveUserName: Bool {
         if userName == "" {
@@ -52,6 +54,10 @@ extension UserManager {
     
     func updateUserName(_ userName: String) {
         self.userName = userName
+    }
+    
+    func updateIsMatch(_ isMatch: Bool) {
+        self.isMatch = isMatch
     }
 
     func setUserIdForApple(userId: String) {
