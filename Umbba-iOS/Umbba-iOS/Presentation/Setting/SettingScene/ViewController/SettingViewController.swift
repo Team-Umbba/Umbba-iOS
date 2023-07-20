@@ -19,8 +19,6 @@ final class SettingViewController: UIViewController {
     private let userSection = I18N.Setting.userSectionLabel
     private let teamSection = I18N.Setting.teamSectionLabel
     
-    var bool = false
-
     // MARK: - Life Cycles
     
     override func loadView() {
@@ -32,7 +30,7 @@ final class SettingViewController: UIViewController {
         super.viewDidLoad()
 
         setDelegate()
-        addNotification()
+        setNotification()
     }
 }
 
@@ -45,18 +43,19 @@ private extension SettingViewController {
         settingtableView.dataSource = self
     }
     
-    func addNotification() {
-        NotificationCenter.default.addObserver(self, selector: #selector(getAlert), name: NSNotification.Name("Alert"), object: nil)
+    func setNotification() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(getAlert),
+                                               name: NSNotification.Name("Alert"),
+                                               object: nil)
     }
     
     @objc
-    private func getAlert(_ notification: NSNotification) {
-        let getValue = notification.object as! Bool
-        bool = getValue
-        DispatchQueue.main.async {
-            self.settingtableView.reloadData()
+        private func getAlert(_ notification: NSNotification) {
+            DispatchQueue.main.async {
+                self.settingtableView.reloadData()
+            }
         }
-    }
 }
 
 extension SettingViewController: UITableViewDelegate {
@@ -65,7 +64,7 @@ extension SettingViewController: UITableViewDelegate {
         if section == 1 {
             let header = SettingSectionHeaderView.dequeueReusableHeaderFooterView(tableView: tableView)
             header.alarmdelegate = self
-            header.alarmSwitch.isOn = bool
+            header.alarmSwitch.isOn = UserManager.shared.getAllowAlarm
 
             return header
         } else {

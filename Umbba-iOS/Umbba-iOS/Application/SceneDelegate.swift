@@ -59,10 +59,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             print(settings)
             switch settings.alertSetting {
             case .enabled:
-                NotificationCenter.default.post(name: NSNotification.Name("Alert"), object: true)
+                UserManager.shared.updateAllowAlarm(true)
             default:
-                NotificationCenter.default.post(name: NSNotification.Name("Alert"), object: false)
+                UserManager.shared.updateAllowAlarm(false)
             }
+            NotificationCenter.default.post(name: NSNotification.Name("Alert"), object: nil)
         }
     }
     
