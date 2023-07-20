@@ -19,23 +19,6 @@ final class ArchivingSectionCollectionViewCell: UICollectionViewCell, UICollecti
     
     weak var delegate: ArchivingDelegate?
     
-    // MARK: - Properties
-
-//    override var isSelected: Bool {
-//        didSet {
-//            if isSelected {
-//
-//                print(tag, "11")
-//                self.backgroundColor = .Primary600
-//                archivingSectionLabel.textColor = .UmbbaWhite
-//            } else {
-//                print("ff")
-//                self.backgroundColor = .UmbbaWhite
-//                archivingSectionLabel.textColor = .Primary600
-//            }
-//        }
-//    }
-    
     // MARK: - UI Components
     
     let archivingSectionLabel: UILabel = {
@@ -50,8 +33,6 @@ final class ArchivingSectionCollectionViewCell: UICollectionViewCell, UICollecti
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
-//        isSelected = true
     
         setUI()
         setHierarchy()
