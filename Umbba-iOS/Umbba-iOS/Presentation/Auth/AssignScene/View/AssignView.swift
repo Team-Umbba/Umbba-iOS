@@ -232,7 +232,7 @@ extension AssignView {
         }
         
         assignEntireCheck.snp.makeConstraints {
-            $0.top.equalTo(lineView.snp.bottom).offset(52)
+            $0.centerY.equalTo(assignEntireTitle)
             $0.trailing.equalToSuperview().inset(36)
             $0.width.height.equalTo(48)
         }
@@ -249,7 +249,7 @@ extension AssignView {
         }
         
         assignFirstCheck.snp.makeConstraints {
-            $0.top.equalTo(assignEntireCheck.snp.bottom).offset(40)
+            $0.centerY.equalTo(assignFirstTitle)
             $0.trailing.equalTo(assignEntireCheck.snp.trailing)
             $0.width.height.equalTo(48)
         }
@@ -260,7 +260,7 @@ extension AssignView {
         }
         
         assignSecondCheck.snp.makeConstraints {
-            $0.top.equalTo(assignFirstCheck.snp.bottom).offset(43)
+            $0.centerY.equalTo(assignSecondTitle)
             $0.trailing.equalTo(assignFirstCheck.snp.trailing)
         }
         
@@ -276,7 +276,7 @@ extension AssignView {
         }
         
         assignThirdCheck.snp.makeConstraints {
-            $0.top.equalTo(assignSecondCheck.snp.bottom)
+            $0.centerY.equalTo(assignThirdTitle)
             $0.trailing.equalTo(assignSecondCheck.snp.trailing)
             $0.width.height.equalTo(48)
         }
