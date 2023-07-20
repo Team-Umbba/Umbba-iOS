@@ -10,7 +10,6 @@ import UIKit
 final class AnswerDetailViewController: UIViewController {
     
     // MARK: - Properties
-    // home으로 가야하면 true, list로 가야하면 false
     
     var isHome: Bool = true
     
@@ -42,14 +41,15 @@ final class AnswerDetailViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
-        getTodayAPI()
+        
+        routeAPI()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        getAPI()
+        print(isHome)
+        routeAPI()
         setDelegate()
     }
 }
@@ -57,10 +57,21 @@ final class AnswerDetailViewController: UIViewController {
 // MARK: - Extensions
 
 extension AnswerDetailViewController {
+   
     func setDelegate() {
         answerDetailView.delegate = self
         answerDetailView.nextDelegate = self
         answerDetailView.homeDelegate = self
+    }
+    
+    func routeAPI() {
+        if isHome {
+            print("오늘의 질문")
+            getTodayAPI()
+        } else {
+            print("옛날 질문 확인")
+            getArchivingDetailAPI(row: questionId)
+        }
     }
     
     func fetchTodayData() {
@@ -76,14 +87,6 @@ extension AnswerDetailViewController {
     func fetchDetailData() {
         guard let detailEntity = detailEntity else { return }
         answerDetailView.setDetailDataBind(model: detailEntity)
-    }
-    
-    func getAPI() {
-        if questionId == -1 {
-            getTodayAPI()
-        } else {
-            getArchivingDetailAPI(row: questionId)
-        }
     }
 }
 

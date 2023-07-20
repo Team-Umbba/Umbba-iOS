@@ -47,6 +47,8 @@ final class MainViewController: UIViewController {
         super.viewDidLoad()
 
         setDelegate()
+        getCaseAPI()
+        getMainAPI()
     }
 }
 
