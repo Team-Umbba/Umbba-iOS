@@ -155,8 +155,8 @@ private extension LoginView {
         }
         
         loginAppleButton.snp.makeConstraints {
-            $0.leading.trailing.equalToSuperview().inset(28)
-            $0.bottom.equalToSuperview().inset(116)
+            $0.leading.trailing.equalToSuperview().inset(20)
+            $0.bottom.equalTo(loginKakaoButton.snp.top).offset(-12)
             $0.height.equalTo(60)
         }
         
@@ -171,8 +171,8 @@ private extension LoginView {
         }
         
         loginKakaoButton.snp.makeConstraints {
-            $0.leading.trailing.equalToSuperview().inset(28)
-            $0.bottom.equalToSuperview().inset(44)
+            $0.bottom.equalTo(self.safeAreaLayoutGuide).offset(-12)
+            $0.leading.trailing.equalToSuperview().inset(20)
             $0.height.equalTo(60)
         }
         

@@ -49,7 +49,11 @@ private extension CompleteViewController {
     
     func updateUI() {
         self.completeView.completeTitleLabel.text = I18N.Onboarding.completeTitle
-        self.completeView.backgroundImageView.image = ImageLiterals.Onboarding.img_arrive
+        if SizeLiterals.Screen.deviceRatio > 0.5 {
+            self.completeView.backgroundImageView.image = ImageLiterals.Onboarding.img_se_arrive
+        } else {
+            self.completeView.backgroundImageView.image = ImageLiterals.Onboarding.img_arrive
+        }
         self.completeView.completeTitleLabel.textColor = .UmbbaBlack
         self.completeView.navigationBarView.leftButton.tintColor = .UmbbaBlack
     }
