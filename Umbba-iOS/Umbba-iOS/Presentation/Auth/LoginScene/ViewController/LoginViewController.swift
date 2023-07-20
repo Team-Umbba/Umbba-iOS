@@ -101,7 +101,7 @@ extension LoginViewController: LoginDelegate {
     }
     
     func showKakaoLoginFailMessage() {
-        makeAlert(title: "카카오톡 로그인에 실패하였습니다.", message: "")
+        makeAlert(title: I18N.Auth.kakaoFailMessage, message: "")
     }
     
     func postSocialLoginData(socialToken: String, socialType: String) {
