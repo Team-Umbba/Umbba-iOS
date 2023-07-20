@@ -21,6 +21,8 @@ final class LoginViewController: UIViewController {
     
     private let loginView = LoginView()
     
+    static var isMatch: Bool = false
+    
     override func loadView() {
         super.loadView()
         self.view = loginView
@@ -42,7 +44,6 @@ extension LoginViewController {
             switch networkResult {
             case .success(let data):
                 if let data = data as? GenericResponse<LoginEntity> {
-                    dump(data)
                     switch socialPlatform {
                     case "KAKAO":
                         if let kakaoData = data.data {
@@ -111,6 +112,7 @@ extension LoginViewController: LoginDelegate {
         guard let kakaoEntity = kakaoEntity else { return }
         UserManager.shared.updateToken(kakaoEntity.tokenDto.accessToken, kakaoEntity.tokenDto.refreshToken)
         UserManager.shared.updateFcmToken(kakaoEntity.fcmToken ?? "")
+        LoginViewController.isMatch = kakaoEntity.isMatchFinish ?? false
         
         if kakaoEntity.username != nil {
             presentToMainView()
@@ -124,6 +126,7 @@ extension LoginViewController: LoginDelegate {
         
         UserManager.shared.updateToken(appleEntity.tokenDto.accessToken, appleEntity.tokenDto.refreshToken)
         UserManager.shared.updateFcmToken(appleEntity.fcmToken ?? "")
+        LoginViewController.isMatch = appleEntity.isMatchFinish ?? false
         
         if appleEntity.username != nil {
             presentToMainView()
