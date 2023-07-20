@@ -15,6 +15,7 @@ final class UserManager {
     @UserDefaultWrapper<String>(key: "accessToken") private(set) var accessToken
     @UserDefaultWrapper<String>(key: "refreshToken") private(set) var refreshToken
     @UserDefaultWrapper<String>(key: "fcmToken") private(set) var fcmToken
+    @UserDefaultWrapper<Bool>(key: "allowAlarm") private(set) var allowAlarm
     
     @UserDefaultWrapper<String>(key: "userIdentifier") private(set) var appleUserIdentifier
     
@@ -23,6 +24,7 @@ final class UserManager {
     var getSocialToken: String { return self.socialToken ?? "" }
     var getAccessToken: String { return self.accessToken ?? "" }
     var getFcmToken: String { return self.fcmToken ?? "" }
+    var getAllowAlarm: Bool { return self.allowAlarm ?? true }
     
     private init() {}
 }
@@ -37,6 +39,10 @@ extension UserManager {
     
     func updateFcmToken( _ fcmToken: String) {
         self.fcmToken = fcmToken
+    }
+    
+    func updateAllowAlarm(_ allowAlarm: Bool) {
+        self.allowAlarm = allowAlarm
     }
 
     func setUserIdForApple(userId: String) {
