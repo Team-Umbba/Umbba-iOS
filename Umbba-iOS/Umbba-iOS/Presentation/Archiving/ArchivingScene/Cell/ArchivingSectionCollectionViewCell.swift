@@ -19,20 +19,6 @@ final class ArchivingSectionCollectionViewCell: UICollectionViewCell, UICollecti
     
     weak var delegate: ArchivingDelegate?
     
-    // MARK: - Properties
-    
-    override var isSelected: Bool {
-        didSet {
-            if isSelected {
-                self.backgroundColor = .Primary600
-                archivingSectionLabel.textColor = .UmbbaWhite
-            } else {
-                self.backgroundColor = .UmbbaWhite
-                archivingSectionLabel.textColor = .Primary600
-            }
-        }
-    }
-    
     // MARK: - UI Components
     
     let archivingSectionLabel: UILabel = {
@@ -47,7 +33,7 @@ final class ArchivingSectionCollectionViewCell: UICollectionViewCell, UICollecti
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
+    
         setUI()
         setHierarchy()
         setLayout()
@@ -55,6 +41,12 @@ final class ArchivingSectionCollectionViewCell: UICollectionViewCell, UICollecti
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.backgroundColor = .UmbbaWhite
+        archivingSectionLabel.textColor = .Primary600
     }
 }
 
@@ -67,7 +59,6 @@ extension ArchivingSectionCollectionViewCell {
         self.layer.borderWidth = 1
         self.layer.borderColor = UIColor.Primary600.cgColor
         self.backgroundColor = .UmbbaWhite
-        self.isUserInteractionEnabled = true
     }
     
     func setHierarchy() {
@@ -78,6 +69,16 @@ extension ArchivingSectionCollectionViewCell {
         archivingSectionLabel.snp.makeConstraints {
             $0.centerY.equalToSuperview()
             $0.leading.trailing.equalToSuperview().inset(16)
+        }
+    }
+    
+    func setTest(isSelected: Bool) {
+        if isSelected {
+            self.backgroundColor = .Primary600
+            archivingSectionLabel.textColor = .UmbbaWhite
+        } else {
+            self.backgroundColor = .UmbbaWhite
+            archivingSectionLabel.textColor = .Primary600
         }
     }
 }

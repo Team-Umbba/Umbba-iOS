@@ -17,12 +17,23 @@ final class UserManager {
     @UserDefaultWrapper<String>(key: "fcmToken") private(set) var fcmToken
     
     @UserDefaultWrapper<String>(key: "userIdentifier") private(set) var appleUserIdentifier
+    @UserDefaultWrapper<String>(key: "userName") private(set) var userName
     
     var hasAccessToken: Bool { return self.accessToken != nil }
     
     var getSocialToken: String { return self.socialToken ?? "" }
     var getAccessToken: String { return self.accessToken ?? "" }
     var getFcmToken: String { return self.fcmToken ?? "" }
+    
+    var haveUserName: Bool {
+        if userName == "" {
+            return false
+        } else if userName == nil {
+            return false
+        } else {
+            return true
+        }
+    }
     
     private init() {}
 }
@@ -38,8 +49,20 @@ extension UserManager {
     func updateFcmToken( _ fcmToken: String) {
         self.fcmToken = fcmToken
     }
+    
+    func updateUserName(_ userName: String) {
+        self.userName = userName
+    }
 
     func setUserIdForApple(userId: String) {
         self.appleUserIdentifier = userId
+    }
+    
+    func clearAll() {
+        self.accessToken = nil
+        self.refreshToken = nil
+        self.fcmToken = nil
+        self.socialToken = nil
+        self.appleUserIdentifier = nil
     }
 }

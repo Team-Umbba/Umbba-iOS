@@ -14,6 +14,7 @@ final class ArchivingViewController: UIViewController {
     private typealias SectionType = Section
     
     var headerIndex = 0
+    var selectedIndex: Int = 0
     
     @frozen
     private enum Section: CaseIterable {
@@ -32,8 +33,6 @@ final class ArchivingViewController: UIViewController {
             self.collectionView.reloadSections([1])
         }
     }
-    
-    private var selectedIndex: [Int] = []
     
     private let deviceRatio = UIScreen.main.bounds.width / UIScreen.main.bounds.height
     
@@ -80,7 +79,7 @@ extension ArchivingViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
     }
-
+    
     func updateHeaderLabel(_ text: String) {
         if let headerView = collectionView.supplementaryView(forElementKind: UICollectionView.elementKindSectionHeader, at: IndexPath(item: 0, section: 1)) as? ArchivingQuestionHeaderView {
             headerView.headerLabel.text = text
@@ -120,39 +119,19 @@ extension ArchivingViewController: UICollectionViewDelegate {
         let sectionType = Section.allCases[indexPath.section]
         switch sectionType {
         case .section:
-            if let cell = collectionView.cellForItem(at: indexPath) as? ArchivingSectionCollectionViewCell {
-                cell.isSelected = true
-            }
-            selectedIndex.append(indexPath.row)
-            getListAPI(row: indexPath.row + 1)
-            
+            getListAPI(row: indexPath.item + 1)
+            selectedIndex = indexPath.item
             if SizeLiterals.Screen.deviceRatio > 0.5 {
-                archivingImageView.setSEDataBind(section: indexPath.row)
-                headerIndex = indexPath.row
+                archivingImageView.setSEDataBind(section: indexPath.item)
+                headerIndex = indexPath.item
             } else {
-                archivingImageView.setDataBind(section: indexPath.row)
-                headerIndex = indexPath.row
+                archivingImageView.setDataBind(section: indexPath.item)
+                headerIndex = indexPath.item
             }
+            collectionView.reloadData()
         case .question:
-            print(listEntity[indexPath.row].qnaID)
-            archivingQuestionID(qnaId: listEntity[indexPath.row].qnaID)
-//            getArchivingDetailAPI(row: listEntity[indexPath.row].qnaID)
-        }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        let sectionType = Section.allCases[indexPath.section]
-        switch sectionType {
-        case .section:
-            if let cell = collectionView.cellForItem(at: indexPath) as? ArchivingSectionCollectionViewCell {
-                cell.isSelected = false
-            }
-            
-            if let index = selectedIndex.firstIndex(of: indexPath.row) {
-                selectedIndex.remove(at: index)
-            }
-        case .question:
-            break
+            print(listEntity[indexPath.item].qnaID)
+            archivingQuestionID(qnaId: listEntity[indexPath.item].qnaID)
         }
     }
 }
@@ -163,16 +142,9 @@ extension ArchivingViewController: UICollectionViewDataSource {
         switch sectionType {
         case .section:
             let cell =
-                    ArchivingSectionCollectionViewCell.dequeueReusableCell(collectionView: collectionView, indexPath: indexPath)
-            cell.archivingSectionLabel.text = "# \(I18N.Archiving.sectionArray[indexPath.row])"
-            cell.tag = indexPath.item
-            
-            if indexPath.item == 0 {
-                collectionView.selectItem(at: indexPath, animated: false, scrollPosition: [])
-                cell.isSelected = true
-            } else {
-                cell.isSelected = false
-            }
+            ArchivingSectionCollectionViewCell.dequeueReusableCell(collectionView: collectionView, indexPath: indexPath)
+            cell.archivingSectionLabel.text = "# \(I18N.Archiving.sectionArray[indexPath.item])"
+            cell.setTest(isSelected: selectedIndex == indexPath.item)
             
             return cell
         case .question:
