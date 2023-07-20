@@ -28,6 +28,8 @@ final class UserManager {
     var haveUserName: Bool {
         if userName == "" {
             return false
+        } else if userName == nil {
+            return false
         } else {
             return true
         }
