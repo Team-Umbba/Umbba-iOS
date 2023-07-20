@@ -28,7 +28,12 @@ final class CompleteView: UIView {
     
     let backgroundImageView: UIImageView = {
         let animationImage = UIImageView()
-        animationImage.image = ImageLiterals.Onboarding.img_depart
+        if SizeLiterals.Screen.deviceRatio > 0.5 {
+            animationImage.image = ImageLiterals.Onboarding.image_se_depart
+        } else {
+            animationImage.image = ImageLiterals.Onboarding.img_depart
+        }
+        
         return animationImage
     }()
     
