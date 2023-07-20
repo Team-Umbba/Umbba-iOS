@@ -454,7 +454,8 @@ extension UserInfoView: UITextFieldDelegate {
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        guard textField.text!.count < 7 else { return false } // 10 글자로 제한
+        let newText = (textField.text as NSString?)?.replacingCharacters(in: range, with: string)
+        guard let text = newText, text.count < 8 else { return false }
         return true
     }
 }
