@@ -111,7 +111,11 @@ extension AnswerDetailViewController: NextButtonDelegate {
 
 extension AnswerDetailViewController: HomeButtonDelegate {
     func homeButtonTapped() {
-        self.navigationController?.pushViewController(TabBarController(), animated: true)
+        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+              let keyWindow = windowScene.windows.first else {
+            return
+        }
+        keyWindow.rootViewController = TabBarController()
     }
 }
 

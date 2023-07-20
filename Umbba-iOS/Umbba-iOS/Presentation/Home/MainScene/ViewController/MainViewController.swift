@@ -113,6 +113,8 @@ private extension MainViewController {
 
 extension MainViewController: MainDelegate {
     func questionButtonTapped() {
+        // 수정한 부분
+        getCaseAPI()
         guard let caseEntity = caseEntity else { return }
         switch caseEntity.responseCase {
         case 1:
@@ -161,10 +163,14 @@ private extension MainViewController {
 extension MainViewController {
     func getCaseAPI() {
         HomeService.shared.getCaseAPI { networkResult in
+            print(networkResult)
             switch networkResult {
             case .success(let data):
+                print(data)
                 if let data = data as? GenericResponse<CaseEntity> {
                     if let caseData = data.data {
+                        print("🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎")
+                        print(caseData)
                         self.caseEntity = caseData
                         self.inviteUserName = caseData.inviteUsername ?? ""
                         self.inviteCode = caseData.inviteCode ?? ""
