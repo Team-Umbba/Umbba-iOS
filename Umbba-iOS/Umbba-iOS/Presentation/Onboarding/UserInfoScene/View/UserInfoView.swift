@@ -247,7 +247,7 @@ private extension UserInfoView {
         }
         
         scrollView.snp.makeConstraints { make in
-            make.top.equalTo(userInfoTitleLabel.snp.bottom).offset(20)
+            make.top.equalTo(userInfoTitleLabel.snp.bottom).offset(10)
             make.bottom.leading.trailing.equalToSuperview()
         }
         

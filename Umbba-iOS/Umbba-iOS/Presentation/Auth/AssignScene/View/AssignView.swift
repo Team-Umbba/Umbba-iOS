@@ -269,8 +269,8 @@ extension AssignView {
         }
         
         nextButton.snp.makeConstraints {
-            $0.bottom.equalToSuperview().inset(44)
-            $0.leading.trailing.equalToSuperview().inset(28)
+            $0.bottom.equalTo(self.safeAreaLayoutGuide).offset(-12)
+            $0.leading.trailing.equalToSuperview().inset(20)
             $0.height.equalTo(60)
         }
         
@@ -289,7 +289,7 @@ extension AssignView {
             }
         } else {
             assignThirdSubTitle.snp.makeConstraints {
-                $0.bottom.equalTo(nextButton.snp.top).offset(-72)
+                $0.bottom.equalTo(nextButton.snp.top).offset(-130)
                 $0.leading.equalTo(assignThirdTitle.snp.leading)
                 $0.trailing.equalTo(assignThirdCheck.snp.leading).offset(6)
             }
