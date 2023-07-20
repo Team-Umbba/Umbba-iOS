@@ -53,6 +53,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 break
             }
         }
+        let center = UNUserNotificationCenter.current()
+        
+        center.getNotificationSettings { settings in
+            print(settings)
+            switch settings.alertSetting {
+            case .enabled:
+                NotificationCenter.default.post(name: NSNotification.Name("Alert"), object: true)
+            default:
+                NotificationCenter.default.post(name: NSNotification.Name("Alert"), object: false)
+            }
+        }
     }
     
     func sceneWillResignActive(_ scene: UIScene) {

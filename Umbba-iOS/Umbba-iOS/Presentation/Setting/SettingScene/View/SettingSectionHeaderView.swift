@@ -9,11 +9,16 @@ import UIKit
 
 import SnapKit
 
+protocol AlarmSwitchDelegate: AnyObject {
+    func alarmSwitchTapped()
+}
+
 final class SettingSectionHeaderView: UITableViewHeaderFooterView, UITableViewHeaderFooterRegisterable {
    
     // MARK: - Properties
     
     static var isFromNib = false
+    weak var alarmdelegate: AlarmSwitchDelegate?
     
     // MARK: - UI Components
     
@@ -25,11 +30,10 @@ final class SettingSectionHeaderView: UITableViewHeaderFooterView, UITableViewHe
         return label
     }()
     
-    private lazy var alarmSwitch: UISwitch = {
+    lazy var alarmSwitch: UISwitch = {
         let mySwitch = UISwitch()
         mySwitch.onTintColor = .Primary500
         mySwitch.isOn = UserManager.shared.getAllowAlarm
-        mySwitch.addTarget(self, action: #selector(self.onSwitchValueChanged(sender:)), for: .valueChanged)
         return mySwitch
     }()
     
@@ -45,6 +49,7 @@ final class SettingSectionHeaderView: UITableViewHeaderFooterView, UITableViewHe
         super.init(reuseIdentifier: reuseIdentifier)
        
         setUI()
+        setAddTarget()
         setLayout()
     }
     
@@ -59,6 +64,10 @@ private extension SettingSectionHeaderView {
     
     func setUI() {
         contentView.backgroundColor = .UmbbaWhite
+    }
+    
+    func setAddTarget() {
+        alarmSwitch.addTarget(self, action: #selector(alarmSwitchTapped), for: .valueChanged)
     }
     
     func setLayout() {
@@ -80,7 +89,21 @@ private extension SettingSectionHeaderView {
         }
     }
     
-    @objc private func onSwitchValueChanged(sender: UISwitch) {
-       UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
-   }
+    @objc
+    func alarmSwitchTapped() {
+        alarmdelegate?.alarmSwitchTapped()
+    }
+    
+//    @objc private func onSwitchValueChanged(sender: UISwitch) {
+//        UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
+//        let center = UNUserNotificationCenter.current()
+//        center.getNotificationSettings { settings in
+//            switch settings.alertSetting {
+//            case .enabled:
+//
+//            default:
+//
+//            }
+//        }
+//   }
 }

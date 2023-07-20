@@ -16,7 +16,6 @@ final class UserManager {
     @UserDefaultWrapper<String>(key: "refreshToken") private(set) var refreshToken
     @UserDefaultWrapper<String>(key: "fcmToken") private(set) var fcmToken
     @UserDefaultWrapper<Bool>(key: "allowAlarm") private(set) var allowAlarm
-    
     @UserDefaultWrapper<String>(key: "userIdentifier") private(set) var appleUserIdentifier
     
     var hasAccessToken: Bool { return self.accessToken != nil }
