@@ -122,7 +122,9 @@ extension MainViewController: MainDelegate {
                   let keyWindow = windowScene.windows.first else {
                 return
             }
-            keyWindow.rootViewController = UINavigationController(rootViewController: AnswerDetailViewController())
+            let answerDetailController = AnswerDetailViewController()
+            answerDetailController.isHome = true
+            keyWindow.rootViewController = UINavigationController(rootViewController: answerDetailController)
             if let navigationController = keyWindow.rootViewController as? UINavigationController {
                 navigationController.isNavigationBarHidden = true
             }
