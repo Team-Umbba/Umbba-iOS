@@ -72,6 +72,8 @@ private extension WithdrawalViewController {
                 if let navigationController = keyWindow.rootViewController as? UINavigationController {
                     navigationController.isNavigationBarHidden = true
                 }
+            case .requestErr, .serverErr:
+                self.makeAlert(title: "오류가 발생했습니다", message: "다시 시도해주세요")
             default:
                 break
             }

@@ -74,8 +74,6 @@ extension OnBoardingService {
                 switch response.result {
                 case .success:
                     guard let statusCode = response.response?.statusCode else { return }
-                    print("🍎🍎🍎🍎🍎🍎🍎초대 하는 측 service 쪽🍎🍎🍎🍎🍎🍎🍎🍎")
-                    print("data")
                     guard let data = response.data else { return }
                     let networkResult = self.judgeStatus(by: statusCode,
                                                          data,
@@ -111,9 +109,6 @@ extension OnBoardingService {
                 case .success:
                     guard let statusCode = response.response?.statusCode else { return }
                     guard let data = response.data else { return }
-                    print("🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎")
-                    print(data)
-                    print("🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎")
                     let networkResult = self.judgeStatus(by: statusCode,
                                                          data,
                                                          ReceiveEntity.self)

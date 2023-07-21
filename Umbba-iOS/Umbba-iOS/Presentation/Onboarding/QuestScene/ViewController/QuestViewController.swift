@@ -87,7 +87,6 @@ private extension QuestViewController {
 
 extension QuestViewController: NavigationBarDelegate {
     
-    //여기 변경 -1로 변경함 (>=0에서)
     private func hasAnswer(_ number: Int) {
         if answerArray[number].answer != -1 {
             nextButton.isEnabled = true
@@ -120,7 +119,6 @@ extension QuestViewController: NextButtonDelegate {
         
         if currentIndexPath.item + 1 == 5 {
             answerListArray = convertToAnswerArray(questionModels: answerArray)
-            print(answerListArray)
             UserData.shared.onboardingAnswerList = answerListArray
             if isReceiver {
                 UserManager.shared.updateUserName( UserData.shared.userInfo.name)
@@ -132,12 +130,8 @@ extension QuestViewController: NextButtonDelegate {
                 self.navigationController?.pushViewController(pushAlarmViewController, animated: true)
             }
         } else {
-
-            //트러블 슈팅 감
             let index = currentIndexPath.item
             hasAnswer(index + 1)
-//            answerArray[index].answer = currentAnswer
-            
             progressView.progress = Float(currentIndexPath.item + 2) * 0.2
             let nextIndexPath = IndexPath(item: currentIndexPath.item + 1, section: currentIndexPath.section)
             questCollectionView.scrollToItem(at: nextIndexPath, at: .centeredHorizontally, animated: true)
@@ -178,11 +172,7 @@ extension QuestViewController: UICollectionViewDataSource {
 extension QuestViewController: QuestDelegte {
     func selectAnswer(_ cell: QuestCollectionViewCell, questionIndex: Int, answerIndex: Int) {
         currentAnswer = answerIndex
-//        if questionIndex == 4 {
-//            answerArray[questionIndex].answer = currentAnswer
-//        }
         answerArray[questionIndex].answer = currentAnswer
-        
         nextButton.isEnabled = true
     }
 }
@@ -194,19 +184,16 @@ extension QuestViewController {
                          onboarding_answer_list: [String]) {
         OnBoardingService.shared.patchRecieveAPI(user_Info: user_info,
                                                  onboarding_answer_list: onboarding_answer_list) { NetworkResult in
-            print(NetworkResult)
             switch NetworkResult {
             case .success(let data):
-                print("❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️")
-                print(data)
-                print("❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️")
                 if let data = data as? GenericResponse<ReceiveEntity> {
-                    print(data)
                     let noticeAlarmViewController = NoticeAlarmViewController()
                     noticeAlarmViewController.isReceiver = self.isReceiver
                     noticeAlarmViewController.pushTime = data.data?.pushTime ?? ""
                     self.navigationController?.pushViewController(noticeAlarmViewController, animated: true)
                 }
+            case .requestErr, .serverErr:
+                self.makeAlert(title: "오류가 발생했습니다", message: "다시 시도해주세요")
             default:
                 break
             }

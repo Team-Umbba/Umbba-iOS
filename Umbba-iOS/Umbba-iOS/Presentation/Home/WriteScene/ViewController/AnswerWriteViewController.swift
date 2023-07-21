@@ -69,7 +69,7 @@ private extension AnswerWriteViewController {
             case .success:
                 self.navigationController?.popViewController(animated: true)
             case .requestErr, .serverErr:
-                print("에러 발생")
+                self.makeAlert(title: "오류가 발생했습니다", message: "다시 시도해주세요")
             default:
                 break
             }

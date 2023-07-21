@@ -99,7 +99,6 @@ extension PushAlarmViewController: NavigationBarDelegate {
 extension PushAlarmViewController: NextButtonDelegate {
     func nextButtonTapped() {
         convertToTime(time: pushAlarmTime)
-        print("\(formattedTime)")
         UserData.shared.pushTime = formattedTime
         requestPermission()
     }

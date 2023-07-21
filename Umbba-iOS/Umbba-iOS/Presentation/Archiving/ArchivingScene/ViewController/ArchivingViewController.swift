@@ -108,6 +108,8 @@ private extension ArchivingViewController {
                         self.listEntity = listData
                     }
                 }
+            case .requestErr, .serverErr:
+                self.makeAlert(title: "오류가 발생했습니다", message: "다시 시도해주세요")
             default:
                 break
             }
@@ -145,7 +147,7 @@ extension ArchivingViewController: UICollectionViewDataSource {
             let cell =
             ArchivingSectionCollectionViewCell.dequeueReusableCell(collectionView: collectionView, indexPath: indexPath)
             cell.archivingSectionLabel.text = "# \(I18N.Archiving.sectionArray[indexPath.item])"
-            cell.setTest(isSelected: selectedIndex == indexPath.item)
+            cell.setCellSelected(isSelected: selectedIndex == indexPath.item)
             
             return cell
         case .question:

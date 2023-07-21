@@ -59,7 +59,6 @@ private extension MainViewController {
     
     func fetchData() {
         guard let mainEntity = mainEntity else { return }
-        guard let caseEntity = caseEntity else { return }
         mainView.setDataBind(model: mainEntity)
         if SizeLiterals.Screen.deviceRatio > 0.5 {
             mainView.setSEImageBind(model: mainEntity)
@@ -165,6 +164,8 @@ private extension MainViewController {
                         self.mainEntity = mainData
                     }
                 }
+            case .requestErr, .serverErr:
+                self.makeAlert(title: "오류가 발생했습니다", message: "다시 시도해주세요")
             default:
                 break
             }
@@ -175,19 +176,17 @@ private extension MainViewController {
 extension MainViewController {
     func getCaseAPI() {
         HomeService.shared.getCaseAPI { networkResult in
-            print(networkResult)
             switch networkResult {
             case .success(let data):
-                print(data)
                 if let data = data as? GenericResponse<CaseEntity> {
                     if let caseData = data.data {
-                        print("🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎")
-                        print(caseData)
                         self.caseEntity = caseData
                         self.inviteUserName = caseData.inviteUsername ?? ""
                         self.inviteCode = caseData.inviteCode ?? ""
                     }
                 }
+            case .requestErr, .serverErr:
+                self.makeAlert(title: "오류가 발생했습니다", message: "다시 시도해주세요")
             default:
                 break
             }

@@ -108,7 +108,6 @@ extension NoticeAlarmViewController: UNUserNotificationCenterDelegate {
         UNUserNotificationCenter.current().delegate = self
         let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
         UNUserNotificationCenter.current().requestAuthorization(options: authOptions) { didAllow, error in
-            print(didAllow)
             DispatchQueue.main.async {
                 let completeViewController = CompleteViewController()
                 completeViewController.isReceiver = self.isReceiver
