@@ -59,6 +59,6 @@ extension AppDelegate: MessagingDelegate {
 
         guard let fcmToken =  fcmToken else { return }
         print("✅✅✅✅✅✅✅\(fcmToken)✅✅✅✅✅✅✅")
-        UserManager.shared.updateFcmToken(fcmToken ?? "")
+        UserManager.shared.updateFcmToken(fcmToken)
     }
 }

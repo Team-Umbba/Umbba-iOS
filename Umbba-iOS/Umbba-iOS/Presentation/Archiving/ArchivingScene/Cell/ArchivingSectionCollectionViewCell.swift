@@ -72,7 +72,7 @@ extension ArchivingSectionCollectionViewCell {
         }
     }
     
-    func setTest(isSelected: Bool) {
+    func setCellSelected(isSelected: Bool) {
         if isSelected {
             self.backgroundColor = .Primary600
             archivingSectionLabel.textColor = .UmbbaWhite

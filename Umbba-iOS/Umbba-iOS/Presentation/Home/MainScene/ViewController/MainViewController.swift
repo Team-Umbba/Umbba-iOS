@@ -59,7 +59,6 @@ private extension MainViewController {
     
     func fetchData() {
         guard let mainEntity = mainEntity else { return }
-        guard let caseEntity = caseEntity else { return }
         mainView.setDataBind(model: mainEntity)
         if SizeLiterals.Screen.deviceRatio > 0.5 {
             mainView.setSEImageBind(model: mainEntity)

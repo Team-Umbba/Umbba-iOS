@@ -147,7 +147,7 @@ extension ArchivingViewController: UICollectionViewDataSource {
             let cell =
             ArchivingSectionCollectionViewCell.dequeueReusableCell(collectionView: collectionView, indexPath: indexPath)
             cell.archivingSectionLabel.text = "# \(I18N.Archiving.sectionArray[indexPath.item])"
-            cell.setTest(isSelected: selectedIndex == indexPath.item)
+            cell.setCellSelected(isSelected: selectedIndex == indexPath.item)
             
             return cell
         case .question:

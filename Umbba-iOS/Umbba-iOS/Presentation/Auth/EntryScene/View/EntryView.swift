@@ -84,8 +84,7 @@ final class EntryView: UIView {
         button.layer.borderColor = UIColor.Primary500.cgColor
         button.layer.borderWidth = 2
         button.adjustsImageWhenHighlighted = false
-        return button
-        
+
         var config = UIButton.Configuration.filled()
         config.background.backgroundColor = .UmbbaWhite
         button.configuration = config
