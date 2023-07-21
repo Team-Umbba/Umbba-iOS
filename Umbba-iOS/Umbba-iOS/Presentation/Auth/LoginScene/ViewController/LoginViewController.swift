@@ -113,7 +113,7 @@ extension LoginViewController: LoginDelegate {
     func checkKakaoUser() {
         guard let kakaoEntity = kakaoEntity else { return }
         UserManager.shared.updateToken(kakaoEntity.tokenDto.accessToken, kakaoEntity.tokenDto.refreshToken)
-        UserManager.shared.updateFcmToken(kakaoEntity.fcmToken ?? "")
+//        UserManager.shared.updateFcmToken(kakaoEntity.fcmToken ?? "")
         UserManager.shared.updateUserName(kakaoEntity.username ?? "")
         
         if kakaoEntity.username != nil {
@@ -127,7 +127,8 @@ extension LoginViewController: LoginDelegate {
         guard let appleEntity = appleEntity else { return }
         
         UserManager.shared.updateToken(appleEntity.tokenDto.accessToken, appleEntity.tokenDto.refreshToken)
-        UserManager.shared.updateFcmToken(appleEntity.fcmToken ?? "")
+        print(appleEntity.fcmToken)
+//        UserManager.shared.updateFcmToken(appleEntity.fcmToken ?? "")
         UserManager.shared.updateUserName(appleEntity.username ?? "")
         LoginViewController.isMatch = appleEntity.isMatchFinish ?? false
         
