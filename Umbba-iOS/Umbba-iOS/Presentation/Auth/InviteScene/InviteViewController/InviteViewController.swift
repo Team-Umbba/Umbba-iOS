@@ -90,6 +90,8 @@ extension InviteViewController {
                 self.inviteView.inviteTextField.textFieldStatus = .uncorrectedType
                 self.inviteView.errorLabel.isHidden = false
                 self.inviteView.errorLabel.text = "유효하지 않은 초대코드입니다."
+            case .serverErr:
+                self.makeAlert(title: "오류가 발생했습니다", message: "다시 시도해주세요")
             default:
                 break
             }

@@ -97,16 +97,11 @@ extension CompleteViewController {
                                                relation_Info: relation_info,
                                                push_time: push_time,
                                                onboarding_answer_list: onboarding_answer_list) { NetworkResult in
-            print("🍎🍎🍎🍎🍎🍎🍎초대 하는 측🍎🍎🍎🍎🍎🍎🍎🍎")
-            print(NetworkResult)
             switch NetworkResult {
-            case .success(let data):
-                print("🍎🍎🍎🍎🍎🍎🍎초대 하는 측🍎🍎🍎🍎🍎🍎🍎🍎")
-                print(data)
-                if let data = data as? GenericResponse<InviteEntity> {
-                    print(data)
-                    self.navigationController?.pushViewController(TabBarController(), animated: true)
-                }
+            case .success:
+                self.navigationController?.pushViewController(TabBarController(), animated: true)
+            case .requestErr, .serverErr:
+                self.makeAlert(title: "오류가 발생했습니다", message: "다시 시도해주세요")
             default:
                 break
             }

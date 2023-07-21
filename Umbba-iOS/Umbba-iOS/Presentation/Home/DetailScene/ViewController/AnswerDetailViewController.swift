@@ -48,7 +48,6 @@ final class AnswerDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(isHome)
         routeAPI()
         setDelegate()
     }
@@ -66,10 +65,8 @@ extension AnswerDetailViewController {
     
     func routeAPI() {
         if isHome {
-            print("오늘의 질문")
             getTodayAPI()
         } else {
-            print("옛날 질문 확인")
             getArchivingDetailAPI(row: questionId)
         }
     }
@@ -141,6 +138,8 @@ extension AnswerDetailViewController {
                         self.todayEntity = todayData
                     }
                 }
+            case .requestErr, .serverErr:
+                self.makeAlert(title: "오류가 발생했습니다", message: "다시 시도해주세요")
             default:
                 break
             }
@@ -156,6 +155,8 @@ extension AnswerDetailViewController {
                         self.detailEntity = detailData
                     }
                 }
+            case .requestErr, .serverErr:
+                self.makeAlert(title: "오류가 발생했습니다", message: "다시 시도해주세요")
             default:
                 break
             }

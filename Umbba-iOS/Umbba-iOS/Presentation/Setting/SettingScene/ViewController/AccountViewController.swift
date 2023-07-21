@@ -87,10 +87,8 @@ extension AccountViewController: NavigationBarDelegate {
 private extension AccountViewController {
     func patchLogOutAPI() {
         AuthService.shared.patchLogOutAPI { NetworkResult in
-            print(NetworkResult)
             switch NetworkResult {
             case .success:
-                print("로그아웃 성공")
                 guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
                       let keyWindow = windowScene.windows.first else {
                     return
@@ -100,11 +98,11 @@ private extension AccountViewController {
                 if let navigationController = keyWindow.rootViewController as? UINavigationController {
                     navigationController.isNavigationBarHidden = true
                 }
+            case .requestErr, .serverErr:
+                self.makeAlert(title: "오류가 발생했습니다", message: "다시 시도해주세요")
             default:
-                print("!!!!!")
                 break
             }
         }
-        
     }
 }

@@ -73,7 +73,6 @@ private extension ArchivingCollectionView {
     @objc
     func archivingQuestionID(qnaId: Int) {
         archivingQuestionDelegate?.archivingQuestionID(qnaId: qnaId)
-        print(qnaId)
     }
     
     private func registerCell() {
