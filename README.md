@@ -9,6 +9,7 @@
 | [최영린](https://github.com/joeuni01) | [고아라](https://github.com/ahra1221) | [남유진](https://github.com/yujin-00)|
 | --- | --- | --- |
 | <img src = "https://github.com/Team-Umbba/Umbba-iOS/assets/79412889/7643c0b4-9526-4ab0-8d22-f9cfbbd8e2a1" width = "300">| <img src = "https://github.com/Team-Umbba/Umbba-iOS/assets/79412889/7f981eb3-a94c-41e1-aab9-6f995a53e26b" width = "300"> | <img src = "https://github.com/Team-Umbba/Umbba-iOS/assets/79412889/16a78f30-9a22-4d36-9e50-b4fbbca5ea5e" width = "300"> |
+|<p align = "center">`온보딩` `답변작성` `팝업뷰`|<p align = "center">`소셜로그인` `메인뷰`  `아카이빙뷰` |<p align = "center">`답변상세뷰` `설정뷰` `계정관리뷰`|
 
 ### 📒 Library
 | Library | Tag | Tool |
@@ -60,3 +61,9 @@
 ├── .swiftlint
 
 ```
+
+### 👩🏻‍🎨 View Sketch
+✅ [View Sketch](https://snapdragon-desk-8fd.notion.site/View-c95f9f2e3d2a442fba1e3eccb65d4afa?pvs=4)
+
+
+### 🔥 TroubleShooting
