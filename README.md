@@ -67,30 +67,19 @@
 
 
 ### 🔥 TroubleShooting
-✅ [TroubleShooting](https://snapdragon-desk-8fd.notion.site/a58e6c5fe2a643048b80781d80ae5fc8)
+✅ [TroubleShooting 모음집](https://snapdragon-desk-8fd.notion.site/a58e6c5fe2a643048b80781d80ae5fc8)
+
 <details>
   <summary>🐥 최영린</summary>
-<pre>
-내용 1
-내용 2
-내용 3
-</pre>
+저희 서비스는 첫 화면이 아닌 특정 화면에서 푸시알림 창을 띄워야 했기 때문에 이것을 해결하는 것에서 많은 고민을 했습니다. 해결하는 과정에서 깨달은 점은 FCMToken이 두번 발급되지 않으려면 UIApplication.shared.registerForRemoteNotifications()를 호출해주는 시점을 특정 화면에서 조절하는 것이 가장 중요하다는 것이었습니다.
 </details>
 
 <details>
   <summary>🐰 고아라</summary>
-<pre>
-내용 1
-내용 2
-내용 3
-</pre>
+  '엄빠도 어렸다'에서 맡은 기능 중 제일 많은 시간을 투자 했던 부분은 소셜 로그인 구현이었습니다. 소셜 로그인도 어려웠지만 그때 사용자 정보를 저장하여 앱을 종료 후에 재 실행 했을 때 자동으로 메인 화면으로 넘어가게 하는 부분에서 어려움을 겪었습니다. iOS에서 기본으로 제공하고 있는 UserDefault를 사용한 UserManager 클래스를 구현해 자동 로그인 시 필요한 정보를 회원가입 시에 저장하는 방식으로 해결했습니다!
 </details>
 
 <details>
   <summary>🦖 남유진</summary>
-<pre>
-내용 1
-내용 2
-내용 3
-</pre>
+앱잼 기간 내에 기능적인 측면에서 가장 많은 고민을 했던 트러블은 푸쉬알림 권한 설정을 스위치에 적용하는 것이었습니다. 권한 설정 창에 들어간 후 권한 허용을 변경하지 않은 경우에 스위치 상태를 그대로 유지하도록 구현하는 것이 문제였습니다. UserManager에서 알림 허용 여부를 확인하고 NotificationCenter를 사용하여 알림을 관찰하고 그에 따라 UI 업데이트를 해주었습니다.
 </details>
