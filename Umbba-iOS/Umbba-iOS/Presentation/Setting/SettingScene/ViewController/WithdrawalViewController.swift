@@ -61,6 +61,7 @@ extension WithdrawalViewController: WithdrawlDelegate {
 private extension WithdrawalViewController {
     func patchSignOutAPI() {
         AuthService.shared.patchSignOutAPI { NetworkResult in
+            print(NetworkResult)
             switch NetworkResult {
             case .success:
                 guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,

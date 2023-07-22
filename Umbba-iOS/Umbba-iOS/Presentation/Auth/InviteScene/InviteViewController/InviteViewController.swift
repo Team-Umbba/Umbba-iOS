@@ -31,6 +31,8 @@ final class InviteViewController: UIViewController {
         super.viewDidLoad()
         
         setDelegate()
+        print("❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️")
+        print(UserManager.shared.isMatch)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -75,6 +77,7 @@ extension InviteViewController: NextButtonDelegate {
 extension InviteViewController {
     func patchMatchAPI(inviteCode: String) {
         OnBoardingService.shared.patchMatchAPI(invite_code: inviteCode) { networkResult in
+            print(networkResult)
             switch networkResult {
             case .success(let data):
                 dump(data)

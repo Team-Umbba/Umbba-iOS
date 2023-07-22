@@ -52,7 +52,12 @@ extension AuthService {
     
     func patchLogOutAPI(completion: @escaping (NetworkResult<Any>) -> Void) {
         let url = URLConstant.logoutURL
-        let header: HTTPHeaders = NetworkConstant.hasTokenHeader
+        let header: HTTPHeaders =  ["Content-Type": "application/json",
+                                    "Authorization": "Bearer \(UserManager.shared.getAccessToken)"]
+        print("➡️➡️➡️➡️➡️➡️➡️여기서 하면 달라짐➡️➡️➡️➡️➡️➡️")
+        print(NetworkConstant.hasTokenHeader)
+        print("❤️❤️❤️❤️❤️로그아웃❤️❤️❤️❤️❤️❤️❤️")
+        print(header)
         let dataRequest = AF.request(url,
                                      method: .patch,
                                      encoding: JSONEncoding.default,
@@ -74,7 +79,14 @@ extension AuthService {
     
     func patchSignOutAPI(completion: @escaping (NetworkResult<Any>) -> Void) {
         let url = URLConstant.signoutURL
-        let header: HTTPHeaders = NetworkConstant.hasTokenHeader
+        print("❤️❤️❤️❤️❤️❤️❤️회원탈퇴 토큰❤️❤️❤️❤️❤️")
+        print("\(UserManager.shared.getAccessToken)")
+//        let header: HTTPHeaders = NetworkConstant.hasTokenHeader
+        let header: HTTPHeaders = ["Content-Type": "application/json",
+                                   "Authorization": "Bearer \(UserManager.shared.getAccessToken)"]
+        print(NetworkConstant.hasTokenHeader)
+        print("❤️❤️❤️❤️❤️로그아웃❤️❤️❤️❤️❤️❤️❤️")
+        print(header)
         let dataRequest = AF.request(url,
                                      method: .patch,
                                      encoding: JSONEncoding.default,
