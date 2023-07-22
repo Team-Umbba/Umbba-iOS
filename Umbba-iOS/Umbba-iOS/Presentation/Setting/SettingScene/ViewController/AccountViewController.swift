@@ -87,13 +87,14 @@ extension AccountViewController: NavigationBarDelegate {
 private extension AccountViewController {
     func patchLogOutAPI() {
         AuthService.shared.patchLogOutAPI { NetworkResult in
+            print(NetworkResult)
             switch NetworkResult {
             case .success:
                 guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
                       let keyWindow = windowScene.windows.first else {
                     return
                 }
-                UserManager.shared.clearAll()
+                UserManager.shared.clearData()
                 keyWindow.rootViewController = UINavigationController(rootViewController: LottieViewController())
                 if let navigationController = keyWindow.rootViewController as? UINavigationController {
                     navigationController.isNavigationBarHidden = true

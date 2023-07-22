@@ -20,6 +20,7 @@ final class EntryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        print(UserManager.shared.getAccessToken)
         setDelegate()
     }
 

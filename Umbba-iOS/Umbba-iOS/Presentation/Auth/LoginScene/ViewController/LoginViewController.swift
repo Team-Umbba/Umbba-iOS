@@ -32,6 +32,9 @@ final class LoginViewController: UIViewController {
         super.viewDidLoad()
         
         setDelegate()
+        print("❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️")
+        print(UserManager.shared.isMatch)
+
     }
 
 }
@@ -41,6 +44,13 @@ final class LoginViewController: UIViewController {
 extension LoginViewController {
     func postLoginAPI(socialToken: String, socialPlatform: String) {
         AuthService.shared.postLoginAPI(social_platform: socialPlatform, social_token: socialToken, fcm_token: UserManager.shared.getFcmToken) { networkResult in
+            print("🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎")
+            print(UserManager.shared.getFcmToken)
+            print(UserManager.shared.getAccessToken)
+            print("➡️➡️➡️➡️➡️➡️➡️get access➡️➡️➡️➡️➡️➡️➡️")
+            print(UserManager.shared.getAccessToken)
+            print("➡️➡️➡️➡️➡️➡️➡️그냥 access➡️➡️➡️➡️➡️➡️➡️")
+            print(UserManager.shared.accessToken)
             switch networkResult {
             case .success(let data):
                 if let data = data as? GenericResponse<LoginEntity> {
@@ -85,7 +95,7 @@ extension LoginViewController: LoginDelegate {
                     self.showKakaoLoginFailMessage()
                 } else {
                     if let accessToken = oauthToken?.accessToken {
-                        self.postSocialLoginData(socialToken: accessToken, socialType: "KAKAO")
+                        self.postLoginAPI(socialToken: accessToken, socialPlatform: "KAKAO")
                     }
                 }
             }
@@ -95,7 +105,7 @@ extension LoginViewController: LoginDelegate {
                     self.showKakaoLoginFailMessage()
                 } else {
                     if let accessToken = oauthToken?.accessToken {
-                        self.postSocialLoginData(socialToken: accessToken, socialType: "KAKAO")
+                        self.postLoginAPI(socialToken: accessToken, socialPlatform: "KAKAO")
                     }
                 }
             }
@@ -106,34 +116,48 @@ extension LoginViewController: LoginDelegate {
         makeAlert(title: I18N.Auth.kakaoFailMessage, message: "")
     }
     
-    func postSocialLoginData(socialToken: String, socialType: String) {
-        postLoginAPI(socialToken: socialToken, socialPlatform: socialType)
-    }
+//    func postSocialLoginData(socialToken: String, socialType: String) {
+//        postLoginAPI(socialToken: socialToken, socialPlatform: socialType)
+//    }
     
     func checkKakaoUser() {
         guard let kakaoEntity = kakaoEntity else { return }
         UserManager.shared.updateToken(kakaoEntity.tokenDto.accessToken, kakaoEntity.tokenDto.refreshToken)
-        UserManager.shared.updateFcmToken(kakaoEntity.fcmToken ?? "")
         UserManager.shared.updateUserName(kakaoEntity.username ?? "")
         
         if kakaoEntity.username != nil {
+            print("➡️➡️➡️➡️➡️➡️➡️get access➡️➡️➡️➡️➡️➡️➡️")
+            print(UserManager.shared.getAccessToken)
+            print("➡️➡️➡️➡️➡️➡️➡️그냥 access➡️➡️➡️➡️➡️➡️➡️")
+            print(UserManager.shared.accessToken)
             presentToMainView()
         } else {
+            print("➡️➡️➡️➡️➡️➡️➡️get access➡️➡️➡️➡️➡️➡️➡️")
+            print(UserManager.shared.getAccessToken)
+            print("➡️➡️➡️➡️➡️➡️➡️그냥 access➡️➡️➡️➡️➡️➡️➡️")
+            print(UserManager.shared.accessToken)
             presentToAssignView()
         }
     }
     
     func checkAppleUser() {
         guard let appleEntity = appleEntity else { return }
-        
         UserManager.shared.updateToken(appleEntity.tokenDto.accessToken, appleEntity.tokenDto.refreshToken)
-        UserManager.shared.updateFcmToken(appleEntity.fcmToken ?? "")
+        print(appleEntity.fcmToken)
         UserManager.shared.updateUserName(appleEntity.username ?? "")
         LoginViewController.isMatch = appleEntity.isMatchFinish ?? false
         
         if appleEntity.username != nil {
+            print("➡️➡️➡️➡️➡️➡️➡️get access➡️➡️➡️➡️➡️➡️➡️")
+            print(UserManager.shared.getAccessToken)
+            print("➡️➡️➡️➡️➡️➡️➡️그냥 access➡️➡️➡️➡️➡️➡️➡️")
+            print(UserManager.shared.accessToken)
             presentToMainView()
         } else {
+            print("➡️➡️➡️➡️➡️➡️➡️get access➡️➡️➡️➡️➡️➡️➡️")
+            print(UserManager.shared.getAccessToken)
+            print("➡️➡️➡️➡️➡️➡️➡️그냥 access➡️➡️➡️➡️➡️➡️➡️")
+            print(UserManager.shared.accessToken)
             presentToAssignView()
         }
     }
@@ -161,9 +185,9 @@ extension LoginViewController: LoginDelegate {
         authorizationController.performRequests()
     }
     
-    func postSocialLoginAppleData(socialToken: String, socialType: String) {
-        postSocialLoginData(socialToken: socialToken, socialType: socialType)
-    }
+//    func postSocialLoginAppleData(socialToken: String, socialType: String) {
+//        postSocialLoginData(socialToken: socialToken, socialType: socialType)
+//    }
 }
 
 extension LoginViewController: ASAuthorizationControllerPresentationContextProviding {
