@@ -21,8 +21,7 @@ extension OnBoardingService {
         invite_code: String,
         completion: @escaping (NetworkResult<Any>) -> Void) {
             let url = URLConstant.matchURL
-            let header: HTTPHeaders = ["Content-Type": "application/json",
-                                       "Authorization": "Bearer \(UserManager.shared.getAccessToken)"]
+            let header: HTTPHeaders = NetworkConstant.hasTokenHeader
             let body: Parameters = [
                 "invite_code": invite_code
             ]
@@ -54,12 +53,7 @@ extension OnBoardingService {
         onboarding_answer_list: [String],
         completion: @escaping (NetworkResult<Any>) -> Void) {
             let url = URLConstant.inviteURL
-            print("❤️❤️❤️❤️❤️서비스❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️")
-            print(UserManager.shared.getAccessToken)
-            print("❤️❤️❤️❤️❤️서비스❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️")
-            let header: HTTPHeaders = ["Content-Type": "application/json",
-                                       "Authorization": "Bearer \(UserManager.shared.getAccessToken)"]
-            print(header)
+            let header: HTTPHeaders = NetworkConstant.hasTokenHeader
             let body: Parameters = [
                 "user_info": [
                     "name": user_Info.name,
@@ -96,8 +90,7 @@ extension OnBoardingService {
         onboarding_answer_list: [String],
         completion: @escaping (NetworkResult<Any>) -> Void) {
             let url = URLConstant.receiveURL
-            let header: HTTPHeaders = ["Content-Type": "application/json",
-                                       "Authorization": "Bearer \(UserManager.shared.getAccessToken)"]
+            let header: HTTPHeaders = NetworkConstant.hasTokenHeader
             let body: Parameters = [
                 "user_info": [
                     "name": user_Info.name,
