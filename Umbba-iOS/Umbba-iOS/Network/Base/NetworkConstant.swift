@@ -9,8 +9,12 @@ import Foundation
 
 import Alamofire
 
-struct NetworkConstant {
-    static let noTokenHeader: HTTPHeaders = ["Content-Type": "application/json"]
-    static let hasTokenHeader: HTTPHeaders = ["Content-Type": "application/json",
-                                              "Authorization": "Bearer \(UserManager.shared.getAccessToken)"]
+enum NetworkConstant {
+    static var noTokenHeader: HTTPHeaders = ["Content-Type": "application/json"]
+    static var hasTokenHeader: HTTPHeaders {
+        var headers: HTTPHeaders =
+        ["Content-Type": "application/json",
+         "Authorization": "Bearer \(UserManager.shared.getAccessToken)"]
+        return headers
+    }
 }
