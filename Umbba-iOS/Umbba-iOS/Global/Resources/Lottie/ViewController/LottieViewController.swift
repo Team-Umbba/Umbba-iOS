@@ -27,8 +27,6 @@ final class LottieViewController: UIViewController {
         super.viewDidLoad()
 
         playAnimation()
-        print("❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️")
-        print(UserManager.shared.getAccessToken)
     }
 }
 

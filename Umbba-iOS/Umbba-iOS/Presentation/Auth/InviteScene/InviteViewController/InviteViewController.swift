@@ -31,8 +31,6 @@ final class InviteViewController: UIViewController {
         super.viewDidLoad()
         
         setDelegate()
-        print("❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️")
-        print(UserManager.shared.isMatch)
     }
     
     override func viewDidAppear(_ animated: Bool) {

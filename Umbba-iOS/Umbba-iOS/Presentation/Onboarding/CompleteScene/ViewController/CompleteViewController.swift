@@ -74,8 +74,6 @@ extension CompleteViewController: NextButtonDelegate {
         if isReceiver {
             self.navigationController?.pushViewController(TabBarController(), animated: true)
         } else {
-            print("❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️")
-            print(UserManager.shared.getAccessToken)
             UserManager.shared.updateUserName(UserData.shared.userInfo.name)
             self.postInviteAPI(user_info: UserData.shared.userInfo,
                                is_invitor_child: UserData.shared.isInvitorChild,
@@ -99,9 +97,6 @@ extension CompleteViewController {
                                                relation_Info: relation_info,
                                                push_time: push_time,
                                                onboarding_answer_list: onboarding_answer_list) { NetworkResult in
-            print("❤️❤️❤️❤️❤️뷰컨 함수❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️")
-            print(UserManager.shared.getAccessToken)
-            print(NetworkResult)
             switch NetworkResult {
             case .success:
                 self.navigationController?.pushViewController(TabBarController(), animated: true)
