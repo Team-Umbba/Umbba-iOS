@@ -383,6 +383,7 @@ private extension UserInfoView {
     
     @objc
     func genderButtonTapped(sender: UIButton) {
+        self.endEditing(true)
         updateNextButton()
         self.selectedButton = sender.tag
         genderButton.forEach { button in
