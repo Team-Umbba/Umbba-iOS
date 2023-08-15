@@ -647,7 +647,6 @@
 			isa = PBXGroup;
 			children = (
 				697815932A53021B0047944C /* Common */,
-				697815972A53023E0047944C /* Splash */,
 				6978159B2A5302860047944C /* Auth */,
 				697815A62A5303980047944C /* Onboarding */,
 				697815A72A5303D60047944C /* Home */,
@@ -686,14 +685,6 @@
 				69A67D802A5C1BB600C43F49 /* CustomNavigationBar.swift */,
 			);
 			path = UIComponents;
-			sourceTree = "<group>";
-		};
-		697815972A53023E0047944C /* Splash */ = {
-			isa = PBXGroup;
-			children = (
-				697815A52A5303800047944C /* SplashScene */,
-			);
-			path = Splash;
 			sourceTree = "<group>";
 		};
 		697815982A5302540047944C /* TabBar */ = {
@@ -740,13 +731,6 @@
 				69DE6BB02A543FDF00F31812 /* View */,
 			);
 			path = InviteScene;
-			sourceTree = "<group>";
-		};
-		697815A52A5303800047944C /* SplashScene */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = SplashScene;
 			sourceTree = "<group>";
 		};
 		697815A62A5303980047944C /* Onboarding */ = {
