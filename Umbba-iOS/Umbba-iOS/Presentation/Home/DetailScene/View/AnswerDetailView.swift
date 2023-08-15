@@ -256,6 +256,11 @@ private extension AnswerDetailView {
     func homeButtonTapped() {
         homeDelegate?.homeButtonTapped()
     }
+    
+    @objc
+    func handleTap(sender: UITapGestureRecognizer) {
+        nextDelegate?.nextButtonTapped()
+    }
 }
 
 extension AnswerDetailView {
@@ -266,6 +271,11 @@ extension AnswerDetailView {
             myAnswerContent.textColor = .UmbbaBlack
             nextButton.isHidden = true
             homeButton.isHidden = false
+        }
+        
+        if !model.isMyAnswer {
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(sender:)))
+            myAnswerView.addGestureRecognizer(tapGesture)
         }
         
         if model.isOpponentAnswer {

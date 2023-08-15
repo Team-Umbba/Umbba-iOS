@@ -51,11 +51,11 @@ private extension SettingViewController {
     }
     
     @objc
-        private func getAlert(_ notification: NSNotification) {
-            DispatchQueue.main.async {
-                self.settingtableView.reloadData()
-            }
+    private func getAlert(_ notification: NSNotification) {
+        DispatchQueue.main.async {
+            self.settingtableView.reloadData()
         }
+    }
 }
 
 extension SettingViewController: UITableViewDelegate {

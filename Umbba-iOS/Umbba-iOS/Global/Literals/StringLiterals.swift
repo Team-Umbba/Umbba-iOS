@@ -100,7 +100,7 @@ enum I18N {
         static let partnerName = "이승준."
         static let myName = "김수연."
         static let noneAnswer = "상대방은 아직 답변하지 않았어요"
-        static let pleaseAnswer = "하단버튼을 눌러 답변을 입력하세요"
+        static let pleaseAnswer = "답변을 입력하세요"
     }
     
     enum Setting {

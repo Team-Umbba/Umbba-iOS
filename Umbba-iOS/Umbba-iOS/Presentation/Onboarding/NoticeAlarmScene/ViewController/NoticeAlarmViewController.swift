@@ -56,7 +56,7 @@ private extension NoticeAlarmViewController {
         guard components.count == 2, let hour = Int(components[0]), let minute = Int(components[1]) else { return "" }
 
         let formattedhour = hour > 12 ? hour - 12 : hour
-        switch (formattedhour, minute) {
+        switch (hour, minute) {
         case (0, 0):
             return "밤 12시"
         case (0, 30):
