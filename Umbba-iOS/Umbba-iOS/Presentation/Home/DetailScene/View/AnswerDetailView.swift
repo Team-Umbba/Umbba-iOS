@@ -171,6 +171,8 @@ private extension AnswerDetailView {
     }
     
     func setAddTarget() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(sender:)))
+        myAnswerView.addGestureRecognizer(tapGesture)
         navigationBarView.leftButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
         nextButton.addTarget(self, action: #selector(nextButtonTapped), for: .touchUpInside)
         homeButton.addTarget(self, action: #selector(homeButtonTapped), for: .touchUpInside)
@@ -255,6 +257,11 @@ private extension AnswerDetailView {
     @objc
     func homeButtonTapped() {
         homeDelegate?.homeButtonTapped()
+    }
+    
+    @objc
+    func handleTap(sender: UITapGestureRecognizer) {
+        nextDelegate?.nextButtonTapped()
     }
 }
 
