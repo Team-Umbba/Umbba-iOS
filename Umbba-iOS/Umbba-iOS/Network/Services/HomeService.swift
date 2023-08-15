@@ -19,8 +19,7 @@ final class HomeService: BaseService {
 extension HomeService {
     func getHomeAPI(completion: @escaping (NetworkResult<Any>) -> Void) {
         let url = URLConstant.mainURL
-        let header: HTTPHeaders = ["Content-Type": "application/json",
-                                   "Authorization": "Bearer \(UserManager.shared.getAccessToken)"]
+        let header: HTTPHeaders = NetworkConstant.hasTokenHeader
         let dataRequest = AF.request(url,
                                      method: .get,
                                      encoding: JSONEncoding.default,
@@ -43,8 +42,7 @@ extension HomeService {
     
     func getTodayAPI(completion: @escaping (NetworkResult<Any>) -> Void) {
         let url = URLConstant.answerURL
-        let header: HTTPHeaders = ["Content-Type": "application/json",
-                                   "Authorization": "Bearer \(UserManager.shared.getAccessToken)"]
+        let header: HTTPHeaders = NetworkConstant.hasTokenHeader
         let dataRequest = AF.request(url,
                                      method: .get,
                                      encoding: JSONEncoding.default,
@@ -68,8 +66,7 @@ extension HomeService {
     
     func getCaseAPI(completion: @escaping (NetworkResult<Any>) -> Void) {
         let url = URLConstant.caseURL
-        let header: HTTPHeaders = ["Content-Type": "application/json",
-                                   "Authorization": "Bearer \(UserManager.shared.getAccessToken)"]
+        let header: HTTPHeaders = NetworkConstant.hasTokenHeader
         let dataRequest = AF.request(url,
                                      method: .get,
                                      encoding: JSONEncoding.default,
@@ -93,8 +90,7 @@ extension HomeService {
     func postAnswerAPI(answer: String,
                        completion: @escaping (NetworkResult<Any>) -> Void) {
         let url = URLConstant.answerURL2
-        let header: HTTPHeaders = ["Content-Type": "application/json",
-                                   "Authorization": "Bearer \(UserManager.shared.getAccessToken)"]
+        let header: HTTPHeaders = NetworkConstant.hasTokenHeader
         let body: Parameters = [
             "answer": answer
         ]

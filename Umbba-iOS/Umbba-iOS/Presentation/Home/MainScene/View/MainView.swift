@@ -142,7 +142,7 @@ extension MainView {
             questionImage.image = ImageLiterals.Home.main_3
         case "연애시절":
             questionImage.image = ImageLiterals.Home.main_4
-        case "우리가만나고":
+        case "우리가 만나고":
             questionImage.image = ImageLiterals.Home.main_5
         default:
             questionImage.image = ImageLiterals.Home.main_1
@@ -154,13 +154,13 @@ extension MainView {
         case "어린시절":
             questionImage.image = ImageLiterals.Home.SE_home1
         case "학창시절":
-            questionImage.image = ImageLiterals.Home.SE_home1
+            questionImage.image = ImageLiterals.Home.SE_home2
         case "청춘시절":
-            questionImage.image = ImageLiterals.Home.SE_home1
+            questionImage.image = ImageLiterals.Home.SE_home3
         case "연애시절":
-            questionImage.image = ImageLiterals.Home.SE_home1
-        case "우리가만나고":
-            questionImage.image = ImageLiterals.Home.SE_home1
+            questionImage.image = ImageLiterals.Home.SE_home4
+        case "우리가 만나고":
+            questionImage.image = ImageLiterals.Home.SE_home5
         default:
             questionImage.image = ImageLiterals.Home.SE_home1
         }

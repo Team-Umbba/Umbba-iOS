@@ -42,6 +42,7 @@
 		6951A6AA2A61B82300D49692 /* QuestCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6951A6A92A61B82300D49692 /* QuestCollectionCell.swift */; };
 		6951A6AC2A62CBD100D49692 /* DisconnectAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6951A6AB2A62CBD100D49692 /* DisconnectAlertView.swift */; };
 		6951A6AE2A62D93A00D49692 /* ShowToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6951A6AD2A62D93A00D49692 /* ShowToast.swift */; };
+		695C88242A870AF500A94210 /* FirebaseDynamicLinks in Frameworks */ = {isa = PBXBuildFile; productRef = 695C88232A870AF500A94210 /* FirebaseDynamicLinks */; };
 		69636FAD2A5A615C008B457A /* FamilyInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69636FAC2A5A615C008B457A /* FamilyInfoViewController.swift */; };
 		69636FAF2A5A616C008B457A /* FamilyInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69636FAE2A5A616C008B457A /* FamilyInfoView.swift */; };
 		69636FB32A5ADE4A008B457A /* CompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69636FB22A5ADE4A008B457A /* CompleteViewController.swift */; };
@@ -295,6 +296,7 @@
 				6978161A2A5317C10047944C /* FirebaseInAppMessagingSwift-Beta in Frameworks */,
 				697815FE2A5316BB0047944C /* SnapKit in Frameworks */,
 				6978160B2A5316E80047944C /* KakaoSDKTemplate in Frameworks */,
+				695C88242A870AF500A94210 /* FirebaseDynamicLinks in Frameworks */,
 				697816072A5316E80047944C /* KakaoSDKShare in Frameworks */,
 				697816122A5317C10047944C /* FirebaseAnalyticsSwift in Frameworks */,
 				A42740EE2A5FBBE500D05B14 /* Lottie in Frameworks */,
@@ -443,6 +445,13 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		695C88222A870AF500A94210 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		69636FAA2A5A6123008B457A /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -480,6 +489,7 @@
 			children = (
 				697815422A52FA370047944C /* Umbba-iOS */,
 				69A67D782A5C0F9C00C43F49 /* Umbba-iOS.app */,
+				695C88222A870AF500A94210 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1322,6 +1332,7 @@
 				697816192A5317C10047944C /* FirebaseInAppMessagingSwift-Beta */,
 				6978161B2A5317C10047944C /* FirebaseMessaging */,
 				A42740ED2A5FBBE500D05B14 /* Lottie */,
+				695C88232A870AF500A94210 /* FirebaseDynamicLinks */,
 			);
 			productName = "Umbba-iOS";
 			productReference = 69A67D782A5C0F9C00C43F49 /* Umbba-iOS.app */;
@@ -1796,6 +1807,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		695C88232A870AF500A94210 /* FirebaseDynamicLinks */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6978160E2A5317C10047944C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDynamicLinks;
+		};
 		697815FD2A5316BB0047944C /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 697815FC2A5316BB0047944C /* XCRemoteSwiftPackageReference "SnapKit" */;

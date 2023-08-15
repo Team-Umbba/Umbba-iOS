@@ -20,8 +20,7 @@ extension ArchivingListService {
     
     func getArchivingListAPI(sectionId: Int, completion: @escaping (NetworkResult<Any>) -> Void) {
         let url = URLConstant.archivingURL + "/\(sectionId)"
-        let header: HTTPHeaders = ["Content-Type": "application/json",
-                                   "Authorization": "Bearer \(UserManager.shared.getAccessToken)"]
+        let header: HTTPHeaders = NetworkConstant.hasTokenHeader
         let dataRequest = AF.request(url,
                                      method: .get,
                                      encoding: JSONEncoding.default,
@@ -45,8 +44,7 @@ extension ArchivingListService {
     
     func getArchivingDetailAPI(qnaId: Int, completion: @escaping (NetworkResult<Any>) -> Void) {
         let url = URLConstant.qnaURL + "/\(qnaId)"
-        let header: HTTPHeaders = ["Content-Type": "application/json",
-                                   "Authorization": "Bearer \(UserManager.shared.getAccessToken)"]
+        let header: HTTPHeaders = NetworkConstant.hasTokenHeader
         let dataRequest = AF.request(url,
                                      method: .get,
                                      encoding: JSONEncoding.default,
