@@ -171,8 +171,6 @@ private extension AnswerDetailView {
     }
     
     func setAddTarget() {
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(sender:)))
-        myAnswerView.addGestureRecognizer(tapGesture)
         navigationBarView.leftButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
         nextButton.addTarget(self, action: #selector(nextButtonTapped), for: .touchUpInside)
         homeButton.addTarget(self, action: #selector(homeButtonTapped), for: .touchUpInside)
@@ -273,6 +271,11 @@ extension AnswerDetailView {
             myAnswerContent.textColor = .UmbbaBlack
             nextButton.isHidden = true
             homeButton.isHidden = false
+        }
+        
+        if !model.isMyAnswer {
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(sender:)))
+            myAnswerView.addGestureRecognizer(tapGesture)
         }
         
         if model.isOpponentAnswer {
