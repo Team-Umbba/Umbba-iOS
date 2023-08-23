@@ -67,6 +67,11 @@ extension AnswerDetailViewController {
         if isHome {
             getTodayAPI()
         } else {
+            guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+                  let keyWindow = windowScene.windows.first else {
+                return
+            }
+            keyWindow.rootViewController = AnswerDetailViewController()
             getArchivingDetailAPI(row: questionId)
         }
     }
