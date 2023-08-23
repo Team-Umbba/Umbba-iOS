@@ -144,7 +144,6 @@
 		A4743BA42A681CBE007FB69C /* UserDefaultWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4743BA32A681CBE007FB69C /* UserDefaultWrapper.swift */; };
 		A47BDA492A5D5FD6007B8E3E /* AssignView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47BDA482A5D5FD6007B8E3E /* AssignView.swift */; };
 		A47BDA4B2A5D5FE9007B8E3E /* AssignViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47BDA4A2A5D5FE9007B8E3E /* AssignViewController.swift */; };
-		A489BDF82A5AA5020027E817 /* ArchivingQuestionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A489BDF72A5AA5020027E817 /* ArchivingQuestionItem.swift */; };
 		A489BDFA2A5AA7C80027E817 /* ArchivingQuestionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A489BDF92A5AA7C80027E817 /* ArchivingQuestionHeaderView.swift */; };
 		A489BDFE2A5AAAB40027E817 /* ArchivingQuestionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A489BDFD2A5AAAB40027E817 /* ArchivingQuestionCollectionViewCell.swift */; };
 		A489BE062A5AFCE90027E817 /* ArchivingImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A489BE052A5AFCE90027E817 /* ArchivingImageView.swift */; };
@@ -277,7 +276,6 @@
 		A4743BA32A681CBE007FB69C /* UserDefaultWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultWrapper.swift; sourceTree = "<group>"; };
 		A47BDA482A5D5FD6007B8E3E /* AssignView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignView.swift; sourceTree = "<group>"; };
 		A47BDA4A2A5D5FE9007B8E3E /* AssignViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignViewController.swift; sourceTree = "<group>"; };
-		A489BDF72A5AA5020027E817 /* ArchivingQuestionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchivingQuestionItem.swift; sourceTree = "<group>"; };
 		A489BDF92A5AA7C80027E817 /* ArchivingQuestionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchivingQuestionHeaderView.swift; sourceTree = "<group>"; };
 		A489BDFD2A5AAAB40027E817 /* ArchivingQuestionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchivingQuestionCollectionViewCell.swift; sourceTree = "<group>"; };
 		A489BE052A5AFCE90027E817 /* ArchivingImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchivingImageView.swift; sourceTree = "<group>"; };
@@ -786,7 +784,6 @@
 		697815A92A53048B0047944C /* ArchivingScene */ = {
 			isa = PBXGroup;
 			children = (
-				A489BDF32A5A8DEE0027E817 /* Item */,
 				A489BDF42A5A8E760027E817 /* Cell */,
 				A42723C22A5A6B45003C445F /* View */,
 				A42723C32A5A6B4D003C445F /* ViewController */,
@@ -1264,14 +1261,6 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
-		A489BDF32A5A8DEE0027E817 /* Item */ = {
-			isa = PBXGroup;
-			children = (
-				A489BDF72A5AA5020027E817 /* ArchivingQuestionItem.swift */,
-			);
-			path = Item;
-			sourceTree = "<group>";
-		};
 		A489BDF42A5A8E760027E817 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -1515,7 +1504,6 @@
 				697815812A52FFF50047944C /* NSObject+.swift in Sources */,
 				A42723BF2A5537CD003C445F /* EntryView.swift in Sources */,
 				A4743BA02A673D42007FB69C /* MakeAlert.swift in Sources */,
-				A489BDF82A5AA5020027E817 /* ArchivingQuestionItem.swift in Sources */,
 				14DBE1712A631DF200CD8E7E /* AnimationView.swift in Sources */,
 				14AA29862A5685660038CDA1 /* NoticeAlarmView.swift in Sources */,
 				699455DD2A5AED19003C118A /* PushAlarmView.swift in Sources */,
