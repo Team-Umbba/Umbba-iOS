@@ -29,7 +29,6 @@ final class ArchivingCollectionView: UIView {
     lazy var ArchivingCollectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: self.setSectionLayout())
         collectionView.showsVerticalScrollIndicator = false
-        collectionView.isScrollEnabled = false
         collectionView.clipsToBounds = true
         collectionView.contentInsetAdjustmentBehavior = .never
         collectionView.isUserInteractionEnabled = true
@@ -142,6 +141,7 @@ private extension ArchivingCollectionView {
             elementKind: UICollectionView.elementKindSectionHeader,
             alignment: .top
         )
+        header.pinToVisibleBounds = true
         
         let section = NSCollectionLayoutSection(group: group)
         section.orthogonalScrollingBehavior = .none
