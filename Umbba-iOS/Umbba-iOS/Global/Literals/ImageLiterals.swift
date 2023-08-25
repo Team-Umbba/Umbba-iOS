@@ -70,4 +70,8 @@ enum ImageLiterals {
         static var list_se_img4: UIImage { .load(name: "se_list_img4") }
         static var list_se_img5: UIImage { .load(name: "se_list_img5") }
     }
+    
+    enum Ending {
+        static var ending_img: UIImage { .load(name: "ending_img") }
+    }
 }

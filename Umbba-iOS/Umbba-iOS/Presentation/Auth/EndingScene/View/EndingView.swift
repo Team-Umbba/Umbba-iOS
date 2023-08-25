@@ -20,19 +20,27 @@ final class EndingView: UIView {
         return gradient
     }()
     
+    private let endingImageView: UIImageView = {
+        let image = UIImageView()
+        image.image = ImageLiterals.Ending.ending_img
+        image.contentMode = .scaleAspectFill
+        return image
+    }()
+    
     // MARK: - Life Cycles
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         setUI()
+        setHierarchy()
         setLayout()
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
 
-        setHierarchy()
+        setGradient()
     }
     
     @available(*, unavailable)
@@ -49,10 +57,19 @@ extension EndingView {
         backgroundColor = .UmbbaWhite
     }
     
-    func setHierarchy() {
+    func setGradient() {
         layer.addSublayer(gradientLayer)
     }
     
+    func setHierarchy() {
+        addSubview(endingImageView)
+    }
+    
     func setLayout() {
+        endingImageView.snp.makeConstraints {
+            $0.leading.trailing.equalToSuperview()
+            $0.bottom.equalToSuperview()
+            $0.height.equalTo(271)
+        }
     }
 }
