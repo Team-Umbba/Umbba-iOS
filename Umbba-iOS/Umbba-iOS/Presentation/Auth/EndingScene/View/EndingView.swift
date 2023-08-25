@@ -27,6 +27,82 @@ final class EndingView: UIView {
         return image
     }()
     
+    private lazy var exitButton: UIButton = {
+        let button = UIButton()
+        button.setImage(ImageLiterals.Common.icn_exit, for: .normal)
+        button.tintColor = .UmbbaBlack
+        return button
+    }()
+    
+    private let endingTitle: UILabel = {
+        let label = UILabel()
+        label.text = I18N.Ending.endingTitle
+        label.textColor = .UmbbaBlack
+        label.font = .PretendardSemiBold(size: 24)
+        label.numberOfLines = 2
+        return label
+    }()
+    
+    private let surveyTitle: UILabel = {
+        let label = UILabel()
+        label.text = I18N.Ending.surveyTitle
+        label.textColor = .UmbbaBlack
+        label.font = .PretendardRegular(size: 20)
+        return label
+    }()
+    
+    private let surveySubTitle: UILabel = {
+        let label = UILabel()
+        label.text = I18N.Ending.surveySubTitle
+        label.textColor = .UmbbaBlack
+        label.font = .PretendardRegular(size: 10)
+        return label
+    }()
+    
+    private lazy var surveyButton: CustomButton = {
+        let button = CustomButton(status: true, title: I18N.Home.questionButtonTitle)
+        button.setTitle(I18N.Ending.surveyButtonTitle, for: .normal)
+        button.setTitleColor(.UmbbaWhite, for: .normal)
+        button.setBackgroundColor(.Primary500, for: .normal)
+        button.adjustsImageWhenHighlighted = false
+        return button
+    }()
+    
+    private let dividingText: UILabel = {
+        let label = UILabel()
+        label.text = I18N.Ending.dividingText
+        label.textColor = .Gray800
+        label.font = .PretendardRegular(size: 16)
+        return label
+    }()
+    
+    private let endTitle: UILabel = {
+        let label = UILabel()
+        label.text = I18N.Ending.endTitle
+        label.textColor = .UmbbaBlack
+        label.font = .PretendardRegular(size: 20)
+        return label
+    }()
+    
+    private let endSubTitle: UILabel = {
+        let label = UILabel()
+        label.text = I18N.Ending.endSubTitle
+        label.textColor = .UmbbaBlack
+        label.font = .PretendardRegular(size: 10)
+        return label
+    }()
+    
+    private lazy var endButton: CustomButton = {
+        let button = CustomButton(status: true, title: I18N.Home.questionButtonTitle)
+        button.setBackgroundColor(.UmbbaWhite, for: .normal)
+        button.setTitle(I18N.Ending.endButtonTitle, for: .normal)
+        button.setTitleColor(.Primary500, for: .normal)
+        button.layer.borderColor = UIColor.Primary500.cgColor
+        button.layer.borderWidth = 2
+        button.adjustsImageWhenHighlighted = false
+        return button
+    }()
+    
     // MARK: - Life Cycles
     
     override init(frame: CGRect) {
@@ -62,7 +138,9 @@ extension EndingView {
     }
     
     func setHierarchy() {
-        addSubview(endingImageView)
+        addSubviews(endingImageView, exitButton, endingTitle,
+                    surveyTitle, surveySubTitle, surveyButton, dividingText,
+                    endTitle, endSubTitle, endButton)
     }
     
     func setLayout() {
@@ -70,6 +148,54 @@ extension EndingView {
             $0.leading.trailing.equalToSuperview()
             $0.bottom.equalToSuperview()
             $0.height.equalTo(271)
+        }
+        
+        exitButton.snp.makeConstraints {
+            $0.top.equalTo(safeAreaLayoutGuide).offset(7)
+            $0.trailing.equalToSuperview().offset(-15)
+            $0.size.equalTo(48)
+        }
+        
+        endingTitle.snp.makeConstraints {
+            $0.top.equalTo(exitButton.snp.bottom).offset(17)
+            $0.leading.equalToSuperview().inset(28)
+        }
+        
+        surveyTitle.snp.makeConstraints {
+            $0.top.equalTo(endingTitle.snp.bottom).offset(42)
+            $0.leading.equalToSuperview().inset(28)
+        }
+        
+        surveySubTitle.snp.makeConstraints {
+            $0.top.equalTo(surveyTitle.snp.bottom).offset(6)
+            $0.leading.equalTo(surveyTitle.snp.leading)
+        }
+        
+        surveyButton.snp.makeConstraints {
+            $0.top.equalTo(surveySubTitle.snp.bottom).offset(16)
+            $0.leading.trailing.equalToSuperview().inset(28)
+            $0.height.equalTo(60)
+        }
+        
+        dividingText.snp.makeConstraints {
+            $0.top.equalTo(surveyButton.snp.bottom).offset(28)
+            $0.centerX.equalToSuperview().inset(28)
+        }
+        
+        endTitle.snp.makeConstraints {
+            $0.top.equalTo(dividingText.snp.bottom).offset(28)
+            $0.leading.equalToSuperview().inset(28)
+        }
+        
+        endSubTitle.snp.makeConstraints {
+            $0.top.equalTo(endTitle.snp.bottom).offset(6)
+            $0.leading.equalTo(endTitle.snp.leading)
+        }
+        
+        endButton.snp.makeConstraints {
+            $0.top.equalTo(endSubTitle.snp.bottom).offset(16)
+            $0.leading.trailing.equalToSuperview().inset(28)
+            $0.height.equalTo(60)
         }
     }
 }
