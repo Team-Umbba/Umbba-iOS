@@ -9,7 +9,14 @@ import UIKit
 
 import SnapKit
 
+protocol EndingDelegate: AnyObject {
+    func surveyButtonTapped()
+    func endButtonTapped()
+}
+
 final class EndingView: UIView {
+    
+    weak var endingDelegate: EndingDelegate?
     
     // MARK: - UI Components
     
@@ -111,6 +118,7 @@ final class EndingView: UIView {
         setUI()
         setHierarchy()
         setLayout()
+        setAddTarget()
     }
     
     override func layoutSubviews() {
@@ -141,6 +149,11 @@ extension EndingView {
         addSubviews(endingImageView, exitButton, endingTitle,
                     surveyTitle, surveySubTitle, surveyButton, dividingText,
                     endTitle, endSubTitle, endButton)
+    }
+    
+    func setAddTarget() {
+        surveyButton.addTarget(self, action: #selector(surveyTapped), for: .touchUpInside)
+        endButton.addTarget(self, action: #selector(endTapped), for: .touchUpInside)
     }
     
     func setLayout() {
@@ -197,5 +210,15 @@ extension EndingView {
             $0.leading.trailing.equalToSuperview().inset(28)
             $0.height.equalTo(60)
         }
+    }
+    
+    @objc
+    func surveyTapped() {
+        endingDelegate?.surveyButtonTapped()
+    }
+
+    @objc
+    func endTapped() {
+        endingDelegate?.endButtonTapped()
     }
 }
