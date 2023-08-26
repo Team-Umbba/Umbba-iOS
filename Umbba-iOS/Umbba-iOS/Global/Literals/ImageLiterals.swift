@@ -73,5 +73,6 @@ enum ImageLiterals {
     
     enum Ending {
         static var ending_img: UIImage { .load(name: "ending_img") }
+        static var SE_ending_img: UIImage { .load(name: "SE_ending_img") }
     }
 }

@@ -29,8 +29,7 @@ final class EndingView: UIView {
     
     private let endingImageView: UIImageView = {
         let image = UIImageView()
-        image.image = ImageLiterals.Ending.ending_img
-        image.contentMode = .scaleAspectFill
+        image.image = SizeLiterals.Screen.deviceRatio > 0.5 ? ImageLiterals.Ending.SE_ending_img : ImageLiterals.Ending.ending_img
         return image
     }()
     
@@ -160,7 +159,7 @@ extension EndingView {
         endingImageView.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview()
             $0.bottom.equalToSuperview()
-            $0.height.equalTo(271)
+            $0.centerX.equalToSuperview()
         }
         
         exitButton.snp.makeConstraints {
