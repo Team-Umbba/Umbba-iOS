@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TabBarController: UITabBarController {
+final class TabBarController: UITabBarController {
     
     // MARK: - Properties
         
@@ -24,6 +24,12 @@ class TabBarController: UITabBarController {
     }()
     
     // MARK: - Life Cycles
+    
+    override func viewWillAppear(_ animated: Bool) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+            self.addTabbarIndicatorView(index: self.selectedIndex)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +51,7 @@ class TabBarController: UITabBarController {
 
 // MARK: - Extensions
 
-private extension TabBarController {
+extension TabBarController {
     
     func makeTabBar(viewController: UIViewController,
                     title: String,
@@ -129,6 +135,6 @@ private extension TabBarController {
 
 extension TabBarController: UITabBarControllerDelegate {
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-        addTabbarIndicatorView(index: self.selectedIndex)
+        addTabbarIndicatorView(index: selectedIndex)
     }
 }

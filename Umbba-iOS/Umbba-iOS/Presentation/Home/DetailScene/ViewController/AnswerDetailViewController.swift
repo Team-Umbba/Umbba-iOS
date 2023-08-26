@@ -67,11 +67,6 @@ extension AnswerDetailViewController {
         if isHome {
             getTodayAPI()
         } else {
-            guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-                  let keyWindow = windowScene.windows.first else {
-                return
-            }
-            keyWindow.rootViewController = AnswerDetailViewController()
             getArchivingDetailAPI(row: questionId)
         }
     }
@@ -101,7 +96,13 @@ extension AnswerDetailViewController: NavigationBarDelegate {
             }
             keyWindow.rootViewController = TabBarController()
         } else {
-            self.navigationController?.popViewController(animated: true)
+            let nav = TabBarController()
+            nav.selectedIndex = 1
+            guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+                  let keyWindow = windowScene.windows.first else {
+                return
+            }
+            keyWindow.rootViewController = UINavigationController(rootViewController: nav)
         }
     }
 

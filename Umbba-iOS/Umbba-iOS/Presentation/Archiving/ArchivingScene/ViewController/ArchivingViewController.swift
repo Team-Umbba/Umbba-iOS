@@ -34,8 +34,6 @@ final class ArchivingViewController: UIViewController {
         }
     }
     
-    private let deviceRatio = UIScreen.main.bounds.width / UIScreen.main.bounds.height
-    
     // MARK: - Life Cycles
     
     override func viewDidLoad() {
@@ -92,7 +90,14 @@ extension ArchivingViewController: ArchivingQuestionDelegate {
         let nav = AnswerDetailViewController()
         nav.questionId = qnaId
         nav.isHome = false
-        self.navigationController?.pushViewController(nav, animated: true)
+        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+              let keyWindow = windowScene.windows.first else {
+            return
+        }
+        keyWindow.rootViewController = UINavigationController(rootViewController: nav)
+        if let navigationController = keyWindow.rootViewController as? UINavigationController {
+            navigationController.isNavigationBarHidden = true
+        }
     }
 }
 
