@@ -25,7 +25,7 @@ final class EndingViewController: UIViewController {
     }
 }
 
-extension EndingViewController {
+private extension EndingViewController {
     func setDelegate() {
         endingView.endingDelegate = self
     }

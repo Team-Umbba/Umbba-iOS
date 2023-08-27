@@ -135,7 +135,7 @@ final class EndingView: UIView {
 
 // MARK: - Extensions
 
-extension EndingView {
+private extension EndingView {
     func setUI() {
         backgroundColor = .UmbbaWhite
     }
@@ -164,7 +164,7 @@ extension EndingView {
         
         exitButton.snp.makeConstraints {
             $0.top.equalTo(safeAreaLayoutGuide).offset(7)
-            $0.trailing.equalToSuperview().offset(-15)
+            $0.trailing.equalToSuperview().inset(15)
             $0.size.equalTo(48)
         }
         

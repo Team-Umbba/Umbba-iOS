@@ -51,7 +51,7 @@ final class TabBarController: UITabBarController {
 
 // MARK: - Extensions
 
-extension TabBarController {
+private extension TabBarController {
     
     func makeTabBar(viewController: UIViewController,
                     title: String,
