@@ -150,6 +150,8 @@
 		A4A7635A2A5BC0B40055D413 /* ArchivingCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A763592A5BC0B40055D413 /* ArchivingCollectionView.swift */; };
 		A4C776102A60727100375378 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C7760F2A60727100375378 /* MainView.swift */; };
 		A4C776122A60727D00375378 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C776112A60727D00375378 /* MainViewController.swift */; };
+		A4D4F1EE2A98925D00F5EF6C /* EndingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D4F1ED2A98925D00F5EF6C /* EndingView.swift */; };
+		A4D4F1F02A98926800F5EF6C /* EndingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D4F1EF2A98926800F5EF6C /* EndingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -282,6 +284,8 @@
 		A4A763592A5BC0B40055D413 /* ArchivingCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchivingCollectionView.swift; sourceTree = "<group>"; };
 		A4C7760F2A60727100375378 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		A4C776112A60727D00375378 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		A4D4F1ED2A98925D00F5EF6C /* EndingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndingView.swift; sourceTree = "<group>"; };
+		A4D4F1EF2A98926800F5EF6C /* EndingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -709,6 +713,7 @@
 				6978159C2A5302940047944C /* LoginScene */,
 				6978159D2A53029D0047944C /* EntryScene */,
 				6978159E2A5302A60047944C /* InviteScene */,
+				A4D4F1EA2A98922400F5EF6C /* EndingScene */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -1287,6 +1292,31 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		A4D4F1EA2A98922400F5EF6C /* EndingScene */ = {
+			isa = PBXGroup;
+			children = (
+				A4D4F1EC2A98924200F5EF6C /* View */,
+				A4D4F1EB2A98923C00F5EF6C /* ViewController */,
+			);
+			path = EndingScene;
+			sourceTree = "<group>";
+		};
+		A4D4F1EB2A98923C00F5EF6C /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A4D4F1EF2A98926800F5EF6C /* EndingViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		A4D4F1EC2A98924200F5EF6C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A4D4F1ED2A98925D00F5EF6C /* EndingView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1421,6 +1451,7 @@
 				697E19D02A63244200D4752D /* MainEntity.swift in Sources */,
 				699455EE2A5C0C8B003C118A /* InviteViewController.swift in Sources */,
 				6978157F2A52FFE10047944C /* UILabel+.swift in Sources */,
+				A4D4F1EE2A98925D00F5EF6C /* EndingView.swift in Sources */,
 				697815BF2A530B8F0047944C /* Lottie.swift in Sources */,
 				697E19A52A6320EA00D4752D /* LoginEntity.swift in Sources */,
 				A42740F02A5FBCA100D05B14 /* LottieViewController.swift in Sources */,
@@ -1429,6 +1460,7 @@
 				144F3F432A5C655400D73A6B /* AccountViewController.swift in Sources */,
 				691979F22A5C61190069FB63 /* WriteCancelAlertView.swift in Sources */,
 				697E19C12A63230C00D4752D /* InviteEntity.swift in Sources */,
+				A4D4F1F02A98926800F5EF6C /* EndingViewController.swift in Sources */,
 				697E19BF2A63230400D4752D /* ReceiveEntity.swift in Sources */,
 				697E19D82A63286C00D4752D /* ArchivingListService.swift in Sources */,
 				697815832A53000D0047944C /* UITableView+.swift in Sources */,
