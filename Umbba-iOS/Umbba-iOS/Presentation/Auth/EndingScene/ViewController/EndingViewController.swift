@@ -40,6 +40,6 @@ extension EndingViewController: EndingDelegate {
     }
     
     func endButtonTapped() {
-        self.navigationController?.pushViewController(WithdrawalViewController(), animated: false)
+        self.navigationController?.pushViewController(AccountViewController(), animated: false)
     }
 }
