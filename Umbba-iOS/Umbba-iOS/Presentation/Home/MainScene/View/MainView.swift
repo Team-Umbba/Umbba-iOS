@@ -128,7 +128,7 @@ extension MainView {
     }
 
     func setDataBind(model: MainEntity) {
-        questionNumLabel.text = "#\(model.index)"
+        questionNumLabel.text = model.index > 7 ? "#\(model.index - 1)" : "#\(model.index)"
         questionTitleLabel.text = model.topic
     }
     

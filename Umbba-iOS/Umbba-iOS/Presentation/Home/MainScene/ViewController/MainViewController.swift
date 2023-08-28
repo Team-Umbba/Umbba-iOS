@@ -65,6 +65,12 @@ private extension MainViewController {
         } else {
             mainView.setImageBind(model: mainEntity)
         }
+        
+        if mainEntity.index > 7 {
+            getEndingPage()
+        } else {
+            return
+        }
     }
     
     func setNextController() {
@@ -191,5 +197,13 @@ extension MainViewController {
                 break
             }
         }
+    }
+}
+
+extension MainViewController {
+    func getEndingPage() {
+        let nav = EndingViewController()
+        nav.modalPresentationStyle = .fullScreen
+        self.present(nav, animated: false)
     }
 }

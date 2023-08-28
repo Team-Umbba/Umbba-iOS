@@ -10,7 +10,6 @@ import UIKit
 import SafariServices
 
 final class EndingViewController: UIViewController {
-    
     private let endingView = EndingView()
     
     override func loadView() {
@@ -41,5 +40,9 @@ extension EndingViewController: EndingDelegate {
     
     func endButtonTapped() {
         self.navigationController?.pushViewController(AccountViewController(), animated: false)
+    }
+    
+    func exitButtonTapped() {
+        self.dismiss(animated: false)
     }
 }

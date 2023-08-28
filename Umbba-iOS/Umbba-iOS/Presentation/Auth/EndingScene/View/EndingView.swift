@@ -12,6 +12,7 @@ import SnapKit
 protocol EndingDelegate: AnyObject {
     func surveyButtonTapped()
     func endButtonTapped()
+    func exitButtonTapped()
 }
 
 final class EndingView: UIView {
@@ -153,13 +154,14 @@ private extension EndingView {
     func setAddTarget() {
         surveyButton.addTarget(self, action: #selector(surveyTapped), for: .touchUpInside)
         endButton.addTarget(self, action: #selector(endTapped), for: .touchUpInside)
+        exitButton.addTarget(self, action: #selector(exitTapped), for: .touchUpInside)
     }
     
     func setLayout() {
         endingImageView.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview()
             $0.bottom.equalToSuperview()
-            $0.centerX.equalToSuperview()
+            $0.height.equalTo(271)
         }
         
         exitButton.snp.makeConstraints {
@@ -219,5 +221,10 @@ private extension EndingView {
     @objc
     func endTapped() {
         endingDelegate?.endButtonTapped()
+    }
+    
+    @objc
+    func exitTapped() {
+        endingDelegate?.exitButtonTapped()
     }
 }
