@@ -162,7 +162,6 @@ private extension EndingView {
         endingImageView.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview()
             $0.bottom.equalToSuperview()
-            $0.height.equalTo(271)
         }
         
         exitButton.snp.makeConstraints {
