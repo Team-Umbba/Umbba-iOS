@@ -147,13 +147,13 @@ enum I18N {
     }
     
     enum Ending {
-        static let endingTitle = "잠시 교신을 종료할게\n어쩌고"
-        static let surveyTitle = "문구문구문구"
+        static let endingTitle = "잠시 교신을 종료할게\n즐거운 여행이 됐기를 바라"
+        static let surveyTitle = "함께한 여정이 어땠는지 알려줘"
         static let surveySubTitle = "설문조사에 참여하여 피드백을 남겨주세요."
         static let surveyButtonTitle = "설문하러 가기"
         static let dividingText = "---------------------------------------------"
-        static let endTitle = "문구문구문구"
-        static let endSubTitle = "회원을 탈퇴하고 새로운 상대와 연결하세요."
+        static let endTitle = "이제, 새로운 여행을 떠나자"
+        static let endSubTitle = "회원 탈퇴 후 다른 가족과 연결하세요."
         static let endButtonTitle = "연결 종료하기"
     }
 }

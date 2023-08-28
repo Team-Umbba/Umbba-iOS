@@ -45,8 +45,9 @@ final class EndingView: UIView {
         let label = UILabel()
         label.text = I18N.Ending.endingTitle
         label.textColor = .UmbbaBlack
-        label.font = .PretendardSemiBold(size: 24)
+        label.font = .PretendardRegular(size: 24)
         label.numberOfLines = 2
+        label.partFontChange(targetString: "잠시 교신을 종료할게", font: .PretendardSemiBold(size: 24))
         return label
     }()
     
