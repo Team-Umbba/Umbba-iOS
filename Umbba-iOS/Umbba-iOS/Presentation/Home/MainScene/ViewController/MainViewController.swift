@@ -203,7 +203,7 @@ extension MainViewController {
 extension MainViewController {
     func getEndingPage() {
         let nav = EndingViewController()
-        nav.modalPresentationStyle = .fullScreen
-        self.present(nav, animated: false)
+        nav.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(nav, animated: false)
     }
 }

@@ -36,13 +36,16 @@ extension EndingViewController: EndingDelegate {
             let safariViewController = SFSafariViewController(url: url)
             present(safariViewController, animated: true, completion: nil)
         }
-    }
+    }  
     
     func endButtonTapped() {
-        self.navigationController?.pushViewController(AccountViewController(), animated: false)
+        let nav = AccountViewController()
+        nav.isEnding = true
+        nav.modalPresentationStyle = .fullScreen
+        self.present(nav, animated: false)
     }
     
     func exitButtonTapped() {
-        self.dismiss(animated: false)
+        self.navigationController?.popViewController(animated: false)
     }
 }

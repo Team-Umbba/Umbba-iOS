@@ -40,7 +40,7 @@ private extension WithdrawalViewController {
 extension WithdrawalViewController: NavigationBarDelegate {
     
     func backButtonTapped() {
-        self.navigationController?.popViewController(animated: true)
+        self.dismiss(animated: false)
     }
     
     func completeButtonTapped() {

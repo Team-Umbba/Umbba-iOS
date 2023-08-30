@@ -165,7 +165,7 @@ private extension EndingView {
         }
         
         exitButton.snp.makeConstraints {
-            $0.top.equalTo(safeAreaLayoutGuide).offset(7)
+            $0.top.equalToSuperview().inset(SizeLiterals.Screen.deviceRatio > 0.5 ? 30 : 52)
             $0.trailing.equalToSuperview().inset(15)
             $0.size.equalTo(48)
         }

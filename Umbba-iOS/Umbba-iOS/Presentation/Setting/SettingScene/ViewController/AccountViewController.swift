@@ -8,6 +8,8 @@
 import UIKit
 
 final class AccountViewController: UIViewController {
+    
+    var isEnding = false
 
     // MARK: - UI Components
     
@@ -52,7 +54,8 @@ extension AccountViewController: UITableViewDelegate {
             return
         case 1:
             let withdrawlViewController = WithdrawalViewController()
-            self.navigationController?.pushViewController(withdrawlViewController, animated: true)
+            withdrawlViewController.modalPresentationStyle = .fullScreen
+            self.present(withdrawlViewController, animated: false)
         default:
             return
         }
@@ -75,7 +78,11 @@ extension AccountViewController: UITableViewDataSource {
 extension AccountViewController: NavigationBarDelegate {
     
     func backButtonTapped() {
-        self.navigationController?.popViewController(animated: true)
+        if isEnding {
+            self.dismiss(animated: false)
+        } else {
+            self.navigationController?.popViewController(animated: true)
+        }
     }
     
     func completeButtonTapped() {
