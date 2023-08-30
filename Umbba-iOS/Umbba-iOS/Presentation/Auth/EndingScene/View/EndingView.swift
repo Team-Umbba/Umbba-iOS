@@ -12,6 +12,7 @@ import SnapKit
 protocol EndingDelegate: AnyObject {
     func surveyButtonTapped()
     func endButtonTapped()
+    func exitButtonTapped()
 }
 
 final class EndingView: UIView {
@@ -44,8 +45,9 @@ final class EndingView: UIView {
         let label = UILabel()
         label.text = I18N.Ending.endingTitle
         label.textColor = .UmbbaBlack
-        label.font = .PretendardSemiBold(size: 24)
+        label.font = .PretendardRegular(size: 24)
         label.numberOfLines = 2
+        label.partFontChange(targetString: "잠시 교신을 종료할게", font: .PretendardSemiBold(size: 24))
         return label
     }()
     
@@ -153,13 +155,13 @@ private extension EndingView {
     func setAddTarget() {
         surveyButton.addTarget(self, action: #selector(surveyTapped), for: .touchUpInside)
         endButton.addTarget(self, action: #selector(endTapped), for: .touchUpInside)
+        exitButton.addTarget(self, action: #selector(exitTapped), for: .touchUpInside)
     }
     
     func setLayout() {
         endingImageView.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview()
             $0.bottom.equalToSuperview()
-            $0.centerX.equalToSuperview()
         }
         
         exitButton.snp.makeConstraints {
@@ -219,5 +221,10 @@ private extension EndingView {
     @objc
     func endTapped() {
         endingDelegate?.endButtonTapped()
+    }
+    
+    @objc
+    func exitTapped() {
+        endingDelegate?.exitButtonTapped()
     }
 }

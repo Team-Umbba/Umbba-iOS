@@ -111,9 +111,10 @@ enum I18N {
         static let userSectionLabel = ["계정 관리"]
         static let teamSectionLabel = ["About 엄빠도 어렸다", "이용약관", "개인정보 처리방침"]
         static let accountSectionLabel = ["로그아웃", "회원 탈퇴"]
-        static let urlArray = ["https://brawny-guan-098.notion.site/7b3e5f70a471468f8acbe56a1a4f4ec9",
+        static let urlArray = ["https://kenna432.softr.app",
                                "https://harsh-step-7dd.notion.site/f1a14bf60ed4421f9b3761ef88906adb",
-                               "https://harsh-step-7dd.notion.site/99fe0f58825d4f87bd3b987fadc623b6?pvs=4"]
+                               "https://harsh-step-7dd.notion.site/99fe0f58825d4f87bd3b987fadc623b6?pvs=4",
+                               "https://walla.my/survey/HzusbLOOtm1ptMUmIhJ7"]
         static let cancelNavigatonTitle = "회원 탈퇴"
         static let quoteLabel = "\"추억은 일종의 만남이다.\""
         static let personLabel = "- 칼린 지브란 -"
@@ -147,13 +148,13 @@ enum I18N {
     }
     
     enum Ending {
-        static let endingTitle = "잠시 교신을 종료할게\n어쩌고"
-        static let surveyTitle = "문구문구문구"
+        static let endingTitle = "잠시 교신을 종료할게\n즐거운 여행이 됐기를 바라"
+        static let surveyTitle = "함께한 여정이 어땠는지 알려줘"
         static let surveySubTitle = "설문조사에 참여하여 피드백을 남겨주세요."
         static let surveyButtonTitle = "설문하러 가기"
         static let dividingText = "---------------------------------------------"
-        static let endTitle = "문구문구문구"
-        static let endSubTitle = "회원을 탈퇴하고 새로운 상대와 연결하세요."
+        static let endTitle = "이제, 새로운 여행을 떠나자"
+        static let endSubTitle = "회원 탈퇴 후 다른 가족과 연결하세요."
         static let endButtonTitle = "연결 종료하기"
     }
 }

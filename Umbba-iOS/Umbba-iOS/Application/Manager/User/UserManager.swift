@@ -70,11 +70,6 @@ extension UserManager {
     }
     
     func clearAll() {
-//        UserDefaults.standard.removeObject(forKey: self.getAccessToken)
-//        UserDefaults.standard.removeObject(forKey: self.refreshToken ?? "")
-//        UserDefaults.standard.removeObject(forKey: self.socialToken ?? "")
-//        UserDefaults.standard.removeObject(forKey: self.appleUserIdentifier ?? "")
-//        self.isMatch = false
         self.accessToken = nil
         self.refreshToken = nil
         self.socialToken = nil
@@ -83,11 +78,6 @@ extension UserManager {
     }
     
     func clearData() {
-//        UserDefaults.standard.removeObject(forKey: self.getAccessToken)
-//        UserDefaults.standard.removeObject(forKey: self.refreshToken ?? "")
-//        UserDefaults.standard.removeObject(forKey: self.socialToken ?? "")
-//        UserDefaults.standard.removeObject(forKey: self.appleUserIdentifier ?? "")
-//        self.isMatch = false
         self.accessToken = nil
         self.refreshToken = nil
         self.socialToken = nil
