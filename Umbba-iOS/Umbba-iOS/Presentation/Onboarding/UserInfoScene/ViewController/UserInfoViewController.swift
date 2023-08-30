@@ -29,6 +29,7 @@ final class UserInfoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setUI()
         setDelegate()
         setupKeyboardEvent()
     }
@@ -45,6 +46,11 @@ final class UserInfoViewController: UIViewController {
 // MARK: - Extensions
 
 extension UserInfoViewController {
+    func setUI() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(viewDidTap))
+        view.addGestureRecognizer(tapGesture)
+    }
+    
     func setDelegate() {
         dismissKeyboard()
         userInfoView.navigationdelegate = self
@@ -60,12 +66,17 @@ extension UserInfoViewController {
                                                selector: #selector(keyboardWillHide),
                                                name: UIResponder.keyboardWillHideNotification,
                                                object: nil)
-
+        
     }
     
     private func removeKeyboardEvent() {
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    @objc
+    private func viewDidTap() {
+        view.endEditing(true)
     }
     
     @objc
@@ -75,7 +86,7 @@ extension UserInfoViewController {
         let keyboardTopY = keyboardFrame.cgRectValue.origin.y
         let convertedTextFieldFrame = view.convert(currentTextField.frame, from: currentTextField.superview)
         let textFieldBottomY = convertedTextFieldFrame.origin.y + convertedTextFieldFrame.size.height
-
+        
         if textFieldBottomY > keyboardTopY {
             let keyboardOverlap = textFieldBottomY - keyboardTopY
             view.frame.origin.y = -keyboardOverlap - 40

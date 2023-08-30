@@ -125,6 +125,24 @@ private extension InviteView {
         }
     }
     
+    func setTextField(textField : UITextField) {
+        guard let inviteCode = inviteTextField.text else { return }
+        if !textField.hasText {
+            self.errorLabel.isHidden = true
+            inviteTextField.textFieldStatus = .normal
+        } else {
+            if !inviteCode.isValidInviteCode() {
+                self.errorLabel.isHidden = false
+                inviteTextField.textFieldStatus = .uncorrectedType
+                nextButton.isEnabled = false
+            } else {
+                self.errorLabel.isHidden = true
+                inviteTextField.textFieldStatus = .normal
+                nextButton.isEnabled = true
+            }
+        }
+    }
+    
     @objc
     func backButtonTapped() {
         navigationdelegate?.backButtonTapped()
@@ -142,22 +160,11 @@ private extension InviteView {
 
 extension InviteView: UITextFieldDelegate {
     func textFieldDidChangeSelection(_ textField: UITextField) {
-        if !textField.hasText {
-            self.errorLabel.isHidden = true
-            inviteTextField.textFieldStatus = .normal
-        }
+        setTextField(textField: textField)
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        guard let inviteCode = inviteTextField.text else { return }
-        if !inviteCode.isValidInviteCode() {
-            self.errorLabel.isHidden = false
-            inviteTextField.textFieldStatus = .uncorrectedType
-        } else {
-            self.errorLabel.isHidden = true
-            inviteTextField.textFieldStatus = .normal
-            nextButton.isEnabled = true
-        }
+        setTextField(textField: textField)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

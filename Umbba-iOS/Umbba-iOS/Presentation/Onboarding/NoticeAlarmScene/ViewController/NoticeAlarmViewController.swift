@@ -99,30 +99,25 @@ extension NoticeAlarmViewController: NavigationBarDelegate {
 
 extension NoticeAlarmViewController: NextButtonDelegate {
     func nextButtonTapped() {
-        let completeViewController = CompleteViewController()
-        completeViewController.isReceiver = self.isReceiver
-        self.navigationController?.pushViewController(completeViewController, animated: true)
+        requestPermission()
     }
 }
 
-//extension NoticeAlarmViewController: UNUserNotificationCenterDelegate {
-//    func requestPermission() {
-//        if #available(iOS 10.0, *) {
-//            // For iOS 10 display notification (sent via APNS)
-//            UNUserNotificationCenter.current().delegate = self
-//
-//            let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
-//            UNUserNotificationCenter.current().requestAuthorization(options: authOptions) { didAllow, error in
-//                DispatchQueue.main.async {
-//                    let completeViewController = CompleteViewController()
-//                    completeViewController.isReceiver = self.isReceiver
-//                    self.navigationController?.pushViewController(completeViewController, animated: true)
-//                }
-//            }
-//        } else {
-//            let settings: UIUserNotificationSettings =
-//            UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
-//            UIApplication.shared.registerUserNotificationSettings(settings)
-//        }
-//    }
-//}
+extension NoticeAlarmViewController: UNUserNotificationCenterDelegate {
+    func requestPermission() {
+        UNUserNotificationCenter.current().delegate = self
+        let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+        UNUserNotificationCenter.current().requestAuthorization(options: authOptions) { didAllow, error in
+            print(didAllow)
+            DispatchQueue.main.async {
+                let completeViewController = CompleteViewController()
+                completeViewController.isReceiver = self.isReceiver
+                self.navigationController?.pushViewController(completeViewController, animated: true)
+            }
+        }
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.list, .banner])
+    }
+}

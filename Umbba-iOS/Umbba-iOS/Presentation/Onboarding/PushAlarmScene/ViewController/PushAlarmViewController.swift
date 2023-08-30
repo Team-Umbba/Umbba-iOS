@@ -100,9 +100,7 @@ extension PushAlarmViewController: NextButtonDelegate {
     func nextButtonTapped() {
         convertToTime(time: pushAlarmTime)
         UserData.shared.pushTime = formattedTime
-        let completeViewController = CompleteViewController()
-        completeViewController.isReceiver = self.isReceiver
-        self.navigationController?.pushViewController(completeViewController, animated: true)
+        requestPermission()
     }
 }
 
@@ -148,5 +146,24 @@ extension PushAlarmViewController: UIPickerViewDelegate, UIPickerViewDataSource 
     
     func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
         return 60
+    }
+}
+
+extension PushAlarmViewController: UNUserNotificationCenterDelegate {
+    func requestPermission() {
+        UNUserNotificationCenter.current().delegate = self
+        let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+        UNUserNotificationCenter.current().requestAuthorization(options: authOptions) { didAllow, error in
+            print(didAllow)
+            DispatchQueue.main.async {
+                let completeViewController = CompleteViewController()
+                completeViewController.isReceiver = self.isReceiver
+                self.navigationController?.pushViewController(completeViewController, animated: true)
+            }
+        }
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.list, .banner])
     }
 }
