@@ -32,7 +32,7 @@ private extension EndingViewController {
 
 extension EndingViewController: EndingDelegate {
     func surveyButtonTapped() {
-        if let url = URL(string: I18N.Setting.urlArray[0]) {
+        if let url = URL(string: I18N.Setting.urlArray[3]) {
             let safariViewController = SFSafariViewController(url: url)
             present(safariViewController, animated: true, completion: nil)
         }

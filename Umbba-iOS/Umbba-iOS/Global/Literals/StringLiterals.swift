@@ -111,9 +111,10 @@ enum I18N {
         static let userSectionLabel = ["계정 관리"]
         static let teamSectionLabel = ["About 엄빠도 어렸다", "이용약관", "개인정보 처리방침"]
         static let accountSectionLabel = ["로그아웃", "회원 탈퇴"]
-        static let urlArray = ["https://brawny-guan-098.notion.site/7b3e5f70a471468f8acbe56a1a4f4ec9",
+        static let urlArray = ["https://kenna432.softr.app",
                                "https://harsh-step-7dd.notion.site/f1a14bf60ed4421f9b3761ef88906adb",
-                               "https://harsh-step-7dd.notion.site/99fe0f58825d4f87bd3b987fadc623b6?pvs=4"]
+                               "https://harsh-step-7dd.notion.site/99fe0f58825d4f87bd3b987fadc623b6?pvs=4",
+                               "https://walla.my/survey/HzusbLOOtm1ptMUmIhJ7"]
         static let cancelNavigatonTitle = "회원 탈퇴"
         static let quoteLabel = "\"추억은 일종의 만남이다.\""
         static let personLabel = "- 칼린 지브란 -"
