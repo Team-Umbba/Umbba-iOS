@@ -68,14 +68,13 @@ final class LoginView: UIView {
         label.font = .PretendardRegular(size: 16)
         label.textColor = .white
         label.textAlignment = .center
-        label.partFontChange(targetString: "애플", font: .PretendardSemiBold(size: 16))
         return label
     }()
     
     private lazy var loginAppleButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = .black
-        button.layer.cornerRadius = 30
+        button.layer.cornerRadius = 12
         return button
     }()
     
@@ -91,14 +90,13 @@ final class LoginView: UIView {
         label.font = .PretendardRegular(size: 16)
         label.textColor = .black
         label.textAlignment = .center
-        label.partFontChange(targetString: "카카오", font: .PretendardSemiBold(size: 16))
         return label
     }()
     
     private lazy var loginKakaoButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = .UmbbaYellow
-        button.layer.cornerRadius = 30
+        button.layer.cornerRadius = 12
         return button
     }()
     
