@@ -92,14 +92,6 @@ extension ArchivingViewController: ArchivingQuestionDelegate {
         nav.isHome = false
         nav.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(nav, animated: false)
-//        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-//              let keyWindow = windowScene.windows.first else {
-//            return
-//        }
-//        keyWindow.rootViewController = UINavigationController(rootViewController: nav)
-//        if let navigationController = keyWindow.rootViewController as? UINavigationController {
-//            navigationController.isNavigationBarHidden = true
-//        }
     }
 }
 
