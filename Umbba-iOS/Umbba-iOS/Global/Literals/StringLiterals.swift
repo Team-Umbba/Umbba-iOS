@@ -56,7 +56,7 @@ enum I18N {
     
     enum Auth {
         static let loginTitle = "부모와 떠나는 시간 여행"
-        static let appleButtonTitle = "Apple로 계속하기"
+        static let appleButtonTitle = "Apple로 로그인"
         static let kakaoButtonTitle = "카카오 로그인"
         static let entryButtonTitle = "시작하기"
         static let dividingText = "--------------------- or ---------------------"
