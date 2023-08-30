@@ -96,6 +96,7 @@ extension SettingViewController: UITableViewDelegate {
         case 0:
             let accountViewController = AccountViewController()
             accountViewController.isEnding = false
+            accountViewController.hidesBottomBarWhenPushed = true
             self.navigationController?.pushViewController(accountViewController, animated: true)
         case 1:
             if let url = URL(string: I18N.Setting.urlArray[indexPath.row]) {
