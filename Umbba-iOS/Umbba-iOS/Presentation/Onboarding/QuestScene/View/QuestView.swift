@@ -47,7 +47,7 @@ final class QuestView: UIView {
         let view = UIProgressView()
         view.trackTintColor = .Gray400
         view.progressTintColor = .Primary600
-        view.progress = 0.2
+        view.progress = 0.0
         return view
     }()
     

@@ -100,7 +100,7 @@ extension QuestViewController: NavigationBarDelegate {
         if currentIndexPath.item == 0 {
             self.navigationController?.popViewController(animated: true)
         } else {
-            progressView.progress = Float(currentIndexPath.item) * 0.2
+            progressView.progress = Float(currentIndexPath.item - 1) * 0.2
             let previousIndexPath = IndexPath(item: currentIndexPath.item - 1, section: currentIndexPath.section)
             questCollectionView.scrollToItem(at: previousIndexPath, at: .centeredHorizontally, animated: true)
             let index = currentIndexPath.item - 1
@@ -125,14 +125,17 @@ extension QuestViewController: NextButtonDelegate {
                 self.patchReceiveAPI(user_info: UserData.shared.userInfo,
                                      onboarding_answer_list: UserData.shared.onboardingAnswerList)
             } else {
-                let pushAlarmViewController = PushAlarmViewController()
-                pushAlarmViewController.isReceiver = self.isReceiver
-                self.navigationController?.pushViewController(pushAlarmViewController, animated: true)
+                progressView.progress = Float(currentIndexPath.item + 1) * 0.2
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.2) {
+                    let pushAlarmViewController = PushAlarmViewController()
+                    pushAlarmViewController.isReceiver = self.isReceiver
+                    self.navigationController?.pushViewController(pushAlarmViewController, animated: true)
+                }
             }
         } else {
             let index = currentIndexPath.item
             hasAnswer(index + 1)
-            progressView.progress = Float(currentIndexPath.item + 2) * 0.2
+            progressView.progress = Float(currentIndexPath.item + 1) * 0.2
             let nextIndexPath = IndexPath(item: currentIndexPath.item + 1, section: currentIndexPath.section)
             questCollectionView.scrollToItem(at: nextIndexPath, at: .centeredHorizontally, animated: true)
         }
