@@ -96,13 +96,7 @@ extension AnswerDetailViewController: NavigationBarDelegate {
             }
             keyWindow.rootViewController = TabBarController()
         } else {
-            let nav = TabBarController()
-            nav.selectedIndex = 1
-            guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-                  let keyWindow = windowScene.windows.first else {
-                return
-            }
-            keyWindow.rootViewController = UINavigationController(rootViewController: nav)
+            self.navigationController?.popViewController(animated: false)
         }
     }
 
