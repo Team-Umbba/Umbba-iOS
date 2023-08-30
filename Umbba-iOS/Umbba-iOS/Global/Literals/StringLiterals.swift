@@ -87,6 +87,7 @@ enum I18N {
         static let questionTitle = "당신과 어머니의 꿈은 달라?\n당신과 어머니의 꿈으 ㄴ다라다라라라"
         static let answerPlaceholder = "답변을 입력해주세요"
         static let countText = "(0/100)"
+        static let saveButtonTitle = "저장하기"
     }
     
     enum Detail {
