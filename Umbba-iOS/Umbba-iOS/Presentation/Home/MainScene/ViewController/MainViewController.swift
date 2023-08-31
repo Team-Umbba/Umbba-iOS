@@ -40,7 +40,6 @@ final class MainViewController: UIViewController {
     // MARK: - UI Components
     
     private let mainView = MainView()
-    //    private let tabBar = TabBarController()
     
     override func loadView() {
         super.loadView()
@@ -119,10 +118,12 @@ extension MainViewController: MainDelegate {
 
 private extension MainViewController {
     func getMainAPI() {
+        NotificationCenter.default.post(name: Notification.Name("show"), object: nil, userInfo: nil)
         HomeService.shared.getHomeAPI { networkResult in
             switch networkResult {
             case .success(let data):
                 if let data = data as? GenericResponse<MainEntity> {
+                    NotificationCenter.default.post(name: Notification.Name("hide"), object: nil, userInfo: nil)
                     if let mainData = data.data {
                         self.mainEntity = mainData
                     }

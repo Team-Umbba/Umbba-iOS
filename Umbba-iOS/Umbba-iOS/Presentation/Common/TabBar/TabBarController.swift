@@ -101,6 +101,8 @@ private extension TabBarController {
     func addObserver() {
         NotificationCenter.default.addObserver(self, selector: #selector(showInvitePopUP), name: Notification.Name("share"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(showDisconnectPopUP), name: Notification.Name("disconnect"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(showLoadingView), name: Notification.Name("show"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(hideLoadingView), name: Notification.Name("hide"), object: nil)
     }
     
     func setLayout() {
@@ -156,6 +158,22 @@ private extension TabBarController {
     
     @objc func showDisconnectPopUP() {
         self.makeAlert(alertType: .disconnectAlert) {}
+    }
+    
+    @objc func showLoadingView() {
+        print("로딩 시작")
+        LoadingView.shared.show(self.view)
+    }
+    
+    @objc func hideLoadingView() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+            LoadingView.shared.hide(){
+                print("로딩 종료")
+            }
+        }
+        LoadingView.shared.hide() {
+            print("로딩 종료")
+        }
     }
     
     func share(inviteCode: String, inviteUserName: String) {
