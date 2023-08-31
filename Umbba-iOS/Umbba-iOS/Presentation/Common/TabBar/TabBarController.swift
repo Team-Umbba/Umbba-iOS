@@ -166,11 +166,6 @@ private extension TabBarController {
     }
     
     @objc func hideLoadingView() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-            LoadingView.shared.hide(){
-                print("로딩 종료")
-            }
-        }
         LoadingView.shared.hide() {
             print("로딩 종료")
         }

@@ -135,11 +135,6 @@ extension AnswerDetailViewController {
             switch networkResult {
             case .success(let data):
                 if let data = data as? GenericResponse<TodayEntity> {
-//                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
-//                        LoadingView.shared.hide() {
-//                            print("로딩 종료")
-//                        }
-//                    }
                     LoadingView.shared.hide() {
                         print("로딩 종료")
                     }
