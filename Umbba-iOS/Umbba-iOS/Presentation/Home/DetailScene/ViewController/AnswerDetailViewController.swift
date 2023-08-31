@@ -130,10 +130,19 @@ extension AnswerDetailViewController: HomeButtonDelegate {
 
 extension AnswerDetailViewController {
     func getTodayAPI() {
+        LoadingView.shared.show(self.view)
         HomeService.shared.getTodayAPI { networkResult in
             switch networkResult {
             case .success(let data):
                 if let data = data as? GenericResponse<TodayEntity> {
+//                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+//                        LoadingView.shared.hide() {
+//                            print("로딩 종료")
+//                        }
+//                    }
+                    LoadingView.shared.hide() {
+                        print("로딩 종료")
+                    }
                     if let todayData = data.data {
                         self.todayEntity = todayData
                     }
