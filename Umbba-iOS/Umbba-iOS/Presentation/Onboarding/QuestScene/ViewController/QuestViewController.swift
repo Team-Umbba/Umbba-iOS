@@ -48,6 +48,12 @@ final class QuestViewController: UIViewController {
         setDelegate()
         registerCell()
     }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        progressView.progress = 0.8
+    }
 }
 
 // MARK: - Extensions
@@ -190,10 +196,14 @@ extension QuestViewController {
             switch NetworkResult {
             case .success(let data):
                 if let data = data as? GenericResponse<ReceiveEntity> {
-                    let noticeAlarmViewController = NoticeAlarmViewController()
-                    noticeAlarmViewController.isReceiver = self.isReceiver
-                    noticeAlarmViewController.pushTime = data.data?.pushTime ?? ""
-                    self.navigationController?.pushViewController(noticeAlarmViewController, animated: true)
+                    guard let currentIndexPath = self.questCollectionView.indexPathsForVisibleItems.first else { return }
+                    self.progressView.progress = Float(currentIndexPath.item + 1) * 0.2
+                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.2) {
+                        let noticeAlarmViewController = NoticeAlarmViewController()
+                        noticeAlarmViewController.isReceiver = self.isReceiver
+                        noticeAlarmViewController.pushTime = data.data?.pushTime ?? ""
+                        self.navigationController?.pushViewController(noticeAlarmViewController, animated: true)
+                    }
                 }
             case .requestErr, .serverErr:
                 self.makeAlert(title: "오류가 발생했습니다", message: "다시 시도해주세요")
