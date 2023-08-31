@@ -29,7 +29,6 @@ final class AnswerWriteView: UIView {
         let view = CustomNavigationBar()
         view.cafe24Title = I18N.Write.navigationTitle
         view.isTitleViewIncluded = true
-        view.isRightButtonIncluded = true
         view.isLeftButtonIncluded = true
         return view
     }()
@@ -95,6 +94,12 @@ final class AnswerWriteView: UIView {
         return label
     }()
     
+    private lazy var saveButton: CustomButton = {
+        let button = CustomButton(status: false, title: I18N.Write.saveButtonTitle)
+        button.isEnabled = false
+        return button
+    }()
+    
     // MARK: - Life Cycles
     
     override init(frame: CGRect) {
@@ -117,11 +122,12 @@ final class AnswerWriteView: UIView {
 private extension AnswerWriteView {
     func setUI() {
         self.backgroundColor = .UmbbaWhite
+        self.addToolBar(textView: answerTextView)
     }
     
     func setAddTarget() {
         navigationBarView.leftButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
-        navigationBarView.rightButton.addTarget(self, action: #selector(completeButtonTapped), for: .touchUpInside)
+        saveButton.addTarget(self, action: #selector(completeButtonTapped), for: .touchUpInside)
     }
     
     func setDelegate() {
@@ -129,7 +135,7 @@ private extension AnswerWriteView {
     }
     
     func setLayout() {
-        self.addSubviews(navigationBarView, themeStackView, questionLabel, answerView)
+        self.addSubviews(navigationBarView, themeStackView, questionLabel, answerView, saveButton)
         answerView.addSubviews(answerTextView, countLabel)
         
         navigationBarView.snp.makeConstraints {
@@ -160,6 +166,12 @@ private extension AnswerWriteView {
         
         countLabel.snp.makeConstraints {
             $0.bottom.trailing.equalToSuperview().inset(16)
+        }
+        
+        saveButton.snp.makeConstraints {
+            $0.bottom.equalTo(self.safeAreaLayoutGuide).offset(-12)
+            $0.trailing.leading.equalToSuperview().inset(20)
+            $0.height.equalTo(60)
         }
     }
     
@@ -209,6 +221,7 @@ extension AnswerWriteView: UITextViewDelegate {
         if textView.text.isEmpty {
             textView.text = I18N.Write.answerPlaceholder
             textView.textColor = .Gray800
+            saveButton.isEnabled = false
         }
     }
     
@@ -225,6 +238,7 @@ extension AnswerWriteView: UITextViewDelegate {
         checkMaxLength(textView)
         let count = textView.text.count
         countLabel.text = "(\(count)/100)"
+        saveButton.isEnabled = count > 0 ? true : false
     }
     
     func textViewShouldEndEditing(_ textView: UITextView) -> Bool {

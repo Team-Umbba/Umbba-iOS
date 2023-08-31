@@ -10,6 +10,12 @@ import UIKit
 import KakaoSDKCommon
 import KakaoSDKTemplate
 import KakaoSDKShare
+import FirebaseDynamicLinks
+
+protocol PopUpDelegate: AnyObject {
+    func showInvitePopUP(inviteCode: String)
+    func showDisconnectPopUP()
+}
 
 final class MainViewController: UIViewController {
     
@@ -29,9 +35,12 @@ final class MainViewController: UIViewController {
     var inviteCode: String = ""
     var inviteUserName: String = ""
     
+    weak var delegate: PopUpDelegate?
+    
     // MARK: - UI Components
     
     private let mainView = MainView()
+    //    private let tabBar = TabBarController()
     
     override func loadView() {
         super.loadView()
@@ -45,7 +54,7 @@ final class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setDelegate()
         getCaseAPI()
         getMainAPI()
@@ -90,65 +99,39 @@ private extension MainViewController {
             guard let inviteCode = caseEntity?.inviteCode  else { return }
             guard let inviteUsername = caseEntity?.inviteUsername else { return }
             guard let installURL = caseEntity?.installURL else { return }
-            self.makeAlert(inviteCode: inviteCode, inviteUsername: inviteUsername, installURL: installURL) {
-                self.kakao()
-            }
+            NotificationCenter.default.post(name: Notification.Name("share"), object: nil, userInfo: ["inviteCode": inviteCode, "inviteUserName": inviteUsername, "installURL": installURL])
         case 3:
-            self.makeAlert(alertType: .disconnectAlert) {}
+            print("!!!!!")
+            NotificationCenter.default.post(name: Notification.Name("disconnect"), object: nil, userInfo: nil)
         default:
             break
         }
     }
     
-    func kakao() {
-        let feedTemplateJsonStringData =
-            """
-            {
-                "object_type": "feed",
-                "content": {
-                    "title": "'\(inviteUserName)'으로부터 초대가 왔어요.\\n초대 코드 : \(inviteCode) ",
-                    "description": "과거로 떠나 함께 추억을 나누고,\\n공감대를 형성해보세요.",
-                    "image_url": "https://github.com/Team-Umbba/Umbba-iOS/assets/75068759/64ba7265-9148-4f06-8235-de5f4030e92f",
-                    "link": {
-                        "mobile_web_url": "https://developers.kakao.com",
-                        "web_url": "https://developers.kakao.com"
-                    }
-                },
-                "buttons": [
-                    {
-                        "title": "초대 받기",
-                        "link": {
-                            "android_execution_params": "key1=value1&key2=value2",
-                            "ios_execution_params": "key1=value1&key2=value2"
-                        }
-                    }
-                ]
-            }
-            """.data(using: .utf8)!
-        
-        if let templateJsonObject = SdkUtils.toJsonObject(feedTemplateJsonStringData) {
-            if ShareApi.isKakaoTalkSharingAvailable() {
-                ShareApi.shared.shareDefault(templateObject: templateJsonObject) {(linkResult, error) in
-                    if let error = error {
-                        print("error : \(error)")
-                    } else {
-                        print("defaultLink(templateObject:templateJsonObject) success.")
-                        guard let linkResult = linkResult else { return }
-                        UIApplication.shared.open(linkResult.url, options: [:], completionHandler: nil)
-                    }
-                }
-            } else {
-                let url = "itms-apps://itunes.apple.com/app/362057947"
-                if let url = URL(string: url), UIApplication.shared.canOpenURL(url) {
-                    if #available(iOS 10.0, *) {
-                        UIApplication.shared.open(url, options: [:], completionHandler: nil)
-                    } else {
-                        UIApplication.shared.openURL(url)
-                    }
-                }
-            }
-        }
-    }
+//    func share() {
+//        guard let inviteCode = inviteCode.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return }
+//        
+//        guard let link = URL(string: "https://umbba.page.link/umbba?code=" + inviteCode) else { return }
+//        let dynamicLinkComponents = DynamicLinkComponents(link: link, domainURIPrefix: "https://umbba.page.link/umbba")
+//        
+//        guard let longDynamic = dynamicLinkComponents?.url else { return }
+//        let inviteText = "'\(inviteUserName)' 으로부터 초대가 왔어요💌\n\n당신의 가장 오래된 기억이 무엇인가요?\n과거로 떠나 함께 추억을 나누고, 공감대를 형성해보세요.\n\n어플 설치 후 하단의 초대코드를 입력해, 상대방과 연결하세요\n\n초대코드 : \(inviteCode)\n\n\(link)"
+//        
+//        let activityVC = UIActivityViewController(activityItems: [inviteText], applicationActivities: nil)
+//        activityVC.excludedActivityTypes = [UIActivity.ActivityType.airDrop, UIActivity.ActivityType.message, UIActivity.ActivityType.mail, UIActivity.ActivityType.postToFacebook]
+//        
+//        activityVC.completionWithItemsHandler = { [weak self] (activityType, completed, _, error) in
+//            if completed {
+//                print("초대코드 공유 완료")
+//            }
+//            if let error = error {
+//                print("초대코드 공유 오류: \(error.localizedDescription)")
+//            }
+//            self?.dismiss(animated: true, completion: nil)
+//        }
+//        
+//        present(activityVC, animated: true, completion: nil)
+//    }
 }
 
 extension MainViewController: MainDelegate {
