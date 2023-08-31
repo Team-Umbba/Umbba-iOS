@@ -166,7 +166,7 @@ private extension TabBarController {
     }
     
     @objc func hideLoadingView() {
-        LoadingView.shared.hide() {
+        LoadingView.shared.hide(){
             print("로딩 종료")
         }
     }
