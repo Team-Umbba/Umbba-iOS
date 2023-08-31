@@ -101,37 +101,11 @@ private extension MainViewController {
             guard let installURL = caseEntity?.installURL else { return }
             NotificationCenter.default.post(name: Notification.Name("share"), object: nil, userInfo: ["inviteCode": inviteCode, "inviteUserName": inviteUsername, "installURL": installURL])
         case 3:
-            print("!!!!!")
             NotificationCenter.default.post(name: Notification.Name("disconnect"), object: nil, userInfo: nil)
         default:
             break
         }
     }
-    
-//    func share() {
-//        guard let inviteCode = inviteCode.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return }
-//        
-//        guard let link = URL(string: "https://umbba.page.link/umbba?code=" + inviteCode) else { return }
-//        let dynamicLinkComponents = DynamicLinkComponents(link: link, domainURIPrefix: "https://umbba.page.link/umbba")
-//        
-//        guard let longDynamic = dynamicLinkComponents?.url else { return }
-//        let inviteText = "'\(inviteUserName)' 으로부터 초대가 왔어요💌\n\n당신의 가장 오래된 기억이 무엇인가요?\n과거로 떠나 함께 추억을 나누고, 공감대를 형성해보세요.\n\n어플 설치 후 하단의 초대코드를 입력해, 상대방과 연결하세요\n\n초대코드 : \(inviteCode)\n\n\(link)"
-//        
-//        let activityVC = UIActivityViewController(activityItems: [inviteText], applicationActivities: nil)
-//        activityVC.excludedActivityTypes = [UIActivity.ActivityType.airDrop, UIActivity.ActivityType.message, UIActivity.ActivityType.mail, UIActivity.ActivityType.postToFacebook]
-//        
-//        activityVC.completionWithItemsHandler = { [weak self] (activityType, completed, _, error) in
-//            if completed {
-//                print("초대코드 공유 완료")
-//            }
-//            if let error = error {
-//                print("초대코드 공유 오류: \(error.localizedDescription)")
-//            }
-//            self?.dismiss(animated: true, completion: nil)
-//        }
-//        
-//        present(activityVC, animated: true, completion: nil)
-//    }
 }
 
 extension MainViewController: MainDelegate {
