@@ -125,6 +125,7 @@
 		69A67D7B2A5C12CE00C43F49 /* AnswerWriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A67D7A2A5C12CE00C43F49 /* AnswerWriteView.swift */; };
 		69A67D7E2A5C12F100C43F49 /* AnswerWriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A67D7D2A5C12F100C43F49 /* AnswerWriteViewController.swift */; };
 		69A67D812A5C1BB600C43F49 /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A67D802A5C1BB600C43F49 /* CustomNavigationBar.swift */; };
+		69A934A72AA0BC21009466D4 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 69A934A62AA0BC21009466D4 /* Kingfisher */; };
 		69DE6B912A53384C00F31812 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DE6B902A53384C00F31812 /* UIColor+.swift */; };
 		69DE6B9B2A5341FF00F31812 /* Cafe24Classictype-v1.1.otf in Resources */ = {isa = PBXBuildFile; fileRef = 69DE6B9A2A5341FF00F31812 /* Cafe24Classictype-v1.1.otf */; };
 		69DE6B9F2A53421D00F31812 /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 69DE6B9C2A53421C00F31812 /* Pretendard-SemiBold.otf */; };
@@ -309,6 +310,7 @@
 				6978160D2A5316E80047944C /* KakaoSDKUser in Frameworks */,
 				697816092A5316E80047944C /* KakaoSDKTalk in Frameworks */,
 				697816142A5317C10047944C /* FirebaseAuth in Frameworks */,
+				69A934A72AA0BC21009466D4 /* Kingfisher in Frameworks */,
 				697816012A5316E80047944C /* KakaoSDK in Frameworks */,
 				697816162A5317C10047944C /* FirebaseCrashlytics in Frameworks */,
 				6978161C2A5317C10047944C /* FirebaseMessaging in Frameworks */,
@@ -1358,6 +1360,7 @@
 				6978161B2A5317C10047944C /* FirebaseMessaging */,
 				A42740ED2A5FBBE500D05B14 /* Lottie */,
 				695C88232A870AF500A94210 /* FirebaseDynamicLinks */,
+				69A934A62AA0BC21009466D4 /* Kingfisher */,
 			);
 			productName = "Umbba-iOS";
 			productReference = 69A67D782A5C0F9C00C43F49 /* Umbba-iOS.app */;
@@ -1392,6 +1395,7 @@
 				697815FF2A5316E80047944C /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
 				6978160E2A5317C10047944C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				A42740EC2A5FBBE500D05B14 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				69A934A52AA0BC21009466D4 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 697815372A52FA370047944C;
 			projectDirPath = "";
@@ -1824,6 +1828,14 @@
 				minimumVersion = 10.0.0;
 			};
 		};
+		69A934A52AA0BC21009466D4 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
 		A42740EC2A5FBBE500D05B14 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
@@ -1914,6 +1926,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 6978160E2A5317C10047944C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseMessaging;
+		};
+		69A934A62AA0BC21009466D4 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 69A934A52AA0BC21009466D4 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 		A42740ED2A5FBBE500D05B14 /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
