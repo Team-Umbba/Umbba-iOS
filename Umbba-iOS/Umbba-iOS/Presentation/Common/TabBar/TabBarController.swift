@@ -186,6 +186,14 @@ private extension TabBarController {
 
 extension TabBarController: UITabBarControllerDelegate {
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        if let selectedNavigationController = viewController as? UINavigationController,
+           let selectedViewController = selectedNavigationController.viewControllers.first {
+            if selectedViewController is MainViewController {
+                if let mainViewController = selectedViewController as? MainViewController {
+                    mainViewController.isShow = false
+                }
+            }
+        }
         addTabbarIndicatorView(index: selectedIndex)
     }
 }
