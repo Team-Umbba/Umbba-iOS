@@ -20,9 +20,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         KakaoSDK.initSDK(appKey: "6bd3a68776c41b2f780a6ff2e4306101")
         FirebaseApp.configure()
-
+        
         application.registerForRemoteNotifications()
         Messaging.messaging().delegate = self
+        UNUserNotificationCenter.current().delegate = self
         
         return true
     }
@@ -50,9 +51,28 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         Messaging.messaging().apnsToken = deviceToken
     }
     
-    // Foreground(앱 켜진 상태)에서도 알림 오는 설정
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        completionHandler([.list, .banner])
+        completionHandler([.list, .banner, .badge])
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        
+        let applicationState = UIApplication.shared.applicationState
+        if applicationState == .active || applicationState == .inactive {
+            guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+                  let keyWindow = windowScene.windows.first else {
+                return
+            }
+            let answerDetailController = AnswerDetailViewController()
+            answerDetailController.isHome = true
+            keyWindow.rootViewController = UINavigationController(rootViewController: answerDetailController)
+            if let navigationController = keyWindow.rootViewController as? UINavigationController {
+                navigationController.isNavigationBarHidden = true
+            }
+            
+        }
+        
+        completionHandler()
     }
 }
 
