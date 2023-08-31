@@ -19,6 +19,8 @@ protocol PopUpDelegate: AnyObject {
 
 final class MainViewController: UIViewController {
     
+    var isShow = false
+    
     // MARK: - Properties
     
     private var caseEntity: CaseEntity? {
@@ -73,12 +75,6 @@ private extension MainViewController {
             mainView.setSEImageBind(model: mainEntity)
         } else {
             mainView.setImageBind(model: mainEntity)
-        }
-        
-        if mainEntity.index > 7 {
-            getEndingPage()
-        } else {
-            return
         }
     }
     
@@ -151,6 +147,10 @@ private extension MainViewController {
                 if let data = data as? GenericResponse<MainEntity> {
                     if let mainData = data.data {
                         self.mainEntity = mainData
+                        if mainData.index > 7 && !self.isShow {
+                            self.isShow = true
+                            self.getEndingPage()
+                        }
                     }
                 }
             case .requestErr, .serverErr:
