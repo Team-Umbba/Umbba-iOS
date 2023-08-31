@@ -9,8 +9,9 @@ import UIKit
 
 import Lottie
 import SnapKit
+import Kingfisher
 
-class LoadingView: UIView {
+final class LoadingView: UIView {
     
     // MARK: - Properties
     
@@ -18,10 +19,11 @@ class LoadingView: UIView {
     
     // MARK: - UI Components
     
-    let loadingSplashView: LottieAnimationView = {
-        let animationView = LottieAnimationView(name: "splash_iOS")
-        animationView.loopMode = .loop
-        return animationView
+    let loadingSplashView: UIImageView = {
+        let imageView = UIImageView()
+        let gifs = ["https://github.com/Team-Umbba/Umbba-iOS/assets/75068759/b40de055-5d7a-403a-ad83-17b6a1012dd5"]
+        imageView.kf.setImage(with: URL(string: gifs[0])!)
+        return imageView
     }()
 
     // MARK: - Life Cycles
@@ -66,15 +68,9 @@ extension LoadingView {
         }
         
         self.layoutIfNeeded()
-        self.loadingSplashView.play()
-            UIView.animate(
-              withDuration: 0.7,
-              animations: { self.alpha = 1 }
-            )
     }
 
-    func hide(completion: @escaping () -> ()) {
-        self.loadingSplashView.stop()
+    func hide(completion: @escaping () -> Void) {
         self.removeFromSuperview()
         completion()
     }

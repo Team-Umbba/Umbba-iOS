@@ -27,7 +27,6 @@ final class AnswerDetailView: UIView {
     
     private let navigationBarView: CustomNavigationBar = {
         let view = CustomNavigationBar()
-        view.cafe24Title = I18N.Write.navigationTitle
         view.isTitleViewIncluded = true
         view.isLeftButtonIncluded = true
         return view
@@ -36,7 +35,6 @@ final class AnswerDetailView: UIView {
     private let numberLabel: UILabel = {
         let label = UILabel()
         label.textColor = .UmbbaBlack
-        label.text = I18N.Write.numberTitle
         label.font = .Cafe24Regular(size: 19)
         return label
     }()
@@ -44,7 +42,6 @@ final class AnswerDetailView: UIView {
     private let themeLabel: UILabel = {
         let label = UILabel()
         label.textColor = .UmbbaBlack
-        label.text = I18N.Write.themeTitle
         label.font = .Cafe24Regular(size: 20)
         return label
     }()
@@ -61,7 +58,6 @@ final class AnswerDetailView: UIView {
     private let partnerQeustLabel: UILabel = {
         let label = UILabel()
         label.textColor = .UmbbaBlack
-        label.text = I18N.Detail.partnerQuestLabel
         label.font = .PretendardSemiBold(size: 20)
         label.numberOfLines = 0
         return label
@@ -88,14 +84,12 @@ final class AnswerDetailView: UIView {
     private lazy var partnerNameLabel: UILabel = {
         let label = UILabel()
         label.textColor = .UmbbaBlack
-        label.text = I18N.Detail.partnerName
         label.font = .Cafe24Regular(size: 16)
         return label
     }()
     
     private let myQuestLabel: UILabel = {
         let label = UILabel()
-        label.text = I18N.Detail.myQuestLabel
         label.font = .PretendardSemiBold(size: 20)
         label.textAlignment = .right
         label.numberOfLines = 0
@@ -114,7 +108,6 @@ final class AnswerDetailView: UIView {
     private lazy var myNameLabel: UILabel = {
         let label = UILabel()
         label.textColor = .UmbbaBlack
-        label.text = I18N.Detail.myName
         label.font = .Cafe24Regular(size: 16)
         return label
     }()

@@ -125,7 +125,7 @@ private extension InviteView {
         }
     }
     
-    func setTextField(textField : UITextField) {
+    func setTextField(textField: UITextField) {
         guard let inviteCode = inviteTextField.text else { return }
         if !textField.hasText {
             self.errorLabel.isHidden = true
