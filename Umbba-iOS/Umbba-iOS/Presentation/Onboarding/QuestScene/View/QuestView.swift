@@ -121,7 +121,7 @@ private extension QuestView {
         }
         
         questCollectionView.snp.makeConstraints {
-            $0.top.equalTo(progressView.snp.bottom).offset(56)
+            $0.top.equalTo(progressView.snp.bottom).offset(SizeLiterals.Screen.deviceRatio > 0.5 ? 28 : 56)
             $0.leading.trailing.equalToSuperview()
             $0.height.equalTo(349)
         }
