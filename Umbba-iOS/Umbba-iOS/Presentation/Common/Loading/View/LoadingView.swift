@@ -43,8 +43,7 @@ final class LoadingView: UIView {
 
 extension LoadingView {
     func setUI() {
-        backgroundColor = .UmbbaBlack.withAlphaComponent(0.7)
-        
+        self.backgroundColor = .UmbbaWhite.withAlphaComponent(0.5)
         loadingSplashView.frame = bounds
         loadingSplashView.center = center
         loadingSplashView.contentMode = .scaleAspectFit

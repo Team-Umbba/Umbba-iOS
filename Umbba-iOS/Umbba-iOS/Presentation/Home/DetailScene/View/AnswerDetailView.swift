@@ -139,7 +139,7 @@ final class AnswerDetailView: UIView {
         button.isHidden = true
         return button
     }()
-
+    
     // MARK: - Life Cycles
     
     override init(frame: CGRect) {
@@ -258,15 +258,15 @@ private extension AnswerDetailView {
 
 extension AnswerDetailView {
     func setTodayDataBind(model: TodayEntity) {
-
         if model.isMyAnswer {
             myAnswerContent.text = model.myAnswer
             myAnswerContent.textColor = .UmbbaBlack
             nextButton.isHidden = true
             homeButton.isHidden = false
-        }
-        
-        if !model.isMyAnswer {
+            for gestureRecognizer in myAnswerView.gestureRecognizers ?? [] {
+                myAnswerView.removeGestureRecognizer(gestureRecognizer)
+            }
+        } else {
             let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(sender:)))
             myAnswerView.addGestureRecognizer(tapGesture)
         }
@@ -275,7 +275,7 @@ extension AnswerDetailView {
             partnerAnswerContent.text = model.opponentAnswer
             partnerAnswerContent.textColor = .UmbbaBlack
         }
-     
+        
         if model.isOpponentAnswer && !model.isMyAnswer {
             partnerAnswerContent.text = model.opponentAnswer
             partnerAnswerContent.isBlurring = true

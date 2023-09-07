@@ -58,7 +58,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         
         let applicationState = UIApplication.shared.applicationState
-        if applicationState == .active || applicationState == .inactive {
+        if applicationState == .active || applicationState == .inactive || applicationState == .background {
             guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
                   let keyWindow = windowScene.windows.first else {
                 return
@@ -69,7 +69,6 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
             if let navigationController = keyWindow.rootViewController as? UINavigationController {
                 navigationController.isNavigationBarHidden = true
             }
-            
         }
         
         completionHandler()
