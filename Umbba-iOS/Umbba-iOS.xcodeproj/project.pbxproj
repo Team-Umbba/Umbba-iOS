@@ -135,6 +135,10 @@
 		69DE6BAF2A5432E600F31812 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DE6BAE2A5432E600F31812 /* CustomButton.swift */; };
 		69DE6BB42A54400500F31812 /* InviteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DE6BB32A54400500F31812 /* InviteView.swift */; };
 		69DE6BB82A54417F00F31812 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DE6BB72A54417F00F31812 /* String+.swift */; };
+		A408BCE22AB59C5700AABB46 /* ArchivingSectionCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A408BCE12AB59C5700AABB46 /* ArchivingSectionCollectionView.swift */; };
+		A408BCE42AB711FB00AABB46 /* ArchivingQuestionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A408BCE32AB711FB00AABB46 /* ArchivingQuestionTableViewCell.swift */; };
+		A408BCE62AB712B200AABB46 /* ArchivingTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A408BCE52AB712B200AABB46 /* ArchivingTableView.swift */; };
+		A408BCE82AB713F300AABB46 /* ArchivingQuestionTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A408BCE72AB713F300AABB46 /* ArchivingQuestionTableHeaderView.swift */; };
 		A42723BB2A553069003C445F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42723BA2A553069003C445F /* LoginViewController.swift */; };
 		A42723BF2A5537CD003C445F /* EntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42723BE2A5537CD003C445F /* EntryView.swift */; };
 		A42723C12A5537DA003C445F /* EntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42723C02A5537DA003C445F /* EntryViewController.swift */; };
@@ -272,6 +276,10 @@
 		69DE6BAE2A5432E600F31812 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		69DE6BB32A54400500F31812 /* InviteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteView.swift; sourceTree = "<group>"; };
 		69DE6BB72A54417F00F31812 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
+		A408BCE12AB59C5700AABB46 /* ArchivingSectionCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchivingSectionCollectionView.swift; sourceTree = "<group>"; };
+		A408BCE32AB711FB00AABB46 /* ArchivingQuestionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchivingQuestionTableViewCell.swift; sourceTree = "<group>"; };
+		A408BCE52AB712B200AABB46 /* ArchivingTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchivingTableView.swift; sourceTree = "<group>"; };
+		A408BCE72AB713F300AABB46 /* ArchivingQuestionTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchivingQuestionTableHeaderView.swift; sourceTree = "<group>"; };
 		A42723BA2A553069003C445F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A42723BE2A5537CD003C445F /* EntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryView.swift; sourceTree = "<group>"; };
 		A42723C02A5537DA003C445F /* EntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryViewController.swift; sourceTree = "<group>"; };
@@ -1220,7 +1228,9 @@
 			isa = PBXGroup;
 			children = (
 				A489BE052A5AFCE90027E817 /* ArchivingImageView.swift */,
+				A408BCE12AB59C5700AABB46 /* ArchivingSectionCollectionView.swift */,
 				A4A763592A5BC0B40055D413 /* ArchivingCollectionView.swift */,
+				A408BCE52AB712B200AABB46 /* ArchivingTableView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1280,6 +1290,8 @@
 				A42723C42A5A6C04003C445F /* ArchivingSectionCollectionViewCell.swift */,
 				A489BDF92A5AA7C80027E817 /* ArchivingQuestionHeaderView.swift */,
 				A489BDFD2A5AAAB40027E817 /* ArchivingQuestionCollectionViewCell.swift */,
+				A408BCE32AB711FB00AABB46 /* ArchivingQuestionTableViewCell.swift */,
+				A408BCE72AB713F300AABB46 /* ArchivingQuestionTableHeaderView.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -1454,10 +1466,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				6951A69A2A5D8A8F00D49692 /* NextButtonProtocol.swift in Sources */,
+				A408BCE62AB712B200AABB46 /* ArchivingTableView.swift in Sources */,
 				A4C776102A60727100375378 /* MainView.swift in Sources */,
 				69636FAF2A5A616C008B457A /* FamilyInfoView.swift in Sources */,
 				6978157B2A52FFBC0047944C /* UIViewController+.swift in Sources */,
 				697815752A52FF760047944C /* UIVIew+.swift in Sources */,
+				A408BCE42AB711FB00AABB46 /* ArchivingQuestionTableViewCell.swift in Sources */,
 				691B8C152A67DDFE0041CC7C /* UIResponder+.swift in Sources */,
 				697E19D02A63244200D4752D /* MainEntity.swift in Sources */,
 				699455EE2A5C0C8B003C118A /* InviteViewController.swift in Sources */,
@@ -1499,6 +1513,7 @@
 				A42723BB2A553069003C445F /* LoginViewController.swift in Sources */,
 				697815852A5300290047944C /* UITableViewRegiseterable.swift in Sources */,
 				697E19AD2A63217E00D4752D /* ReIssueEntity.swift in Sources */,
+				A408BCE82AB713F300AABB46 /* ArchivingQuestionTableHeaderView.swift in Sources */,
 				14A018092A65A1EB008C8518 /* SignOutEntity.swift in Sources */,
 				6978158E2A5300F90047944C /* ButtonPress.swift in Sources */,
 				A42740F22A5FBDF600D05B14 /* LottieView.swift in Sources */,
@@ -1558,6 +1573,7 @@
 				A47BDA492A5D5FD6007B8E3E /* AssignView.swift in Sources */,
 				697815DC2A530CF70047944C /* Config.swift in Sources */,
 				691B8C172A67EB440041CC7C /* AddToolBar.swift in Sources */,
+				A408BCE22AB59C5700AABB46 /* ArchivingSectionCollectionView.swift in Sources */,
 				69DE6B912A53384C00F31812 /* UIColor+.swift in Sources */,
 				149099ED2A603143007242C6 /* WithdrawalViewController.swift in Sources */,
 				A489BDFE2A5AAAB40027E817 /* ArchivingQuestionCollectionViewCell.swift in Sources */,
