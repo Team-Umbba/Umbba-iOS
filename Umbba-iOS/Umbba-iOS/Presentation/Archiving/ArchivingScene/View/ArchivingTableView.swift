@@ -54,14 +54,14 @@ private extension ArchivingTableView {
     
     func setLayout() {
         tableView.snp.makeConstraints {
-            $0.top.equalTo(self.safeAreaLayoutGuide)
-            $0.leading.trailing.bottom.equalToSuperview()
+            $0.edges.equalToSuperview()
         }
     }
     
     func setTableView() {
         tableView.backgroundColor = .UmbbaWhite
         tableView.sectionFooterHeight = 0
+        tableView.sectionHeaderTopPadding = 0 
         tableView.isScrollEnabled = true
         tableView.isUserInteractionEnabled = true
         tableView.separatorStyle = .none
