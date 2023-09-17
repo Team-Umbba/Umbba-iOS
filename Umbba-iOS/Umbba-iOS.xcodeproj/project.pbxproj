@@ -151,10 +151,7 @@
 		A4743BA42A681CBE007FB69C /* UserDefaultWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4743BA32A681CBE007FB69C /* UserDefaultWrapper.swift */; };
 		A47BDA492A5D5FD6007B8E3E /* AssignView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47BDA482A5D5FD6007B8E3E /* AssignView.swift */; };
 		A47BDA4B2A5D5FE9007B8E3E /* AssignViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47BDA4A2A5D5FE9007B8E3E /* AssignViewController.swift */; };
-		A489BDFA2A5AA7C80027E817 /* ArchivingQuestionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A489BDF92A5AA7C80027E817 /* ArchivingQuestionHeaderView.swift */; };
-		A489BDFE2A5AAAB40027E817 /* ArchivingQuestionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A489BDFD2A5AAAB40027E817 /* ArchivingQuestionCollectionViewCell.swift */; };
 		A489BE062A5AFCE90027E817 /* ArchivingImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A489BE052A5AFCE90027E817 /* ArchivingImageView.swift */; };
-		A4A7635A2A5BC0B40055D413 /* ArchivingCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A763592A5BC0B40055D413 /* ArchivingCollectionView.swift */; };
 		A4C776102A60727100375378 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C7760F2A60727100375378 /* MainView.swift */; };
 		A4C776122A60727D00375378 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C776112A60727D00375378 /* MainViewController.swift */; };
 		A4D4F1EE2A98925D00F5EF6C /* EndingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D4F1ED2A98925D00F5EF6C /* EndingView.swift */; };
@@ -291,10 +288,7 @@
 		A4743BA32A681CBE007FB69C /* UserDefaultWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultWrapper.swift; sourceTree = "<group>"; };
 		A47BDA482A5D5FD6007B8E3E /* AssignView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignView.swift; sourceTree = "<group>"; };
 		A47BDA4A2A5D5FE9007B8E3E /* AssignViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignViewController.swift; sourceTree = "<group>"; };
-		A489BDF92A5AA7C80027E817 /* ArchivingQuestionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchivingQuestionHeaderView.swift; sourceTree = "<group>"; };
-		A489BDFD2A5AAAB40027E817 /* ArchivingQuestionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchivingQuestionCollectionViewCell.swift; sourceTree = "<group>"; };
 		A489BE052A5AFCE90027E817 /* ArchivingImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchivingImageView.swift; sourceTree = "<group>"; };
-		A4A763592A5BC0B40055D413 /* ArchivingCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchivingCollectionView.swift; sourceTree = "<group>"; };
 		A4C7760F2A60727100375378 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		A4C776112A60727D00375378 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		A4D4F1ED2A98925D00F5EF6C /* EndingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndingView.swift; sourceTree = "<group>"; };
@@ -1229,7 +1223,6 @@
 			children = (
 				A489BE052A5AFCE90027E817 /* ArchivingImageView.swift */,
 				A408BCE12AB59C5700AABB46 /* ArchivingSectionCollectionView.swift */,
-				A4A763592A5BC0B40055D413 /* ArchivingCollectionView.swift */,
 				A408BCE52AB712B200AABB46 /* ArchivingTableView.swift */,
 			);
 			path = View;
@@ -1288,8 +1281,6 @@
 			isa = PBXGroup;
 			children = (
 				A42723C42A5A6C04003C445F /* ArchivingSectionCollectionViewCell.swift */,
-				A489BDF92A5AA7C80027E817 /* ArchivingQuestionHeaderView.swift */,
-				A489BDFD2A5AAAB40027E817 /* ArchivingQuestionCollectionViewCell.swift */,
 				A408BCE32AB711FB00AABB46 /* ArchivingQuestionTableViewCell.swift */,
 				A408BCE72AB713F300AABB46 /* ArchivingQuestionTableHeaderView.swift */,
 			);
@@ -1507,7 +1498,6 @@
 				14DBE1732A631E0100CD8E7E /* AnimationViewController.swift in Sources */,
 				A42723C12A5537DA003C445F /* EntryViewController.swift in Sources */,
 				697815712A52FEC10047944C /* ColorLiterals.swift in Sources */,
-				A489BDFA2A5AA7C80027E817 /* ArchivingQuestionHeaderView.swift in Sources */,
 				697E19992A631CD100D4752D /* GenericResponse.swift in Sources */,
 				144F3F452A5C883800D73A6B /* SettingTableView.swift in Sources */,
 				A42723BB2A553069003C445F /* LoginViewController.swift in Sources */,
@@ -1576,13 +1566,11 @@
 				A408BCE22AB59C5700AABB46 /* ArchivingSectionCollectionView.swift in Sources */,
 				69DE6B912A53384C00F31812 /* UIColor+.swift in Sources */,
 				149099ED2A603143007242C6 /* WithdrawalViewController.swift in Sources */,
-				A489BDFE2A5AAAB40027E817 /* ArchivingQuestionCollectionViewCell.swift in Sources */,
 				69DE6BB42A54400500F31812 /* InviteView.swift in Sources */,
 				6978155B2A52FBD30047944C /* UserManager.swift in Sources */,
 				697E19C82A6323CC00D4752D /* PushAlarmEntity.swift in Sources */,
 				691979F82A5C6A4E0069FB63 /* WithdrawalAlertView.swift in Sources */,
 				14AE602F2A63F72400BC43B8 /* CaseEntity.swift in Sources */,
-				A4A7635A2A5BC0B40055D413 /* ArchivingCollectionView.swift in Sources */,
 				69DE6BAF2A5432E600F31812 /* CustomButton.swift in Sources */,
 				697815732A52FF650047944C /* UIImage+.swift in Sources */,
 				144F3F472A5C963B00D73A6B /* AccountTableView.swift in Sources */,
