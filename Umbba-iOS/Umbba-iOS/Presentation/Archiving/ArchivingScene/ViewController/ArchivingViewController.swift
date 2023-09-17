@@ -19,6 +19,7 @@ final class ArchivingViewController: UIViewController {
     // MARK: - UI Components
     
     private let archivingImageView = ArchivingImageView()
+    private lazy var collectionView = ArchivingSectionCollectionView().archivingSectionCollectionView
     private let archivingTableView = ArchivingTableView()
     private lazy var tableView = archivingTableView.tableView
     private lazy var archivingHeaderview = ArchivingQuestionTableHeaderView()
@@ -41,14 +42,14 @@ final class ArchivingViewController: UIViewController {
 // MARK: - Extensions
 
 extension ArchivingViewController {
-    
     private func setUI() {
         view.backgroundColor = .UmbbaWhite
         archivingImageView.contentMode = .scaleAspectFill
+        collectionView.showsHorizontalScrollIndicator = false
     }
     
     private func setHierarchy() {
-        view.addSubviews(archivingImageView, tableView)
+        view.addSubviews(archivingImageView, collectionView, tableView)
     }
     
     private func setLayout() {
@@ -57,14 +58,23 @@ extension ArchivingViewController {
             $0.height.equalTo(SizeLiterals.Screen.screenHeight * 375 / 812)
         }
         
-        tableView.snp.makeConstraints {
+        collectionView.snp.makeConstraints {
             $0.top.equalTo(archivingImageView.snp.bottom).offset(12)
+            $0.leading.trailing.equalToSuperview()
+            $0.height.equalTo(42)
+        }
+        
+        tableView.snp.makeConstraints {
+            $0.top.equalTo(collectionView.snp.bottom).offset(12)
             $0.leading.trailing.bottom.equalToSuperview()
         }
+        
     }
     
     private func setDelegate() {
         archivingTableView.archivingQuestionDelegate = self
+        collectionView.delegate = self
+        collectionView.dataSource = self
         tableView.delegate = self
         tableView.dataSource = self
     }
@@ -101,6 +111,45 @@ private extension ArchivingViewController {
                 break
             }
         }
+    }
+}
+
+extension ArchivingViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        getListAPI(row: indexPath.item + 1)
+        selectedIndex = indexPath.item
+        if SizeLiterals.Screen.deviceRatio > 0.5 {
+            archivingImageView.setSEDataBind(section: indexPath.item)
+            headerIndex = indexPath.item
+        } else {
+            archivingImageView.setDataBind(section: indexPath.item)
+            headerIndex = indexPath.item
+        }
+        makeVibrate()
+        collectionView.reloadData()
+        tableView.reloadData()
+    }
+}
+
+extension ArchivingViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let string = "# \(I18N.Archiving.sectionArray[indexPath.item])"
+        let cellSize = CGSize(width: string.size(withAttributes: [NSAttributedString.Key.font: UIFont.PretendardRegular(size: 12)]).width + 33, height: 26)
+        return cellSize
+    }
+}
+
+extension ArchivingViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell =
+        ArchivingSectionCollectionViewCell.dequeueReusableCell(collectionView: collectionView, indexPath: indexPath)
+        cell.archivingSectionLabel.text = "# \(I18N.Archiving.sectionArray[indexPath.item])"
+        cell.setCellSelected(isSelected: selectedIndex == indexPath.item)
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return I18N.Archiving.sectionArray.count
     }
 }
 
