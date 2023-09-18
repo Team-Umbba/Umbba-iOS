@@ -13,7 +13,7 @@ final class ArchivingQuestionTableViewCell: UITableViewCell, UITableViewRegister
     
     // MARK: - Properties
     
-    static var isFromNib = false
+    static let isFromNib: Bool = false
     
     // MARK: - UI Components
     
