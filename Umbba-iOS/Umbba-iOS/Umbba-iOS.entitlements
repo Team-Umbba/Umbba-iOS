@@ -8,5 +8,9 @@
 	<array>
 		<string>Default</string>
 	</array>
+	<key>com.apple.developer.associated-domains</key>
+	<array>
+		<string>applinks:umbba.page.link/umbba</string>
+	</array>
 </dict>
 </plist>
