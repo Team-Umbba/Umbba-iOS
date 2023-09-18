@@ -1,15 +1,17 @@
 //
-//  ArchivingQuestionCollectionViewCell.swift
+//  ArchivingQuestionTableViewCell.swift
 //  Umbba-iOS
 //
-//  Created by 고아라 on 2023/07/09.
+//  Created by 고아라 on 2023/09/17.
 //
 
 import UIKit
 
 import SnapKit
 
-final class ArchivingQuestionCollectionViewCell: UICollectionViewCell, UICollectionViewRegisterable {
+final class ArchivingQuestionTableViewCell: UITableViewCell, UITableViewRegisterable {
+    
+    // MARK: - Properties
     
     static let isFromNib: Bool = false
     
@@ -34,29 +36,28 @@ final class ArchivingQuestionCollectionViewCell: UICollectionViewCell, UICollect
         line.backgroundColor = .Gray400
         return line
     }()
-    
+
     // MARK: - Life Cycles
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         setUI()
         setHierarchy()
         setLayout()
     }
     
+    @available(*, unavailable)
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: coder)
     }
 }
 
-// MARK: - Extensions
-
-extension ArchivingQuestionCollectionViewCell {
-    
+extension ArchivingQuestionTableViewCell {
     func setUI() {
         backgroundColor = .UmbbaWhite
         self.isUserInteractionEnabled = true
+        self.selectionStyle = .none
     }
     
     func setHierarchy() {

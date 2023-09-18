@@ -1,18 +1,20 @@
 //
-//  ArchivingQuestionHeaderView.swift
+//  ArchivingQuestionTableHeaderView.swift
 //  Umbba-iOS
 //
-//  Created by 고아라 on 2023/07/09.
+//  Created by 고아라 on 2023/09/17.
 //
 
 import UIKit
 
 import SnapKit
 
-final class ArchivingQuestionHeaderView: UICollectionReusableView, UICollectionHeaderViewRegisterable {
+final class ArchivingQuestionTableHeaderView: UITableViewHeaderFooterView, UITableViewHeaderFooterRegisterable {
     
-    static let isFromNib: Bool = false
-
+    // MARK: - Properties
+    
+    static var isFromNib: Bool = false
+    
     // MARK: - UI Components
     
     lazy var headerLabel: UILabel = {
@@ -25,24 +27,22 @@ final class ArchivingQuestionHeaderView: UICollectionReusableView, UICollectionH
     
     // MARK: - Life Cycles
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        
+    override init(reuseIdentifier: String?) {
+        super.init(reuseIdentifier: reuseIdentifier)
+       
         setUI()
         setHierarchy()
         setLayout()
     }
     
-    @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
 }
 
 // MARK: - Extensions
 
-extension ArchivingQuestionHeaderView {
+extension ArchivingQuestionTableHeaderView {
     
     func setUI() {
         self.backgroundColor = .UmbbaWhite
