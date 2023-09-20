@@ -47,7 +47,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                         if UserManager.shared.haveUserName {
                             rootViewController = MainViewController()
                         } else {
-                            rootViewController = EntryViewController()
+                            rootViewController = AnimationViewController()
                         }
                     } else {
                         rootViewController = InviteViewController()
