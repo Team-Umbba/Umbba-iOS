@@ -40,30 +40,32 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, continue userActivity: NSUserActivity) {
         if let url = userActivity.webpageURL {
             let handled = DynamicLinks.dynamicLinks().handleUniversalLink(url) { dynamicLink, error in
-                var rootViewController: UIViewController
+                var rootViewController: UIViewController?
                 
                 if UserManager.shared.hasAccessToken {
                     if UserManager.shared.getIsMatch {
                         if UserManager.shared.haveUserName {
-                            rootViewController = MainViewController()
+                            rootViewController = TabBarController()
                         } else {
-                            rootViewController = AnimationViewController()
+                            let animationViewController = AnimationViewController()
+                            animationViewController.isReceiver = true
+                            rootViewController = animationViewController
                         }
                     } else {
                         rootViewController = InviteViewController()
-                        // Todo: 초대코드 자동입력
                     }
                 } else {
                     rootViewController = LoginViewController()
                 }
-                
-                if let windowScene = scene as? UIWindowScene {
-                    let window = UIWindow(windowScene: windowScene)
-                    window.rootViewController = UINavigationController(rootViewController: rootViewController)
-                    if let navigationController = window.rootViewController as? UINavigationController {
+                guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+                      let keyWindow = windowScene.windows.first else {
+                    return
+                }
+                if let rootVC = rootViewController {
+                    keyWindow.rootViewController = UINavigationController(rootViewController: rootVC)
+                    if let navigationController = keyWindow.rootViewController as? UINavigationController {
                         navigationController.isNavigationBarHidden = true
                     }
-                    window.makeKeyAndVisible()
                 }
             }
         }
