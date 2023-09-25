@@ -39,6 +39,7 @@ private extension AccountViewController {
         accounttableView.delegate = self
         accounttableView.dataSource = self
         accountTableView.navigationdelegate = self
+        navigationController?.interactivePopGestureRecognizer?.delegate = self
     }
 }
 
@@ -54,8 +55,7 @@ extension AccountViewController: UITableViewDelegate {
             return
         case 1:
             let withdrawlViewController = WithdrawalViewController()
-            withdrawlViewController.modalPresentationStyle = .fullScreen
-            self.present(withdrawlViewController, animated: false)
+            self.navigationController?.pushViewController(withdrawlViewController, animated: true)
         default:
             return
         }
@@ -77,6 +77,7 @@ extension AccountViewController: UITableViewDataSource {
 
 extension AccountViewController: NavigationBarDelegate {
     
+    @objc
     func backButtonTapped() {
         if isEnding {
             self.dismiss(animated: false)
@@ -88,6 +89,13 @@ extension AccountViewController: NavigationBarDelegate {
     func completeButtonTapped() {
     }
     
+}
+
+extension AccountViewController: UIGestureRecognizerDelegate {
+    func setGesture() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(backButtonTapped))
+        view.addGestureRecognizer(tapGesture)
+    }
 }
 
 // MARK: - Network

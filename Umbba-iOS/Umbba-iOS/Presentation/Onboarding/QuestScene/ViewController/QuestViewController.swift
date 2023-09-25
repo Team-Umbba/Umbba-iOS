@@ -65,6 +65,7 @@ private extension QuestViewController {
         questView.nextDelegate = self
         questCollectionView.delegate = self
         questCollectionView.dataSource = self
+        navigationController?.interactivePopGestureRecognizer?.delegate = self
     }
     
     func registerCell() {
@@ -101,6 +102,7 @@ extension QuestViewController: NavigationBarDelegate {
         }
     }
     
+    @objc
     func backButtonTapped() {
         guard let currentIndexPath = questCollectionView.indexPathsForVisibleItems.first else { return }
         if currentIndexPath.item == 0 {
@@ -116,6 +118,13 @@ extension QuestViewController: NavigationBarDelegate {
     
     func completeButtonTapped() {
         
+    }
+}
+
+extension QuestViewController: UIGestureRecognizerDelegate {
+    func setGesture() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(backButtonTapped))
+        view.addGestureRecognizer(tapGesture)
     }
 }
 

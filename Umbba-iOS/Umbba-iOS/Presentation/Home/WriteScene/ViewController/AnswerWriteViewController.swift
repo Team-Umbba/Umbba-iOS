@@ -36,6 +36,7 @@ extension AnswerWriteViewController {
     func setDelegate() {
         answerWriteView.answerWriteDelegate = self
         answerWriteView.navigationDelegate = self
+        navigationController?.interactivePopGestureRecognizer?.delegate = self
     }
 }
 
@@ -44,6 +45,7 @@ extension AnswerWriteViewController: NavigationBarDelegate, AnswerWriteDelegate 
         self.writePopUp = writePopUp
     }
     
+    @objc
     func backButtonTapped() {
         self.makeAlert(alertType: .writeCancelAlert) {
             self.navigationController?.popViewController(animated: true)
@@ -59,6 +61,13 @@ extension AnswerWriteViewController: NavigationBarDelegate, AnswerWriteDelegate 
                 self.postAnswerAPI(answer: answer)
             }
         }
+    }
+}
+
+extension AnswerWriteViewController: UIGestureRecognizerDelegate {
+    func setGesture() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(backButtonTapped))
+        view.addGestureRecognizer(tapGesture)
     }
 }
 

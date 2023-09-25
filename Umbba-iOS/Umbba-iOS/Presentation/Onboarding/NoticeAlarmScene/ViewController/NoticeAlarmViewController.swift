@@ -49,6 +49,7 @@ private extension NoticeAlarmViewController {
     func setDelegate() {
         noticeAlarmView.navigationdelegate = self
         noticeAlarmView.nextDelegate = self
+        navigationController?.interactivePopGestureRecognizer?.delegate = self
     }
     
     func timeToString(_ time: String) -> String {
@@ -88,6 +89,7 @@ private extension NoticeAlarmViewController {
 }
 
 extension NoticeAlarmViewController: NavigationBarDelegate {
+    @objc
     func backButtonTapped() {
         self.navigationController?.popViewController(animated: true)
     }
@@ -100,6 +102,13 @@ extension NoticeAlarmViewController: NavigationBarDelegate {
 extension NoticeAlarmViewController: NextButtonDelegate {
     func nextButtonTapped() {
         requestPermission()
+    }
+}
+
+extension NoticeAlarmViewController: UIGestureRecognizerDelegate {
+    func setGesture() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(backButtonTapped))
+        view.addGestureRecognizer(tapGesture)
     }
 }
 

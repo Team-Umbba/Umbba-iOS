@@ -60,6 +60,7 @@ private extension PushAlarmViewController {
         pushAlarmView.nextDelegate = self
         pickerView.delegate = self
         pickerView.dataSource = self
+        navigationController?.interactivePopGestureRecognizer?.delegate = self
     }
     
     // MARK: - Functions
@@ -87,6 +88,7 @@ private extension PushAlarmViewController {
 }
 
 extension PushAlarmViewController: NavigationBarDelegate {
+    @objc
     func backButtonTapped() {
         self.navigationController?.popViewController(animated: true)
     }
@@ -101,6 +103,13 @@ extension PushAlarmViewController: NextButtonDelegate {
         convertToTime(time: pushAlarmTime)
         UserData.shared.pushTime = formattedTime
         requestPermission()
+    }
+}
+
+extension PushAlarmViewController: UIGestureRecognizerDelegate {
+    func setGesture() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(backButtonTapped))
+        view.addGestureRecognizer(tapGesture)
     }
 }
 

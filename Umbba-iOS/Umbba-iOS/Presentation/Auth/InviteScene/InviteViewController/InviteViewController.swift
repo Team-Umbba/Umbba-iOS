@@ -52,10 +52,12 @@ extension InviteViewController {
     func setDelegate() {
         inviteView.navigationdelegate = self
         inviteView.nextDelegate = self
+        navigationController?.interactivePopGestureRecognizer?.delegate = self
     }
 }
 
 extension InviteViewController: NavigationBarDelegate {
+    @objc
     func backButtonTapped() {
         self.navigationController?.popViewController(animated: true)
     }
@@ -69,6 +71,13 @@ extension InviteViewController: NextButtonDelegate {
     func nextButtonTapped() {
         guard let inviteCode = inviteView.inviteTextField.text else { return }
         patchMatchAPI(inviteCode: inviteCode)
+    }
+}
+
+extension InviteViewController: UIGestureRecognizerDelegate {
+    func setGesture() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(backButtonTapped))
+        view.addGestureRecognizer(tapGesture)
     }
 }
 
