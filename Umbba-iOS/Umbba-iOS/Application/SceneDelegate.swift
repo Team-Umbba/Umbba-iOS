@@ -7,8 +7,9 @@
 
 import UIKit
 
-import KakaoSDKAuth
 import AuthenticationServices
+import KakaoSDKAuth
+import FirebaseDynamicLinks
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
@@ -23,6 +24,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+        if let userActivity = connectionOptions.userActivities.first {
+            self.scene(scene, continue: userActivity)
+        }
+        
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
         window?.rootViewController = UINavigationController(rootViewController: LottieViewController())
@@ -30,6 +35,40 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             navigationController.isNavigationBarHidden = true
         }
         window?.makeKeyAndVisible()
+    }
+    
+    func scene(_ scene: UIScene, continue userActivity: NSUserActivity) {
+        if let url = userActivity.webpageURL {
+            let handled = DynamicLinks.dynamicLinks().handleUniversalLink(url) { dynamicLink, error in
+                var rootViewController: UIViewController?
+                
+                if UserManager.shared.hasAccessToken {
+                    if UserManager.shared.getIsMatch {
+                        if UserManager.shared.haveUserName {
+                            rootViewController = TabBarController()
+                        } else {
+                            let animationViewController = AnimationViewController()
+                            animationViewController.isReceiver = true
+                            rootViewController = animationViewController
+                        }
+                    } else {
+                        rootViewController = InviteViewController()
+                    }
+                } else {
+                    rootViewController = LoginViewController()
+                }
+                guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+                      let keyWindow = windowScene.windows.first else {
+                    return
+                }
+                if let rootVC = rootViewController {
+                    keyWindow.rootViewController = UINavigationController(rootViewController: rootVC)
+                    if let navigationController = keyWindow.rootViewController as? UINavigationController {
+                        navigationController.isNavigationBarHidden = true
+                    }
+                }
+            }
+        }
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {
