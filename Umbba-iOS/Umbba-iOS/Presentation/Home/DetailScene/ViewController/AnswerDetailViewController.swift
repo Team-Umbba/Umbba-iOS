@@ -48,6 +48,7 @@ final class AnswerDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        routeAPI()
         setDelegate()
     }
 }

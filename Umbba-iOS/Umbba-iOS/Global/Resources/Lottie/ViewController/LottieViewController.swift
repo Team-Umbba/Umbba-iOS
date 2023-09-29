@@ -58,7 +58,15 @@ extension LottieViewController {
     }
     
     func presentToMainView() {
+        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+              let keyWindow = windowScene.windows.first else {
+            return
+        }
         let nav = TabBarController()
-        self.navigationController?.pushViewController(nav, animated: false)
+        nav.selectedIndex = 0
+        keyWindow.rootViewController = UINavigationController(rootViewController: nav)
+        if let navigationController = keyWindow.rootViewController as? UINavigationController {
+            navigationController.isNavigationBarHidden = true
+        }
     }
 }
