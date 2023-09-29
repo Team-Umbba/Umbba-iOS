@@ -48,6 +48,7 @@ final class AnswerDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        routeAPI()
         setDelegate()
     }
 }
@@ -60,6 +61,7 @@ extension AnswerDetailViewController {
         answerDetailView.delegate = self
         answerDetailView.nextDelegate = self
         answerDetailView.homeDelegate = self
+        navigationController?.interactivePopGestureRecognizer?.delegate = self
     }
     
     func routeAPI() {
@@ -87,6 +89,7 @@ extension AnswerDetailViewController {
 }
 
 extension AnswerDetailViewController: NavigationBarDelegate {
+    @objc
     func backButtonTapped() {
         if isHome {
             guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
@@ -101,6 +104,13 @@ extension AnswerDetailViewController: NavigationBarDelegate {
 
     func completeButtonTapped() {
         
+    }
+}
+
+extension AnswerDetailViewController: UIGestureRecognizerDelegate {
+    func setGesture() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(backButtonTapped))
+        view.addGestureRecognizer(tapGesture)
     }
 }
 

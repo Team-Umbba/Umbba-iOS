@@ -45,6 +45,7 @@ private extension CompleteViewController {
     func setDelegate() {
         completeView.navigationdelegate = self
         completeView.nextDelegate = self
+        navigationController?.interactivePopGestureRecognizer?.delegate = self
     }
     
     func updateUI() {
@@ -60,12 +61,20 @@ private extension CompleteViewController {
 }
 
 extension CompleteViewController: NavigationBarDelegate {
+    @objc
     func backButtonTapped() {
         self.navigationController?.popViewController(animated: true)
     }
     
     func completeButtonTapped() {
         
+    }
+}
+
+extension CompleteViewController: UIGestureRecognizerDelegate {
+    func setGesture() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(backButtonTapped))
+        view.addGestureRecognizer(tapGesture)
     }
 }
 

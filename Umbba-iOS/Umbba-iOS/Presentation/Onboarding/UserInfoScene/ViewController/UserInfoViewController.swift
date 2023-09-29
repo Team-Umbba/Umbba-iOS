@@ -55,6 +55,7 @@ extension UserInfoViewController {
         dismissKeyboard()
         userInfoView.navigationdelegate = self
         userInfoView.nextDelegate = self
+        navigationController?.interactivePopGestureRecognizer?.delegate = self
     }
     
     private func setupKeyboardEvent() {
@@ -102,6 +103,7 @@ extension UserInfoViewController {
 }
 
 extension UserInfoViewController: NavigationBarDelegate {
+    @objc
     func backButtonTapped() {
         self.navigationController?.popViewController(animated: true)
     }
@@ -120,5 +122,12 @@ extension UserInfoViewController: NextButtonDelegate {
         } else {
             self.navigationController?.pushViewController(FamilyInfoViewController(), animated: true)
         }
+    }
+}
+
+extension UserInfoViewController: UIGestureRecognizerDelegate {
+    func setGesture() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(backButtonTapped))
+        view.addGestureRecognizer(tapGesture)
     }
 }
