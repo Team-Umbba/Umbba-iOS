@@ -121,6 +121,7 @@
 		699455DD2A5AED19003C118A /* PushAlarmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 699455DC2A5AED19003C118A /* PushAlarmView.swift */; };
 		699455EB2A5C0C24003C118A /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 699455EA2A5C0C24003C118A /* LoginView.swift */; };
 		699455EE2A5C0C8B003C118A /* InviteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 699455ED2A5C0C8B003C118A /* InviteViewController.swift */; };
+		69A24CF72ACB10B6002F2D75 /* UpdateAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A24CF62ACB10B6002F2D75 /* UpdateAlertView.swift */; };
 		69A67D7B2A5C12CE00C43F49 /* AnswerWriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A67D7A2A5C12CE00C43F49 /* AnswerWriteView.swift */; };
 		69A67D7E2A5C12F100C43F49 /* AnswerWriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A67D7D2A5C12F100C43F49 /* AnswerWriteViewController.swift */; };
 		69A67D812A5C1BB600C43F49 /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A67D802A5C1BB600C43F49 /* CustomNavigationBar.swift */; };
@@ -258,6 +259,7 @@
 		699455DC2A5AED19003C118A /* PushAlarmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushAlarmView.swift; sourceTree = "<group>"; };
 		699455EA2A5C0C24003C118A /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		699455ED2A5C0C8B003C118A /* InviteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteViewController.swift; sourceTree = "<group>"; };
+		69A24CF62ACB10B6002F2D75 /* UpdateAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateAlertView.swift; sourceTree = "<group>"; };
 		69A67D782A5C0F9C00C43F49 /* Umbba-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Umbba-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		69A67D7A2A5C12CE00C43F49 /* AnswerWriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerWriteView.swift; sourceTree = "<group>"; };
 		69A67D7D2A5C12F100C43F49 /* AnswerWriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerWriteViewController.swift; sourceTree = "<group>"; };
@@ -434,6 +436,7 @@
 				691979F92A5C6BDB0069FB63 /* WriteSaveAlertView.swift */,
 				6951A6952A5D2B5300D49692 /* InviteAlertView.swift */,
 				6951A6AB2A62CBD100D49692 /* DisconnectAlertView.swift */,
+				69A24CF62ACB10B6002F2D75 /* UpdateAlertView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1567,6 +1570,7 @@
 				69636FAD2A5A615C008B457A /* FamilyInfoViewController.swift in Sources */,
 				697E19BB2A6322D700D4752D /* MatchEntity.swift in Sources */,
 				6951A6AA2A61B82300D49692 /* QuestCollectionCell.swift in Sources */,
+				69A24CF72ACB10B6002F2D75 /* UpdateAlertView.swift in Sources */,
 				697E199D2A631D9800D4752D /* BaseService.swift in Sources */,
 				69A67D812A5C1BB600C43F49 /* CustomNavigationBar.swift in Sources */,
 				697815812A52FFF50047944C /* NSObject+.swift in Sources */,

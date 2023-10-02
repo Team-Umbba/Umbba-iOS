@@ -101,6 +101,7 @@ private extension TabBarController {
     func addObserver() {
         NotificationCenter.default.addObserver(self, selector: #selector(showInvitePopUP), name: Notification.Name("share"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(showDisconnectPopUP), name: Notification.Name("disconnect"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(showUpdatePopUP), name: Notification.Name("update"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(showLoadingView), name: Notification.Name("show"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(hideLoadingView), name: Notification.Name("hide"), object: nil)
     }
@@ -158,6 +159,13 @@ private extension TabBarController {
     
     @objc func showDisconnectPopUP() {
         self.makeAlert(alertType: .disconnectAlert) {}
+    }
+    
+    @objc func showUpdatePopUP() {
+        self.makeAlert(alertType: .updateAlert) {
+            // 앱스토어로 이동하는 코드
+            print("앱스토어로 이동합니다")
+        }
     }
     
     @objc func showLoadingView() {

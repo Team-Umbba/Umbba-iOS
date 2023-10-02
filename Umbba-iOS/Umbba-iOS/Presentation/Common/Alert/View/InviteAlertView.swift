@@ -67,7 +67,7 @@ final class InviteAlertView: UIView {
         let button = UIButton()
         button.backgroundColor = .Primary500
         button.setTitleColor(.UmbbaWhite, for: .normal)
-        button.setTitle(I18N.Alert.shateButtonTitle, for: .normal)
+        button.setTitle(I18N.Alert.shareButtonTitle, for: .normal)
         button.titleLabel?.font = .PretendardSemiBold(size: 16)
         button.layer.cornerRadius = 24
         return button
