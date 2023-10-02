@@ -59,6 +59,7 @@ final class MainViewController: UIViewController {
         setDelegate()
         getCaseAPI()
         getMainAPI()
+        checkAppVersion()
     }
 }
 
@@ -95,11 +96,23 @@ private extension MainViewController {
             guard let inviteUsername = caseEntity?.inviteUsername else { return }
             guard let installURL = caseEntity?.installURL else { return }
             NotificationCenter.default.post(name: Notification.Name("share"), object: nil, userInfo: ["inviteCode": inviteCode, "inviteUserName": inviteUsername, "installURL": installURL])
-//            NotificationCenter.default.post(name: Notification.Name("update"), object: nil, userInfo: nil)
         case 3:
             NotificationCenter.default.post(name: Notification.Name("disconnect"), object: nil, userInfo: nil)
         default:
             break
+        }
+    }
+    
+    func checkAppVersion() {
+        _ = try? AppStoreCheck.isUpdateAvailable { (update, error) in
+            if let error = error {
+                print(error)
+            } else if let update = update {
+                if update {
+                    NotificationCenter.default.post(name: Notification.Name("update"), object: nil, userInfo: nil)
+                    return
+                }
+            }
         }
     }
 }

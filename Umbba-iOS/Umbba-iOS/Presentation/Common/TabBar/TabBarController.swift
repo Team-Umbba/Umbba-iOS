@@ -163,8 +163,9 @@ private extension TabBarController {
     
     @objc func showUpdatePopUP() {
         self.makeAlert(alertType: .updateAlert) {
-            // 앱스토어로 이동하는 코드
-            print("앱스토어로 이동합니다")
+            if let url = URL(string: "itms-apps://itunes.apple.com/app/id6450973870") {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }
         }
     }
     
