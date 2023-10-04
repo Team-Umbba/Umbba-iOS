@@ -15,13 +15,6 @@ final class UpdateAlertView: UIView {
     
     // MARK: - UI Components
     
-    private lazy var exitButton: UIButton = {
-        let button = UIButton()
-        button.setImage(ImageLiterals.Common.icn_exit, for: .normal)
-        button.tintColor = .UmbbaBlack
-        return button
-    }()
-    
     private let updateTitle: UILabel = {
         let label = UILabel()
         label.text = I18N.Alert.updateTitle
@@ -74,20 +67,14 @@ private extension UpdateAlertView {
     }
     
     func setAddTarget() {
-        exitButton.addTarget(self, action: #selector(exitButtonTapped), for: .touchUpInside)
         updateButton.addTarget(self, action: #selector(shareButtonTapped), for: .touchUpInside)
     }
     
     func setLayout() {
-        self.addSubviews(exitButton, updateTitle, updateSubtitle, updateButton)
-        
-        exitButton.snp.makeConstraints {
-            $0.top.trailing.equalToSuperview()
-            $0.size.equalTo(48)
-        }
+        self.addSubviews(updateTitle, updateSubtitle, updateButton)
         
         updateTitle.snp.makeConstraints {
-            $0.top.equalTo(exitButton.snp.bottom).offset(8)
+            $0.top.equalToSuperview().inset(32)
             $0.height.equalTo(24)
             $0.centerX.equalToSuperview()
         }
@@ -104,10 +91,6 @@ private extension UpdateAlertView {
             $0.centerX.equalToSuperview()
             $0.width.equalTo(SizeLiterals.Screen.screenWidth * 268 / 375)
         }
-    }
-    
-    @objc func exitButtonTapped() {
-        delegate?.alertDismissTapped()
     }
     
     @objc func shareButtonTapped() {
