@@ -13,6 +13,7 @@ enum AlertType {
     case withdrawalAlert
     case inviteAlert
     case disconnectAlert
+    case updateAlert
 }
 
 final class AlertViewController: UIViewController {
@@ -49,6 +50,11 @@ final class AlertViewController: UIViewController {
         return view
     }()
     
+    private let updateAlertView: UpdateAlertView = {
+        let view = UpdateAlertView()
+        return view
+    }()
+    
     // MARK: - Life Cycles
     
     override func viewDidLoad() {
@@ -72,26 +78,29 @@ extension AlertViewController {
     func setAlertType() {
         switch alertType {
         case .writeCancelAlert:
-            setAlertView(writeCancel: true, writeSave: false, withdrawal: false, invite: false, disconnect: false)
+            setAlertView(writeCancel: true, writeSave: false, withdrawal: false, invite: false, disconnect: false, update: false)
         case .writeSaveAlert:
-            setAlertView(writeCancel: false, writeSave: true, withdrawal: false, invite: false, disconnect: false)
+            setAlertView(writeCancel: false, writeSave: true, withdrawal: false, invite: false, disconnect: false, update: false)
         case .withdrawalAlert:
-            setAlertView(writeCancel: false, writeSave: false, withdrawal: true, invite: false, disconnect: false)
+            setAlertView(writeCancel: false, writeSave: false, withdrawal: true, invite: false, disconnect: false, update: false)
         case .inviteAlert:
-            setAlertView(writeCancel: false, writeSave: false, withdrawal: false, invite: true, disconnect: false)
+            setAlertView(writeCancel: false, writeSave: false, withdrawal: false, invite: true, disconnect: false, update: false)
         case .disconnectAlert:
-            setAlertView(writeCancel: false, writeSave: false, withdrawal: false, invite: true, disconnect: true)
+            setAlertView(writeCancel: false, writeSave: false, withdrawal: false, invite: false, disconnect: true, update: false)
+        case .updateAlert:
+            setAlertView(writeCancel: false, writeSave: false, withdrawal: false, invite: false, disconnect: false, update: true)
         default:
             break
         }
     }
     
-    func setAlertView(writeCancel: Bool, writeSave: Bool, withdrawal: Bool, invite: Bool, disconnect: Bool) {
+    func setAlertView(writeCancel: Bool, writeSave: Bool, withdrawal: Bool, invite: Bool, disconnect: Bool, update: Bool) {
         writeCancelAlertView.isHidden = !writeCancel
         writeSaveAlertView.isHidden = !writeSave
         withdrawalAlertView.isHidden = !withdrawal
         inviteAlertView.isHidden = !invite
         disconnectAlertView.isHidden = !disconnect
+        updateAlertView.isHidden = !update
     }
     
     func setLayout() {
@@ -99,7 +108,8 @@ extension AlertViewController {
                          writeSaveAlertView,
                          withdrawalAlertView,
                          inviteAlertView,
-                         disconnectAlertView)
+                         disconnectAlertView,
+                         updateAlertView)
         
         writeCancelAlertView.snp.makeConstraints {
             let writeCancelWidth = SizeLiterals.Screen.screenWidth * 343 / 375
@@ -125,7 +135,6 @@ extension AlertViewController {
             let inviteWidth = SizeLiterals.Screen.screenWidth * 343 / 375
             $0.center.equalToSuperview()
             $0.width.equalTo(inviteWidth)
-//            $0.height.equalTo(inviteWidth * 472 / 343)
         }
         
         disconnectAlertView.snp.makeConstraints {
@@ -133,6 +142,12 @@ extension AlertViewController {
             $0.center.equalToSuperview()
             $0.width.equalTo(disconnectWidth)
             $0.height.equalTo(disconnectWidth * 472 / 343)
+        }
+        
+        updateAlertView.snp.makeConstraints {
+            let updateWidth = SizeLiterals.Screen.screenWidth * 343 / 375
+            $0.center.equalToSuperview()
+            $0.width.equalTo(updateWidth)
         }
     }
     
@@ -142,6 +157,7 @@ extension AlertViewController {
         withdrawalAlertView.delegate = self
         inviteAlertView.delegate = self
         disconnectAlertView.delegate = self
+        updateAlertView.delegate = self
     }
     
     func emptyActions() {

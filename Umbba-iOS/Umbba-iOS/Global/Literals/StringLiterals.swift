@@ -128,7 +128,7 @@ enum I18N {
         static let inviteTitle = "상대를 초대할 차례야\n상대방이 수락하면 문답이 시작돼"
         static let copyButtonTitle = "초대코드 복사"
         static let inviteCode = "1234-1234556"
-        static let shateButtonTitle = "초대장 보내기"
+        static let shareButtonTitle = "초대장 보내기"
         static let writeCancelTitle = "답변 작성을 취소하시겠어요?\n작성 중인 답변은 저장되지 않아요"
         static let withdrawalTitle = "정말 회원을 탈퇴하시겠습니까?"
         static let cancelButtonTitle = "취소"
@@ -138,6 +138,9 @@ enum I18N {
         static let saveButtonTitle = "저장"
         static let disconnectTitle = "상대와의 연결이 끊어졌어요"
         static let disconnectDiscription = "새로운 상대와 함께 하려면\n회원 탈퇴 후 이용해주세요"
+        static let updateTitle = "새로운 버전이 업데이트 되었어요"
+        static let updateSubtitle = "부모와 자식이 함께 떠나는 시간여행,\n엄빠도 어렸다가 개선되었어요\n더 나은 서비스를 즐겨보세요"
+        static let updateButtonTitle = "업데이트 하기"
     }
     
     enum Lottie {
