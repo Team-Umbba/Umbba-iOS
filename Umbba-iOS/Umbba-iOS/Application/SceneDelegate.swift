@@ -39,20 +39,27 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     func scene(_ scene: UIScene, continue userActivity: NSUserActivity) {
         if let url = userActivity.webpageURL {
-            let handled = DynamicLinks.dynamicLinks().handleUniversalLink(url) { dynamicLink, error in
+            _ = DynamicLinks.dynamicLinks().handleUniversalLink(url) { dynamicLink, error in
                 var rootViewController: UIViewController?
                 
                 if UserManager.shared.hasAccessToken {
-                    if UserManager.shared.getIsMatch {
-                        if UserManager.shared.haveUserName {
-                            rootViewController = TabBarController()
-                        } else {
+                    if UserManager.shared.haveUserName {
+                        rootViewController = TabBarController()
+                    } else {
+                        if UserManager.shared.getIsMatch {
                             let animationViewController = AnimationViewController()
                             animationViewController.isReceiver = true
                             rootViewController = animationViewController
+                        } else {
+                            let inviteController = InviteViewController()
+                            rootViewController = inviteController
+                            if let code = self.handleDynamicLink(dynamicLink) {
+                                inviteController.inviteView.inviteTextField.text = code
+                                inviteController.inviteView.nextButton.isEnabled = inviteController.inviteView.inviteTextField.hasText
+                                inviteController.inviteView.navigationBarView.isLeftButtonIncluded = false
+                            }
                         }
-                    } else {
-                        rootViewController = InviteViewController()
+                        
                     }
                 } else {
                     rootViewController = LoginViewController()
@@ -122,4 +129,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // to restore the scene back to its current state.
     }
     
+    private func handleDynamicLink(_ dynamicLink: DynamicLink?) -> String? {
+        guard let dynamicLink = dynamicLink, let link = dynamicLink.url else { return nil }
+        
+        if let components = URLComponents(url: link, resolvingAgainstBaseURL: false),
+           let queryItems = components.queryItems {
+            for item in queryItems {
+                if item.name == "code", let value = item.value {
+                    return value
+                }
+            }
+        }
+        return nil
+    }
 }
