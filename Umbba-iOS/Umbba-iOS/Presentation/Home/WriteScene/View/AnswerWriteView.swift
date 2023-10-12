@@ -82,6 +82,7 @@ final class AnswerWriteView: UIView {
         textView.text = I18N.Write.answerPlaceholder
         textView.font = .PretendardRegular(size: 16)
         textView.textColor = .Gray800
+        textView.textContainer.maximumNumberOfLines = 5
         textView.showsHorizontalScrollIndicator = false
         return textView
     }()
@@ -104,7 +105,7 @@ final class AnswerWriteView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-    
+        
         setUI()
         setAddTarget()
         setDelegate()
@@ -156,7 +157,7 @@ private extension AnswerWriteView {
         answerView.snp.makeConstraints {
             $0.top.equalTo(questionLabel.snp.bottom).offset(16)
             $0.leading.trailing.equalToSuperview().inset(16)
-            $0.height.equalTo(172)
+            $0.height.equalTo(SizeLiterals.Screen.screenHeight * 174 / 812)
         }
         
         answerTextView.snp.makeConstraints {
@@ -181,9 +182,18 @@ private extension AnswerWriteView {
         self.themeLabel.text = TodayData.shared.topic
         self.questionLabel.text = TodayData.shared.myQuestion
     }
-
+    
     func checkMaxLength(_ textView: UITextView) {
-        if (textView.text.count) > 100 {
+        
+        let maxLength = 100
+        if textView.text.count > maxLength {
+            textView.deleteBackward()
+        }
+        
+        if textView.numberOfLines() < 6 {
+            textView.isEditable = true
+        } else {
+            print("5줄까지만 입력이 가능합니다")
             textView.deleteBackward()
         }
     }
