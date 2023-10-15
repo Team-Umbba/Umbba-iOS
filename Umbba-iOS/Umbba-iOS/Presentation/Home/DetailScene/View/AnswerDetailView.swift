@@ -72,8 +72,8 @@ final class AnswerDetailView: UIView {
         return answerView
     }()
     
-    lazy var partnerAnswerContent: BlurLabel = {
-        let label = BlurLabel()
+    lazy var partnerAnswerContent: UILabel = {
+        let label = UILabel()
         label.textColor = .Gray800
         label.text = I18N.Detail.noneAnswer
         label.font = .PretendardRegular(size: 16)
@@ -257,6 +257,38 @@ private extension AnswerDetailView {
 }
 
 extension AnswerDetailView {
+    
+    func applyTextBlur(to view: UIView, blurRadius: Float) {
+        // 텍스트를 이미지로 렌더링
+        UIGraphicsBeginImageContextWithOptions(view.bounds.size, false, 0.0)
+        view.layer.render(in: UIGraphicsGetCurrentContext()!)
+        let textImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        // 기존 텍스트를 숨김
+        view.isHidden = true
+        
+        // 이미지를 블러 처리
+        if let textImage = textImage {
+            if let inputImage = CIImage(image: textImage) {
+                if let filter = CIFilter(name: "CIGaussianBlur") {
+                    filter.setValue(inputImage, forKey: kCIInputImageKey)
+                    filter.setValue(blurRadius, forKey: kCIInputRadiusKey)
+                    
+                    if let outputImage = filter.outputImage {
+                        // 블러 처리된 이미지를 화면에 표시
+                        let context = CIContext(options: nil)
+                        if let cgImage = context.createCGImage(outputImage, from: inputImage.extent) {
+                            let blurredImageView = UIImageView(image: UIImage(cgImage: cgImage))
+                            blurredImageView.frame = view.frame
+                            view.superview?.insertSubview(blurredImageView, belowSubview: view)
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
     func setTodayDataBind(model: TodayEntity) {
         if model.isMyAnswer {
             myAnswerContent.text = model.myAnswer
@@ -278,7 +310,7 @@ extension AnswerDetailView {
         
         if model.isOpponentAnswer && !model.isMyAnswer {
             partnerAnswerContent.text = model.opponentAnswer
-            partnerAnswerContent.isBlurring = true
+            applyTextBlur(to: partnerAnswerContent, blurRadius: 12.0)
         }
         
         navigationBarView.cafe24Title = model.section
