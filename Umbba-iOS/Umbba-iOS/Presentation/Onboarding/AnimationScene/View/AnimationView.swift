@@ -7,6 +7,8 @@
 
 import UIKit
 import SnapKit
+import AVFoundation
+import Kingfisher
 
 final class AnimationView: UIView {
     
@@ -16,13 +18,9 @@ final class AnimationView: UIView {
     
     // MARK: - UI Components
     
-    private let backgroundImage: UIImageView = {
+    let backgroundImage: UIImageView = {
         let animationImage = UIImageView()
-        if SizeLiterals.Screen.deviceRatio > 0.5 {
-            animationImage.image = ImageLiterals.Onboarding.image_se_depart
-        } else {
-            animationImage.image = ImageLiterals.Onboarding.img_depart
-        }
+        animationImage.contentMode = .scaleAspectFill
         return animationImage
     }()
     
@@ -87,5 +85,29 @@ extension AnimationView {
     @objc
     func nextButtonTapped() {
         nextDelegate?.nextButtonTapped()
+    }
+    
+    func playVideo() {
+        guard let path = Bundle.main.path(forResource: "AnimationMp4", ofType: "mp4") else {
+            return
+        }
+        let player = AVPlayer(url: URL(fileURLWithPath: path))
+        let playerLayer = AVPlayerLayer(player: player)
+        playerLayer.frame = backgroundImage.bounds
+        backgroundImage.layer.addSublayer(playerLayer)
+        playerLayer.videoGravity = .resizeAspectFill
+        player.play()
+        NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime, object: player.currentItem, queue: .main) { _ in
+            playerLayer.removeFromSuperlayer()
+            self.playGif()
+        }
+    }
+    
+    func playGif() {
+        guard let path = Bundle.main.path(forResource: "AnimationGif", ofType: "gif") else {
+            return
+        }
+        animationLabel.isHidden = true
+        backgroundImage.kf.setImage(with: URL(fileURLWithPath: path))
     }
 }

@@ -25,6 +25,14 @@ final class AnimationViewController: UIViewController {
         view = animationView
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        DispatchQueue.main.async {
+            self.animationView.playVideo()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
