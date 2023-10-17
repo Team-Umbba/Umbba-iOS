@@ -133,7 +133,7 @@ enum I18N {
         static let withdrawalTitle = "정말 회원을 탈퇴하시겠습니까?"
         static let cancelButtonTitle = "취소"
         static let confirmButtonTitle = "확인"
-        static let writeSaveTitle = "답변을 저장하시겠어요?"
+        static let writeSaveTitle = "답변을 저장하시겠어요?\n저장 후에는 수정이 불가능해요"
         static let backButtonTitle = "돌아가기"
         static let saveButtonTitle = "저장"
         static let disconnectTitle = "상대와의 연결이 끊어졌어요"
