@@ -30,4 +30,21 @@ extension UIImage {
         return renderImage
     }
     
+    static func gifImageWithData(_ data: Data) -> UIImage? {
+        guard let source = CGImageSourceCreateWithData(data as CFData, nil) else {
+            return nil
+        }
+        
+        var images: [UIImage] = []
+        let imageCount = CGImageSourceGetCount(source)
+        
+        for i in 0..<imageCount {
+            if let cgImage = CGImageSourceCreateImageAtIndex(source, i, nil) {
+                let image = UIImage(cgImage: cgImage)
+                images.append(image)
+            }
+        }
+        return UIImage.animatedImage(with: images, duration: Double(imageCount) * 0.1)
+    }
+    
 }
