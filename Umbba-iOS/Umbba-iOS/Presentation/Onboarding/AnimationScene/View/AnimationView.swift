@@ -7,8 +7,8 @@
 
 import UIKit
 import SnapKit
+
 import AVFoundation
-import Kingfisher
 
 final class AnimationView: UIView {
     
@@ -33,7 +33,12 @@ final class AnimationView: UIView {
     }()
     
     private let callingButton: UIButton = {
-        let button = CustomButton(status: true, title: I18N.Onboarding.callingButton)
+        let button = CustomButton(status: false, title: I18N.Onboarding.callingButton)
+        button.layer.borderColor = UIColor.Primary500.cgColor
+        button.layer.borderWidth = 2
+        button.setBackgroundColor(.UmbbaWhite, for: .normal)
+        button.setTitleColor(.Primary500, for: .normal)
+        button.adjustsImageWhenHighlighted = false
         button.isEnabled = true
         return button
     }()
@@ -97,6 +102,7 @@ extension AnimationView {
         backgroundImage.layer.addSublayer(playerLayer)
         playerLayer.videoGravity = .resizeAspectFill
         player.play()
+        callingButton.isHidden = true
         NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime, object: player.currentItem, queue: .main) { _ in
             playerLayer.removeFromSuperlayer()
             self.playGif()
@@ -104,10 +110,12 @@ extension AnimationView {
     }
     
     func playGif() {
-        guard let path = Bundle.main.path(forResource: "AnimationGif", ofType: "gif") else {
-            return
-        }
         animationLabel.isHidden = true
-        backgroundImage.kf.setImage(with: URL(fileURLWithPath: path))
+        callingButton.isHidden = false
+        
+        guard let gifURL = Bundle.main.url(forResource: "AnimationGif", withExtension: "gif") else { return }
+        guard let gifData = try? Data(contentsOf: gifURL) else { return }
+        guard let gifImage = UIImage.gifImageWithData(gifData) else { return }
+        backgroundImage.image = gifImage
     }
 }

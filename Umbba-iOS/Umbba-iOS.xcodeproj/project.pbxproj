@@ -154,7 +154,7 @@
 		A47BDA4B2A5D5FE9007B8E3E /* AssignViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47BDA4A2A5D5FE9007B8E3E /* AssignViewController.swift */; };
 		A489BE062A5AFCE90027E817 /* ArchivingImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A489BE052A5AFCE90027E817 /* ArchivingImageView.swift */; };
 		A4BC6FFD2ADA74FE00E54675 /* AnimationMp4.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = A4BC6FFB2ADA74FE00E54675 /* AnimationMp4.mp4 */; };
-		A4BC70032ADAD73800E54675 /* AnimationGif.gif in Resources */ = {isa = PBXBuildFile; fileRef = A4BC70022ADAD73800E54675 /* AnimationGif.gif */; };
+		A4BC705E2ADEB0CF00E54675 /* AnimationGif.gif in Resources */ = {isa = PBXBuildFile; fileRef = A4BC705D2ADEB0CF00E54675 /* AnimationGif.gif */; };
 		A4C776102A60727100375378 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C7760F2A60727100375378 /* MainView.swift */; };
 		A4C776122A60727D00375378 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4C776112A60727D00375378 /* MainViewController.swift */; };
 		A4D4F1EE2A98925D00F5EF6C /* EndingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D4F1ED2A98925D00F5EF6C /* EndingView.swift */; };
@@ -294,7 +294,7 @@
 		A47BDA4A2A5D5FE9007B8E3E /* AssignViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignViewController.swift; sourceTree = "<group>"; };
 		A489BE052A5AFCE90027E817 /* ArchivingImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchivingImageView.swift; sourceTree = "<group>"; };
 		A4BC6FFB2ADA74FE00E54675 /* AnimationMp4.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = AnimationMp4.mp4; sourceTree = "<group>"; };
-		A4BC70022ADAD73800E54675 /* AnimationGif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = AnimationGif.gif; sourceTree = "<group>"; };
+		A4BC705D2ADEB0CF00E54675 /* AnimationGif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = AnimationGif.gif; sourceTree = "<group>"; };
 		A4C7760F2A60727100375378 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		A4C776112A60727D00375378 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		A4D4F1ED2A98925D00F5EF6C /* EndingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndingView.swift; sourceTree = "<group>"; };
@@ -1298,7 +1298,7 @@
 		A4BC6FE92ADA41F600E54675 /* Animation */ = {
 			isa = PBXGroup;
 			children = (
-				A4BC70022ADAD73800E54675 /* AnimationGif.gif */,
+				A4BC705D2ADEB0CF00E54675 /* AnimationGif.gif */,
 				A4BC6FFB2ADA74FE00E54675 /* AnimationMp4.mp4 */,
 			);
 			path = Animation;
@@ -1438,7 +1438,7 @@
 				69DE6B9B2A5341FF00F31812 /* Cafe24Classictype-v1.1.otf in Resources */,
 				144F19672A99A91B007D71B3 /* splash_clear_iOS.json in Resources */,
 				A4BC6FFD2ADA74FE00E54675 /* AnimationMp4.mp4 in Resources */,
-				A4BC70032ADAD73800E54675 /* AnimationGif.gif in Resources */,
+				A4BC705E2ADEB0CF00E54675 /* AnimationGif.gif in Resources */,
 				69DE6B9F2A53421D00F31812 /* Pretendard-SemiBold.otf in Resources */,
 				148B04BA2A6058D400E4808E /* splash_iOS.json in Resources */,
 				69DE6BA12A53421D00F31812 /* Pretendard-Regular.otf in Resources */,
