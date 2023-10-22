@@ -76,7 +76,7 @@ extension AnswerDetailViewController {
         guard let todayEntity = todayEntity else { return }
         answerDetailView.setTodayDataBind(model: todayEntity)
         if todayEntity.isMyAnswer && todayEntity.isOpponentAnswer {
-            answerDetailView.applyTextBlur(to: answerDetailView.partnerAnswerContent, blurRadius: 0.0)
+            answerDetailView.removeTextBlur(from: answerDetailView.partnerAnswerContent)
         }
         else {
             return
