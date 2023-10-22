@@ -76,8 +76,9 @@ extension AnswerDetailViewController {
         guard let todayEntity = todayEntity else { return }
         answerDetailView.setTodayDataBind(model: todayEntity)
         if todayEntity.isMyAnswer && todayEntity.isOpponentAnswer {
-            answerDetailView.partnerAnswerContent.isBlurring = false
-        } else {
+            answerDetailView.partnerAnswerContent.blurRadius = 0
+        }
+        else {
             return
         }
     }

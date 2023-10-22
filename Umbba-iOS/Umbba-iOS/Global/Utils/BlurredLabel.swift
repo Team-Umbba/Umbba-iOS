@@ -8,62 +8,97 @@
 import UIKit
 
 final class BlurLabel: UILabel {
-    var isBlurring = false {
+    @IBInspectable
+    public var blurRadius: Double = 0 {
         didSet {
-            setNeedsDisplay()
+            (layer as! BlurrableLayer).blurRadius = blurRadius
         }
     }
-
-    var blurRadius: Double = 8 {
-        didSet {
-            blurFilter?.setValue(blurRadius, forKey: kCIInputRadiusKey)
-        }
-    }
-
-    lazy var blurFilter: CIFilter? = {
-        let blurFilter = CIFilter(name: "CIGaussianBlur")
-        blurFilter?.setDefaults()
-        blurFilter?.setValue(blurRadius, forKey: kCIInputRadiusKey)
-        return blurFilter
-    }()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        layer.isOpaque = false
-        layer.needsDisplayOnBoundsChange = true
-        layer.contentsScale = UIScreen.main.scale
-        layer.contentsGravity = .center
-        isOpaque = false
-        isUserInteractionEnabled = false
-        contentMode = .redraw
+    override public class var layerClass: AnyClass {
+        return BlurrableLayer.self
     }
-
-    required init?(coder: NSCoder) {
-       fatalError("init(coder:) has not been implemented")
+    
+    class BlurrableLayer: CALayer {
+        let blurredLayer = BlurredLayer()
         
+        override init() {
+            super.init()
+            addSublayer(blurredLayer)
+        }
+        
+        override init(layer: Any) {
+            super.init(layer: layer)
+            addSublayer(blurredLayer)
+        }
+        
+        required init?(coder: NSCoder) {
+            super.init(coder: coder)
+            addSublayer(blurredLayer)
+        }
+        
+        var blurRadius: Double = 0 {
+            didSet {
+                if oldValue != blurRadius {
+                    setNeedsLayout()
+                    setNeedsDisplay()
+                }
+            }
+        }
+        
+        private static let ciContext = CIContext()
+        
+        override func draw(in ctx: CGContext) {
+            super.draw(in: ctx)
+            
+            CATransaction.begin()
+            CATransaction.setValue(kCFBooleanTrue, forKey: kCATransactionDisableActions)
+            
+            if blurRadius > 0 {
+                blurredLayer.inputImage = nil
+                blurredLayer.display()
+                
+                let i = ctx.makeImage()!
+                
+                let imageToBlur = CIImage(cgImage: i)
+                
+                ctx.clear(bounds)
+                
+                let blurFilter = CIFilter(name: "CIGaussianBlur")!
+                blurFilter.setDefaults()
+                blurFilter.setValue(imageToBlur, forKey: kCIInputImageKey)
+                blurFilter.setValue(blurRadius, forKey: "inputRadius")
+                
+                let outputImage = blurFilter.outputImage!
+                let cgimg = BlurrableLayer.ciContext.createCGImage(outputImage, from: outputImage.extent)!
+                blurredLayer.inputImage = cgimg
+            } else {
+                blurredLayer.inputImage = nil
+            }
+            
+            blurredLayer.frame = .init(origin: .init(x: -blurRadius,
+                                                     y: -blurRadius),
+                                       size: .init(width: frame.width + 2 * blurRadius,
+                                                   height: frame.height + 2 * blurRadius))
+            
+            blurredLayer.setNeedsDisplay()
+            blurredLayer.display()
+            CATransaction.commit()
+        }
+        
+        class BlurredLayer: CALayer {
+            var inputImage: CGImage?
+            
+            override func draw(in ctx: CGContext) {
+                super.draw(in: ctx)
+                guard let inputImage = inputImage else {
+                    ctx.clear(bounds)
+                    return
+                }
+                ctx.translateBy(x: 0, y: bounds.height)
+                ctx.scaleBy(x: 1.0, y: -1.0)
+                ctx.draw(inputImage, in: bounds)
+            }
+        }
     }
-   
-   override func display(_ layer: CALayer) {
-       let bounds = layer.bounds
-       guard !bounds.isEmpty && bounds.size.width < CGFloat(UINT16_MAX) else {
-           layer.contents = nil
-           return
-       }
-       UIGraphicsBeginImageContextWithOptions(layer.bounds.size, layer.isOpaque, layer.contentsScale)
-       if let ctx = UIGraphicsGetCurrentContext() {
-           self.layer.draw(in: ctx)
-       
-           var image = UIGraphicsGetImageFromCurrentImageContext()?.cgImage
-           if isBlurring, let cgImage = image {
-               blurFilter?.setValue(CIImage(cgImage: cgImage), forKey: kCIInputImageKey)
-               let ciContext = CIContext(cgContext: ctx, options: nil)
-               if let blurOutputImage = blurFilter?.outputImage,
-                  let cgImage = ciContext.createCGImage(blurOutputImage, from: blurOutputImage.extent) {
-                   image = cgImage
-               }
-           }
-           layer.contents = image
-       }
-       UIGraphicsEndImageContext()
-   }
 }

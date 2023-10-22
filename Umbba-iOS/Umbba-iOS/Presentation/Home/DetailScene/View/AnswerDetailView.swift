@@ -278,7 +278,7 @@ extension AnswerDetailView {
         
         if model.isOpponentAnswer && !model.isMyAnswer {
             partnerAnswerContent.text = model.opponentAnswer
-            partnerAnswerContent.isBlurring = true
+            partnerAnswerContent.blurRadius = 15
         }
         
         navigationBarView.cafe24Title = model.section
