@@ -77,8 +77,6 @@ extension AnswerDetailViewController {
         answerDetailView.setTodayDataBind(model: todayEntity)
         if todayEntity.isMyAnswer && todayEntity.isOpponentAnswer {
             answerDetailView.applyTextBlur(to: answerDetailView.partnerAnswerContent, blurRadius: 0.0)
-//            answerDetailView.partnerAnswerContent.layer.sublayers?.forEach { $0.removeFromSuperlayer() }
-//            answerDetailView.partnerAnswerContent.isBlurring = false
         }
         else {
             return
