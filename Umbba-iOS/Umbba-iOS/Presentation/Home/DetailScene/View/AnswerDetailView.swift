@@ -259,14 +259,14 @@ private extension AnswerDetailView {
 extension AnswerDetailView {
     
     func applyTextBlur(to view: UIView, blurRadius: Float) {
+        // 기존 텍스트를 숨김
+        view.isHidden = true
+        
         // 텍스트를 이미지로 렌더링
         UIGraphicsBeginImageContextWithOptions(view.bounds.size, false, 0.0)
         view.layer.render(in: UIGraphicsGetCurrentContext()!)
         let textImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        
-        // 기존 텍스트를 숨김
-        view.isHidden = true
         
         // 이미지를 블러 처리
         if let textImage = textImage {
@@ -285,6 +285,18 @@ extension AnswerDetailView {
                         }
                     }
                 }
+            }
+        }
+    }
+    
+    func removeTextBlur(from view: UIView) {
+        // 텍스트 블러 처리를 제거하고 텍스트를 다시 표시
+        view.isHidden = false
+
+        // 블러 처리된 이미지뷰를 찾아서 삭제
+        for subview in view.superview?.subviews ?? [] {
+            if subview is UIImageView {
+                subview.removeFromSuperview()
             }
         }
     }
