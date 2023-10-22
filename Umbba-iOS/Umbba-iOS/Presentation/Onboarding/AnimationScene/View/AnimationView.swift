@@ -8,6 +8,8 @@
 import UIKit
 import SnapKit
 
+import AVFoundation
+
 final class AnimationView: UIView {
     
     // MARK: - Properties
@@ -16,13 +18,9 @@ final class AnimationView: UIView {
     
     // MARK: - UI Components
     
-    private let backgroundImage: UIImageView = {
+    let backgroundImage: UIImageView = {
         let animationImage = UIImageView()
-        if SizeLiterals.Screen.deviceRatio > 0.5 {
-            animationImage.image = ImageLiterals.Onboarding.image_se_depart
-        } else {
-            animationImage.image = ImageLiterals.Onboarding.img_depart
-        }
+        animationImage.contentMode = .scaleAspectFill
         return animationImage
     }()
     
@@ -35,7 +33,12 @@ final class AnimationView: UIView {
     }()
     
     private let callingButton: UIButton = {
-        let button = CustomButton(status: true, title: I18N.Onboarding.callingButton)
+        let button = CustomButton(status: false, title: I18N.Onboarding.callingButton)
+        button.layer.borderColor = UIColor.Primary500.cgColor
+        button.layer.borderWidth = 2
+        button.setBackgroundColor(.UmbbaWhite, for: .normal)
+        button.setTitleColor(.Primary500, for: .normal)
+        button.adjustsImageWhenHighlighted = false
         button.isEnabled = true
         return button
     }()
@@ -87,5 +90,32 @@ extension AnimationView {
     @objc
     func nextButtonTapped() {
         nextDelegate?.nextButtonTapped()
+    }
+    
+    func playVideo() {
+        guard let path = Bundle.main.path(forResource: "AnimationMp4", ofType: "mp4") else {
+            return
+        }
+        let player = AVPlayer(url: URL(fileURLWithPath: path))
+        let playerLayer = AVPlayerLayer(player: player)
+        playerLayer.frame = backgroundImage.bounds
+        backgroundImage.layer.addSublayer(playerLayer)
+        playerLayer.videoGravity = .resizeAspectFill
+        player.play()
+        callingButton.isHidden = true
+        NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime, object: player.currentItem, queue: .main) { _ in
+            playerLayer.removeFromSuperlayer()
+            self.playGif()
+        }
+    }
+    
+    func playGif() {
+        animationLabel.isHidden = true
+        callingButton.isHidden = false
+        
+        guard let gifURL = Bundle.main.url(forResource: "AnimationGif", withExtension: "gif") else { return }
+        guard let gifData = try? Data(contentsOf: gifURL) else { return }
+        guard let gifImage = UIImage.gifImageWithData(gifData) else { return }
+        backgroundImage.image = gifImage
     }
 }

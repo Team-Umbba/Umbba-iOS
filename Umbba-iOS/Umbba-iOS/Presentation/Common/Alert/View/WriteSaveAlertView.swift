@@ -80,6 +80,8 @@ final class WriteSaveAlertView: UIView {
     private let alertTitle: UILabel = {
         let label = UILabel()
         label.text = I18N.Alert.writeSaveTitle
+        label.textAlignment = .center
+        label.numberOfLines = 2
         label.font = .PretendardRegular(size: 16)
         label.textColor = .UmbbaBlack
         return label
@@ -176,7 +178,7 @@ private extension WriteSaveAlertView {
         }
         
         alertTitle.snp.makeConstraints {
-            $0.top.equalTo(answerLabel.snp.bottom).offset(66)
+            $0.top.equalTo(answerLabel.snp.bottom).offset(47)
             $0.centerX.equalToSuperview()
         }
         
