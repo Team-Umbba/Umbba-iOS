@@ -17,7 +17,7 @@ final class InviteViewController: UIViewController {
     
     // MARK: - UI Components
     
-    private let inviteView = InviteView()
+    let inviteView = InviteView()
     
     // MARK: - Life Cycles
     

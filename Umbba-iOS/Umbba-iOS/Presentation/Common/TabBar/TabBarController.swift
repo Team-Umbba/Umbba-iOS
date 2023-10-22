@@ -183,13 +183,27 @@ private extension TabBarController {
     
     func share(inviteCode: String, inviteUserName: String) {
         guard let inviteCode = inviteCode.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return }
-        
         guard let link = URL(string: "https://umbba.page.link/umbba?code=" + inviteCode) else { return }
-        let dynamicLinkComponents = DynamicLinkComponents(link: link, domainURIPrefix: "https://umbba.page.link/umbba")
-        let inviteText = "'\(inviteUserName)' 으로부터 초대가 왔어요💌\n\n당신의 가장 오래된 기억이 무엇인가요?\n과거로 떠나 함께 추억을 나누고, 공감대를 형성해보세요.\n\n어플 설치 후 하단의 초대코드를 입력해, 상대방과 연결하세요\n\n초대코드 : \(inviteCode)\n\n\(link)"
+        let dynamicLinksDomainURIPrefix = "https://umbba.page.link"
+        
+        let linkBuilder = DynamicLinkComponents(link: link, domainURIPrefix: dynamicLinksDomainURIPrefix)
+        linkBuilder?.iOSParameters = DynamicLinkIOSParameters(bundleID: "org.umbba.Umbba-iOS")
+        linkBuilder?.iOSParameters?.appStoreID = "6450973870"
+        linkBuilder?.androidParameters = DynamicLinkAndroidParameters(packageName: "com.ubcompany.umbba_android")
+       
+        guard let longDynamicLink = linkBuilder?.url else { return }
+        
+        linkBuilder?.shorten { shortURL, warnings, error in
+          guard let shortURL = shortURL else { return }
+          self.showLinkShare(inviteCode: inviteCode, inviteUserName: inviteUserName, url: shortURL)
+        }
+    }
+    
+    private func showLinkShare(inviteCode: String, inviteUserName: String, url: URL?) {
+        guard let url = url?.absoluteString else { return }
+        let inviteText = "'\(inviteUserName)' 으로부터 초대가 왔어요💌\n\n당신의 가장 오래된 기억이 무엇인가요?\n과거로 떠나 함께 추억을 나누고, 공감대를 형성해보세요.\n\n어플 설치 후 하단의 초대코드를 입력해, 상대방과 연결하세요\n\n초대코드 : \(inviteCode)\n\n\(url)"
         
         let activityVC = UIActivityViewController(activityItems: [inviteText], applicationActivities: nil)
-        activityVC.excludedActivityTypes = [UIActivity.ActivityType.airDrop, UIActivity.ActivityType.message, UIActivity.ActivityType.mail, UIActivity.ActivityType.postToFacebook]
         
         activityVC.completionWithItemsHandler = { [weak self] (activityType, completed, _, error) in
             if completed {
