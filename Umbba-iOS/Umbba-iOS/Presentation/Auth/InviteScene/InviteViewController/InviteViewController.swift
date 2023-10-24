@@ -91,7 +91,7 @@ extension InviteViewController {
                 if let data = data as? GenericResponse<MatchEntity> {
                     if let matchEntity = data.data {
                         let animationViewController =  AnimationViewController()
-                        self.navigationController?.pushViewController(animationViewController, animated: true)
+                        self.navigationController?.pushViewController(animationViewController, animated: false)
                         UserManager.shared.updateIsMatch(matchEntity.isMatchFinish ?? false)
                         animationViewController.isReceiver = true
                     }
