@@ -1407,10 +1407,10 @@
 			};
 			buildConfigurationList = 6978153B2A52FA370047944C /* Build configuration list for PBXProject "Umbba-iOS" */;
 			compatibilityVersion = "Xcode 14.0";
-			developmentRegion = en;
+			developmentRegion = ko;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
+				ko,
 				Base,
 			);
 			mainGroup = 697815372A52FA370047944C;
