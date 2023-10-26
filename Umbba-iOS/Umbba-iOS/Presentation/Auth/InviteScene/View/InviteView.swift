@@ -83,6 +83,10 @@ private extension InviteView {
     func setUI() {
         self.backgroundColor = .UmbbaWhite
         self.addToolbar(textfields: [inviteTextField])
+        if UserManager.shared.getInviteCode != "" {
+            self.inviteTextField.text = UserManager.shared.inviteCode
+            self.nextButton.isEnabled = true
+        }
     }
     
     func setDelegate() {

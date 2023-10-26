@@ -19,6 +19,7 @@ final class UserManager {
     @UserDefaultWrapper<String>(key: "userIdentifier") private(set) var appleUserIdentifier
     @UserDefaultWrapper<String>(key: "userName") private(set) var userName
     @UserDefaultWrapper<Bool>(key: "isMatch") private(set) var isMatch
+    @UserDefaultWrapper<String>(key: "inviteCode") private(set) var inviteCode
     
     var hasAccessToken: Bool { return self.accessToken != nil }
     
@@ -26,6 +27,7 @@ final class UserManager {
     var getAccessToken: String { return self.accessToken ?? "" }
     var getFcmToken: String { return self.fcmToken ?? "" }
     var getIsMatch: Bool { return self.isMatch ?? false }
+    var getInviteCode: String { return self.inviteCode ?? ""}
     var getAllowAlarm: Bool { return self.allowAlarm ?? true }
     
     var haveUserName: Bool {
@@ -64,6 +66,10 @@ extension UserManager {
     func updateIsMatch(_ isMatch: Bool) {
         self.isMatch = isMatch
     }
+    
+    func updateInviteCode(_ inviteCode: String) {
+        self.inviteCode = inviteCode
+    }
 
     func setUserIdForApple(userId: String) {
         self.appleUserIdentifier = userId
@@ -75,6 +81,7 @@ extension UserManager {
         self.socialToken = nil
         self.appleUserIdentifier = nil
         self.isMatch = false
+        self.inviteCode = nil
     }
     
     func clearData() {

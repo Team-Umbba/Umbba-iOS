@@ -42,6 +42,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             _ = DynamicLinks.dynamicLinks().handleUniversalLink(url) { dynamicLink, error in
                 var rootViewController: UIViewController?
                 
+                if let code = self.handleDynamicLink(dynamicLink) {
+                    UserManager.shared.updateInviteCode(code)
+                }
+                
                 if UserManager.shared.hasAccessToken {
                     if UserManager.shared.haveUserName {
                         rootViewController = TabBarController()
@@ -53,13 +57,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                         } else {
                             let inviteController = InviteViewController()
                             rootViewController = inviteController
-                            if let code = self.handleDynamicLink(dynamicLink) {
-                                inviteController.inviteView.inviteTextField.text = code
-                                inviteController.inviteView.nextButton.isEnabled = inviteController.inviteView.inviteTextField.hasText
-                                inviteController.inviteView.navigationBarView.isLeftButtonIncluded = false
-                            }
+                            inviteController.inviteView.navigationBarView.isLeftButtonIncluded = false
                         }
-                        
                     }
                 } else {
                     rootViewController = LoginViewController()
