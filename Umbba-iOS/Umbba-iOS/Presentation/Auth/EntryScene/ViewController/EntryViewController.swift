@@ -36,7 +36,7 @@ extension EntryViewController {
 
 extension EntryViewController: EntryDelegate {
     func entryButtonTapped() {
-        self.navigationController?.pushViewController(AnimationViewController(), animated: true)
+        self.navigationController?.pushViewController(AnimationViewController(), animated: false)
     }
     
     func inviteButtonTapped() {
@@ -45,7 +45,7 @@ extension EntryViewController: EntryDelegate {
         
         if UserManager.shared.getIsMatch {
             let animationViewController =  AnimationViewController()
-            self.navigationController?.pushViewController(animationViewController, animated: true)
+            self.navigationController?.pushViewController(animationViewController, animated: false)
             animationViewController.isReceiver = true
         } else {
             self.navigationController?.pushViewController(inviteViewController, animated: true)
