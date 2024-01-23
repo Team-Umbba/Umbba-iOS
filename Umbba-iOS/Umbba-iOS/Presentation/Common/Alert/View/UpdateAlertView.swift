@@ -36,7 +36,7 @@ final class UpdateAlertView: UIView {
     private lazy var updateButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = .Primary500
-        button.setTitleColor(.UmbbaWhite, for: .normal)
+        button.setTitleColor(.White500, for: .normal)
         button.setTitle(I18N.Alert.updateButtonTitle, for: .normal)
         button.titleLabel?.font = .PretendardSemiBold(size: 16)
         button.layer.cornerRadius = 24
@@ -62,7 +62,7 @@ final class UpdateAlertView: UIView {
 
 private extension UpdateAlertView {
     func setUI() {
-        self.backgroundColor = .UmbbaWhite
+        self.backgroundColor = .White500
         self.layer.cornerRadius = 16
     }
     

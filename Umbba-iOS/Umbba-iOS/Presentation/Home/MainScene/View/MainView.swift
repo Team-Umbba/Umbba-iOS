@@ -61,7 +61,7 @@ final class MainView: UIView {
     
     private lazy var questionButton: CustomButton = {
         let button = CustomButton(status: true, title: I18N.Home.questionButtonTitle)
-        button.setBackgroundColor(.UmbbaWhite, for: .normal)
+        button.setBackgroundColor(.White500, for: .normal)
         button.setTitleColor(.Primary500, for: .normal)
         button.layer.borderColor = UIColor.Primary500.cgColor
         button.layer.borderWidth = 2
@@ -91,7 +91,7 @@ final class MainView: UIView {
 
 extension MainView {
     func setUI() {
-        backgroundColor = .UmbbaWhite
+        backgroundColor = .White500
     }
     
     func setHierarchy() {

@@ -27,7 +27,7 @@ final class WriteSaveAlertView: UIView {
     var cafe24TitleLabel: UILabel = {
         let label = UILabel()
         label.text = ""
-        label.textColor = .UmbbaWhite
+        label.textColor = .White500
         label.font = .Cafe24Regular(size: 16)
         return label
     }()
@@ -89,7 +89,7 @@ final class WriteSaveAlertView: UIView {
     
     private lazy var cancelButton: UIButton = {
         let button = UIButton()
-        button.backgroundColor = .UmbbaWhite
+        button.backgroundColor = .White500
         button.setTitleColor(.UmbbaBlack, for: .normal)
         button.setTitle(I18N.Alert.backButtonTitle, for: .normal)
         button.titleLabel?.font = .PretendardRegular(size: 16)
@@ -102,7 +102,7 @@ final class WriteSaveAlertView: UIView {
     private lazy var confirmButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = .Primary500
-        button.setTitleColor(.UmbbaWhite, for: .normal)
+        button.setTitleColor(.White500, for: .normal)
         button.setTitle(I18N.Alert.saveButtonTitle, for: .normal)
         button.titleLabel?.font = .PretendardRegular(size: 16)
         button.layer.cornerRadius = 24
@@ -137,7 +137,7 @@ final class WriteSaveAlertView: UIView {
 
 private extension WriteSaveAlertView {
     func setUI() {
-        self.backgroundColor = .UmbbaWhite
+        self.backgroundColor = .White500
         self.layer.cornerRadius = 16
     }
     

@@ -70,7 +70,7 @@ final class EndingView: UIView {
     private lazy var surveyButton: CustomButton = {
         let button = CustomButton(status: true, title: I18N.Home.questionButtonTitle)
         button.setTitle(I18N.Ending.surveyButtonTitle, for: .normal)
-        button.setTitleColor(.UmbbaWhite, for: .normal)
+        button.setTitleColor(.White500, for: .normal)
         button.setBackgroundColor(.Primary500, for: .normal)
         button.adjustsImageWhenHighlighted = false
         return button
@@ -102,7 +102,7 @@ final class EndingView: UIView {
     
     private lazy var endButton: CustomButton = {
         let button = CustomButton(status: true, title: I18N.Home.questionButtonTitle)
-        button.setBackgroundColor(.UmbbaWhite, for: .normal)
+        button.setBackgroundColor(.White500, for: .normal)
         button.setTitle(I18N.Ending.endButtonTitle, for: .normal)
         button.setTitleColor(.Primary500, for: .normal)
         button.layer.borderColor = UIColor.Primary500.cgColor
@@ -139,7 +139,7 @@ final class EndingView: UIView {
 
 private extension EndingView {
     func setUI() {
-        backgroundColor = .UmbbaWhite
+        backgroundColor = .White500
     }
     
     func setGradient() {

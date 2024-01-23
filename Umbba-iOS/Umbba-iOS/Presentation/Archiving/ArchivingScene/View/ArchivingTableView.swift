@@ -45,7 +45,7 @@ final class ArchivingTableView: UIView {
 private extension ArchivingTableView {
     
     func setUI() {
-        backgroundColor = .UmbbaWhite
+        backgroundColor = .White500
     }
     
     func setHierarchy() {
@@ -59,7 +59,7 @@ private extension ArchivingTableView {
     }
     
     func setTableView() {
-        tableView.backgroundColor = .UmbbaWhite
+        tableView.backgroundColor = .White500
         tableView.sectionFooterHeight = 0
         tableView.sectionHeaderTopPadding = 0 
         tableView.isScrollEnabled = true

@@ -43,7 +43,7 @@ final class ArchivingViewController: UIViewController {
 
 extension ArchivingViewController {
     private func setUI() {
-        view.backgroundColor = .UmbbaWhite
+        view.backgroundColor = .White500
         archivingImageView.contentMode = .scaleAspectFill
         collectionView.showsHorizontalScrollIndicator = false
     }

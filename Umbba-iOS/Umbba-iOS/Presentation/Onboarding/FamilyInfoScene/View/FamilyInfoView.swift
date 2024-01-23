@@ -61,11 +61,11 @@ final class FamilyInfoView: UIView {
     
     private lazy var parentButton: UIButton = {
         let button = UIButton()
-        button.setBackgroundColor(.UmbbaWhite, for: .normal)
+        button.setBackgroundColor(.White500, for: .normal)
         button.setBackgroundColor(.Primary500, for: .selected)
         button.setTitle(I18N.Onboarding.parent, for: .normal)
         button.setTitleColor(.UmbbaBlack, for: .normal)
-        button.setTitleColor(.UmbbaWhite, for: .selected)
+        button.setTitleColor(.White500, for: .selected)
         button.titleLabel?.font = .PretendardRegular(size: 16)
         button.layer.borderColor = UIColor.Gray400.cgColor
         button.layer.borderWidth = 1
@@ -77,11 +77,11 @@ final class FamilyInfoView: UIView {
     
     private lazy var childButton: UIButton = {
         let button = UIButton()
-        button.setBackgroundColor(.UmbbaWhite, for: .normal)
+        button.setBackgroundColor(.White500, for: .normal)
         button.setBackgroundColor(.Primary500, for: .selected)
         button.setTitle(I18N.Onboarding.child, for: .normal)
         button.setTitleColor(.UmbbaBlack, for: .normal)
-        button.setTitleColor(.UmbbaWhite, for: .selected)
+        button.setTitleColor(.White500, for: .selected)
         button.titleLabel?.font = .PretendardRegular(size: 16)
         button.layer.borderColor = UIColor.Gray400.cgColor
         button.layer.borderWidth = 1
@@ -121,10 +121,10 @@ final class FamilyInfoView: UIView {
     
     private lazy var maleButton: UIButton = {
         let button = UIButton()
-        button.setBackgroundColor(.UmbbaWhite, for: .normal)
+        button.setBackgroundColor(.White500, for: .normal)
         button.setBackgroundColor(.Primary500, for: .selected)
         button.setTitleColor(.UmbbaBlack, for: .normal)
-        button.setTitleColor(.UmbbaWhite, for: .selected)
+        button.setTitleColor(.White500, for: .selected)
         button.titleLabel?.font = .PretendardRegular(size: 16)
         button.layer.borderColor = UIColor.Gray400.cgColor
         button.layer.borderWidth = 1
@@ -136,10 +136,10 @@ final class FamilyInfoView: UIView {
     
     private lazy var femaleButton: UIButton = {
         let button = UIButton()
-        button.setBackgroundColor(.UmbbaWhite, for: .normal)
+        button.setBackgroundColor(.White500, for: .normal)
         button.setBackgroundColor(.Primary500, for: .selected)
         button.setTitleColor(.UmbbaBlack, for: .normal)
-        button.setTitleColor(.UmbbaWhite, for: .selected)
+        button.setTitleColor(.White500, for: .selected)
         button.titleLabel?.font = .PretendardRegular(size: 16)
         button.layer.borderColor = UIColor.Gray400.cgColor
         button.layer.borderWidth = 1
@@ -192,7 +192,7 @@ final class FamilyInfoView: UIView {
 
 private extension FamilyInfoView {
     func setUI() {
-        self.backgroundColor = .UmbbaWhite
+        self.backgroundColor = .White500
     }
     
     func setAddTarget() {

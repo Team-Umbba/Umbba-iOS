@@ -63,7 +63,7 @@ final class SettingSectionHeaderView: UITableViewHeaderFooterView, UITableViewHe
 private extension SettingSectionHeaderView {
     
     func setUI() {
-        contentView.backgroundColor = .UmbbaWhite
+        contentView.backgroundColor = .White500
     }
     
     func setAddTarget() {

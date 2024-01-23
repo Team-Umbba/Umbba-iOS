@@ -78,7 +78,7 @@ final class EntryView: UIView {
     
     private lazy var inviteButton: CustomButton = {
         let button = CustomButton(status: true, title: I18N.Home.questionButtonTitle)
-        button.setBackgroundColor(.UmbbaWhite, for: .normal)
+        button.setBackgroundColor(.White500, for: .normal)
         button.setTitle(I18N.Auth.inviteButtonTitle, for: .normal)
         button.setTitleColor(.Primary500, for: .normal)
         button.layer.borderColor = UIColor.Primary500.cgColor
@@ -86,7 +86,7 @@ final class EntryView: UIView {
         button.adjustsImageWhenHighlighted = false
 
         var config = UIButton.Configuration.filled()
-        config.background.backgroundColor = .UmbbaWhite
+        config.background.backgroundColor = .White500
         button.configuration = config
         return button
     }()
@@ -109,7 +109,7 @@ final class EntryView: UIView {
 
 private extension EntryView {
     func setUI() {
-        backgroundColor = .UmbbaWhite
+        backgroundColor = .White500
     }
     
     func setHierarchy() {

@@ -25,7 +25,7 @@ final class WithdrawalAlertView: UIView {
     
     private lazy var cancelButton: UIButton = {
         let button = UIButton()
-        button.backgroundColor = .UmbbaWhite
+        button.backgroundColor = .White500
         button.setTitleColor(.UmbbaBlack, for: .normal)
         button.setTitle(I18N.Alert.cancelButtonTitle, for: .normal)
         button.titleLabel?.font = .PretendardRegular(size: 16)
@@ -38,7 +38,7 @@ final class WithdrawalAlertView: UIView {
     private lazy var confirmButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = .Error
-        button.setTitleColor(.UmbbaWhite, for: .normal)
+        button.setTitleColor(.White500, for: .normal)
         button.setTitle(I18N.Alert.confirmButtonTitle, for: .normal)
         button.titleLabel?.font = .PretendardRegular(size: 16)
         button.layer.cornerRadius = 24
@@ -73,7 +73,7 @@ final class WithdrawalAlertView: UIView {
 
 private extension WithdrawalAlertView {
     func setUI() {
-        self.backgroundColor = .UmbbaWhite
+        self.backgroundColor = .White500
         self.layer.cornerRadius = 16
     }
     

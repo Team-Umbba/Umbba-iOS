@@ -43,7 +43,7 @@ final class UserInfoView: UIView {
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.backgroundColor = .white
         scrollView.showsVerticalScrollIndicator = false
-        scrollView.backgroundColor = .UmbbaWhite
+        scrollView.backgroundColor = .White500
         return scrollView
     }()
     
@@ -105,11 +105,11 @@ final class UserInfoView: UIView {
     
     private lazy var maleButton: UIButton = {
         let button = UIButton()
-        button.setBackgroundColor(.UmbbaWhite, for: .normal)
+        button.setBackgroundColor(.White500, for: .normal)
         button.setBackgroundColor(.Primary500, for: .selected)
         button.setTitle(I18N.Onboarding.male, for: .normal)
         button.setTitleColor(.UmbbaBlack, for: .normal)
-        button.setTitleColor(.UmbbaWhite, for: .selected)
+        button.setTitleColor(.White500, for: .selected)
         button.titleLabel?.font = .PretendardRegular(size: 16)
         button.layer.borderColor = UIColor.Gray400.cgColor
         button.layer.borderWidth = 1
@@ -121,11 +121,11 @@ final class UserInfoView: UIView {
     
     private lazy var femaleButton: UIButton = {
         let button = UIButton()
-        button.setBackgroundColor(.UmbbaWhite, for: .normal)
+        button.setBackgroundColor(.White500, for: .normal)
         button.setBackgroundColor(.Primary500, for: .selected)
         button.setTitle(I18N.Onboarding.female, for: .normal)
         button.setTitleColor(.UmbbaBlack, for: .normal)
-        button.setTitleColor(.UmbbaWhite, for: .selected)
+        button.setTitleColor(.White500, for: .selected)
         button.titleLabel?.font = .PretendardRegular(size: 16)
         button.layer.borderColor = UIColor.Gray400.cgColor
         button.layer.borderWidth = 1
@@ -212,7 +212,7 @@ final class UserInfoView: UIView {
 
 private extension UserInfoView {
     func setUI() {
-        self.backgroundColor = .UmbbaWhite
+        self.backgroundColor = .White500
         self.addToolbar(textfields: [nameTextField, birthTextField])
     }
     

@@ -66,7 +66,7 @@ final class DisconnectAlertView: UIView {
 
 private extension DisconnectAlertView {
     func setUI() {
-        self.backgroundColor = .UmbbaWhite
+        self.backgroundColor = .White500
         self.layer.cornerRadius = 16
     }
     

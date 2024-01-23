@@ -153,8 +153,8 @@ final class AssignView: UIView {
     private let nextButton: UIButton = {
         let button = CustomButton(status: false, title: I18N.Auth.assignNextButtonTitle)
         button.setBackgroundColor(.Gray400, for: .disabled)
-        button.setTitleColor(.UmbbaWhite, for: .disabled)
-        button.setBackgroundColor(.UmbbaWhite, for: .normal)
+        button.setTitleColor(.White500, for: .disabled)
+        button.setBackgroundColor(.White500, for: .normal)
         button.setTitleColor(.Primary500, for: .normal)
         button.isEnabled = false
         button.adjustsImageWhenHighlighted = false
@@ -184,7 +184,7 @@ final class AssignView: UIView {
 extension AssignView {
     
     func setUI() {
-        backgroundColor = .UmbbaWhite
+        backgroundColor = .White500
     }
     
     func setHierarchy() {

@@ -25,7 +25,7 @@ final class ArchivingSectionCollectionView: UIView {
         collectionView.contentInsetAdjustmentBehavior = .never
         collectionView.isUserInteractionEnabled = true
         collectionView.allowsSelection = true
-        collectionView.backgroundColor = .UmbbaWhite
+        collectionView.backgroundColor = .White500
         return collectionView
     }()
     
