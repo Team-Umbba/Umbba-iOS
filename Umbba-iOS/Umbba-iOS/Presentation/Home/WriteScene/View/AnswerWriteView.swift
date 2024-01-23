@@ -122,7 +122,7 @@ final class AnswerWriteView: UIView {
 
 private extension AnswerWriteView {
     func setUI() {
-        self.backgroundColor = .UmbbaWhite
+        self.backgroundColor = .White500
         self.addToolBar(textView: answerTextView)
     }
     

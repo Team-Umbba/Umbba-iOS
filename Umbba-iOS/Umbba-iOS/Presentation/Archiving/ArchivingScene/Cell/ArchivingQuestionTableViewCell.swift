@@ -55,7 +55,7 @@ final class ArchivingQuestionTableViewCell: UITableViewCell, UITableViewRegister
 
 extension ArchivingQuestionTableViewCell {
     func setUI() {
-        backgroundColor = .UmbbaWhite
+        backgroundColor = .White500
         self.isUserInteractionEnabled = true
         self.selectionStyle = .none
     }

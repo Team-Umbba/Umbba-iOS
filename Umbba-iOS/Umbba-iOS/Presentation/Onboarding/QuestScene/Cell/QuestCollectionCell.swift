@@ -44,11 +44,11 @@ final class QuestCollectionViewCell: UICollectionViewCell, UICollectionViewRegis
     
     lazy var yesButton: UIButton = {
         let button = UIButton()
-        button.setBackgroundColor(.UmbbaWhite, for: .normal)
+        button.setBackgroundColor(.White500, for: .normal)
         button.setBackgroundColor(.Primary500, for: .selected)
         button.setTitle("응", for: .normal)
         button.setTitleColor(.UmbbaBlack, for: .normal)
-        button.setTitleColor(.UmbbaWhite, for: .selected)
+        button.setTitleColor(.White500, for: .selected)
         button.titleLabel?.font = .PretendardRegular(size: 16)
         button.layer.borderColor = UIColor.Gray400.cgColor
         button.layer.borderWidth = 1
@@ -61,11 +61,11 @@ final class QuestCollectionViewCell: UICollectionViewCell, UICollectionViewRegis
     
     lazy var noButton: UIButton = {
         let button = UIButton()
-        button.setBackgroundColor(.UmbbaWhite, for: .normal)
+        button.setBackgroundColor(.White500, for: .normal)
         button.setBackgroundColor(.Primary500, for: .selected)
         button.setTitle("아니", for: .normal)
         button.setTitleColor(.UmbbaBlack, for: .normal)
-        button.setTitleColor(.UmbbaWhite, for: .selected)
+        button.setTitleColor(.White500, for: .selected)
         button.titleLabel?.font = .PretendardRegular(size: 16)
         button.layer.borderColor = UIColor.Gray400.cgColor
         button.layer.borderWidth = 1
@@ -78,11 +78,11 @@ final class QuestCollectionViewCell: UICollectionViewCell, UICollectionViewRegis
     
     lazy var skipButton: UIButton = {
         let button = UIButton()
-        button.setBackgroundColor(.UmbbaWhite, for: .normal)
+        button.setBackgroundColor(.White500, for: .normal)
         button.setBackgroundColor(.Primary500, for: .selected)
         button.setTitle("애매해", for: .normal)
         button.setTitleColor(.UmbbaBlack, for: .normal)
-        button.setTitleColor(.UmbbaWhite, for: .selected)
+        button.setTitleColor(.White500, for: .selected)
         button.titleLabel?.font = .PretendardRegular(size: 16)
         button.layer.borderColor = UIColor.Gray400.cgColor
         button.layer.borderWidth = 1

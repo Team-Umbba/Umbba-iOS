@@ -45,7 +45,7 @@ final class InviteAlertView: UIView {
     
     private lazy var copyButton: UIButton = {
         let button = UIButton()
-        button.backgroundColor = .UmbbaWhite
+        button.backgroundColor = .White500
         button.setTitleColor(.Primary500, for: .normal)
         button.setTitle(I18N.Alert.copyButtonTitle, for: .normal)
         button.titleLabel?.font = .PretendardSemiBold(size: 16)
@@ -66,7 +66,7 @@ final class InviteAlertView: UIView {
     private lazy var shareButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = .Primary500
-        button.setTitleColor(.UmbbaWhite, for: .normal)
+        button.setTitleColor(.White500, for: .normal)
         button.setTitle(I18N.Alert.shareButtonTitle, for: .normal)
         button.titleLabel?.font = .PretendardSemiBold(size: 16)
         button.layer.cornerRadius = 24
@@ -93,7 +93,7 @@ final class InviteAlertView: UIView {
 
 private extension InviteAlertView {
     func setUI() {
-        self.backgroundColor = .UmbbaWhite
+        self.backgroundColor = .White500
         self.layer.cornerRadius = 16
     }
     

@@ -45,7 +45,7 @@ final class ArchivingSectionCollectionViewCell: UICollectionViewCell, UICollecti
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        self.backgroundColor = .UmbbaWhite
+        self.backgroundColor = .White500
         archivingSectionLabel.textColor = .Primary600
     }
 }
@@ -58,7 +58,7 @@ extension ArchivingSectionCollectionViewCell {
         self.layer.cornerRadius = 13
         self.layer.borderWidth = 1
         self.layer.borderColor = UIColor.Primary600.cgColor
-        self.backgroundColor = .UmbbaWhite
+        self.backgroundColor = .White500
     }
     
     func setHierarchy() {
@@ -75,9 +75,9 @@ extension ArchivingSectionCollectionViewCell {
     func setCellSelected(isSelected: Bool) {
         if isSelected {
             self.backgroundColor = .Primary600
-            archivingSectionLabel.textColor = .UmbbaWhite
+            archivingSectionLabel.textColor = .White500
         } else {
-            self.backgroundColor = .UmbbaWhite
+            self.backgroundColor = .White500
             archivingSectionLabel.textColor = .Primary600
         }
     }

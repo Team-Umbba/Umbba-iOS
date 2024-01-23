@@ -59,7 +59,7 @@ final class CustomNavigationBar: UIView {
     
     private let cafe24TitleLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .UmbbaWhite
+        label.textColor = .White500
         label.font = .Cafe24Regular(size: 16)
         return label
     }()
@@ -86,7 +86,7 @@ final class CustomNavigationBar: UIView {
 
 extension CustomNavigationBar {
     func setUI() {
-        self.backgroundColor = .UmbbaWhite
+        self.backgroundColor = .White500
     }
     
     func setLayout() {

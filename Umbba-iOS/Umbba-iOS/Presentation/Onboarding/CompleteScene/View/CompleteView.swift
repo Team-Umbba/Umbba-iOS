@@ -69,7 +69,7 @@ final class CompleteView: UIView {
 
 private extension CompleteView {
     func setUI() {
-        self.backgroundColor = .UmbbaWhite
+        self.backgroundColor = .White500
     }
     
     func setAddTarget() {

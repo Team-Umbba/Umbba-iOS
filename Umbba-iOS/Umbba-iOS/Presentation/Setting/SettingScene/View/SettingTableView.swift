@@ -42,7 +42,7 @@ final class SettingTableView: UIView {
 private extension SettingTableView {
     
     func setUI() {
-        backgroundColor = .UmbbaWhite
+        backgroundColor = .White500
     }
     
     func setLayout() {
@@ -60,7 +60,7 @@ private extension SettingTableView {
     }
     
     func setTableView() {
-        tableView.backgroundColor = .UmbbaWhite
+        tableView.backgroundColor = .White500
         tableView.sectionFooterHeight = 0
         tableView.sectionHeaderTopPadding = 1
         tableView.isScrollEnabled = false

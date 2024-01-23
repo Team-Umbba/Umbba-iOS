@@ -57,7 +57,7 @@ final class QuestView: UIView {
         layout.minimumLineSpacing = 48
         layout.scrollDirection = .horizontal
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.backgroundColor = .UmbbaWhite
+        collectionView.backgroundColor = .White500
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.contentInset = UIEdgeInsets(top: 0, left: 24, bottom: 0, right: 24)
         collectionView.isScrollEnabled = false
@@ -89,7 +89,7 @@ final class QuestView: UIView {
 
 private extension QuestView {
     func setUI() {
-        self.backgroundColor = .UmbbaWhite
+        self.backgroundColor = .White500
     }
     
     func setAddTarget() {

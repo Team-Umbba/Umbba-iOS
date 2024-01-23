@@ -132,7 +132,7 @@ final class AnswerDetailView: UIView {
         let button = CustomButton(status: false, title: I18N.Detail.homeButton)
         button.layer.borderColor = UIColor.Primary500.cgColor
         button.layer.borderWidth = 2
-        button.setBackgroundColor(.UmbbaWhite, for: .normal)
+        button.setBackgroundColor(.White500, for: .normal)
         button.setTitleColor(.Primary500, for: .normal)
         button.adjustsImageWhenHighlighted = false
         button.isEnabled = true
@@ -160,7 +160,7 @@ final class AnswerDetailView: UIView {
 private extension AnswerDetailView {
     
     func setUI() {
-        self.backgroundColor = .UmbbaWhite
+        self.backgroundColor = .White500
     }
     
     func setAddTarget() {

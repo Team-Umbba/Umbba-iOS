@@ -72,7 +72,7 @@ final class PushAlarmView: UIView {
 
 private extension PushAlarmView {
     func setUI() {
-        self.backgroundColor = .UmbbaWhite
+        self.backgroundColor = .White500
     }
     
     func setAddTarget() {

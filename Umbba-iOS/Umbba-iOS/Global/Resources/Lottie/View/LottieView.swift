@@ -52,7 +52,7 @@ final class LottieView: UIView {
 
 private extension LottieView {
     func setUI() {
-        backgroundColor = .UmbbaWhite
+        backgroundColor = .White500
         
         lottieSplashView.frame = bounds
         lottieSplashView.center = center

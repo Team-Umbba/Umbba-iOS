@@ -48,7 +48,7 @@ final class AccountTableView: UIView {
 private extension AccountTableView {
     
     func setUI() {
-        backgroundColor = .UmbbaWhite
+        backgroundColor = .White500
     }
     
     func setAddTarget() {
@@ -70,7 +70,7 @@ private extension AccountTableView {
     }
     
     func setTableView() {
-        tableView.backgroundColor = .UmbbaWhite
+        tableView.backgroundColor = .White500
         tableView.isScrollEnabled = false
         tableView.separatorStyle = .none
     }

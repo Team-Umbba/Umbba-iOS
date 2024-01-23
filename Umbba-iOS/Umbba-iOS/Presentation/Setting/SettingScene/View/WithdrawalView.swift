@@ -101,7 +101,7 @@ class WithdrawalView: UIView {
 private extension WithdrawalView {
     
     func setUI() {
-        backgroundColor = .UmbbaWhite
+        backgroundColor = .White500
     }
     
     func setAddTarget() {

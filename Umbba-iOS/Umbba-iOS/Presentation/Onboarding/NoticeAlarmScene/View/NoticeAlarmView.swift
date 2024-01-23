@@ -75,7 +75,7 @@ final class NoticeAlarmView: UIView {
 
 private extension NoticeAlarmView {
     func setUI() {
-        self.backgroundColor = .UmbbaWhite
+        self.backgroundColor = .White500
     }
     
     func setAddTarget() {

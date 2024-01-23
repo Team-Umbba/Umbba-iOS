@@ -81,7 +81,7 @@ final class InviteView: UIView {
 
 private extension InviteView {
     func setUI() {
-        self.backgroundColor = .UmbbaWhite
+        self.backgroundColor = .White500
         self.addToolbar(textfields: [inviteTextField])
         if UserManager.shared.getInviteCode != "" {
             self.inviteTextField.text = UserManager.shared.inviteCode

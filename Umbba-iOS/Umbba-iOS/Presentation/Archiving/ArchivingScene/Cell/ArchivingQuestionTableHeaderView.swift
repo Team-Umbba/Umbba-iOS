@@ -45,7 +45,7 @@ final class ArchivingQuestionTableHeaderView: UITableViewHeaderFooterView, UITab
 extension ArchivingQuestionTableHeaderView {
     
     func setUI() {
-        self.backgroundColor = .UmbbaWhite
+        self.backgroundColor = .White500
     }
     
     func setHierarchy() {

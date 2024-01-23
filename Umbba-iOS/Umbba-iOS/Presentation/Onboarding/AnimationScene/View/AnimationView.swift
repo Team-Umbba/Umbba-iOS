@@ -36,7 +36,7 @@ final class AnimationView: UIView {
         let button = CustomButton(status: false, title: I18N.Onboarding.callingButton)
         button.layer.borderColor = UIColor.Primary500.cgColor
         button.layer.borderWidth = 2
-        button.setBackgroundColor(.UmbbaWhite, for: .normal)
+        button.setBackgroundColor(.White500, for: .normal)
         button.setTitleColor(.Primary500, for: .normal)
         button.adjustsImageWhenHighlighted = false
         button.isEnabled = true
