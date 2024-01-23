@@ -9,15 +9,15 @@ import UIKit
 
 extension UIColor {
     static var Primary400: UIColor {
-        return UIColor(hex: "#F1BD9B")
+        return UIColor(hex: "#E7B8B7")
     }
     
     static var Primary500: UIColor {
-        return UIColor(hex: "#E99F7A")
+        return UIColor(hex: "#E09490")
     }
     
     static var Primary600: UIColor {
-        return UIColor(hex: "#C87759")
+        return UIColor(hex: "#D67E78")
     }
     
     static var Gray300: UIColor {
@@ -30,6 +30,10 @@ extension UIColor {
     
     static var Gray800: UIColor {
         return UIColor(hex: "#BBADA4")
+    }
+    
+    static var Gray900: UIColor {
+        return UIColor(hex: "#897D76")
     }
 
     static var Error: UIColor {
@@ -44,7 +48,11 @@ extension UIColor {
         return UIColor(hex: "#32211B")
     }
     
-    static var UmbbaWhite: UIColor {
+    static var White400: UIColor {
+        return UIColor(hex: "#FFFCFC")
+    }
+    
+    static var White500: UIColor {
         return UIColor(hex: "#FCFAF8")
     }
     
@@ -53,14 +61,14 @@ extension UIColor {
     }
   
     static var GradientLow: UIColor {
-        return UIColor(hex: "#F8C8AE")
+        return UIColor(hex: "#E7B8B7")
     }
     
     static var GradientMedium: UIColor {
-        return UIColor(hex: "#EBA787")
+        return UIColor(hex: "#E09490")
     }
     
     static var GradientHigh: UIColor {
-        return UIColor(hex: "#D87E7E")
-    }  
+        return UIColor(hex: "#D67E78")
+    }
 }
