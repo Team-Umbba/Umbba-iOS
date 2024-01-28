@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "list_defalt.png",
+      "filename" : "list-default@1x.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "list_defalt@2x.png",
+      "filename" : "list-default@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "list_defalt@3x.png",
+      "filename" : "list-default@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
