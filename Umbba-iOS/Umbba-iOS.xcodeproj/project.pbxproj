@@ -136,6 +136,8 @@
 		69DE6BAF2A5432E600F31812 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DE6BAE2A5432E600F31812 /* CustomButton.swift */; };
 		69DE6BB42A54400500F31812 /* InviteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DE6BB32A54400500F31812 /* InviteView.swift */; };
 		69DE6BB82A54417F00F31812 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DE6BB72A54417F00F31812 /* String+.swift */; };
+		69F1AA922B66848500F19FCC /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F1AA912B66848500F19FCC /* MyPageViewController.swift */; };
+		69F1AA942B66849E00F19FCC /* MyPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F1AA932B66849E00F19FCC /* MyPageView.swift */; };
 		69FDD1802ACB2F0100D5EFE0 /* AppStoreCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69FDD17F2ACB2F0100D5EFE0 /* AppStoreCheck.swift */; };
 		A408BCE22AB59C5700AABB46 /* ArchivingSectionCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A408BCE12AB59C5700AABB46 /* ArchivingSectionCollectionView.swift */; };
 		A408BCE42AB711FB00AABB46 /* ArchivingQuestionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A408BCE32AB711FB00AABB46 /* ArchivingQuestionTableViewCell.swift */; };
@@ -278,6 +280,8 @@
 		69DE6BAE2A5432E600F31812 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		69DE6BB32A54400500F31812 /* InviteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteView.swift; sourceTree = "<group>"; };
 		69DE6BB72A54417F00F31812 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
+		69F1AA912B66848500F19FCC /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
+		69F1AA932B66849E00F19FCC /* MyPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageView.swift; sourceTree = "<group>"; };
 		69FDD17F2ACB2F0100D5EFE0 /* AppStoreCheck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreCheck.swift; sourceTree = "<group>"; };
 		A408BCE12AB59C5700AABB46 /* ArchivingSectionCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchivingSectionCollectionView.swift; sourceTree = "<group>"; };
 		A408BCE32AB711FB00AABB46 /* ArchivingQuestionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchivingQuestionTableViewCell.swift; sourceTree = "<group>"; };
@@ -821,6 +825,7 @@
 		697815AA2A5304950047944C /* Setting */ = {
 			isa = PBXGroup;
 			children = (
+				69F1AA8A2B66826900F19FCC /* MyPageScene */,
 				697815AB2A53049A0047944C /* SettingScene */,
 			);
 			path = Setting;
@@ -1205,6 +1210,31 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		69F1AA8A2B66826900F19FCC /* MyPageScene */ = {
+			isa = PBXGroup;
+			children = (
+				69F1AA8C2B66828F00F19FCC /* ViewController */,
+				69F1AA8B2B66828700F19FCC /* View */,
+			);
+			path = MyPageScene;
+			sourceTree = "<group>";
+		};
+		69F1AA8B2B66828700F19FCC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				69F1AA932B66849E00F19FCC /* MyPageView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		69F1AA8C2B66828F00F19FCC /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				69F1AA912B66848500F19FCC /* MyPageViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		A42723B92A553054003C445F /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -1568,6 +1598,7 @@
 				149099E72A5FBB20007242C6 /* AnswerDetailView.swift in Sources */,
 				699455DB2A5AED0B003C118A /* PushAlarmViewController.swift in Sources */,
 				14A6D3062A5A63EF003A83B3 /* SettingSectionHeaderView.swift in Sources */,
+				69F1AA942B66849E00F19FCC /* MyPageView.swift in Sources */,
 				697E19D22A63246300D4752D /* URLConstant.swift in Sources */,
 				6951A6A72A61B5A600D49692 /* QuestViewController.swift in Sources */,
 				14348E9D2A5B37DC0077A9B8 /* TabBarController.swift in Sources */,
@@ -1580,6 +1611,7 @@
 				697815DE2A530D2C0047944C /* NetworkResult.swift in Sources */,
 				6978156B2A52FE960047944C /* FontLiterals.swift in Sources */,
 				6951A6A52A61B59400D49692 /* QuestView.swift in Sources */,
+				69F1AA922B66848500F19FCC /* MyPageViewController.swift in Sources */,
 				691979FA2A5C6BDB0069FB63 /* WriteSaveAlertView.swift in Sources */,
 				6951A6AE2A62D93A00D49692 /* ShowToast.swift in Sources */,
 				697815902A53015D0047944C /* MakeVibrate.swift in Sources */,

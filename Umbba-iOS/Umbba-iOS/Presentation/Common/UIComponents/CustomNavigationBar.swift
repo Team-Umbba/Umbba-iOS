@@ -34,6 +34,11 @@ final class CustomNavigationBar: UIView {
         set { titleView.isHidden = !newValue }
     }
     
+    public var isSettingButtonIncluded: Bool {
+        get { !settingButton.isHidden }
+        set { settingButton.isHidden = !newValue }
+    }
+    
     lazy var leftButton: UIButton = {
         let button = UIButton()
         button.setImage(ImageLiterals.NavigationBar.icn_back, for: .normal)
@@ -72,6 +77,13 @@ final class CustomNavigationBar: UIView {
         return button
     }()
     
+    lazy var settingButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(resource: .setting), for: .normal)
+        button.isHidden = true
+        return button
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -90,7 +102,7 @@ extension CustomNavigationBar {
     }
     
     func setLayout() {
-        self.addSubviews(leftButton, pretendardtTitleLabel, titleView, rightButton)
+        self.addSubviews(leftButton, pretendardtTitleLabel, titleView, rightButton, settingButton)
         titleView.addSubviews(cafe24TitleLabel)
         
         self.snp.makeConstraints {
@@ -120,6 +132,11 @@ extension CustomNavigationBar {
         rightButton.snp.makeConstraints {
             $0.centerY.equalToSuperview()
             $0.trailing.equalToSuperview().inset(6)
+            $0.size.equalTo(48)
+        }
+        
+        settingButton.snp.makeConstraints {
+            $0.centerY.trailing.equalToSuperview()
             $0.size.equalTo(48)
         }
     }

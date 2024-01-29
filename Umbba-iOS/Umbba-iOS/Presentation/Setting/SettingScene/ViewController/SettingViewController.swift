@@ -41,6 +41,7 @@ private extension SettingViewController {
     func setDelegate() {
         settingtableView.delegate = self
         settingtableView.dataSource = self
+        settingTableView.navigationdelegate = self
     }
     
     func setNotification() {
@@ -142,4 +143,16 @@ extension SettingViewController: AlarmSwitchDelegate {
     func alarmSwitchTapped() {
         UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
     }
+}
+
+extension SettingViewController: NavigationBarDelegate {
+    
+    @objc
+    func backButtonTapped() {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    func completeButtonTapped() {
+    }
+    
 }
