@@ -134,15 +134,15 @@ private extension TabBarController {
             tabBarSelectedImg: ImageLiterals.TabBar.icn_list_selected,
             renderingMode: .alwaysOriginal
         )
-        let setting = makeTabBar(
-            viewController: SettingViewController(),
+        let mypage = makeTabBar(
+            viewController: MyPageViewController(),
             title: "",
             tabBarImg: ImageLiterals.TabBar.icn_setting,
             tabBarSelectedImg: ImageLiterals.TabBar.icn_setting_selected,
             renderingMode: .alwaysOriginal
         )
         
-        let tabs = [home, list, setting]
+        let tabs = [home, list, mypage]
         self.setViewControllers(tabs, animated: false)
         tabBar.backgroundColor = .White500
         tabBar.isTranslucent = false
