@@ -32,7 +32,7 @@ final class MyPageViewController: UIViewController {
 
 // MARK: - Extensions
 
-extension MyPageViewController {
+private extension MyPageViewController {
     func setDelegate() {
         mypageView.delegate = self
     }

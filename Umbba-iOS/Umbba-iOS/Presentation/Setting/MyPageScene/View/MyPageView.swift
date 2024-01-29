@@ -9,14 +9,20 @@ import UIKit
 
 import SnapKit
 
+// MARK: - Protocols
+
 protocol SettingButtonDelegate: AnyObject {
     func settingButtonTapped()
 }
 
 final class MyPageView: UIView {
     
+    // MARK: - Properties
+    
     weak var delegate: SettingButtonDelegate?
 
+    // MARK: - UI Components
+    
     private let navigationBarView: CustomNavigationBar = {
         let view = CustomNavigationBar()
         view.isSettingButtonIncluded = true
