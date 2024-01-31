@@ -114,7 +114,7 @@ final class MyPageView: UIView {
     
     private let dayTitleLabel: UILabel = {
         let label = UILabel()
-        label.text = "여행을 떠난 지"
+        label.text = I18N.MyPage.dayTitle
         label.textColor = .UmbbaBlack
         label.font = .PretendardBold(size: 16)
         return label
@@ -146,7 +146,7 @@ final class MyPageView: UIView {
     
     private let answerTitleLabel: UILabel = {
         let label = UILabel()
-        label.text = "나눈 문답 수"
+        label.text = I18N.MyPage.answerTitle
         label.textColor = .UmbbaBlack
         label.font = .PretendardBold(size: 16)
         return label
@@ -187,7 +187,7 @@ final class MyPageView: UIView {
     
     private let presentTitleLabel: UILabel = {
         let label = UILabel()
-        label.text = "선물하기"
+        label.text = I18N.MyPage.presentTitle
         label.textColor = .UmbbaBlack
         label.font = .PretendardBold(size: 20)
         return label
@@ -195,7 +195,7 @@ final class MyPageView: UIView {
     
     private let presentDetailLabel: UILabel = {
         let label = UILabel()
-        label.text = "세상에 단 하나뿐인 선물을 건네보세요"
+        label.text = I18N.MyPage.presentDetail
         label.textColor = .Gray900
         label.font = .PretendardRegular(size: 16)
         return label
@@ -218,7 +218,7 @@ final class MyPageView: UIView {
     
     private let relationTitleLabel: UILabel = {
         let label = UILabel()
-        label.text = "가까워지기"
+        label.text = I18N.MyPage.relationTitle
         label.textColor = .UmbbaBlack
         label.font = .PretendardBold(size: 20)
         return label
@@ -226,7 +226,7 @@ final class MyPageView: UIView {
     
     private let relationDetailLabel: UILabel = {
         let label = UILabel()
-        label.text = "서로에 대한\n퀴즈를 풀기"
+        label.text = I18N.MyPage.relationDetail
         label.numberOfLines = 2
         label.textColor = .Gray900
         label.font = .PretendardRegular(size: 16)
@@ -250,7 +250,7 @@ final class MyPageView: UIView {
     
     private let albumTitleLabel: UILabel = {
         let label = UILabel()
-        label.text = "기록하기"
+        label.text = I18N.MyPage.albumTitle
         label.textColor = .UmbbaBlack
         label.font = .PretendardBold(size: 20)
         return label
@@ -258,7 +258,7 @@ final class MyPageView: UIView {
     
     private let albumDetailLabel: UILabel = {
         let label = UILabel()
-        label.text = "소중한 순간을\n기록하세요"
+        label.text = I18N.MyPage.albumDetail
         label.numberOfLines = 2
         label.textColor = .Gray900
         label.font = .PretendardRegular(size: 16)
@@ -282,7 +282,7 @@ final class MyPageView: UIView {
     
     private let copyrightLabel: UILabel = {
         let label = UILabel()
-        label.text = "ub company 2023 어쩌구 ver 1.2 뭔말알"
+        label.text = I18N.MyPage.copyright
         label.textColor = .Gray800
         label.font = .PretendardRegular(size: 10)
         return label
