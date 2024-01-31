@@ -27,6 +27,7 @@ final class MyPageViewController: UIViewController {
         super.viewDidLoad()
         
         setDelegate()
+        setGesture()
     }
 }
 
@@ -36,15 +37,39 @@ private extension MyPageViewController {
     func setDelegate() {
         mypageView.delegate = self
     }
+    
+    @objc
+    func presentViewTapped() {
+       print("선물하기 탭으로 이동")
+    }
+    
+    @objc
+    func albumViewTapped() {
+        print("기록하기 탭으로 이동")
+    }
+    
+    @objc
+    func relationViewTapped() {
+        print("가까워지기 탭으로 이동")
+    }
+}
+
+extension MyPageViewController: UIGestureRecognizerDelegate {
+    func setGesture() {
+        let presentTapGesture = UITapGestureRecognizer(target: self, action: #selector(presentViewTapped))
+        mypageView.presentView.addGestureRecognizer(presentTapGesture)
+        let relationTapGesture = UITapGestureRecognizer(target: self, action: #selector(relationViewTapped))
+        mypageView.relationView.addGestureRecognizer(relationTapGesture)
+        let albumTapGesture = UITapGestureRecognizer(target: self, action: #selector(albumViewTapped))
+        mypageView.albumView.addGestureRecognizer(albumTapGesture)
+    }
 }
 
 extension MyPageViewController: SettingButtonDelegate {
-    
     @objc
     func settingButtonTapped() {
         let settingViewController = SettingViewController()
         settingViewController.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(settingViewController, animated: true)
     }
-    
 }
