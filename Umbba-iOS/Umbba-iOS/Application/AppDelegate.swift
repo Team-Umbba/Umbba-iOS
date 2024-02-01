@@ -83,7 +83,6 @@ extension AppDelegate: MessagingDelegate {
     
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
         guard let fcmToken =  fcmToken else { return }
-        print("✅✅✅✅✅✅✅\(fcmToken)✅✅✅✅✅✅✅")
         UserManager.shared.updateFcmToken(fcmToken)
     }
 }
