@@ -101,7 +101,6 @@ private extension TabBarController {
     func addObserver() {
         NotificationCenter.default.addObserver(self, selector: #selector(showInvitePopUP), name: Notification.Name("share"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(showDisconnectPopUP), name: Notification.Name("disconnect"), object: nil)
-//        NotificationCenter.default.addObserver(self, selector: #selector(showUpdatePopUP), name: Notification.Name("update"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(showLoadingView), name: Notification.Name("show"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(hideLoadingView), name: Notification.Name("hide"), object: nil)
     }
@@ -160,14 +159,6 @@ private extension TabBarController {
     @objc func showDisconnectPopUP() {
         self.makeAlert(alertType: .disconnectAlert) {}
     }
-    
-//    @objc func showUpdatePopUP() {
-//        self.makeAlert(alertType: .updateAlert) {
-//            if let url = URL(string: "itms-apps://itunes.apple.com/app/id6450973870") {
-//                UIApplication.shared.open(url, options: [:], completionHandler: nil)
-//            }
-//        }
-//    }
     
     @objc func showLoadingView() {
         LoadingView.shared.show(self.view)
