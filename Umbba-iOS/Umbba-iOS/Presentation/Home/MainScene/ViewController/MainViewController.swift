@@ -59,7 +59,6 @@ final class MainViewController: UIViewController {
         setDelegate()
         getCaseAPI()
         getMainAPI()
-        checkAppVersion()
     }
 }
 
@@ -100,19 +99,6 @@ private extension MainViewController {
             NotificationCenter.default.post(name: Notification.Name("disconnect"), object: nil, userInfo: nil)
         default:
             break
-        }
-    }
-    
-    func checkAppVersion() {
-        _ = try? AppStoreCheck.isUpdateAvailable { (update, error) in
-            if let error = error {
-                print(error)
-            } else if let update = update {
-                if update {
-                    NotificationCenter.default.post(name: Notification.Name("update"), object: nil, userInfo: nil)
-                    return
-                }
-            }
         }
     }
 }
