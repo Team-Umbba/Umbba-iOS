@@ -64,7 +64,7 @@ final class MyPageView: UIView {
     
     private let lineImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(resource: .line)
+        imageView.image = ImageLiterals.MyPage.line_img
         return imageView
     }()
     
@@ -172,7 +172,7 @@ final class MyPageView: UIView {
     
     private let topicImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(resource: .topicImg1)
+        imageView.image = ImageLiterals.MyPage.topic_img1
         return imageView
     }()
 
@@ -203,7 +203,7 @@ final class MyPageView: UIView {
     
     private let presentImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(resource: .gift)
+        imageView.image = ImageLiterals.MyPage.gift_img
         return imageView
     }()
     
@@ -235,7 +235,7 @@ final class MyPageView: UIView {
     
     private let relationImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(resource: .relation)
+        imageView.image = ImageLiterals.MyPage.relation_img
         return imageView
     }()
     
@@ -267,7 +267,7 @@ final class MyPageView: UIView {
     
     private let albumImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(resource: .camera)
+        imageView.image = ImageLiterals.MyPage.camera_img
         return imageView
     }()
     

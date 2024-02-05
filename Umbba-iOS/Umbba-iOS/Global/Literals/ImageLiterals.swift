@@ -16,6 +16,7 @@ enum ImageLiterals {
     enum NavigationBar {
         static var icn_back: UIImage { .load(name: "back") }
         static var icn_check: UIImage { .load(name: "check") }
+        static var icn_setting: UIImage { .load(name: "setting") }
     }
     
     enum TabBar {
@@ -74,5 +75,13 @@ enum ImageLiterals {
     enum Ending {
         static var ending_img: UIImage { .load(name: "ending_img") }
         static var SE_ending_img: UIImage { .load(name: "SE_ending_img") }
+    }
+    
+    enum MyPage {
+        static var line_img: UIImage { .load(name: "line") }
+        static var topic_img1: UIImage { .load(name: "topicImg1") }
+        static var gift_img: UIImage { .load(name: "gift") }
+        static var relation_img: UIImage { .load(name: "relation") }
+        static var camera_img: UIImage { .load(name: "camera")}
     }
 }

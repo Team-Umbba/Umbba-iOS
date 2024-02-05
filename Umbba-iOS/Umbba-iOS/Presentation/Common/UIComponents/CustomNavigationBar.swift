@@ -79,7 +79,7 @@ final class CustomNavigationBar: UIView {
     
     lazy var settingButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(resource: .setting), for: .normal)
+        button.setImage(ImageLiterals.NavigationBar.icn_setting, for: .normal)
         button.isHidden = true
         return button
     }()
