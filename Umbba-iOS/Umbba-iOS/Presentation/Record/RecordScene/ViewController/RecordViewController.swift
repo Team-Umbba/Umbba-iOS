@@ -17,6 +17,7 @@ final class RecordViewController: UIViewController {
     // MARK: - Life Cycles
     
     override func loadView() {
+        
         view = recordView
     }
     

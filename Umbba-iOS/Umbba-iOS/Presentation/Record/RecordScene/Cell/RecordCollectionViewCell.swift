@@ -55,17 +55,16 @@ final class RecordCollectionViewCell: UICollectionViewCell, UICollectionViewRegi
     private let recordImage: UIImageView = {
         let image = UIImageView()
         image.contentMode = .scaleAspectFill
-        image.image = UIImage(resource: .home1)
         image.clipsToBounds = true
         return image
     }()
     
-    private let openQuoteImage = UIImageView(image: UIImage(resource: .icOpenQuote))
-    private let closeQuoteImage = UIImageView(image: UIImage(resource: .icCloseQuote))
+    private let openQuoteImage = UIImageView(image: ImageLiterals.Record.openQuote_img)
+    private let closeQuoteImage = UIImageView(image: ImageLiterals.Record.closeQuote_img)
     
     private lazy var deleteButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(resource: .icExit), for: .normal)
+        button.setImage(ImageLiterals.Record.ic_exit, for: .normal)
         button.tintColor = .Gray800
         return button
     }()

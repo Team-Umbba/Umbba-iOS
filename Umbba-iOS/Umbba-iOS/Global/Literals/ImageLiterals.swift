@@ -84,4 +84,10 @@ enum ImageLiterals {
         static var relation_img: UIImage { .load(name: "relation") }
         static var camera_img: UIImage { .load(name: "camera")}
     }
+    
+    enum Record {
+        static var openQuote_img: UIImage { .load(name: "ic_openQuote") }
+        static var closeQuote_img: UIImage { .load(name: "ic_closeQuote") }
+        static var ic_exit: UIImage { .load(name: "ic_exit") }
+    }
 }

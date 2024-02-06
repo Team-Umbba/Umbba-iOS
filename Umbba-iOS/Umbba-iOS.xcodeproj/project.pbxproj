@@ -1277,6 +1277,31 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		69F1AA8A2B66826900F19FCC /* MyPageScene */ = {
+			isa = PBXGroup;
+			children = (
+				69F1AA8C2B66828F00F19FCC /* ViewController */,
+				69F1AA8B2B66828700F19FCC /* View */,
+			);
+			path = MyPageScene;
+			sourceTree = "<group>";
+		};
+		69F1AA8B2B66828700F19FCC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				69F1AA932B66849E00F19FCC /* MyPageView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		69F1AA8C2B66828F00F19FCC /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				69F1AA912B66848500F19FCC /* MyPageViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		A423E8812B6405F900B8C125 /* Record */ = {
 			isa = PBXGroup;
 			children = (
@@ -1317,31 +1342,6 @@
 				A423E8862B64063E00B8C125 /* RecordCollectionViewCell.swift */,
 			);
 			path = Cell;
-			sourceTree = "<group>";
-		};
-		69F1AA8A2B66826900F19FCC /* MyPageScene */ = {
-			isa = PBXGroup;
-			children = (
-				69F1AA8C2B66828F00F19FCC /* ViewController */,
-				69F1AA8B2B66828700F19FCC /* View */,
-			);
-			path = MyPageScene;
-			sourceTree = "<group>";
-		};
-		69F1AA8B2B66828700F19FCC /* View */ = {
-			isa = PBXGroup;
-			children = (
-				69F1AA932B66849E00F19FCC /* MyPageView.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		69F1AA8C2B66828F00F19FCC /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				69F1AA912B66848500F19FCC /* MyPageViewController.swift */,
-			);
-			path = ViewController;
 			sourceTree = "<group>";
 		};
 		A42723B92A553054003C445F /* ViewController */ = {
