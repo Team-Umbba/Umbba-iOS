@@ -101,7 +101,6 @@ private extension TabBarController {
     func addObserver() {
         NotificationCenter.default.addObserver(self, selector: #selector(showInvitePopUP), name: Notification.Name("share"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(showDisconnectPopUP), name: Notification.Name("disconnect"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(showUpdatePopUP), name: Notification.Name("update"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(showLoadingView), name: Notification.Name("show"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(hideLoadingView), name: Notification.Name("hide"), object: nil)
     }
@@ -134,15 +133,15 @@ private extension TabBarController {
             tabBarSelectedImg: ImageLiterals.TabBar.icn_list_selected,
             renderingMode: .alwaysOriginal
         )
-        let setting = makeTabBar(
-            viewController: SettingViewController(),
+        let mypage = makeTabBar(
+            viewController: MyPageViewController(),
             title: "",
             tabBarImg: ImageLiterals.TabBar.icn_setting,
             tabBarSelectedImg: ImageLiterals.TabBar.icn_setting_selected,
             renderingMode: .alwaysOriginal
         )
         
-        let tabs = [home, list, setting]
+        let tabs = [home, list, mypage]
         self.setViewControllers(tabs, animated: false)
         tabBar.backgroundColor = .White500
         tabBar.isTranslucent = false
@@ -161,14 +160,6 @@ private extension TabBarController {
         self.makeAlert(alertType: .disconnectAlert) {}
     }
     
-    @objc func showUpdatePopUP() {
-        self.makeAlert(alertType: .updateAlert) {
-            if let url = URL(string: "itms-apps://itunes.apple.com/app/id6450973870") {
-                UIApplication.shared.open(url, options: [:], completionHandler: nil)
-            }
-        }
-    }
-    
     @objc func showLoadingView() {
         LoadingView.shared.show(self.view)
     }
@@ -176,7 +167,6 @@ private extension TabBarController {
     @objc func hideLoadingView() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             LoadingView.shared.hide {
-                print("로딩 종료")
             }
         }
     }

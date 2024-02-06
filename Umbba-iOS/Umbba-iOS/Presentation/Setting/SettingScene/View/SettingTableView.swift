@@ -11,11 +11,16 @@ import SnapKit
 
 final class SettingTableView: UIView {
     
+    // MARK: - Properties
+
+    weak var navigationdelegate: NavigationBarDelegate?
+    
     // MARK: - UI Components
     
     private let navigationBarView: CustomNavigationBar = {
         let view = CustomNavigationBar()
         view.pretendardTitle = I18N.Setting.settingNavigationTitle
+        view.isLeftButtonIncluded = true
         return view
     }()
     
@@ -28,6 +33,7 @@ final class SettingTableView: UIView {
         
         setUI()
         setLayout()
+        setAddTarget()
         setTableView()
         registerCell()
     }
@@ -71,5 +77,14 @@ private extension SettingTableView {
     func registerCell() {
         SettingTableViewCell.register(target: tableView)
         SettingSectionHeaderView.register(target: tableView)
+    }
+    
+    func setAddTarget() {
+        navigationBarView.leftButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
+    }
+    
+    @objc
+    func backButtonTapped() {
+        navigationdelegate?.backButtonTapped()
     }
 }
