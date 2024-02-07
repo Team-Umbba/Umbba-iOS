@@ -17,6 +17,7 @@ enum ImageLiterals {
         static var icn_back: UIImage { .load(name: "back") }
         static var icn_check: UIImage { .load(name: "check") }
         static var icn_setting: UIImage { .load(name: "setting") }
+        static var icn_camera: UIImage { .load(name: "ic_camera") }
     }
     
     enum TabBar {
@@ -83,5 +84,11 @@ enum ImageLiterals {
         static var gift_img: UIImage { .load(name: "gift") }
         static var relation_img: UIImage { .load(name: "relation") }
         static var camera_img: UIImage { .load(name: "camera")}
+    }
+    
+    enum Record {
+        static var openQuote_img: UIImage { .load(name: "ic_openQuote") }
+        static var closeQuote_img: UIImage { .load(name: "ic_closeQuote") }
+        static var ic_exit: UIImage { .load(name: "ic_exit") }
     }
 }
