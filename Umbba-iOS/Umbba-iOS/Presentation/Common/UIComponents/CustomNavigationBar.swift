@@ -91,7 +91,7 @@ final class CustomNavigationBar: UIView {
     
     lazy var cameraButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(resource: .icCamera), for: .normal)
+        button.setImage(ImageLiterals.NavigationBar.icn_camera, for: .normal)
         button.isHidden = true
         return button
     }()

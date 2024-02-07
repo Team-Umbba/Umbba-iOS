@@ -17,6 +17,7 @@ enum ImageLiterals {
         static var icn_back: UIImage { .load(name: "back") }
         static var icn_check: UIImage { .load(name: "check") }
         static var icn_setting: UIImage { .load(name: "setting") }
+        static var icn_camera: UIImage { .load(name: "ic_camera") }
     }
     
     enum TabBar {
