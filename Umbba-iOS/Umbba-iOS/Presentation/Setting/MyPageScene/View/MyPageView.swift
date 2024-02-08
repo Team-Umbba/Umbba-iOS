@@ -175,37 +175,6 @@ final class MyPageView: UIView {
         imageView.image = ImageLiterals.MyPage.topic_img1
         return imageView
     }()
-
-    let presentView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .White500
-        view.layer.cornerRadius = 10
-        view.layer.borderWidth = 1
-        view.layer.borderColor = UIColor.Gray400.cgColor
-        return view
-    }()
-    
-    private let presentTitleLabel: UILabel = {
-        let label = UILabel()
-        label.text = I18N.MyPage.presentTitle
-        label.textColor = .UmbbaBlack
-        label.font = .PretendardBold(size: 20)
-        return label
-    }()
-    
-    private let presentDetailLabel: UILabel = {
-        let label = UILabel()
-        label.text = I18N.MyPage.presentDetail
-        label.textColor = .Gray900
-        label.font = .PretendardRegular(size: 16)
-        return label
-    }()
-    
-    private let presentImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = ImageLiterals.MyPage.gift_img
-        return imageView
-    }()
     
     let relationView: UIView = {
         let view = UIView()
@@ -227,7 +196,6 @@ final class MyPageView: UIView {
     private let relationDetailLabel: UILabel = {
         let label = UILabel()
         label.text = I18N.MyPage.relationDetail
-        label.numberOfLines = 2
         label.textColor = .Gray900
         label.font = .PretendardRegular(size: 16)
         return label
@@ -259,7 +227,6 @@ final class MyPageView: UIView {
     private let albumDetailLabel: UILabel = {
         let label = UILabel()
         label.text = I18N.MyPage.albumDetail
-        label.numberOfLines = 2
         label.textColor = .Gray900
         label.font = .PretendardRegular(size: 16)
         return label
@@ -273,7 +240,7 @@ final class MyPageView: UIView {
     
     private lazy var viewStackView: UIStackView = {
         let stackView = UIStackView()
-        stackView.axis = .horizontal
+        stackView.axis = .vertical
         stackView.distribution = .fillEqually
         stackView.spacing = 12
         stackView.addArrangedSubviews(relationView, albumView)
@@ -315,9 +282,8 @@ private extension MyPageView {
     }
     
     func setLayout() {
-        self.addSubviews(backgroundView, navigationBarView, presentView, viewStackView, copyrightLabel)
+        self.addSubviews(backgroundView, navigationBarView, viewStackView, copyrightLabel)
         backgroundView.addSubviews(infoStackView, topicLabel, dayStackView, lineView, answerStackView, topicImageView)
-        presentView.addSubviews(presentTitleLabel, presentDetailLabel, presentImageView)
         relationView.addSubviews(relationTitleLabel, relationDetailLabel, relationImageView)
         albumView.addSubviews(albumTitleLabel, albumDetailLabel, albumImageView)
         
@@ -370,27 +336,8 @@ private extension MyPageView {
             $0.height.equalTo(SizeLiterals.Screen.screenHeight * 117 / 812)
         }
         
-        presentView.snp.makeConstraints {
-            $0.top.equalTo(backgroundView.snp.bottom).offset(16)
-            $0.leading.trailing.equalToSuperview().inset(22)
-            $0.height.equalTo(SizeLiterals.Screen.screenHeight * 140 / 812)
-        }
-        
-        presentTitleLabel.snp.makeConstraints {
-            $0.top.leading.equalToSuperview().inset(16)
-        }
-        
-        presentDetailLabel.snp.makeConstraints {
-            $0.top.equalTo(presentTitleLabel.snp.bottom).offset(12)
-            $0.leading.equalTo(presentTitleLabel.snp.leading)
-        }
-        
-        presentImageView.snp.makeConstraints {
-            $0.top.trailing.equalToSuperview().inset(16)
-        }
-        
         relationView.snp.makeConstraints {
-            $0.height.equalTo(SizeLiterals.Screen.screenHeight * 160 / 812)
+            $0.height.equalTo(SizeLiterals.Screen.screenHeight * 128 / 812)
         }
         
         relationTitleLabel.snp.makeConstraints {
@@ -407,7 +354,7 @@ private extension MyPageView {
         }
         
         albumView.snp.makeConstraints {
-            $0.height.equalTo(SizeLiterals.Screen.screenHeight * 160 / 812)
+            $0.height.equalTo(SizeLiterals.Screen.screenHeight * 128 / 812)
         }
         
         albumTitleLabel.snp.makeConstraints {
@@ -424,7 +371,7 @@ private extension MyPageView {
         }
         
         viewStackView.snp.makeConstraints {
-            $0.top.equalTo(presentView.snp.bottom).offset(16)
+            $0.top.equalTo(backgroundView.snp.bottom).offset(16)
             $0.trailing.leading.equalToSuperview().inset(22)
         }
         
