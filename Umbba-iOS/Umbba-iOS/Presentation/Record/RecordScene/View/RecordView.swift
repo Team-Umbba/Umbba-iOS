@@ -11,9 +11,13 @@ import SnapKit
 
 final class RecordView: UIView {
 
+    // MARK: - Properties
+    
+    weak var navigationdelegate: NavigationBarDelegate?
+    
     // MARK: - UI Components
     
-    let navigationBarView: CustomNavigationBar = {
+    private let navigationBarView: CustomNavigationBar = {
         let navigation = CustomNavigationBar()
         navigation.isLeftButtonIncluded = true
         navigation.isCameraButtonIncluded = true
@@ -63,6 +67,7 @@ final class RecordView: UIView {
         setHierarchy()
         setLayout()
         setRegisterCell()
+        setAddTarget()
     }
     
     @available(*, unavailable)
@@ -114,5 +119,14 @@ extension RecordView {
 
     func setRegisterCell() {
         RecordCollectionViewCell.register(target: collectionView)
+    }
+    
+    func setAddTarget() {
+        navigationBarView.leftButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
+    }
+    
+    @objc
+    func backButtonTapped() {
+        navigationdelegate?.backButtonTapped()
     }
 }

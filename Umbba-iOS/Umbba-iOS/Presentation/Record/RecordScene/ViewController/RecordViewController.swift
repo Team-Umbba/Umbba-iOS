@@ -40,6 +40,7 @@ extension RecordViewController {
     func setDelegate() {
         collectionView.delegate = self
         collectionView.dataSource = self
+        recordView.navigationdelegate = self
     }
 }
 
@@ -57,4 +58,16 @@ extension RecordViewController: UICollectionViewDataSource {
         let cell = RecordCollectionViewCell.dequeueReusableCell(collectionView: collectionView, indexPath: indexPath)
         return cell
     }
+}
+
+extension RecordViewController: NavigationBarDelegate {
+    
+    @objc
+    func backButtonTapped() {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    func completeButtonTapped() {
+    }
+    
 }
