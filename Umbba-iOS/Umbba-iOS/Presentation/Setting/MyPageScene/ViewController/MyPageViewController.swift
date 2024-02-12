@@ -40,7 +40,6 @@ private extension MyPageViewController {
     
     @objc
     func albumViewTapped() {
-        print("기록하기 탭으로 이동")
         let recordViewController = RecordViewController()
         recordViewController.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(recordViewController, animated: true)
@@ -48,7 +47,6 @@ private extension MyPageViewController {
     
     @objc
     func relationViewTapped() {
-        print("가까워지기 탭으로 이동")
         let quizViewController = QuizViewController()
         quizViewController.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(quizViewController, animated: true)
