@@ -80,7 +80,7 @@ enum ImageLiterals {
     
     enum MyPage {
         static var line_img: UIImage { .load(name: "line") }
-        static var topic_img1: UIImage { .load(name: "topicImg1") }
+        static var topic_img1: UIImage { .load(name: "topic_img1") }
         static var gift_img: UIImage { .load(name: "gift") }
         static var relation_img: UIImage { .load(name: "relation") }
         static var camera_img: UIImage { .load(name: "camera")}

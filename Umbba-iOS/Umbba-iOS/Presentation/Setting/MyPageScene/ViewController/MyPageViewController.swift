@@ -39,24 +39,14 @@ private extension MyPageViewController {
     }
     
     @objc
-    func presentViewTapped() {
-        print("선물하기 탭으로 이동")
-        let presentViewController = PresentViewController()
-        presentViewController.hidesBottomBarWhenPushed = true
-        self.navigationController?.pushViewController(presentViewController, animated: true)
-    }
-    
-    @objc
     func albumViewTapped() {
-        print("기록하기 탭으로 이동")
-//        let recordViewController = RecordViewController()
-//        recordViewController.hidesBottomBarWhenPushed = true
-//        self.navigationController?.pushViewController(recordViewController, animated: true)
+        let recordViewController = RecordViewController()
+        recordViewController.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(recordViewController, animated: true)
     }
     
     @objc
     func relationViewTapped() {
-        print("가까워지기 탭으로 이동")
         let quizViewController = QuizViewController()
         quizViewController.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(quizViewController, animated: true)
@@ -65,8 +55,6 @@ private extension MyPageViewController {
 
 extension MyPageViewController: UIGestureRecognizerDelegate {
     func setGesture() {
-        let presentTapGesture = UITapGestureRecognizer(target: self, action: #selector(presentViewTapped))
-        mypageView.presentView.addGestureRecognizer(presentTapGesture)
         let relationTapGesture = UITapGestureRecognizer(target: self, action: #selector(relationViewTapped))
         mypageView.relationView.addGestureRecognizer(relationTapGesture)
         let albumTapGesture = UITapGestureRecognizer(target: self, action: #selector(albumViewTapped))

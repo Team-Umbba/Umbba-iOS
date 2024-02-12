@@ -165,12 +165,10 @@ enum I18N {
     enum MyPage {
         static let dayTitle = "여행을 떠난 지"
         static let answerTitle = "나눈 문답 수"
-        static let presentTitle = "선물하기"
-        static let presentDetail = "세상에 단 하나뿐인 선물을 건네보세요"
         static let relationTitle = "가까워지기"
-        static let relationDetail =  "서로에 대한\n퀴즈를 풀기"
+        static let relationDetail =  "서로에 대한 퀴즈를 풀기"
         static let albumTitle = "기록하기"
-        static let albumDetail = "소중한 순간을\n기록하세요"
+        static let albumDetail = "소중한 순간을 기록하세요"
         static let copyright = "ub company 2023 어쩌구 ver 1.2 뭔말알"
     }
 }
