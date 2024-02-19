@@ -10,9 +10,9 @@ import UIKit
 import SnapKit
 
 protocol EndingDelegate: AnyObject {
-    func surveyButtonTapped()
-    func endButtonTapped()
     func exitButtonTapped()
+    func continueButtonTapped()
+    func surveyButtonTapped()
 }
 
 final class EndingView: UIView {
@@ -37,7 +37,7 @@ final class EndingView: UIView {
     private lazy var exitButton: UIButton = {
         let button = UIButton()
         button.setImage(ImageLiterals.Common.icn_exit, for: .normal)
-        button.tintColor = .UmbbaBlack
+        button.tintColor = .Gray900
         return button
     }()
     
@@ -45,25 +45,42 @@ final class EndingView: UIView {
         let label = UILabel()
         label.text = I18N.Ending.endingTitle
         label.textColor = .UmbbaBlack
-        label.font = .PretendardRegular(size: 24)
-        label.numberOfLines = 2
-        label.partFontChange(targetString: "잠시 교신을 종료할게", font: .PretendardSemiBold(size: 24))
+        label.font = .PretendardSemiBold(size: 24)
         return label
+    }()
+    
+    private let endingSubTitle: UILabel = {
+        let label = UILabel()
+        label.text = I18N.Ending.endingSubTitle
+        label.textColor = .UmbbaBlack
+        label.font = .PretendardRegular(size: 16)
+        return label
+    }()
+    
+    private let continueTitle: UILabel = {
+        let label = UILabel()
+        label.text = I18N.Ending.continueTitle
+        label.textColor = .UmbbaBlack
+        label.font = .PretendardRegular(size: 12)
+        return label
+    }()
+    
+    private lazy var continueButton: CustomButton = {
+        let button = CustomButton(status: true, title: I18N.Home.questionButtonTitle)
+        button.setBackgroundColor(.White500, for: .normal)
+        button.setTitle(I18N.Ending.continueButtonTitle, for: .normal)
+        button.setTitleColor(.Primary500, for: .normal)
+        button.layer.borderColor = UIColor.Primary500.cgColor
+        button.layer.borderWidth = 2
+        button.adjustsImageWhenHighlighted = false
+        return button
     }()
     
     private let surveyTitle: UILabel = {
         let label = UILabel()
         label.text = I18N.Ending.surveyTitle
         label.textColor = .UmbbaBlack
-        label.font = .PretendardRegular(size: 20)
-        return label
-    }()
-    
-    private let surveySubTitle: UILabel = {
-        let label = UILabel()
-        label.text = I18N.Ending.surveySubTitle
-        label.textColor = .UmbbaBlack
-        label.font = .PretendardRegular(size: 10)
+        label.font = .PretendardRegular(size: 12)
         return label
     }()
     
@@ -72,41 +89,6 @@ final class EndingView: UIView {
         button.setTitle(I18N.Ending.surveyButtonTitle, for: .normal)
         button.setTitleColor(.White500, for: .normal)
         button.setBackgroundColor(.Primary500, for: .normal)
-        button.adjustsImageWhenHighlighted = false
-        return button
-    }()
-    
-    private let dividingText: UILabel = {
-        let label = UILabel()
-        label.text = I18N.Ending.dividingText
-        label.textColor = .Gray800
-        label.font = .PretendardRegular(size: 16)
-        return label
-    }()
-    
-    private let endTitle: UILabel = {
-        let label = UILabel()
-        label.text = I18N.Ending.endTitle
-        label.textColor = .UmbbaBlack
-        label.font = .PretendardRegular(size: 20)
-        return label
-    }()
-    
-    private let endSubTitle: UILabel = {
-        let label = UILabel()
-        label.text = I18N.Ending.endSubTitle
-        label.textColor = .UmbbaBlack
-        label.font = .PretendardRegular(size: 10)
-        return label
-    }()
-    
-    private lazy var endButton: CustomButton = {
-        let button = CustomButton(status: true, title: I18N.Home.questionButtonTitle)
-        button.setBackgroundColor(.White500, for: .normal)
-        button.setTitle(I18N.Ending.endButtonTitle, for: .normal)
-        button.setTitleColor(.Primary500, for: .normal)
-        button.layer.borderColor = UIColor.Primary500.cgColor
-        button.layer.borderWidth = 2
         button.adjustsImageWhenHighlighted = false
         return button
     }()
@@ -147,84 +129,73 @@ private extension EndingView {
     }
     
     func setHierarchy() {
-        addSubviews(endingImageView, exitButton, endingTitle,
-                    surveyTitle, surveySubTitle, surveyButton, dividingText,
-                    endTitle, endSubTitle, endButton)
+        addSubviews(exitButton, endingTitle, endingSubTitle, endingImageView, continueTitle, continueButton, surveyTitle, surveyButton)
     }
     
     func setAddTarget() {
-        surveyButton.addTarget(self, action: #selector(surveyTapped), for: .touchUpInside)
-        endButton.addTarget(self, action: #selector(endTapped), for: .touchUpInside)
-        exitButton.addTarget(self, action: #selector(exitTapped), for: .touchUpInside)
+        surveyButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+        continueButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+        exitButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
     }
     
     func setLayout() {
-        endingImageView.snp.makeConstraints {
-            $0.leading.trailing.equalToSuperview()
-            $0.bottom.equalToSuperview()
-        }
-        
         exitButton.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(SizeLiterals.Screen.deviceRatio > 0.5 ? 30 : 52)
-            $0.trailing.equalToSuperview().inset(15)
+            $0.top.equalTo(safeAreaLayoutGuide).offset(6)
+            $0.leading.equalToSuperview().inset(8)
             $0.size.equalTo(48)
         }
         
         endingTitle.snp.makeConstraints {
-            $0.top.equalTo(exitButton.snp.bottom).offset(17)
+            $0.top.equalTo(exitButton.snp.bottom).offset(18)
             $0.leading.equalToSuperview().inset(28)
         }
         
-        surveyTitle.snp.makeConstraints {
-            $0.top.equalTo(endingTitle.snp.bottom).offset(42)
-            $0.leading.equalToSuperview().inset(28)
+        endingSubTitle.snp.makeConstraints {
+            $0.top.equalTo(endingTitle.snp.bottom).offset(12)
+            $0.leading.equalTo(endingTitle.snp.leading)
         }
         
-        surveySubTitle.snp.makeConstraints {
-            $0.top.equalTo(surveyTitle.snp.bottom).offset(6)
-            $0.leading.equalTo(surveyTitle.snp.leading)
+        endingImageView.snp.makeConstraints {
+            $0.top.equalTo(endingSubTitle.snp.bottom).offset(SizeLiterals.Screen.screenHeight * 81 / 812)
+            $0.leading.trailing.equalToSuperview()
         }
         
         surveyButton.snp.makeConstraints {
-            $0.top.equalTo(surveySubTitle.snp.bottom).offset(16)
-            $0.leading.trailing.equalToSuperview().inset(28)
+            $0.bottom.equalTo(safeAreaLayoutGuide).offset(-12)
+            $0.centerX.equalToSuperview()
+            $0.width.equalTo(SizeLiterals.Screen.screenWidth - 56)
             $0.height.equalTo(60)
         }
         
-        dividingText.snp.makeConstraints {
-            $0.top.equalTo(surveyButton.snp.bottom).offset(28)
-            $0.centerX.equalToSuperview().inset(28)
+        surveyTitle.snp.makeConstraints {
+            $0.bottom.equalTo(surveyButton.snp.top).offset(-12)
+            $0.centerX.equalToSuperview()
         }
         
-        endTitle.snp.makeConstraints {
-            $0.top.equalTo(dividingText.snp.bottom).offset(28)
-            $0.leading.equalToSuperview().inset(28)
-        }
-        
-        endSubTitle.snp.makeConstraints {
-            $0.top.equalTo(endTitle.snp.bottom).offset(6)
-            $0.leading.equalTo(endTitle.snp.leading)
-        }
-        
-        endButton.snp.makeConstraints {
-            $0.top.equalTo(endSubTitle.snp.bottom).offset(16)
-            $0.leading.trailing.equalToSuperview().inset(28)
+        continueButton.snp.makeConstraints {
+            $0.bottom.equalTo(surveyTitle.snp.top).offset(-16)
+            $0.centerX.equalToSuperview()
+            $0.width.equalTo(SizeLiterals.Screen.screenWidth - 56)
             $0.height.equalTo(60)
+        }
+        
+        continueTitle.snp.makeConstraints {
+            $0.bottom.equalTo(continueButton.snp.top).offset(-12)
+            $0.centerX.equalToSuperview()
         }
     }
     
     @objc
-    func surveyTapped() {
-        endingDelegate?.surveyButtonTapped()
-    }
-
-    @objc
-    func endTapped() {
-        endingDelegate?.endButtonTapped()
-    }
-    
-    @objc
-    func exitTapped() {
-        endingDelegate?.exitButtonTapped()
+    func buttonTapped(_ sender: UIButton) {
+        switch sender {
+        case exitButton:
+            endingDelegate?.exitButtonTapped()
+        case continueButton:
+            endingDelegate?.continueButtonTapped()
+        case surveyButton:
+            endingDelegate?.surveyButtonTapped()
+        default:
+            break
+        }
     }
 }
