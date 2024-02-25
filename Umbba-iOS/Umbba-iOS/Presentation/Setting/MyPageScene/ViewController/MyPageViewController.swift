@@ -15,6 +15,14 @@ final class MyPageViewController: UIViewController {
     
     private let mypageView = MyPageView()
     
+    // MARK: - Properties
+    
+    private var myPageEntity: MyPageEntity? {
+        didSet {
+            fetchMyPageData()
+        }
+    }
+    
     // MARK: - Life Cycles
     
     override func loadView() {
@@ -26,8 +34,10 @@ final class MyPageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        getMyPageAPI()
         setDelegate()
         setGesture()
+       
     }
 }
 
@@ -36,6 +46,11 @@ final class MyPageViewController: UIViewController {
 private extension MyPageViewController {
     func setDelegate() {
         mypageView.delegate = self
+    }
+    
+    func fetchMyPageData() {
+        guard let myPageEntity = myPageEntity else { return }
+        mypageView.setDataBind(model: myPageEntity)
     }
     
     @objc
@@ -68,5 +83,30 @@ extension MyPageViewController: SettingButtonDelegate {
         let settingViewController = SettingViewController()
         settingViewController.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(settingViewController, animated: true)
+    }
+}
+
+// MARK: - Network
+
+extension MyPageViewController {
+    
+    func getMyPageAPI() {
+        MyPageService.shared.getMyPageAPI { networkResult in
+            print("23131232312")
+            print(networkResult)
+            switch networkResult {
+            case .success(let data):
+                dump(data)
+                if let data = data as? GenericResponse<MyPageEntity> {
+                    if let myPageData = data.data {
+                        self.myPageEntity = myPageData
+                    }
+                }
+            case .requestErr, .serverErr:
+                self.makeAlert(title: "오류가 발생했습니다", message: "다시 시도해주세요")
+            default:
+                break
+            }
+        }
     }
 }

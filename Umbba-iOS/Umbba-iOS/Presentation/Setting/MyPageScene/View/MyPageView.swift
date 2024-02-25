@@ -388,3 +388,18 @@ private extension MyPageView {
     }
     
 }
+
+extension MyPageView {
+    
+    func setDataBind(model: MyPageEntity) {
+        parentLabel.text = model.opponentUserType
+        parentNicknameLabel.text = model.opponentUsername == nil ? "상대미연결" : model.opponentUsername
+        childLabel.text = model.myUserType
+        childNicknameLabel.text = model.myUsername
+        topicLabel.text = "지금은 \(model.section)"
+        dayLabel.text = "\(model.matchedDate)일 째"
+        answerLabel.text = "\(model.qnaCnt)개"
+        
+    }
+    
+}
