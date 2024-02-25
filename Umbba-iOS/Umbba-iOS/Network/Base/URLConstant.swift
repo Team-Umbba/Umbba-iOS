@@ -38,4 +38,9 @@ enum URLConstant {
  
     static let archivingURL = baseURL + "/qna/list"
     static let qnaURL = baseURL + "/qna"
+    
+    // MARK: -  MyPage URL
+       
+    static let myPageURL =  baseURL + "/user/me"
+    
 }
