@@ -37,7 +37,6 @@ final class MyPageViewController: UIViewController {
         getMyPageAPI()
         setDelegate()
         setGesture()
-       
     }
 }
 
@@ -55,16 +54,30 @@ private extension MyPageViewController {
     
     @objc
     func albumViewTapped() {
-        let recordViewController = RecordViewController()
-        recordViewController.hidesBottomBarWhenPushed = true
-        self.navigationController?.pushViewController(recordViewController, animated: true)
+        if myPageEntity?.opponentUsername == nil {
+            guard let inviteCode = myPageEntity?.inviteCode  else { return }
+            guard let inviteUsername = myPageEntity?.myUsername else { return }
+            guard let installURL = myPageEntity?.installURL else { return }
+            NotificationCenter.default.post(name: Notification.Name("share"), object: nil, userInfo: ["inviteCode": inviteCode, "inviteUserName": inviteUsername, "installURL": installURL])
+        } else {
+            let recordViewController = RecordViewController()
+            recordViewController.hidesBottomBarWhenPushed = true
+            self.navigationController?.pushViewController(recordViewController, animated: true)
+        }
     }
     
     @objc
     func relationViewTapped() {
-        let quizViewController = QuizViewController()
-        quizViewController.hidesBottomBarWhenPushed = true
-        self.navigationController?.pushViewController(quizViewController, animated: true)
+        if myPageEntity?.opponentUsername == nil {
+            guard let inviteCode = myPageEntity?.inviteCode  else { return }
+            guard let inviteUsername = myPageEntity?.myUsername else { return }
+            guard let installURL = myPageEntity?.installURL else { return }
+            NotificationCenter.default.post(name: Notification.Name("share"), object: nil, userInfo: ["inviteCode": inviteCode, "inviteUserName": inviteUsername, "installURL": installURL])
+        } else {
+            let quizViewController = QuizViewController()
+            quizViewController.hidesBottomBarWhenPushed = true
+            self.navigationController?.pushViewController(quizViewController, animated: true)
+        }
     }
 }
 
@@ -92,11 +105,8 @@ extension MyPageViewController {
     
     func getMyPageAPI() {
         MyPageService.shared.getMyPageAPI { networkResult in
-            print("23131232312")
-            print(networkResult)
             switch networkResult {
             case .success(let data):
-                dump(data)
                 if let data = data as? GenericResponse<MyPageEntity> {
                     if let myPageData = data.data {
                         self.myPageEntity = myPageData
