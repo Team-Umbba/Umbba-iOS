@@ -38,7 +38,6 @@ final class MyPageView: UIView {
     
     private let parentLabel: UILabel = {
         let label = UILabel()
-        label.text = "엄마"
         label.textColor = .Gray800
         label.font = .PretendardRegular(size: 16)
         return label
@@ -46,7 +45,6 @@ final class MyPageView: UIView {
     
     private let parentNicknameLabel: UILabel = {
         let label = UILabel()
-        label.text = "닉네임"
         label.textColor = .UmbbaBlack
         label.font = .PretendardBold(size: 24)
         return label
@@ -70,7 +68,6 @@ final class MyPageView: UIView {
     
     private let childLabel: UILabel = {
         let label = UILabel()
-        label.text = "아들"
         label.textColor = .Gray800
         label.font = .PretendardRegular(size: 16)
         return label
@@ -78,7 +75,6 @@ final class MyPageView: UIView {
     
     private let childNicknameLabel: UILabel = {
         let label = UILabel()
-        label.text = "닉네임"
         label.textColor = .UmbbaBlack
         label.font = .PretendardBold(size: 24)
         return label
@@ -105,10 +101,8 @@ final class MyPageView: UIView {
     
     private let topicLabel: UILabel = {
         let label = UILabel()
-        label.text = "지금은 어린시절"
         label.textColor = .UmbbaBlack
         label.font = .Cafe24Regular(size: 16)
-        label.partFontChange(targetString: "어린시절", font: .Cafe24Regular(size: 20))
         return label
     }()
     
@@ -122,7 +116,6 @@ final class MyPageView: UIView {
     
     private let dayLabel: UILabel = {
         let label = UILabel()
-        label.text = "7일 째"
         label.textColor = .UmbbaBlack
         label.font = .PretendardRegular(size: 16)
         return label
@@ -154,7 +147,6 @@ final class MyPageView: UIView {
     
     private let answerLabel: UILabel = {
         let label = UILabel()
-        label.text = "4개"
         label.textColor = .UmbbaBlack
         label.font = .PretendardRegular(size: 16)
         return label
@@ -393,10 +385,11 @@ extension MyPageView {
     
     func setDataBind(model: MyPageEntity) {
         parentLabel.text = model.opponentUserType
-        parentNicknameLabel.text = model.opponentUsername == nil ? "상대미연결" : model.opponentUsername
+        parentNicknameLabel.text = model.opponentUsername == nil ? "상대 미연결" : model.opponentUsername
         childLabel.text = model.myUserType
         childNicknameLabel.text = model.myUsername
         topicLabel.text = "지금은 \(model.section)"
+        topicLabel.partFontChange(targetString: model.section, font: .Cafe24Regular(size: 20))
         dayLabel.text = "\(model.matchedDate)일 째"
         answerLabel.text = "\(model.qnaCnt)개"
         
