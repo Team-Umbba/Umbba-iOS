@@ -158,6 +158,7 @@
 		A42740EE2A5FBBE500D05B14 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = A42740ED2A5FBBE500D05B14 /* Lottie */; };
 		A42740F02A5FBCA100D05B14 /* LottieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42740EF2A5FBCA100D05B14 /* LottieViewController.swift */; };
 		A42740F22A5FBDF600D05B14 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42740F12A5FBDF600D05B14 /* LottieView.swift */; };
+		A43C73B22B8AF46B00B39F21 /* RestartEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43C73B12B8AF46B00B39F21 /* RestartEntity.swift */; };
 		A4743BA02A673D42007FB69C /* MakeAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4743B9F2A673D42007FB69C /* MakeAlert.swift */; };
 		A4743BA42A681CBE007FB69C /* UserDefaultWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4743BA32A681CBE007FB69C /* UserDefaultWrapper.swift */; };
 		A47BDA492A5D5FD6007B8E3E /* AssignView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47BDA482A5D5FD6007B8E3E /* AssignView.swift */; };
@@ -308,6 +309,7 @@
 		A42723C82A5A8162003C445F /* ArchivingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchivingViewController.swift; sourceTree = "<group>"; };
 		A42740EF2A5FBCA100D05B14 /* LottieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieViewController.swift; sourceTree = "<group>"; };
 		A42740F12A5FBDF600D05B14 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
+		A43C73B12B8AF46B00B39F21 /* RestartEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestartEntity.swift; sourceTree = "<group>"; };
 		A4743B9F2A673D42007FB69C /* MakeAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeAlert.swift; sourceTree = "<group>"; };
 		A4743BA32A681CBE007FB69C /* UserDefaultWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultWrapper.swift; sourceTree = "<group>"; };
 		A47BDA482A5D5FD6007B8E3E /* AssignView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignView.swift; sourceTree = "<group>"; };
@@ -1067,6 +1069,7 @@
 		697E19A22A63204200D4752D /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				A43C73B02B8AF43700B39F21 /* Restart */,
 				697E19C22A63233800D4752D /* Main */,
 				697E19C42A63238800D4752D /* Today */,
 				697E19C52A63239800D4752D /* Answer */,
@@ -1400,6 +1403,14 @@
 				A42740EF2A5FBCA100D05B14 /* LottieViewController.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		A43C73B02B8AF43700B39F21 /* Restart */ = {
+			isa = PBXGroup;
+			children = (
+				A43C73B12B8AF46B00B39F21 /* RestartEntity.swift */,
+			);
+			path = Restart;
 			sourceTree = "<group>";
 		};
 		A47BDA452A5D5F8D007B8E3E /* AssignScene */ = {
@@ -1738,6 +1749,7 @@
 				697E19AB2A63216B00D4752D /* LogoutEntity.swift in Sources */,
 				69636FAD2A5A615C008B457A /* FamilyInfoViewController.swift in Sources */,
 				697E19BB2A6322D700D4752D /* MatchEntity.swift in Sources */,
+				A43C73B22B8AF46B00B39F21 /* RestartEntity.swift in Sources */,
 				6951A6AA2A61B82300D49692 /* QuestCollectionCell.swift in Sources */,
 				69A24CF72ACB10B6002F2D75 /* UpdateAlertView.swift in Sources */,
 				697E199D2A631D9800D4752D /* BaseService.swift in Sources */,
