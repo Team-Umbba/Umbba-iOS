@@ -122,7 +122,7 @@ private extension MainViewController {
                     NotificationCenter.default.post(name: Notification.Name("hide"), object: nil, userInfo: nil)
                     if let mainData = data.data {
                         self.mainEntity = mainData
-                        if mainData.index > 7 && !self.isShow {
+                        if mainData.index == -1 && !self.isShow {
                             self.isShow = true
                             self.getEndingPage()
                         }
