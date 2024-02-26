@@ -31,6 +31,7 @@ enum URLConstant {
     
     static let answerURL = baseURL + "/qna/today"
     static let answerURL2 = baseURL + "/qna/answer"
+    static let restartURL = baseURL + "/qna/restart"
     
     static let caseURL = baseURL + "/home/case"
     
