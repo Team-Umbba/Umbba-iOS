@@ -140,7 +140,7 @@ private extension EndingView {
     
     func setLayout() {
         exitButton.snp.makeConstraints {
-            $0.top.equalTo(safeAreaLayoutGuide).offset(6)
+            $0.top.equalToSuperview().inset(51)
             $0.leading.equalToSuperview().inset(8)
             $0.size.equalTo(48)
         }
@@ -161,7 +161,7 @@ private extension EndingView {
         }
         
         surveyButton.snp.makeConstraints {
-            $0.bottom.equalTo(safeAreaLayoutGuide).offset(-12)
+            $0.bottom.equalToSuperview().inset(44)
             $0.centerX.equalToSuperview()
             $0.width.equalTo(SizeLiterals.Screen.screenWidth - 56)
             $0.height.equalTo(60)
