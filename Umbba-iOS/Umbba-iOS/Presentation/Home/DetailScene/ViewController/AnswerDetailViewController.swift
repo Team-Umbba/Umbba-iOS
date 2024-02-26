@@ -77,8 +77,7 @@ extension AnswerDetailViewController {
         answerDetailView.setTodayDataBind(model: todayEntity)
         if todayEntity.isMyAnswer && todayEntity.isOpponentAnswer {
             answerDetailView.partnerAnswerContent.blurRadius = 0
-        }
-        else {
+        } else {
             return
         }
     }
