@@ -20,7 +20,7 @@ final class MyPageView: UIView {
     // MARK: - Properties
     
     weak var delegate: SettingButtonDelegate?
-
+    
     // MARK: - UI Components
     
     private let navigationBarView: CustomNavigationBar = {
@@ -36,9 +36,24 @@ final class MyPageView: UIView {
         return view
     }()
     
+    private let parentMeView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .Gray800
+        view.layer.cornerRadius = 7
+        view.isHidden = true
+        return view
+    }()
+    
+    private let parentMeLabel: UILabel = {
+        let label = UILabel()
+        label.text = "나"
+        label.textColor = .White400
+        label.font = .PretendardBold(size: 12)
+        return label
+    }()
+    
     private let parentLabel: UILabel = {
         let label = UILabel()
-        label.text = "엄마"
         label.textColor = .Gray800
         label.font = .PretendardRegular(size: 16)
         return label
@@ -46,20 +61,9 @@ final class MyPageView: UIView {
     
     private let parentNicknameLabel: UILabel = {
         let label = UILabel()
-        label.text = "닉네임"
         label.textColor = .UmbbaBlack
         label.font = .PretendardBold(size: 24)
         return label
-    }()
-    
-    private lazy var parentStackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .vertical
-        stackView.distribution = .fillEqually
-        stackView.spacing = 2
-        stackView.alignment = .trailing
-        stackView.addArrangedSubviews(parentLabel, parentNicknameLabel)
-        return stackView
     }()
     
     private let lineImageView: UIImageView = {
@@ -68,9 +72,24 @@ final class MyPageView: UIView {
         return imageView
     }()
     
+    private let childMeView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .Gray800
+        view.layer.cornerRadius = 7
+        view.isHidden = true
+        return view
+    }()
+    
+    private let childMeLabel: UILabel = {
+        let label = UILabel()
+        label.text = "나"
+        label.textColor = .White400
+        label.font = .PretendardBold(size: 12)
+        return label
+    }()
+    
     private let childLabel: UILabel = {
         let label = UILabel()
-        label.text = "아들"
         label.textColor = .Gray800
         label.font = .PretendardRegular(size: 16)
         return label
@@ -78,37 +97,15 @@ final class MyPageView: UIView {
     
     private let childNicknameLabel: UILabel = {
         let label = UILabel()
-        label.text = "닉네임"
         label.textColor = .UmbbaBlack
         label.font = .PretendardBold(size: 24)
         return label
     }()
     
-    private lazy var childStackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .vertical
-        stackView.distribution = .fillEqually
-        stackView.spacing = 2
-        stackView.alignment = .leading
-        stackView.addArrangedSubviews(childLabel, childNicknameLabel)
-        return stackView
-    }()
-    
-    private lazy var infoStackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .horizontal
-        stackView.distribution = .fill
-        stackView.spacing = 16
-        stackView.addArrangedSubviews(parentStackView, lineImageView, childStackView)
-        return stackView
-    }()
-    
     private let topicLabel: UILabel = {
         let label = UILabel()
-        label.text = "지금은 어린시절"
         label.textColor = .UmbbaBlack
         label.font = .Cafe24Regular(size: 16)
-        label.partFontChange(targetString: "어린시절", font: .Cafe24Regular(size: 20))
         return label
     }()
     
@@ -122,7 +119,6 @@ final class MyPageView: UIView {
     
     private let dayLabel: UILabel = {
         let label = UILabel()
-        label.text = "7일 째"
         label.textColor = .UmbbaBlack
         label.font = .PretendardRegular(size: 16)
         return label
@@ -154,7 +150,6 @@ final class MyPageView: UIView {
     
     private let answerLabel: UILabel = {
         let label = UILabel()
-        label.text = "4개"
         label.textColor = .UmbbaBlack
         label.font = .PretendardRegular(size: 16)
         return label
@@ -283,7 +278,10 @@ private extension MyPageView {
     
     func setLayout() {
         self.addSubviews(backgroundView, navigationBarView, viewStackView, copyrightLabel)
-        backgroundView.addSubviews(infoStackView, topicLabel, dayStackView, lineView, answerStackView, topicImageView)
+        backgroundView.addSubviews(parentLabel, parentNicknameLabel, parentMeView, childMeView, childLabel, childNicknameLabel,
+                                   lineImageView, topicLabel, dayStackView, lineView, answerStackView, topicImageView)
+        parentMeView.addSubview(parentMeLabel)
+        childMeView.addSubview(childMeLabel)
         relationView.addSubviews(relationTitleLabel, relationDetailLabel, relationImageView)
         albumView.addSubviews(albumTitleLabel, albumDetailLabel, albumImageView)
         
@@ -299,13 +297,52 @@ private extension MyPageView {
         }
         
         lineImageView.snp.makeConstraints {
+            $0.top.equalTo(navigationBarView.snp.bottom).offset(30)
+            $0.centerX.equalToSuperview()
             $0.width.equalTo(60)
             $0.height.equalTo(50)
         }
         
-        infoStackView.snp.makeConstraints {
-            $0.top.equalTo(navigationBarView.snp.bottom).offset(30)
-            $0.centerX.equalToSuperview()
+        parentLabel.snp.makeConstraints {
+            $0.top.equalTo(lineImageView.snp.top)
+            $0.trailing.equalTo(lineImageView.snp.leading).offset(-10)
+        }
+        
+        parentNicknameLabel.snp.makeConstraints {
+            $0.top.equalTo(parentLabel.snp.bottom).offset(2)
+            $0.trailing.equalTo(parentLabel.snp.trailing)
+        }
+        
+        parentMeView.snp.makeConstraints {
+            $0.width.equalTo(23)
+            $0.height.equalTo(14)
+            $0.centerY.equalTo(parentLabel.snp.centerY)
+            $0.trailing.equalTo(parentLabel.snp.leading).offset(-4)
+        }
+        
+        parentMeLabel.snp.makeConstraints {
+            $0.center.equalToSuperview()
+        }
+      
+        childMeView.snp.makeConstraints {
+            $0.width.equalTo(23)
+            $0.height.equalTo(14)
+            $0.centerY.equalTo(childLabel.snp.centerY)
+            $0.leading.equalTo(lineImageView.snp.trailing).offset(10)
+        }
+        
+        childMeLabel.snp.makeConstraints {
+            $0.center.equalToSuperview()
+        }
+        
+        childLabel.snp.makeConstraints {
+            $0.top.equalTo(lineImageView.snp.top)
+            $0.leading.equalTo(childMeView.snp.trailing).offset(6)
+        }
+        
+        childNicknameLabel.snp.makeConstraints {
+            $0.top.equalTo(childLabel.snp.bottom).offset(2)
+            $0.leading.equalTo(lineImageView.snp.trailing).offset(10)
         }
         
         topicLabel.snp.makeConstraints {
@@ -379,7 +416,6 @@ private extension MyPageView {
             $0.bottom.equalToSuperview().inset(16)
             $0.centerX.equalToSuperview()
         }
-        
     }
     
     @objc
@@ -387,4 +423,32 @@ private extension MyPageView {
         delegate?.settingButtonTapped()
     }
     
+}
+
+extension MyPageView {
+    
+    func setDataBind(model: MyPageEntity) {
+       if model.myUserType == "딸" || model.myUserType == "아들" {
+           childMeView.isHidden = false
+           parentLabel.text = model.opponentUserType
+           parentNicknameLabel.text = model.opponentUsername == nil ? "상대 미연결" : model.opponentUsername
+           childLabel.text = model.myUserType
+           childNicknameLabel.text = model.myUsername
+       } else {
+           parentMeView.isHidden = false
+           childLabel.snp.remakeConstraints {
+               $0.top.equalTo(lineImageView.snp.top)
+               $0.leading.equalTo(lineImageView.snp.trailing).offset(10)
+           }
+           parentLabel.text = model.myUserType
+           parentNicknameLabel.text = model.myUsername
+           childLabel.text = model.opponentUserType
+           childNicknameLabel.text = model.opponentUsername == nil ? "상대 미연결" : model.opponentUsername
+       }
+        topicLabel.text = "지금은 \(model.section)"
+        topicLabel.partFontChange(targetString: model.section, font: .Cafe24Regular(size: 20))
+        dayLabel.text = "\(model.matchedDate)일 째"
+        answerLabel.text = "\(model.qnaCnt)개"
+    }
+
 }
