@@ -37,6 +37,10 @@ final class EndingViewController: UIViewController {
 
 private extension EndingViewController {
     
+    func setUI() {
+        self.navigationController?.navigationBar.isHidden = true
+    }
+    
     func setDelegate() {
         endingView.endingDelegate = self
     }
@@ -45,17 +49,14 @@ private extension EndingViewController {
 extension EndingViewController: EndingDelegate {
     
     func exitButtonTapped() {
+        patchRestartAPI()
         self.navigationController?.popViewController(animated: false)
     }
     
     func continueButtonTapped() {
         patchRestartAPI()
-        
-        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-              let keyWindow = windowScene.windows.first else {
-            return
-        }
-        keyWindow.rootViewController = TabBarController()
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "patchRestart"), object: nil)
+        self.navigationController?.popViewController(animated: false)
     }
     
     func surveyButtonTapped() {

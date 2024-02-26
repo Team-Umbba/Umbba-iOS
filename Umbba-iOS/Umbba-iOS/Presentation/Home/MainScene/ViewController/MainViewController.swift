@@ -45,6 +45,7 @@ final class MainViewController: UIViewController {
     
     override func loadView() {
         super.loadView()
+        
         self.view = mainView
     }
     
@@ -60,11 +61,23 @@ final class MainViewController: UIViewController {
         getCaseAPI()
         getMainAPI()
     }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
 }
 
 private extension MainViewController {
     func setDelegate() {
         mainView.mainDelegate = self
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadView), name: NSNotification.Name(rawValue: "patchRestart"), object: nil)
+    }
+    
+    @objc
+    func reloadView() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+            self.getMainAPI()
+        }
     }
     
     func fetchData() {
@@ -97,6 +110,17 @@ private extension MainViewController {
             NotificationCenter.default.post(name: Notification.Name("share"), object: nil, userInfo: ["inviteCode": inviteCode, "inviteUserName": inviteUsername, "installURL": installURL])
         case 3:
             NotificationCenter.default.post(name: Notification.Name("disconnect"), object: nil, userInfo: nil)
+        case 4:
+            guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+                  let keyWindow = windowScene.windows.first else {
+                return
+            }
+            let answerDetailController = AnswerDetailViewController()
+            answerDetailController.isHome = true
+            keyWindow.rootViewController = UINavigationController(rootViewController: answerDetailController)
+            if let navigationController = keyWindow.rootViewController as? UINavigationController {
+                navigationController.isNavigationBarHidden = true
+            }
         default:
             break
         }
