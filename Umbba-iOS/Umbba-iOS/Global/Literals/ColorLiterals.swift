@@ -9,7 +9,7 @@ import UIKit
 
 extension UIColor {
     static var Primary400: UIColor {
-        return UIColor(hex: "#E7B8B7")
+        return UIColor(hex: "#FCF4F4")
     }
     
     static var Primary500: UIColor {
