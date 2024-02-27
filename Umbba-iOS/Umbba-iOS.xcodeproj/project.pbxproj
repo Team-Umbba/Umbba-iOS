@@ -161,6 +161,8 @@
 		A42740F02A5FBCA100D05B14 /* LottieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42740EF2A5FBCA100D05B14 /* LottieViewController.swift */; };
 		A42740F22A5FBDF600D05B14 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42740F12A5FBDF600D05B14 /* LottieView.swift */; };
 		A43C73B22B8AF46B00B39F21 /* RestartEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43C73B12B8AF46B00B39F21 /* RestartEntity.swift */; };
+		A43C73CC2B8E2E0400B39F21 /* UploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43C73CB2B8E2E0400B39F21 /* UploadViewController.swift */; };
+		A43C73CE2B8E2E1000B39F21 /* UploadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43C73CD2B8E2E1000B39F21 /* UploadView.swift */; };
 		A4743BA02A673D42007FB69C /* MakeAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4743B9F2A673D42007FB69C /* MakeAlert.swift */; };
 		A4743BA42A681CBE007FB69C /* UserDefaultWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4743BA32A681CBE007FB69C /* UserDefaultWrapper.swift */; };
 		A47BDA492A5D5FD6007B8E3E /* AssignView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47BDA482A5D5FD6007B8E3E /* AssignView.swift */; };
@@ -314,6 +316,8 @@
 		A42740EF2A5FBCA100D05B14 /* LottieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieViewController.swift; sourceTree = "<group>"; };
 		A42740F12A5FBDF600D05B14 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		A43C73B12B8AF46B00B39F21 /* RestartEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestartEntity.swift; sourceTree = "<group>"; };
+		A43C73CB2B8E2E0400B39F21 /* UploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadViewController.swift; sourceTree = "<group>"; };
+		A43C73CD2B8E2E1000B39F21 /* UploadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadView.swift; sourceTree = "<group>"; };
 		A4743B9F2A673D42007FB69C /* MakeAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeAlert.swift; sourceTree = "<group>"; };
 		A4743BA32A681CBE007FB69C /* UserDefaultWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultWrapper.swift; sourceTree = "<group>"; };
 		A47BDA482A5D5FD6007B8E3E /* AssignView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignView.swift; sourceTree = "<group>"; };
@@ -1322,6 +1326,7 @@
 		A423E8812B6405F900B8C125 /* Record */ = {
 			isa = PBXGroup;
 			children = (
+				A43C73C82B8E2DE800B39F21 /* UploadScene */,
 				A423E8822B64061900B8C125 /* RecordScene */,
 			);
 			path = Record;
@@ -1425,6 +1430,31 @@
 				A43C73B12B8AF46B00B39F21 /* RestartEntity.swift */,
 			);
 			path = Restart;
+			sourceTree = "<group>";
+		};
+		A43C73C82B8E2DE800B39F21 /* UploadScene */ = {
+			isa = PBXGroup;
+			children = (
+				A43C73CA2B8E2DF100B39F21 /* View */,
+				A43C73C92B8E2DED00B39F21 /* ViewController */,
+			);
+			path = UploadScene;
+			sourceTree = "<group>";
+		};
+		A43C73C92B8E2DED00B39F21 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A43C73CB2B8E2E0400B39F21 /* UploadViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		A43C73CA2B8E2DF100B39F21 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A43C73CD2B8E2E1000B39F21 /* UploadView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		A47BDA452A5D5F8D007B8E3E /* AssignScene */ = {
@@ -1666,6 +1696,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6951A69A2A5D8A8F00D49692 /* NextButtonProtocol.swift in Sources */,
+				A43C73CC2B8E2E0400B39F21 /* UploadViewController.swift in Sources */,
 				A408BCE62AB712B200AABB46 /* ArchivingTableView.swift in Sources */,
 				A4C776102A60727100375378 /* MainView.swift in Sources */,
 				A423E88B2B64065300B8C125 /* RecordViewController.swift in Sources */,
@@ -1770,6 +1801,7 @@
 				69A24CF72ACB10B6002F2D75 /* UpdateAlertView.swift in Sources */,
 				697E199D2A631D9800D4752D /* BaseService.swift in Sources */,
 				69A67D812A5C1BB600C43F49 /* CustomNavigationBar.swift in Sources */,
+				A43C73CE2B8E2E1000B39F21 /* UploadView.swift in Sources */,
 				697815812A52FFF50047944C /* NSObject+.swift in Sources */,
 				A42723BF2A5537CD003C445F /* EntryView.swift in Sources */,
 				A4743BA02A673D42007FB69C /* MakeAlert.swift in Sources */,
