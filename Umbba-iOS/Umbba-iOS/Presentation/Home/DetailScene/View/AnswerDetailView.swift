@@ -55,8 +55,8 @@ final class AnswerDetailView: UIView {
         return stackView
     }()
     
-    private let partnerQeustLabel: UILabel = {
-        let label = UILabel()
+    let partnerQuestLabel: BlurLabel = {
+        let label = BlurLabel()
         label.textColor = .UmbbaBlack
         label.font = .PretendardSemiBold(size: 20)
         label.numberOfLines = 0
@@ -74,6 +74,14 @@ final class AnswerDetailView: UIView {
     
     lazy var partnerAnswerContent: BlurLabel = {
         let label = BlurLabel()
+        label.textColor = .UmbbaBlack
+        label.font = .PretendardRegular(size: 16)
+        label.numberOfLines = 0
+        return label
+    }()
+    
+    private let partnerLabel: UILabel = {
+        let label = UILabel()
         label.textColor = .Gray800
         label.text = I18N.Detail.noneAnswer
         label.font = .PretendardRegular(size: 16)
@@ -114,10 +122,17 @@ final class AnswerDetailView: UIView {
     
     private lazy var myAnswerContent: UILabel = {
         let label = UILabel()
+        label.textColor = .UmbbaBlack
+        label.textAlignment = .right
+        label.numberOfLines = 0
+        return label
+    }()
+    
+    private let myLabel: UILabel = {
+        let label = UILabel()
         label.textColor = .Gray800
         label.text = I18N.Detail.pleaseAnswer
         label.font = .PretendardRegular(size: 16)
-        label.textAlignment = .right
         label.numberOfLines = 0
         return label
     }()
@@ -170,9 +185,9 @@ private extension AnswerDetailView {
     }
     
     func setLayout() {
-        self.addSubviews(navigationBarView, themeStackView, nextButton, homeButton, partnerQeustLabel, partnerAnswerView, myQuestLabel, myAnswerView)
-        partnerAnswerView.addSubviews(partnerNameLabel, partnerAnswerContent)
-        myAnswerView.addSubviews(myNameLabel, myAnswerContent)
+        self.addSubviews(navigationBarView, themeStackView, nextButton, homeButton, partnerAnswerView, myAnswerView)
+        partnerAnswerView.addSubviews(partnerQuestLabel, partnerNameLabel, partnerLabel, partnerAnswerContent)
+        myAnswerView.addSubviews(myQuestLabel, myNameLabel, myLabel, myAnswerContent)
         
         navigationBarView.snp.makeConstraints {
             $0.top.equalTo(self.safeAreaLayoutGuide)
@@ -184,15 +199,15 @@ private extension AnswerDetailView {
             $0.centerX.equalToSuperview()
         }
         
-        partnerQeustLabel.snp.makeConstraints {
-            $0.trailing.leading.equalToSuperview().inset(24)
+        partnerAnswerView.snp.makeConstraints {
             $0.top.equalTo(themeStackView.snp.bottom).offset(24)
+            $0.width.equalTo(SizeLiterals.Screen.screenWidth - 60)
+            $0.centerX.equalToSuperview()
+            $0.height.equalTo(SizeLiterals.Screen.screenHeight * 212 / 812)
         }
         
-        partnerAnswerView.snp.makeConstraints {
-            $0.top.equalTo(partnerQeustLabel.snp.bottom).offset(12)
-            $0.leading.trailing.equalToSuperview().inset(22)
-            $0.height.equalTo(SizeLiterals.Screen.screenHeight * 174 / 812)
+        partnerQuestLabel.snp.makeConstraints {
+            $0.top.trailing.leading.equalToSuperview().inset(16)
         }
         
         partnerNameLabel.snp.makeConstraints {
@@ -200,37 +215,51 @@ private extension AnswerDetailView {
         }
         
         partnerAnswerContent.snp.makeConstraints {
-            $0.top.leading.trailing.equalToSuperview().inset(16)
+            $0.top.equalTo(partnerQuestLabel.snp.bottom).offset(16)
+            $0.leading.trailing.equalToSuperview().inset(16)
         }
         
-        myQuestLabel.snp.makeConstraints {
-            $0.leading.trailing.equalToSuperview().inset(24)
-            $0.top.equalTo(partnerAnswerView.snp.bottom).offset(16)
+        partnerLabel.snp.makeConstraints {
+            $0.top.equalTo(partnerQuestLabel.snp.bottom).offset(60)
+            $0.centerX.equalToSuperview()
         }
         
         myAnswerView.snp.makeConstraints {
-            $0.top.equalTo(myQuestLabel.snp.bottom).offset(12)
-            $0.leading.trailing.equalToSuperview().inset(22)
-            $0.height.equalTo(SizeLiterals.Screen.screenHeight * 174 / 812)
+            $0.top.equalTo(partnerAnswerView.snp.bottom).offset(16)
+            $0.width.equalTo(SizeLiterals.Screen.screenWidth - 60)
+            $0.centerX.equalToSuperview()
+            $0.height.equalTo(SizeLiterals.Screen.screenHeight * 212 / 812)
+        }
+        
+        myQuestLabel.snp.makeConstraints {
+            $0.top.leading.trailing.equalToSuperview().inset(16)
         }
         
         myNameLabel.snp.makeConstraints {
             $0.trailing.bottom.equalToSuperview().inset(16)
         }
         
+        myLabel.snp.makeConstraints {
+            $0.top.equalTo(myQuestLabel.snp.bottom).offset(60)
+            $0.centerX.equalToSuperview()
+        }
+        
         myAnswerContent.snp.makeConstraints {
-            $0.top.leading.trailing.equalToSuperview().inset(16)
+            $0.top.equalTo(myQuestLabel.snp.bottom).offset(16)
+            $0.leading.trailing.equalToSuperview().inset(16)
         }
         
         nextButton.snp.makeConstraints {
             $0.bottom.equalTo(self.safeAreaLayoutGuide).offset(-12)
-            $0.trailing.leading.equalToSuperview().inset(20)
+            $0.width.equalTo(SizeLiterals.Screen.screenWidth - 40)
+            $0.centerX.equalToSuperview()
             $0.height.equalTo(60)
         }
         
         homeButton.snp.makeConstraints {
             $0.bottom.equalTo(self.safeAreaLayoutGuide).offset(-12)
-            $0.trailing.leading.equalToSuperview().inset(20)
+            $0.width.equalTo(SizeLiterals.Screen.screenWidth - 40)
+            $0.centerX.equalToSuperview()
             $0.height.equalTo(60)
         }
     }
@@ -254,40 +283,66 @@ private extension AnswerDetailView {
     func handleTap(sender: UITapGestureRecognizer) {
         nextDelegate?.nextButtonTapped()
     }
+    
+    func setButton(isNextButton: Bool) {
+        nextButton.isHidden = !isNextButton
+        homeButton.isHidden = isNextButton
+    }
+    
+    func setGesture() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(sender:)))
+        myAnswerView.addGestureRecognizer(tapGesture)
+    }
+    
+    func removeGesture() {
+        for gestureRecognizer in myAnswerView.gestureRecognizers ?? [] {
+            myAnswerView.removeGestureRecognizer(gestureRecognizer)
+        }
+    }
 }
 
 extension AnswerDetailView {
+    
     func setTodayDataBind(model: TodayEntity) {
-        if model.isMyAnswer {
-            myAnswerContent.text = model.myAnswer
-            myAnswerContent.textColor = .UmbbaBlack
-            nextButton.isHidden = true
-            homeButton.isHidden = false
-            for gestureRecognizer in myAnswerView.gestureRecognizers ?? [] {
-                myAnswerView.removeGestureRecognizer(gestureRecognizer)
-            }
-        } else {
-            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(sender:)))
-            myAnswerView.addGestureRecognizer(tapGesture)
-        }
-        
-        if model.isOpponentAnswer {
-            partnerAnswerContent.text = model.opponentAnswer
-            partnerAnswerContent.textColor = .UmbbaBlack
-        }
-        
-        if model.isOpponentAnswer && !model.isMyAnswer {
-            partnerAnswerContent.text = model.opponentAnswer
-            partnerAnswerContent.blurRadius = 15
-        }
+        guard let isMyAnswer = model.isMyAnswer else { return }
+        guard let isOpponentAnswer = model.isOpponentAnswer else { return }
         
         navigationBarView.cafe24Title = model.section
         numberLabel.text = "#\(model.index ?? 0)"
         themeLabel.text = model.topic
-        partnerQeustLabel.text = model.opponentQuestion
+        partnerQuestLabel.text = model.opponentQuestion
         partnerNameLabel.text = model.opponentUsername
         myQuestLabel.text = model.myQuestion
         myNameLabel.text = model.myUsername
+        
+        switch (isMyAnswer, isOpponentAnswer) {
+        case (false, false):
+            myAnswerView.layer.borderColor = UIColor.Primary500.cgColor
+            myAnswerView.backgroundColor = .Primary400
+            partnerQuestLabel.blurRadius = 20
+            setGesture()
+            setButton(isNextButton: true)
+        case (true, false):
+            myAnswerContent.text = model.myAnswer
+            myLabel.isHidden = true
+            removeGesture()
+            setButton(isNextButton: false)
+        case (false, true):
+            myAnswerView.layer.borderColor = UIColor.Primary500.cgColor
+            myAnswerView.backgroundColor = .Primary400
+            partnerAnswerContent.blurRadius = 20
+            partnerLabel.text = I18N.Detail.yetAnswer
+            partnerAnswerContent.text = model.opponentAnswer
+            setGesture()
+            setButton(isNextButton: true)
+        case (true, true):
+            myAnswerContent.text = model.myAnswer
+            partnerAnswerContent.text = model.opponentAnswer
+            partnerLabel.isHidden = true
+            myLabel.isHidden = true
+            removeGesture()
+            setButton(isNextButton: false)
+        }
     }
     
     func setDetailDataBind(model: DetailEntity) {
@@ -300,7 +355,7 @@ extension AnswerDetailView {
         navigationBarView.cafe24Title = model.section
         numberLabel.text = "#\(model.index)"
         themeLabel.text = model.topic
-        partnerQeustLabel.text = model.opponentQuestion
+        partnerQuestLabel.text = model.opponentQuestion
         partnerNameLabel.text = model.opponentUsername
         myQuestLabel.text = model.myQuestion
         myNameLabel.text = model.myUsername

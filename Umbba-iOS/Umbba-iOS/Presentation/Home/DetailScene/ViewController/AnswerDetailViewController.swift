@@ -38,7 +38,7 @@ final class AnswerDetailViewController: UIViewController {
         
         view = answerDetailView
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -56,7 +56,7 @@ final class AnswerDetailViewController: UIViewController {
 // MARK: - Extensions
 
 extension AnswerDetailViewController {
-   
+    
     func setDelegate() {
         answerDetailView.delegate = self
         answerDetailView.nextDelegate = self
@@ -74,11 +74,14 @@ extension AnswerDetailViewController {
     
     func fetchTodayData() {
         guard let todayEntity = todayEntity else { return }
+        guard let isMyAnswer = todayEntity.isMyAnswer else { return }
+        guard let isOpponentAnswer = todayEntity.isOpponentAnswer else { return }
         answerDetailView.setTodayDataBind(model: todayEntity)
-        if todayEntity.isMyAnswer && todayEntity.isOpponentAnswer {
-            answerDetailView.partnerAnswerContent.blurRadius = 0
-        } else {
-            return
+        if isMyAnswer {
+            answerDetailView.partnerQuestLabel.blurRadius = 0
+            if isOpponentAnswer {
+                answerDetailView.partnerAnswerContent.blurRadius = 0
+            }
         }
     }
     
@@ -101,7 +104,7 @@ extension AnswerDetailViewController: NavigationBarDelegate {
             self.navigationController?.popViewController(animated: false)
         }
     }
-
+    
     func completeButtonTapped() {
         
     }
