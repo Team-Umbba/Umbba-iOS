@@ -20,7 +20,6 @@ final class RecordView: UIView {
     private let navigationBarView: CustomNavigationBar = {
         let navigation = CustomNavigationBar()
         navigation.isLeftButtonIncluded = true
-        navigation.isCameraButtonIncluded = true
         return navigation
     }()
     
@@ -53,9 +52,15 @@ final class RecordView: UIView {
         return collectionView
     }()
     
-    private let uploadButton: UIButton = {
-        let button = CustomButton(status: true, title: "사진 업로드하기")
-        return button
+    private lazy var recordButton = CustomButton(status: true, title: "사진 업로드하기")
+    
+    private let emptyImage = UIImageView(image: UIImage(resource: .recordEmpty))
+    private let emptyTitle: UILabel = {
+        let label = UILabel()
+        label.text = "업로드 한 사진이 없어요"
+        label.textColor = .Gray800
+        label.font = .PretendardSemiBold(size: 16)
+        return label
     }()
     
     // MARK: - Life Cycles
@@ -82,10 +87,11 @@ extension RecordView {
 
     func setUI() {
         backgroundColor = .White500
+        collectionView.isHidden = true
     }
     
     func setHierarchy() {
-        self.addSubviews(navigationBarView, titleLabel, subTitleLabel, uploadButton, collectionView)
+        self.addSubviews(navigationBarView, titleLabel, subTitleLabel, recordButton, collectionView, emptyImage, emptyTitle)
     }
     
     func setLayout() {
@@ -104,7 +110,7 @@ extension RecordView {
             $0.leading.equalTo(titleLabel.snp.leading)
         }
         
-        uploadButton.snp.makeConstraints {
+        recordButton.snp.makeConstraints {
             $0.bottom.equalTo(self.safeAreaLayoutGuide).offset(-12)
             $0.leading.trailing.equalToSuperview().inset(28)
             $0.height.equalTo(60)
@@ -113,7 +119,19 @@ extension RecordView {
         collectionView.snp.makeConstraints {
             $0.top.equalTo(subTitleLabel.snp.bottom).offset(24)
             $0.leading.trailing.equalToSuperview().inset(24)
-            $0.bottom.equalTo(uploadButton.snp.top)
+            $0.bottom.equalTo(recordButton.snp.top)
+        }
+        
+        emptyImage.snp.makeConstraints {
+            $0.top.equalTo(subTitleLabel.snp.bottom).offset(SizeLiterals.Screen.screenHeight * 120 / 812)
+            $0.centerX.equalToSuperview()
+            $0.width.equalTo(165)
+            $0.height.equalTo(158)
+        }
+        
+        emptyTitle.snp.makeConstraints {
+            $0.top.equalTo(emptyImage.snp.bottom).offset(6)
+            $0.centerX.equalToSuperview()
         }
     }
 
