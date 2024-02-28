@@ -143,7 +143,7 @@ extension UILabel {
         attributedString.addAttribute(.paragraphStyle, value: paragraphStyle, range: NSRange(location: 0, length: attributedString.length))
         self.attributedText = attributedString
     }
-        
+    
     /// 라벨 일부 font 변경 및 밑줄 추가해주는 함수
     /// - targerString에는 바꾸고자 하는 특정 문자열을 넣어주세요
     /// - font에는 targetString에 적용하고자 하는 UIFont를 넣어주세요
@@ -182,5 +182,28 @@ extension UILabel {
             forGlyphRange: glyphRange,
             in: textContainer
         )
+    }
+    
+    func countCurrentLines() -> Int {
+        guard let text = self.text as NSString? else { return 0 }
+        guard let font = self.font              else { return 0 }
+        
+        var attributes = [NSAttributedString.Key: Any]()
+        
+        if let kernAttribute = self.attributedText?.attributes(at: 0, effectiveRange: nil).first(where: { key, _ in
+            return key == .kern
+        }) {
+            attributes[.kern] = kernAttribute.value
+        }
+        attributes[.font] = font
+        
+        let labelTextSize = text.boundingRect(
+            with: CGSize(width: self.bounds.width, height: .greatestFiniteMagnitude),
+            options: .usesLineFragmentOrigin,
+            attributes: attributes,
+            context: nil
+        )
+
+        return Int(ceil(labelTextSize.height / font.lineHeight))
     }
 }
