@@ -65,7 +65,7 @@ final class AnswerDetailView: UIView {
     
     private lazy var partnerAnswerView: UIView = {
         let answerView = UIView()
-        answerView.backgroundColor = .white
+        answerView.backgroundColor = .Gray300
         answerView.layer.borderWidth = 1
         answerView.layer.borderColor = UIColor.Gray400.cgColor
         answerView.layer.cornerRadius = 17
@@ -104,9 +104,9 @@ final class AnswerDetailView: UIView {
         return label
     }()
     
-    private lazy var myAnswerView: UIView = {
+    lazy var myAnswerView: UIView = {
         let answerView = UIView()
-        answerView.backgroundColor = .white
+        answerView.backgroundColor = .Gray300
         answerView.layer.borderWidth = 1
         answerView.layer.borderColor = UIColor.Gray400.cgColor
         answerView.layer.cornerRadius = 17
@@ -123,6 +123,7 @@ final class AnswerDetailView: UIView {
     private lazy var myAnswerContent: UILabel = {
         let label = UILabel()
         label.textColor = .UmbbaBlack
+        label.font = .PretendardRegular(size: 16)
         label.textAlignment = .right
         label.numberOfLines = 0
         return label
@@ -161,6 +162,7 @@ final class AnswerDetailView: UIView {
         super.init(frame: frame)
         
         setUI()
+        setSEFontSize()
         setAddTarget()
         setLayout()
     }
@@ -203,7 +205,7 @@ private extension AnswerDetailView {
             $0.top.equalTo(themeStackView.snp.bottom).offset(24)
             $0.width.equalTo(SizeLiterals.Screen.screenWidth - 60)
             $0.centerX.equalToSuperview()
-            $0.height.equalTo(SizeLiterals.Screen.screenHeight * 212 / 812)
+            $0.height.equalTo(SizeLiterals.Screen.screenHeight * 220 / 812)
         }
         
         partnerQuestLabel.snp.makeConstraints {
@@ -220,7 +222,7 @@ private extension AnswerDetailView {
         }
         
         partnerLabel.snp.makeConstraints {
-            $0.top.equalTo(partnerQuestLabel.snp.bottom).offset(60)
+            $0.top.equalTo(partnerQuestLabel.snp.bottom).offset(SizeLiterals.Screen.screenHeight * 60 / 812)
             $0.centerX.equalToSuperview()
         }
         
@@ -228,7 +230,7 @@ private extension AnswerDetailView {
             $0.top.equalTo(partnerAnswerView.snp.bottom).offset(16)
             $0.width.equalTo(SizeLiterals.Screen.screenWidth - 60)
             $0.centerX.equalToSuperview()
-            $0.height.equalTo(SizeLiterals.Screen.screenHeight * 212 / 812)
+            $0.height.equalTo(SizeLiterals.Screen.screenHeight * 220 / 812)
         }
         
         myQuestLabel.snp.makeConstraints {
@@ -240,7 +242,7 @@ private extension AnswerDetailView {
         }
         
         myLabel.snp.makeConstraints {
-            $0.top.equalTo(myQuestLabel.snp.bottom).offset(60)
+            $0.top.equalTo(myQuestLabel.snp.bottom).offset(SizeLiterals.Screen.screenHeight * 60 / 812)
             $0.centerX.equalToSuperview()
         }
         
@@ -299,6 +301,29 @@ private extension AnswerDetailView {
             myAnswerView.removeGestureRecognizer(gestureRecognizer)
         }
     }
+    
+    func remakePartnerViewHeight() {
+        partnerAnswerView.snp.updateConstraints {
+            $0.height.equalTo(SizeLiterals.Screen.screenHeight * 250 / 812)
+        }
+    }
+    
+    func remakeMyViewHeight() {
+        myAnswerView.snp.updateConstraints {
+            $0.height.equalTo(SizeLiterals.Screen.screenHeight * 250 / 812)
+        }
+    }
+    
+    func setSEFontSize() {
+        if SizeLiterals.Screen.deviceRatio > 0.5 {
+            partnerQuestLabel.font = .PretendardSemiBold(size: 18)
+            partnerAnswerContent.font = .PretendardRegular(size: 14)
+            partnerNameLabel.font = .Cafe24Regular(size: 16)
+            myQuestLabel.font = .PretendardSemiBold(size: 18)
+            myAnswerContent.font = .PretendardRegular(size: 14)
+            myNameLabel.font = .Cafe24Regular(size: 16)
+        }
+    }
 }
 
 extension AnswerDetailView {
@@ -314,6 +339,13 @@ extension AnswerDetailView {
         partnerNameLabel.text = model.opponentUsername
         myQuestLabel.text = model.myQuestion
         myNameLabel.text = model.myUsername
+                
+        if partnerQuestLabel.countCurrentLines() > 1 {
+            remakePartnerViewHeight()
+        }
+        if myQuestLabel.countCurrentLines() > 1 {
+            remakeMyViewHeight()
+        }
         
         switch (isMyAnswer, isOpponentAnswer) {
         case (false, false):
@@ -347,10 +379,15 @@ extension AnswerDetailView {
     
     func setDetailDataBind(model: DetailEntity) {
         if model.myAnswer != "" && model.myQuestion != "" {
-            myAnswerContent.textColor = .UmbbaBlack
-            partnerAnswerContent.textColor = .UmbbaBlack
-            nextButton.isHidden = true
-            homeButton.isHidden = false
+            partnerLabel.isHidden = true
+            myLabel.isHidden = true
+            setButton(isNextButton: false)
+        }
+        if partnerQuestLabel.countCurrentLines() > 1 {
+            remakePartnerViewHeight()
+        }
+        if myQuestLabel.countCurrentLines() > 1 {
+            remakeMyViewHeight()
         }
         navigationBarView.cafe24Title = model.section
         numberLabel.text = "#\(model.index)"
