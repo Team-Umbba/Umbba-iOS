@@ -79,6 +79,8 @@ extension AnswerDetailViewController {
         answerDetailView.setTodayDataBind(model: todayEntity)
         if isMyAnswer {
             answerDetailView.partnerQuestLabel.blurRadius = 0
+            answerDetailView.myAnswerView.backgroundColor = .Gray300
+            answerDetailView.myAnswerView.layer.borderColor = UIColor.Gray400.cgColor
             if isOpponentAnswer {
                 answerDetailView.partnerAnswerContent.blurRadius = 0
             }
