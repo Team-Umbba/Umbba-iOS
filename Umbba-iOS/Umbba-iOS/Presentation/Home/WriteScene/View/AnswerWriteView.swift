@@ -193,7 +193,6 @@ private extension AnswerWriteView {
         if textView.numberOfLines() < 6 {
             textView.isEditable = true
         } else {
-            print("5줄까지만 입력이 가능합니다")
             textView.deleteBackward()
         }
     }

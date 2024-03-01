@@ -10,7 +10,7 @@ struct TodayEntity: Codable {
     let section, topic, opponentQuestion, myQuestion: String?
     let opponentAnswer: String?
     let myAnswer: String?
-    let isOpponentAnswer, isMyAnswer: Bool
+    let isOpponentAnswer, isMyAnswer: Bool?
     let opponentUsername, myUsername: String?
 
     enum CodingKeys: String, CodingKey {

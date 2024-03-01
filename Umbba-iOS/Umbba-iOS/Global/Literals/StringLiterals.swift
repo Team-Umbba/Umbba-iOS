@@ -100,8 +100,9 @@ enum I18N {
         static let homeButton = "홈으로"
         static let partnerName = "이승준."
         static let myName = "김수연."
-        static let noneAnswer = "상대방은 아직 답변하지 않았어요"
-        static let pleaseAnswer = "답변을 입력하세요"
+        static let noneAnswer = "상대방이 아직 답변하지 않았어요"
+        static let yetAnswer = "아래 질문에 답하고 내용을 확인하세요"
+        static let pleaseAnswer = "하단 버튼을 눌러 답변을 입력하세요"
     }
     
     enum Setting {
