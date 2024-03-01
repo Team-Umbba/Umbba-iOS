@@ -7,7 +7,14 @@
 
 import UIKit
 
+import RxSwift
+import RxCocoa
+
 final class RecordViewController: UIViewController {
+    
+    // MARK: - Properties
+    
+    private let disposeBag = DisposeBag()
     
     // MARK: - UI Components
     
@@ -26,6 +33,7 @@ final class RecordViewController: UIViewController {
         
         setUI()
         setDelegate()
+        bindViewModel()
     }
 }
 
@@ -42,6 +50,37 @@ extension RecordViewController {
         collectionView.dataSource = self
         recordView.navigationdelegate = self
     }
+    
+    func bindViewModel() {
+        recordView.recordButton.rx.tap
+            .subscribe(onNext: {
+                let albumVC = UIImagePickerController()
+                albumVC.sourceType = .photoLibrary
+                albumVC.delegate = self
+                albumVC.allowsEditing = true
+                self.present(albumVC, animated: true, completion: nil)
+            })
+            .disposed(by: disposeBag)
+    }
+}
+
+extension RecordViewController: UIImagePickerControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[.editedImage] as? UIImage {
+            let nav = UploadViewController()
+            self.navigationController?.pushViewController(nav, animated: true)
+        }
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        self.dismiss(animated: true, completion: nil)
+    }
+}
+
+extension RecordViewController: UINavigationControllerDelegate {
+    
 }
 
 extension RecordViewController: UICollectionViewDelegate {

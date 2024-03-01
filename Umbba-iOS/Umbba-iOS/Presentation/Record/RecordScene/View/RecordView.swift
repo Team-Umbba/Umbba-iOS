@@ -52,7 +52,7 @@ final class RecordView: UIView {
         return collectionView
     }()
     
-    private lazy var recordButton = CustomButton(status: true, title: "사진 업로드하기")
+    lazy var recordButton = CustomButton(status: true, title: "사진 업로드하기")
     
     private let emptyImage = UIImageView(image: UIImage(resource: .recordEmpty))
     private let emptyTitle: UILabel = {

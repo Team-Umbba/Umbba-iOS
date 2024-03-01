@@ -167,6 +167,11 @@
 		A4743BA42A681CBE007FB69C /* UserDefaultWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4743BA32A681CBE007FB69C /* UserDefaultWrapper.swift */; };
 		A47BDA492A5D5FD6007B8E3E /* AssignView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47BDA482A5D5FD6007B8E3E /* AssignView.swift */; };
 		A47BDA4B2A5D5FE9007B8E3E /* AssignViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47BDA4A2A5D5FE9007B8E3E /* AssignViewController.swift */; };
+		A488FAFD2B91CA4F004D4A09 /* RxBlocking in Frameworks */ = {isa = PBXBuildFile; productRef = A488FAFC2B91CA4F004D4A09 /* RxBlocking */; };
+		A488FAFF2B91CA4F004D4A09 /* RxBlocking-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = A488FAFE2B91CA4F004D4A09 /* RxBlocking-Dynamic */; };
+		A488FB012B91CA4F004D4A09 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = A488FB002B91CA4F004D4A09 /* RxCocoa */; };
+		A488FB032B91CA4F004D4A09 /* RxCocoa-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = A488FB022B91CA4F004D4A09 /* RxCocoa-Dynamic */; };
+		A488FB052B91CA4F004D4A09 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = A488FB042B91CA4F004D4A09 /* RxRelay */; };
 		A489BE062A5AFCE90027E817 /* ArchivingImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A489BE052A5AFCE90027E817 /* ArchivingImageView.swift */; };
 		A4BC705E2ADEB0CF00E54675 /* AnimationGif.gif in Resources */ = {isa = PBXBuildFile; fileRef = A4BC705D2ADEB0CF00E54675 /* AnimationGif.gif */; };
 		A4BC70602ADEBF6800E54675 /* AnimationMp4.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = A4BC705F2ADEBF6800E54675 /* AnimationMp4.mp4 */; };
@@ -285,7 +290,6 @@
 		699455EA2A5C0C24003C118A /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		699455ED2A5C0C8B003C118A /* InviteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteViewController.swift; sourceTree = "<group>"; };
 		69A24CF62ACB10B6002F2D75 /* UpdateAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateAlertView.swift; sourceTree = "<group>"; };
-		69A67D782A5C0F9C00C43F49 /* Umbba-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Umbba-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		69A67D7A2A5C12CE00C43F49 /* AnswerWriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerWriteView.swift; sourceTree = "<group>"; };
 		69A67D7D2A5C12F100C43F49 /* AnswerWriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerWriteViewController.swift; sourceTree = "<group>"; };
 		69A67D802A5C1BB600C43F49 /* CustomNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBar.swift; sourceTree = "<group>"; };
@@ -322,6 +326,7 @@
 		A4743BA32A681CBE007FB69C /* UserDefaultWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultWrapper.swift; sourceTree = "<group>"; };
 		A47BDA482A5D5FD6007B8E3E /* AssignView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignView.swift; sourceTree = "<group>"; };
 		A47BDA4A2A5D5FE9007B8E3E /* AssignViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignViewController.swift; sourceTree = "<group>"; };
+		A488FB072B91CD7B004D4A09 /* Umbba-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = "Umbba-iOS.app"; path = "/Users/ahra/iOSProjects/Umbba-iOS/Umbba-iOS/build/Debug-iphoneos/Umbba-iOS.app"; sourceTree = "<absolute>"; };
 		A489BE052A5AFCE90027E817 /* ArchivingImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchivingImageView.swift; sourceTree = "<group>"; };
 		A4BC705D2ADEB0CF00E54675 /* AnimationGif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = AnimationGif.gif; sourceTree = "<group>"; };
 		A4BC705F2ADEBF6800E54675 /* AnimationMp4.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = AnimationMp4.mp4; sourceTree = "<group>"; };
@@ -338,12 +343,16 @@
 			files = (
 				697816182A5317C10047944C /* FirebaseInAppMessaging-Beta in Frameworks */,
 				697816052A5316E80047944C /* KakaoSDKCommon in Frameworks */,
+				A488FB052B91CA4F004D4A09 /* RxRelay in Frameworks */,
 				6978161A2A5317C10047944C /* FirebaseInAppMessagingSwift-Beta in Frameworks */,
+				A488FB012B91CA4F004D4A09 /* RxCocoa in Frameworks */,
 				697815FE2A5316BB0047944C /* SnapKit in Frameworks */,
+				A488FAFD2B91CA4F004D4A09 /* RxBlocking in Frameworks */,
 				6978160B2A5316E80047944C /* KakaoSDKTemplate in Frameworks */,
 				695C88242A870AF500A94210 /* FirebaseDynamicLinks in Frameworks */,
 				697816072A5316E80047944C /* KakaoSDKShare in Frameworks */,
 				697816122A5317C10047944C /* FirebaseAnalyticsSwift in Frameworks */,
+				A488FB032B91CA4F004D4A09 /* RxCocoa-Dynamic in Frameworks */,
 				A42740EE2A5FBBE500D05B14 /* Lottie in Frameworks */,
 				6978160D2A5316E80047944C /* KakaoSDKUser in Frameworks */,
 				697816092A5316E80047944C /* KakaoSDKTalk in Frameworks */,
@@ -354,6 +363,7 @@
 				6978161C2A5317C10047944C /* FirebaseMessaging in Frameworks */,
 				697816032A5316E80047944C /* KakaoSDKAuth in Frameworks */,
 				697816102A5317C10047944C /* FirebaseAnalytics in Frameworks */,
+				A488FAFF2B91CA4F004D4A09 /* RxBlocking-Dynamic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -610,7 +620,6 @@
 			isa = PBXGroup;
 			children = (
 				697815422A52FA370047944C /* Umbba-iOS */,
-				69A67D782A5C0F9C00C43F49 /* Umbba-iOS.app */,
 				695C88222A870AF500A94210 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -1579,9 +1588,14 @@
 				A42740ED2A5FBBE500D05B14 /* Lottie */,
 				695C88232A870AF500A94210 /* FirebaseDynamicLinks */,
 				69A934A62AA0BC21009466D4 /* Kingfisher */,
+				A488FAFC2B91CA4F004D4A09 /* RxBlocking */,
+				A488FAFE2B91CA4F004D4A09 /* RxBlocking-Dynamic */,
+				A488FB002B91CA4F004D4A09 /* RxCocoa */,
+				A488FB022B91CA4F004D4A09 /* RxCocoa-Dynamic */,
+				A488FB042B91CA4F004D4A09 /* RxRelay */,
 			);
 			productName = "Umbba-iOS";
-			productReference = 69A67D782A5C0F9C00C43F49 /* Umbba-iOS.app */;
+			productReference = A488FB072B91CD7B004D4A09 /* Umbba-iOS.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -1614,6 +1628,7 @@
 				6978160E2A5317C10047944C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				A42740EC2A5FBBE500D05B14 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 				69A934A52AA0BC21009466D4 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				A488FAFB2B91CA4F004D4A09 /* XCRemoteSwiftPackageReference "RxSwift" */,
 			);
 			productRefGroup = 697815372A52FA370047944C;
 			projectDirPath = "";
@@ -2115,6 +2130,14 @@
 				minimumVersion = 4.0.0;
 			};
 		};
+		A488FAFB2B91CA4F004D4A09 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.6.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -2207,6 +2230,31 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A42740EC2A5FBBE500D05B14 /* XCRemoteSwiftPackageReference "lottie-ios" */;
 			productName = Lottie;
+		};
+		A488FAFC2B91CA4F004D4A09 /* RxBlocking */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A488FAFB2B91CA4F004D4A09 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxBlocking;
+		};
+		A488FAFE2B91CA4F004D4A09 /* RxBlocking-Dynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A488FAFB2B91CA4F004D4A09 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = "RxBlocking-Dynamic";
+		};
+		A488FB002B91CA4F004D4A09 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A488FAFB2B91CA4F004D4A09 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		A488FB022B91CA4F004D4A09 /* RxCocoa-Dynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A488FAFB2B91CA4F004D4A09 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = "RxCocoa-Dynamic";
+		};
+		A488FB042B91CA4F004D4A09 /* RxRelay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A488FAFB2B91CA4F004D4A09 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxRelay;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
