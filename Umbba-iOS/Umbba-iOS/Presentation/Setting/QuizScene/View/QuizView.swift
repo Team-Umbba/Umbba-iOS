@@ -28,7 +28,7 @@ final class QuizView: UIView {
     
     private let balanceLabel: UILabel = {
         let label = UILabel()
-        label.text = "밸런스 게임!"
+        label.text = I18N.Quiz.QuizTitle
         label.font = .PretendardBold(size: 24)
         label.textColor = .UmbbaBlack
         return label
@@ -36,7 +36,7 @@ final class QuizView: UIView {
     
     private let balanceSubLabel: UILabel = {
         let label = UILabel()
-        label.text = "나는 상대방에 대해 얼마나 알고 있을까?"
+        label.text = I18N.Quiz.QuizSubTitle
         label.font = .PretendardRegular(size: 16)
         label.textColor = .Gray900
         return label
@@ -53,7 +53,7 @@ final class QuizView: UIView {
     
     private lazy var questionLabel: UILabel = {
         let label = UILabel()
-        label.text = "겨울에는"
+        label.text = "Q. 겨울에는"
         label.textColor = .UmbbaBlack
         label.font = .PretendardBold(size: 20)
         return label
@@ -92,7 +92,7 @@ final class QuizView: UIView {
     }()
     
     lazy var nextButton: CustomButton = {
-        let button = CustomButton(status: false, title: "결과 확인하기")
+        let button = CustomButton(status: false, title: I18N.Quiz.ResultButtonTitle)
         button.isEnabled = false
         return button
     }()

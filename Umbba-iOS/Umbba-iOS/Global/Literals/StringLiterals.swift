@@ -170,4 +170,10 @@ enum I18N {
         static let albumDetail = "소중한 순간을 기록하세요"
         static let copyright = "ub company 2023 어쩌구 ver 1.2 뭔말알"
     }
+    
+    enum Quiz {
+        static let QuizTitle = "밸런스 게임!"
+        static let QuizSubTitle = "나는 상대방에 대해 얼마나 알고 있을까?"
+        static let ResultButtonTitle = "결과 확인하기"
+    }
 }
