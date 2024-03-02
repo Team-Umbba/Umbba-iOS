@@ -148,7 +148,7 @@ private extension QuizView {
         backgroundView.snp.makeConstraints {
             $0.top.equalTo(balanceSubLabel.snp.bottom).offset(40)
             $0.leading.trailing.equalToSuperview().inset(24)
-            $0.height.equalTo(SizeLiterals.Screen.screenHeight * 376 / 812)
+            $0.height.equalTo(376)
         }
         
         questionLabel.snp.makeConstraints {
@@ -159,13 +159,13 @@ private extension QuizView {
         answerButton1.snp.makeConstraints {
             $0.top.equalTo(questionLabel.snp.bottom).offset(20)
             $0.leading.trailing.equalToSuperview().inset(24)
-            $0.height.equalTo(SizeLiterals.Screen.screenHeight * 136 / 812)
+            $0.height.equalTo(136)
         }
     
         answerButton2.snp.makeConstraints {
             $0.top.equalTo(answerButton1.snp.bottom).offset(8)
             $0.leading.trailing.equalToSuperview().inset(24)
-            $0.height.equalTo(SizeLiterals.Screen.screenHeight * 136 / 812)
+            $0.height.equalTo(136)
         }
         
         nextButton.snp.makeConstraints {

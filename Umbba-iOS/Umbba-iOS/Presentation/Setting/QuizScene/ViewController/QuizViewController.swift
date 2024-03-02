@@ -7,7 +7,7 @@
 
 import UIKit
 
-class QuizViewController: UIViewController {
+final class QuizViewController: UIViewController {
 
     private let quizView = QuizView()
     
