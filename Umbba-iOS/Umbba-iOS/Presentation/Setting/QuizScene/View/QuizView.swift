@@ -8,6 +8,14 @@
 import UIKit
 
 final class QuizView: UIView {
+
+    // MARK: - Properties
+    
+    weak var navigationdelegate: NavigationBarDelegate?
+    weak var nextDelegate: NextButtonDelegate?
+    
+    private var answerButton: [UIButton] = []
+    private var answer: String = ""
     
     // MARK: - UI Components
     
@@ -63,6 +71,7 @@ final class QuizView: UIView {
         button.layer.borderWidth = 1
         button.layer.cornerRadius = 17
         button.adjustsImageWhenHighlighted = false
+        answerButton.append(button)
         return button
     }()
     
@@ -78,6 +87,7 @@ final class QuizView: UIView {
         button.layer.borderWidth = 1
         button.layer.cornerRadius = 17
         button.adjustsImageWhenHighlighted = false
+        answerButton.append(button)
         return button
     }()
     
@@ -110,7 +120,10 @@ private extension QuizView {
     }
     
     func setAddTarget() {
-       
+        navigationBarView.leftButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
+        nextButton.addTarget(self, action: #selector(nextButtonTapped), for: .touchUpInside)
+        answerButton1.addTarget(self, action: #selector(answerButtonTapped), for: .touchUpInside)
+        answerButton2.addTarget(self, action: #selector(answerButtonTapped), for: .touchUpInside)
     }
     
     func setLayout() {
@@ -120,7 +133,6 @@ private extension QuizView {
         navigationBarView.snp.makeConstraints {
             $0.top.equalTo(self.safeAreaLayoutGuide)
             $0.leading.trailing.equalToSuperview()
-            $0.height.equalTo(60)
         }
         
         balanceLabel.snp.makeConstraints {
@@ -160,6 +172,31 @@ private extension QuizView {
             $0.bottom.equalTo(self.safeAreaLayoutGuide).offset(-12)
             $0.trailing.leading.equalToSuperview().inset(20)
             $0.height.equalTo(60)
+        }
+    }
+    
+    @objc
+    func backButtonTapped() {
+        navigationdelegate?.backButtonTapped()
+    }
+    
+    @objc
+    func nextButtonTapped() {
+        nextDelegate?.nextButtonTapped()
+    }
+    
+    @objc
+    func answerButtonTapped(sender: UIButton) {
+        nextButton.isEnabled = true
+        answerButton.forEach { button in
+            guard let answer = button.titleLabel?.text else { return }
+            button.isSelected = sender == button
+            if button.isSelected {
+                button.layer.borderColor = UIColor.Primary600.cgColor
+                self.answer = answer
+            } else {
+                button.layer.borderColor = UIColor.Gray400.cgColor
+            }
         }
     }
     

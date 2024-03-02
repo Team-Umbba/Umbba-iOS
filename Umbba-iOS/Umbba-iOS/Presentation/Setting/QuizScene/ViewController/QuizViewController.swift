@@ -19,11 +19,34 @@ class QuizViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        setDelegate()
     }
     
 }
 
 private extension QuizViewController {
-   
+    
+    func setDelegate() {
+        quizView.navigationdelegate = self
+        quizView.nextDelegate = self
+    }
+    
+}
+
+extension QuizViewController: NavigationBarDelegate {
+    @objc
+    func backButtonTapped() {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    func completeButtonTapped() {
+        
+    }
+}
+
+extension QuizViewController: NextButtonDelegate {
+    func nextButtonTapped() {
+        self.navigationController?.pushViewController(ResultViewController(), animated: true)
+    }
 }
