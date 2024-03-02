@@ -22,6 +22,7 @@ final class QuizView: UIView {
     private let navigationBarView: CustomNavigationBar = {
         let view = CustomNavigationBar()
         view.isLeftButtonIncluded = true
+        view.isQuizImageViewIncluded = true
         view.backgroundColor = .White500
         return view
     }()

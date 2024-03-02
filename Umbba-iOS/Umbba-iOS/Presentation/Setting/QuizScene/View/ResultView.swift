@@ -21,6 +21,7 @@ final class ResultView: UIView {
     private let navigationBarView: CustomNavigationBar = {
         let view = CustomNavigationBar()
         view.isLeftButtonIncluded = true
+        view.isQuizImageViewIncluded = true
         view.backgroundColor = .White500
         return view
     }()
@@ -228,6 +229,7 @@ private extension ResultView {
     
     func updateUI() {
         if opponentAnswer == nil {
+            labelView.backgroundColor = .Gray800
             lineImageView.image = ImageLiterals.Quiz.grayLine_img
             resultLabel.textColor = .Gray900
             resultLabel.snp.updateConstraints {
