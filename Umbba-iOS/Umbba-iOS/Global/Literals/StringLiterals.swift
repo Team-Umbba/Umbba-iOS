@@ -175,5 +175,11 @@ enum I18N {
         static let QuizTitle = "밸런스 게임!"
         static let QuizSubTitle = "나는 상대방에 대해 얼마나 알고 있을까?"
         static let ResultButtonTitle = "결과 확인하기"
+        static let resultTitle = "결과 확인"
+        static let myChoice = "나의 선택"
+        static let opponentChoice = "상대방의 선택"
+        static let result_notyet = "아직 상대가\n선택하지 않았어요"
+        static let result_correct = "우리는 통했어요"
+        static let result_incorrect = "선택이 엇갈렸어요"
     }
 }

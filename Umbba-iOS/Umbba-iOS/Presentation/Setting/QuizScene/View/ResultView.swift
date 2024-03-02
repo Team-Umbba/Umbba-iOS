@@ -60,7 +60,7 @@ final class ResultView: UIView {
     
     private let resultTitleLabel: UILabel = {
         let label = UILabel()
-        label.text = "결과 확인"
+        label.text = I18N.Quiz.resultTitle
         label.font = .PretendardBold(size: 20)
         label.textColor = .White500
         return label
@@ -76,7 +76,7 @@ final class ResultView: UIView {
     
     private let myChoiceLabel: UILabel = {
         let label = UILabel()
-        label.text = "나의 선택"
+        label.text = I18N.Quiz.myChoice
         label.font = .PretendardRegular(size: 14)
         label.textColor = .Gray800
         return label
@@ -98,7 +98,7 @@ final class ResultView: UIView {
     
     private let opponentChoiceLabel: UILabel = {
         let label = UILabel()
-        label.text = "상대방의 선택"
+        label.text = I18N.Quiz.opponentChoice
         label.font = .PretendardRegular(size: 14)
         label.textColor = .Gray800
         return label
@@ -237,17 +237,17 @@ private extension ResultView {
             }
             resultLabel.font = .PretendardBold(size: 20)
             resultLabel.textAlignment = .center
-            resultLabel.text = "아직 상대가\n선택하지 않았어요"
+            resultLabel.text = I18N.Quiz.result_notyet
             resultLabel.numberOfLines = 2
         } else if myAnswer == opponentAnswer {
             opponentAnswerLabel.textColor = .Primary600
             resultLabel.textColor = .Primary600
-            resultLabel.text = "우리는 통했어요"
+            resultLabel.text = I18N.Quiz.result_correct
         } else {
             opponentAnswerLabel.textColor = .Gray900
             lineImageView.image = ImageLiterals.Quiz.grayLine_img
             resultLabel.textColor = .Gray900
-            resultLabel.text = "선택이 엇갈렸어요"
+            resultLabel.text = I18N.Quiz.result_incorrect
         }
     }
 }
