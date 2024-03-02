@@ -7,23 +7,37 @@
 
 import UIKit
 
-class ResultViewController: UIViewController {
+final class ResultViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    private let resultView = ResultView()
+    
+    override func loadView() {
+        super.loadView()
+        
+        view = resultView
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        setDelegate()
     }
-    */
+    
+}
 
+private extension ResultViewController {
+    func setDelegate() {
+        resultView.navigationdelegate = self
+    }
+}
+
+extension ResultViewController: NavigationBarDelegate {
+    @objc
+    func backButtonTapped() {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    func completeButtonTapped() {
+        
+    }
 }
