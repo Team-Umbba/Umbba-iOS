@@ -144,6 +144,8 @@
 		69DE6BB82A54417F00F31812 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69DE6BB72A54417F00F31812 /* String+.swift */; };
 		69F1AA922B66848500F19FCC /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F1AA912B66848500F19FCC /* MyPageViewController.swift */; };
 		69F1AA942B66849E00F19FCC /* MyPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F1AA932B66849E00F19FCC /* MyPageView.swift */; };
+		69F2D6B12B93726C0024C498 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F2D6B02B93726C0024C498 /* ResultViewController.swift */; };
+		69F2D6B32B937E450024C498 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F2D6B22B937E450024C498 /* ResultView.swift */; };
 		69FDD1802ACB2F0100D5EFE0 /* AppStoreCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69FDD17F2ACB2F0100D5EFE0 /* AppStoreCheck.swift */; };
 		A408BCE22AB59C5700AABB46 /* ArchivingSectionCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A408BCE12AB59C5700AABB46 /* ArchivingSectionCollectionView.swift */; };
 		A408BCE42AB711FB00AABB46 /* ArchivingQuestionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A408BCE32AB711FB00AABB46 /* ArchivingQuestionTableViewCell.swift */; };
@@ -298,6 +300,8 @@
 		69DE6BB72A54417F00F31812 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		69F1AA912B66848500F19FCC /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		69F1AA932B66849E00F19FCC /* MyPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageView.swift; sourceTree = "<group>"; };
+		69F2D6B02B93726C0024C498 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
+		69F2D6B22B937E450024C498 /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
 		69FDD17F2ACB2F0100D5EFE0 /* AppStoreCheck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreCheck.swift; sourceTree = "<group>"; };
 		A408BCE12AB59C5700AABB46 /* ArchivingSectionCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchivingSectionCollectionView.swift; sourceTree = "<group>"; };
 		A408BCE32AB711FB00AABB46 /* ArchivingQuestionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchivingQuestionTableViewCell.swift; sourceTree = "<group>"; };
@@ -511,6 +515,7 @@
 			isa = PBXGroup;
 			children = (
 				693A68E42B6A4B0300D39F20 /* QuizViewController.swift */,
+				69F2D6B02B93726C0024C498 /* ResultViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -519,6 +524,7 @@
 			isa = PBXGroup;
 			children = (
 				693A68E22B6A4AF200D39F20 /* QuizView.swift */,
+				69F2D6B22B937E450024C498 /* ResultView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1677,6 +1683,7 @@
 				691B8C152A67DDFE0041CC7C /* UIResponder+.swift in Sources */,
 				697E19D02A63244200D4752D /* MainEntity.swift in Sources */,
 				699455EE2A5C0C8B003C118A /* InviteViewController.swift in Sources */,
+				69F2D6B32B937E450024C498 /* ResultView.swift in Sources */,
 				693A68E32B6A4AF200D39F20 /* QuizView.swift in Sources */,
 				6978157F2A52FFE10047944C /* UILabel+.swift in Sources */,
 				A4D4F1EE2A98925D00F5EF6C /* EndingView.swift in Sources */,
@@ -1697,6 +1704,7 @@
 				697E19D82A63286C00D4752D /* ArchivingListService.swift in Sources */,
 				697815832A53000D0047944C /* UITableView+.swift in Sources */,
 				6951A6962A5D2B5300D49692 /* InviteAlertView.swift in Sources */,
+				69F2D6B12B93726C0024C498 /* ResultViewController.swift in Sources */,
 				697815692A52FE850047944C /* SizeLiterals.swift in Sources */,
 				69636FB52A5ADE5D008B457A /* CompleteView.swift in Sources */,
 				6978156F2A52FEB00047944C /* ImageLiterals.swift in Sources */,

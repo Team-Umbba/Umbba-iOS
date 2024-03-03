@@ -91,4 +91,10 @@ enum ImageLiterals {
         static var closeQuote_img: UIImage { .load(name: "ic_closeQuote") }
         static var ic_exit: UIImage { .load(name: "ic_exit") }
     }
+    
+    enum Quiz {
+        static var grayLine_img: UIImage { .load(name: "grayLine") }
+        static var ic_quiz: UIImage { .load(name: "ic_quiz")}
+    }
+    
 }

@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "1024 1.png",
+      "filename" : "1024.png",
       "idiom" : "universal",
       "platform" : "ios",
       "size" : "1024x1024"
@@ -43,7 +43,7 @@
       "size" : "40x40"
     },
     {
-      "filename" : "120 1.png",
+      "filename" : "120.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "40x40"
@@ -61,7 +61,7 @@
       "size" : "57x57"
     },
     {
-      "filename" : "120.png",
+      "filename" : "120 1.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "60x60"
@@ -73,7 +73,7 @@
       "size" : "60x60"
     },
     {
-      "filename" : "1024.png",
+      "filename" : "1024 1.png",
       "idiom" : "ios-marketing",
       "scale" : "1x",
       "size" : "1024x1024"
