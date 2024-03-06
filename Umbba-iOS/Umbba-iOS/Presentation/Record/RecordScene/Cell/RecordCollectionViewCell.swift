@@ -17,57 +17,71 @@ final class RecordCollectionViewCell: UICollectionViewCell, UICollectionViewRegi
     
     // MARK: - UI Components
     
-    private let recordTitleLabel: UILabel = {
-        let label = UILabel()
-        label.text = "글자수글자수"
-        label.textColor = .Gray800
-        label.textAlignment = .center
-        label.font = .PretendardRegular(size: 16)
-        label.numberOfLines = 0
-        return label
-    }()
-    
-    private let nameLabel: UILabel = {
-        let label = UILabel()
-        label.text = "승준"
-        label.textColor = .Gray800
-        label.font = .PretendardRegular(size: 12)
-        label.numberOfLines = 0
-        return label
-    }()
-    
-    private let divideView: UIView = {
+    private let titleView: UIView = {
         let view = UIView()
-        view.backgroundColor = .Gray300
+        view.backgroundColor = .Primary600.withAlphaComponent(0.5)
+        view.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        view.layer.cornerRadius = 17
+        view.clipsToBounds = false
         return view
     }()
     
-    private let recordSubTitleLabel: UILabel = {
+    private let recordTitleLabel: UILabel = {
         let label = UILabel()
-        label.text = "머리가 참외같이\n작아서 놀랐던 날"
-        label.textColor = .Gray900
-        label.font = .PretendardRegular(size: 16)
+        label.text = "설이 귀여움"
+        label.textColor = .White500
         label.textAlignment = .center
+        label.font = .PretendardSemiBold(size: 16)
         label.numberOfLines = 0
         return label
+    }()
+    
+    private let recordDeleteButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(resource: .iconTrash), for: .normal)
+        return button
     }()
     
     private let recordImage: UIImageView = {
         let image = UIImageView()
         image.contentMode = .scaleAspectFill
         image.clipsToBounds = true
+        image.image = UIImage(resource: .seHome2)
+        image.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+        image.layer.cornerRadius = 17
         return image
     }()
     
-    private let openQuoteImage = UIImageView(image: ImageLiterals.Record.openQuote_img)
-    private let closeQuoteImage = UIImageView(image: ImageLiterals.Record.closeQuote_img)
-    
-    private lazy var deleteButton: UIButton = {
-        let button = UIButton()
-        button.setImage(ImageLiterals.Record.ic_exit, for: .normal)
-        button.tintColor = .Gray800
-        return button
+    private let recordContentView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .Primary600.withAlphaComponent(0.5)
+        view.layer.cornerRadius = 17
+        view.clipsToBounds = false
+        return view
     }()
+    
+    private let contentLabel: UILabel = {
+        let label = UILabel()
+        label.text = "머리가 참외같이\n작아서 놀랐던 날"
+        label.textColor = .White400
+        label.font = .PretendardSemiBold(size: 16)
+        label.textAlignment = .center
+        label.numberOfLines = 0
+        return label
+    }()
+    
+    private let writerLabel: UILabel = {
+        let label = UILabel()
+        label.text = "작성자"
+        label.textColor = .Primary400
+        label.font = .PretendardRegular(size: 16)
+        return label
+    }()
+    
+    private let openQuoteImage = UIImageView(image: UIImage(resource: .iconOpenQuote))
+    private let closeQuoteImage = UIImageView(image: UIImage(resource: .iconCloseQuote))
+    
+//    private let blurView
     
     // MARK: - Life Cycles
     
@@ -86,65 +100,66 @@ final class RecordCollectionViewCell: UICollectionViewCell, UICollectionViewRegi
 
 // MARK: - Extensions
 
-extension RecordCollectionViewCell {
+private extension RecordCollectionViewCell {
 
     func setUI() {
-        backgroundColor = .White400
+        backgroundColor = .clear
         self.clipsToBounds = true
         self.layer.cornerRadius = 17
-        self.layer.borderWidth = 1
-        self.layer.borderColor = UIColor.Gray400.cgColor
+        titleView.isHidden = true
+//        recordContentView.isHidden = true
     }
     
     func setHierarchy() {
-        self.addSubviews(recordTitleLabel, divideView, nameLabel, openQuoteImage, closeQuoteImage, recordSubTitleLabel, deleteButton, recordImage)
+        titleView.addSubview(recordTitleLabel)
+        recordContentView.addSubviews(openQuoteImage, contentLabel, closeQuoteImage, writerLabel)
+        self.addSubviews(recordImage, titleView, recordContentView, recordDeleteButton)
     }
     
     func setLayout() {
+        recordImage.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+        
+        titleView.snp.makeConstraints {
+            $0.top.leading.trailing.equalToSuperview()
+            $0.height.equalTo(51)
+        }
+        
         recordTitleLabel.snp.makeConstraints {
+            $0.leading.equalToSuperview().inset(18)
             $0.centerY.equalToSuperview()
-            $0.leading.equalToSuperview().inset(12)
-            $0.width.equalTo(79)
         }
         
-        divideView.snp.makeConstraints {
-            $0.top.bottom.equalToSuperview().inset(10)
-            $0.leading.equalTo(recordTitleLabel.snp.trailing).offset(12)
-            $0.width.equalTo(1)
+        recordDeleteButton.snp.makeConstraints {
+            $0.top.trailing.equalToSuperview()
+            $0.size.equalTo(48)
         }
         
-        nameLabel.snp.makeConstraints {
-            $0.trailing.equalTo(divideView.snp.leading).offset(-12)
-            $0.bottom.equalToSuperview().inset(12)
+        recordContentView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
         }
         
         openQuoteImage.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(16)
-            $0.leading.equalTo(divideView.snp.trailing).offset(16)
+            $0.top.equalTo(recordDeleteButton.snp.bottom).offset(SizeLiterals.Screen.screenHeight * 32 / 812)
+            $0.centerX.equalToSuperview()
             $0.size.equalTo(16)
+        }
+        
+        contentLabel.snp.makeConstraints {
+            $0.top.equalTo(openQuoteImage.snp.bottom).offset(SizeLiterals.Screen.screenHeight * 24 / 812)
+            $0.centerX.equalToSuperview()
         }
         
         closeQuoteImage.snp.makeConstraints {
-            $0.bottom.trailing.equalToSuperview().inset(16)
+            $0.top.equalTo(contentLabel.snp.bottom).offset(SizeLiterals.Screen.screenHeight * 24 / 812)
+            $0.centerX.equalToSuperview()
             $0.size.equalTo(16)
         }
         
-        deleteButton.snp.makeConstraints {
-            $0.top.trailing.equalToSuperview().inset(5)
-            $0.size.equalTo(21)
-        }
-        
-        recordSubTitleLabel.snp.makeConstraints {
-            $0.top.equalTo(openQuoteImage.snp.bottom)
-            $0.leading.equalTo(openQuoteImage.snp.trailing)
-            $0.trailing.equalTo(closeQuoteImage.snp.leading)
-            $0.bottom.equalTo(closeQuoteImage.snp.top)
-            $0.centerY.equalToSuperview()
-        }
-        
-        recordImage.snp.makeConstraints {
-            $0.top.trailing.bottom.equalToSuperview()
-            $0.leading.equalTo(divideView.snp.trailing)
+        writerLabel.snp.makeConstraints {
+            $0.bottom.equalToSuperview().inset(SizeLiterals.Screen.screenHeight * 70 / 812)
+            $0.centerX.equalToSuperview()
         }
     }
 }
