@@ -41,7 +41,7 @@ final class RecordView: UIView {
     
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: SizeLiterals.Screen.screenWidth - 48, height: 160)
+        layout.itemSize = CGSize(width: SizeLiterals.Screen.screenWidth - 48, height: SizeLiterals.Screen.screenWidth - 48)
         layout.minimumInteritemSpacing = 16
         layout.scrollDirection = .vertical
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -63,6 +63,14 @@ final class RecordView: UIView {
         return label
     }()
     
+    private lazy var bottomLayer: CAGradientLayer = {
+        let gradient = CAGradientLayer()
+        gradient.colors = [UIColor.White500.withAlphaComponent(0).cgColor,
+                           UIColor.White500.withAlphaComponent(0.6).cgColor,
+                           UIColor.White500.withAlphaComponent(1).cgColor]
+        return gradient
+    }()
+    
     // MARK: - Life Cycles
     
     override init(frame: CGRect) {
@@ -73,6 +81,15 @@ final class RecordView: UIView {
         setLayout()
         setRegisterCell()
         setAddTarget()
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        bottomLayer.frame = CGRect(x: 0,
+                                   y: SizeLiterals.Screen.screenHeight - SizeLiterals.Screen.screenHeight * 84 / 812 - self.safeAreaInsets.bottom / 2,
+                                   width: SizeLiterals.Screen.screenWidth,
+                                   height: SizeLiterals.Screen.screenHeight * 84 / 812)
     }
     
     @available(*, unavailable)
@@ -87,11 +104,16 @@ extension RecordView {
 
     func setUI() {
         backgroundColor = .White500
-        collectionView.isHidden = true
+        emptyImage.isHidden = true
+        emptyTitle.isHidden = true
+        recordButton.bringSubviewToFront(self)
+//        collectionView.isHidden = true
     }
     
     func setHierarchy() {
-        self.addSubviews(navigationBarView, titleLabel, subTitleLabel, recordButton, collectionView, emptyImage, emptyTitle)
+        self.addSubviews(navigationBarView, titleLabel, subTitleLabel, collectionView, emptyImage, emptyTitle)
+        self.layer.addSublayer(bottomLayer)
+        self.addSubview(recordButton)
     }
     
     func setLayout() {
@@ -110,16 +132,16 @@ extension RecordView {
             $0.leading.equalTo(titleLabel.snp.leading)
         }
         
+        collectionView.snp.makeConstraints {
+            $0.top.equalTo(subTitleLabel.snp.bottom).offset(30)
+            $0.leading.trailing.equalToSuperview().inset(24)
+            $0.bottom.equalTo(self.safeAreaLayoutGuide)
+        }
+        
         recordButton.snp.makeConstraints {
             $0.bottom.equalTo(self.safeAreaLayoutGuide).offset(-12)
             $0.leading.trailing.equalToSuperview().inset(28)
             $0.height.equalTo(60)
-        }
-        
-        collectionView.snp.makeConstraints {
-            $0.top.equalTo(subTitleLabel.snp.bottom).offset(24)
-            $0.leading.trailing.equalToSuperview().inset(24)
-            $0.bottom.equalTo(recordButton.snp.top)
         }
         
         emptyImage.snp.makeConstraints {
