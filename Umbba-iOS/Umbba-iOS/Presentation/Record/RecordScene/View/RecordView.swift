@@ -106,7 +106,6 @@ extension RecordView {
         backgroundColor = .White500
         emptyImage.isHidden = true
         emptyTitle.isHidden = true
-        recordButton.bringSubviewToFront(self)
 //        collectionView.isHidden = true
     }
     

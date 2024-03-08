@@ -81,8 +81,6 @@ final class RecordCollectionViewCell: UICollectionViewCell, UICollectionViewRegi
     private let openQuoteImage = UIImageView(image: UIImage(resource: .iconOpenQuote))
     private let closeQuoteImage = UIImageView(image: UIImage(resource: .iconCloseQuote))
     
-//    private let blurView
-    
     // MARK: - Life Cycles
     
     override init(frame: CGRect) {
@@ -91,10 +89,18 @@ final class RecordCollectionViewCell: UICollectionViewCell, UICollectionViewRegi
         setUI()
         setHierarchy()
         setLayout()
+        setGesture()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        titleView.isHidden = false
+        recordContentView.isHidden = true
     }
 }
 
@@ -106,8 +112,8 @@ private extension RecordCollectionViewCell {
         backgroundColor = .clear
         self.clipsToBounds = true
         self.layer.cornerRadius = 17
-        titleView.isHidden = true
-//        recordContentView.isHidden = true
+        titleView.isHidden = false
+        recordContentView.isHidden = true
     }
     
     func setHierarchy() {
@@ -160,6 +166,22 @@ private extension RecordCollectionViewCell {
         writerLabel.snp.makeConstraints {
             $0.bottom.equalToSuperview().inset(SizeLiterals.Screen.screenHeight * 70 / 812)
             $0.centerX.equalToSuperview()
+        }
+    }
+    
+    func setGesture() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
+        self.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc
+    private func handleTap(_ sender: UITapGestureRecognizer) {
+        if recordContentView.isHidden {
+            titleView.isHidden = true
+            recordContentView.isHidden = false
+        } else {
+            titleView.isHidden = false
+            recordContentView.isHidden = true
         }
     }
 }
