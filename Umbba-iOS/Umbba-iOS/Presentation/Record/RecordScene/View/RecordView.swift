@@ -9,6 +9,11 @@ import UIKit
 
 import SnapKit
 
+enum RecordViewStatus {
+    case emptyRecord
+    case hasRecord
+}
+
 final class RecordView: UIView {
 
     // MARK: - Properties
@@ -39,7 +44,7 @@ final class RecordView: UIView {
         return label
     }()
     
-    lazy var collectionView: UICollectionView = {
+    lazy var recordCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: SizeLiterals.Screen.screenWidth - 48, height: SizeLiterals.Screen.screenWidth - 48)
         layout.minimumInteritemSpacing = 16
@@ -100,17 +105,16 @@ final class RecordView: UIView {
 
 // MARK: - Extensions
 
-extension RecordView {
+private extension RecordView {
 
     func setUI() {
         backgroundColor = .White500
         emptyImage.isHidden = true
         emptyTitle.isHidden = true
-//        collectionView.isHidden = true
     }
     
     func setHierarchy() {
-        self.addSubviews(navigationBarView, titleLabel, subTitleLabel, collectionView, emptyImage, emptyTitle)
+        self.addSubviews(navigationBarView, titleLabel, subTitleLabel, recordCollectionView, emptyImage, emptyTitle)
         self.layer.addSublayer(bottomLayer)
         self.addSubview(recordButton)
     }
@@ -131,7 +135,7 @@ extension RecordView {
             $0.leading.equalTo(titleLabel.snp.leading)
         }
         
-        collectionView.snp.makeConstraints {
+        recordCollectionView.snp.makeConstraints {
             $0.top.equalTo(subTitleLabel.snp.bottom).offset(30)
             $0.leading.trailing.equalToSuperview().inset(24)
             $0.bottom.equalTo(self.safeAreaLayoutGuide)
@@ -157,7 +161,7 @@ extension RecordView {
     }
 
     func setRegisterCell() {
-        RecordCollectionViewCell.register(target: collectionView)
+        RecordCollectionViewCell.register(target: recordCollectionView)
     }
     
     func setAddTarget() {
@@ -167,5 +171,21 @@ extension RecordView {
     @objc
     func backButtonTapped() {
         navigationdelegate?.backButtonTapped()
+    }
+}
+
+extension RecordView {
+    
+    func configureView(_ status: RecordViewStatus) {
+        switch status {
+        case .emptyRecord:
+            emptyImage.isHidden = false
+            emptyTitle.isHidden = false
+            recordCollectionView.isHidden = true
+        case .hasRecord:
+            emptyImage.isHidden = true
+            emptyTitle.isHidden = true
+            recordCollectionView.isHidden = false
+        }
     }
 }
