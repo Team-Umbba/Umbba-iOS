@@ -36,6 +36,10 @@ final class RecordViewController: UIViewController {
         setDelegate()
         bindViewModel()
     }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
 }
 
 // MARK: - Extensions
@@ -52,8 +56,9 @@ extension RecordViewController {
     }
     
     @objc func albumeDeleted(_ notification: Notification) {
-        recordViewModel.inputs.getAlbum()
-        self.collectionView.reloadData()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+            self.recordViewModel.inputs.getAlbum()
+        }
     }
     
     func bindViewModel() {
@@ -75,7 +80,7 @@ extension RecordViewController {
                 } else {
                     self.recordView.configureView(.hasRecord)
                 }
-                self.recordView.setNeedsDisplay()
+                self.collectionView.reloadData()
             })
             .disposed(by: disposeBag)
         
@@ -99,8 +104,8 @@ extension RecordViewController {
 extension RecordViewController: UIImagePickerControllerDelegate {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
-        if info[.editedImage] is UIImage {
-            let nav = UploadViewController()
+        if let image = info[.editedImage] as? UIImage {
+            let nav = UploadViewController(viewModel: self.recordViewModel)
             self.navigationController?.pushViewController(nav, animated: true)
         }
         dismiss(animated: true, completion: nil)
