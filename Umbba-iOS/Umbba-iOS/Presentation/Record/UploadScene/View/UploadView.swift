@@ -56,9 +56,9 @@ final class UploadView: UIView {
         return label
     }()
     
-    private let titleTextField = CustomTextField(placeHolder: "사진의 제목을 작성해주세요")
+    let titleTextField = CustomTextField(placeHolder: "사진의 제목을 작성해주세요")
     
-    private let titleErrorLabel: UILabel = {
+    let titleErrorLabel: UILabel = {
         let label = UILabel()
         label.text = "*최대 15자까지 입력 가능합니다."
         label.textColor = .Error
@@ -83,7 +83,7 @@ final class UploadView: UIView {
         return label
     }()
     
-    private let introduceTextView: UITextView = {
+    let introduceTextView: UITextView = {
         let textView = UITextView()
         textView.text = "사진에 대해 소개해주세요"
         textView.font = .PretendardRegular(size: 16)
@@ -107,7 +107,9 @@ final class UploadView: UIView {
         return label
     }()
     
-    private lazy var uploadButton = CustomButton(status: false, title: "등록하기")
+    lazy var uploadButton = CustomButton(status: false, title: "등록하기")
+    
+    let uploadCancelView = UploadCancelView()
     
     // MARK: - Life Cycles
     
@@ -133,12 +135,14 @@ private extension UploadView {
 
     func setUI() {
         backgroundColor = .White500
+        titleErrorLabel.isHidden = true
+        uploadCancelView.isHidden = true
     }
     
     func setHierarchy() {
-        titleView.addSubviews(titleLabel, titleTextField)
+        titleView.addSubviews(titleLabel, titleTextField, titleErrorLabel)
         introduceView.addSubviews(introduceLabel, introduceTextView, countLabel)
-        addSubviews(navigationBarView, uploadTitleLabel, uploadSubTitleLabel, titleView, introduceView, uploadButton)
+        addSubviews(navigationBarView, uploadTitleLabel, uploadSubTitleLabel, titleView, introduceView, uploadButton, uploadCancelView)
     }
     
     func setLayout() {
@@ -175,6 +179,11 @@ private extension UploadView {
             $0.height.equalTo(48)
         }
         
+        titleErrorLabel.snp.makeConstraints {
+            $0.bottom.equalToSuperview().inset(10)
+            $0.leading.equalToSuperview().inset(44)
+        }
+        
         introduceView.snp.makeConstraints {
             $0.top.equalTo(titleView.snp.bottom).offset(12)
             $0.centerX.equalToSuperview()
@@ -203,6 +212,10 @@ private extension UploadView {
             $0.leading.trailing.equalToSuperview().inset(28)
             $0.height.equalTo(60)
         }
+        
+        uploadCancelView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
     }
     
     func setAddTarget() {
@@ -216,6 +229,7 @@ private extension UploadView {
     
     func setDelegate() {
         introduceTextView.delegate = self
+        titleTextField.delegate = self
     }
     
     func checkMaxLength(_ textView: UITextView) {
@@ -225,10 +239,19 @@ private extension UploadView {
             textView.deleteBackward()
         }
         
-        if textView.numberOfLines() < 2 {
+        if textView.numberOfLines() <= 2 {
             textView.isEditable = true
         } else {
             textView.deleteBackward()
+        }
+    }
+    
+    func updateUploadButton() {
+
+        if !titleTextField.isEmpty && introduceTextView.text != "사진에 대해 소개해주세요" && introduceTextView.text.count > 0 {
+            uploadButton.isEnabled = true
+        } else {
+            uploadButton.isEnabled = false
         }
     }
 }
@@ -243,7 +266,7 @@ extension UploadView: UITextViewDelegate {
     
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.isEmpty {
-            textView.text = "사진에 대해 소개해줘"
+            textView.text = "사진에 대해 소개해주세요"
             textView.textColor = .Gray800
         }
     }
@@ -261,9 +284,51 @@ extension UploadView: UITextViewDelegate {
         checkMaxLength(textView)
         let count = textView.text.count
         countLabel.text = "(\(count)/32)"
+        updateUploadButton()
     }
     
     func textViewShouldEndEditing(_ textView: UITextView) -> Bool {
         return true
+    }
+}
+
+extension UploadView: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        guard let text = textField.text else { return true }
+        let newText = (text as NSString).replacingCharacters(in: range, with: string)
+        if newText.count > 15 {
+            if let customTextField = textField as? CustomTextField {
+                customTextField.textFieldStatus = .uncorrectedType
+                customTextField.textColor = .Error
+            }
+            titleErrorLabel.isHidden = false
+        } else {
+            if let customTextField = textField as? CustomTextField {
+                customTextField.textFieldStatus = .normal
+                customTextField.textColor = .UmbbaBlack
+            }
+            titleErrorLabel.isHidden = true
+        }
+        return true
+    }
+    
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        let currentText = textField.text ?? ""
+        if currentText.isEmpty {
+            if let customTextField = textField as? CustomTextField {
+                customTextField.textFieldStatus = .normal
+            }
+            titleErrorLabel.isHidden = true
+        }
+        updateUploadButton()
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.becomeFirstResponder()
     }
 }

@@ -7,11 +7,15 @@
 
 import UIKit
 
+import RxSwift
+import RxCocoa
+
 final class UploadViewController: UIViewController {
     
     // MARK: - UI Components
     
     private let uploadView = UploadView()
+    private let disposeBag = DisposeBag()
     
     // MARK: - Life Cycles
     
@@ -25,12 +29,13 @@ final class UploadViewController: UIViewController {
         
         setUI()
         setDelegate()
+        bindViewModel()
     }
 }
 
 // MARK: - Extensions
 
-extension UploadViewController {
+private extension UploadViewController {
 
     func setUI() {
         self.navigationController?.navigationBar.isHidden = true
@@ -39,13 +44,32 @@ extension UploadViewController {
     func setDelegate() {
         uploadView.navigationdelegate = self
     }
+    
+    func bindViewModel() {
+
+        uploadView.uploadCancelView.cancelButton.rx.tap
+            .bind {
+                self.uploadView.uploadCancelView.isHidden = true
+            }
+            .disposed(by: disposeBag)
+        
+        uploadView.uploadCancelView.deleteButton.rx.tap
+            .bind {
+                self.navigationController?.popViewController(animated: true)
+            }
+            .disposed(by: disposeBag)
+    }
 }
 
 extension UploadViewController: NavigationBarDelegate {
     
     @objc
     func backButtonTapped() {
-        self.navigationController?.popViewController(animated: true)
+        if uploadView.uploadButton.isEnabled {
+            self.uploadView.uploadCancelView.isHidden = false
+        } else {
+            self.navigationController?.popViewController(animated: true)
+        }
     }
     
     func completeButtonTapped() {
