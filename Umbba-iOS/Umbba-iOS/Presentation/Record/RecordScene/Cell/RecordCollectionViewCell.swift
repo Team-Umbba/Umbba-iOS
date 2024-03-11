@@ -8,6 +8,7 @@
 import UIKit
 
 import SnapKit
+import Kingfisher
 
 final class RecordCollectionViewCell: UICollectionViewCell, UICollectionViewRegisterable {
     
@@ -36,7 +37,7 @@ final class RecordCollectionViewCell: UICollectionViewCell, UICollectionViewRegi
         return label
     }()
     
-    private let recordDeleteButton: UIButton = {
+    lazy var recordDeleteButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(resource: .iconTrash), for: .normal)
         return button
@@ -81,6 +82,25 @@ final class RecordCollectionViewCell: UICollectionViewCell, UICollectionViewRegi
     private let openQuoteImage = UIImageView(image: UIImage(resource: .iconOpenQuote))
     private let closeQuoteImage = UIImageView(image: UIImage(resource: .iconCloseQuote))
     
+    private let touchStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.alignment = .center
+        stackView.axis = .vertical
+        stackView.spacing = 8
+        return stackView
+    }()
+    
+    private let touchImage = UIImageView(image: UIImage(resource: .recordTouch))
+    
+    private let touchTitle: UILabel = {
+        let label = UILabel()
+        label.text = "터치하기"
+        label.textColor = .White400
+        label.textAlignment = .center
+        label.font = .PretendardRegular(size: 12)
+        return label
+    }()
+    
     // MARK: - Life Cycles
     
     override init(frame: CGRect) {
@@ -114,12 +134,14 @@ private extension RecordCollectionViewCell {
         self.layer.cornerRadius = 17
         titleView.isHidden = false
         recordContentView.isHidden = true
+        touchStackView.isHidden = true
     }
     
     func setHierarchy() {
         titleView.addSubview(recordTitleLabel)
         recordContentView.addSubviews(openQuoteImage, contentLabel, closeQuoteImage, writerLabel)
-        self.addSubviews(recordImage, titleView, recordContentView, recordDeleteButton)
+        touchStackView.addArrangedSubviews(touchImage, touchTitle)
+        self.addSubviews(recordImage, touchStackView, titleView, recordContentView, recordDeleteButton)
     }
     
     func setLayout() {
@@ -167,6 +189,10 @@ private extension RecordCollectionViewCell {
             $0.bottom.equalToSuperview().inset(SizeLiterals.Screen.screenHeight * 70 / 812)
             $0.centerX.equalToSuperview()
         }
+        
+        touchStackView.snp.makeConstraints {
+            $0.center.equalToSuperview()
+        }
     }
     
     func setGesture() {
@@ -178,10 +204,23 @@ private extension RecordCollectionViewCell {
     private func handleTap(_ sender: UITapGestureRecognizer) {
         if recordContentView.isHidden {
             titleView.isHidden = true
+            touchStackView.isHidden = true
             recordContentView.isHidden = false
         } else {
             titleView.isHidden = false
+            touchStackView.isHidden = false
             recordContentView.isHidden = true
         }
+    }
+}
+
+extension RecordCollectionViewCell {
+    
+    func configureCell(model: AlbumEntity) {
+        touchStackView.isHidden = model.albumID == 0 ? false : true
+        recordTitleLabel.text = model.title
+        contentLabel.text = model.content
+        writerLabel.text = model.writer
+        recordImage.kf.setImage(with: URL(string: model.imgURL ?? ""))
     }
 }
