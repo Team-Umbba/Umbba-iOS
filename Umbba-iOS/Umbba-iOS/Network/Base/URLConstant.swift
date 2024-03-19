@@ -44,4 +44,10 @@ enum URLConstant {
        
     static let myPageURL =  baseURL + "/user/me"
     
+    // MARK: - Quiz URL
+    
+    static let quizURL = baseURL + "/closer/today"
+    static let quizAnswerURL =  baseURL + "/closer/answer"
+    static let quizNextURL = baseURL + "/closer/next"
+    
 }
