@@ -12,9 +12,7 @@ final class ResultView: UIView {
     // MARK: - Properties
     
     weak var navigationdelegate: NavigationBarDelegate?
-    
-    var myAnswer: String = "팥 붕어빵"
-    var opponentAnswer: String? = nil
+    weak var nextDelegate: NextButtonDelegate?
     
     // MARK: - UI Components
     
@@ -82,9 +80,8 @@ final class ResultView: UIView {
         return label
     }()
     
-    private let myAnswerLabel: UILabel = {
+    private var myAnswerLabel: UILabel = {
         let label = UILabel()
-        label.text = "팥 붕어빵"
         label.font = .PretendardBold(size: 20)
         label.textColor = .Primary600
         return label
@@ -106,7 +103,6 @@ final class ResultView: UIView {
     
     private let opponentAnswerLabel: UILabel = {
         let label = UILabel()
-        label.text = "-"
         label.textColor = .Gray800
         label.font = .PretendardBold(size: 20)
         return label
@@ -118,6 +114,12 @@ final class ResultView: UIView {
         return label
     }()
     
+    lazy var nextButton: CustomButton = {
+        let button = CustomButton(status: false, title: "다음으로")
+        button.isEnabled = false
+        return button
+    }()
+    
     // MARK: - Life Cycles
     
     override init(frame: CGRect) {
@@ -126,7 +128,6 @@ final class ResultView: UIView {
         setUI()
         setLayout()
         setAddTarget()
-        updateUI()
     }
     
     required init?(coder: NSCoder) {
@@ -144,10 +145,11 @@ private extension ResultView {
     
     func setAddTarget() {
         navigationBarView.leftButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
+        nextButton.addTarget(self, action: #selector(nextButtonTapped), for: .touchUpInside)
     }
     
     func setLayout() {
-        self.addSubviews(navigationBarView, balanceLabel, balanceSubLabel, backgroundView)
+        self.addSubviews(navigationBarView, balanceLabel, balanceSubLabel, backgroundView, nextButton)
         backgroundView.addSubviews(labelView, resultView, resultLabel)
         labelView.addSubview(resultTitleLabel)
         resultView.addSubviews(myChoiceLabel, myAnswerLabel, lineImageView, opponentChoiceLabel, opponentAnswerLabel)
@@ -220,6 +222,12 @@ private extension ResultView {
             $0.top.equalTo(resultView.snp.bottom).offset(28)
             $0.centerX.equalToSuperview()
         }
+        
+        nextButton.snp.makeConstraints {
+            $0.bottom.equalTo(self.safeAreaLayoutGuide).offset(-12)
+            $0.trailing.leading.equalToSuperview().inset(20)
+            $0.height.equalTo(60)
+        }
     }
     
     @objc
@@ -227,8 +235,13 @@ private extension ResultView {
         navigationdelegate?.backButtonTapped()
     }
     
-    func updateUI() {
-        if opponentAnswer == nil {
+    @objc
+    func nextButtonTapped() {
+        nextDelegate?.nextButtonTapped()
+    }
+
+    func updateUI(model: QuizEntity) {
+        if model.opponentChoice == nil {
             labelView.backgroundColor = .Gray800
             lineImageView.image = ImageLiterals.Quiz.grayLine_img
             resultLabel.textColor = .Gray900
@@ -239,15 +252,25 @@ private extension ResultView {
             resultLabel.textAlignment = .center
             resultLabel.text = I18N.Quiz.result_notyet
             resultLabel.numberOfLines = 2
-        } else if myAnswer == opponentAnswer {
+        } else if model.myChoice == model.opponentChoice {
             opponentAnswerLabel.textColor = .Primary600
             resultLabel.textColor = .Primary600
             resultLabel.text = I18N.Quiz.result_correct
+            nextButton.isEnabled = true
         } else {
             opponentAnswerLabel.textColor = .Gray900
             lineImageView.image = ImageLiterals.Quiz.grayLine_img
             resultLabel.textColor = .Gray900
             resultLabel.text = I18N.Quiz.result_incorrect
+            nextButton.isEnabled = true
         }
+    }
+}
+
+extension ResultView {
+    func setDataBind(model: QuizEntity) {
+        myAnswerLabel.text = model.myChoice
+        opponentAnswerLabel.text = model.opponentChoice != nil ? model.opponentChoice : "-"
+        updateUI(model: model)
     }
 }
