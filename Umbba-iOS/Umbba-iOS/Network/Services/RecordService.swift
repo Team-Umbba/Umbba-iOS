@@ -8,6 +8,7 @@
 import Foundation
 
 import Alamofire
+import UIKit
 
 final class RecordService: BaseService {
     
@@ -43,7 +44,7 @@ extension RecordService {
     }
     
     func deleteAlbumAPI(albumId: Int,
-                     completion: @escaping (NetworkResult<Any>) -> Void) {
+                        completion: @escaping (NetworkResult<Any>) -> Void) {
         let url = URLConstant.albumDeleteURL + "\(albumId)"
         let header: HTTPHeaders = NetworkConstant.hasTokenHeader
         let dataRequest = AF.request(url,
@@ -95,28 +96,20 @@ extension RecordService {
         }
     }
     
-    func putAlbumAPI(img: Data, imgName: String, serverUrl: String, completion: @escaping (NetworkResult<Any>) -> Void) {
-        let dataRequest = AF.upload(multipartFormData: { multipartFormData in
-                        multipartFormData.append(img,
-                                                 withName: imgName,
-                                                 fileName: imgName,
-                                                 mimeType: "application/octet-stream")},
+    func putAlbumAPI(img: UIImage, serverUrl: String, completion: @escaping (Int) -> Void) {
+        let imageData = img.jpegData(compressionQuality: 0.8) ?? Data()
+        let dataRequest = AF.upload(imageData,
                                     to: serverUrl,
                                     method: .put,
-                                    headers: nil)
+                                    headers: ["Content-Type": "image/jpeg"])
+        
         dataRequest.responseData { response in
-            switch response.result {
-            case .success:
-                guard let statusCode = response.response?.statusCode else { return }
-                guard let data = response.data else { return }
-                let networkResult = self.judgeStatus(by: statusCode,
-                                                     data,
-                                                     AlbumImageEntity.self)
-                completion(networkResult)
-            case .failure:
-                completion(.networkFail)
+            switch response.response?.statusCode {
+            case 200:
+                completion(200)
+            default:
+                print("fail")
             }
-            
         }
     }
 }

@@ -105,9 +105,7 @@ extension RecordViewController: UIImagePickerControllerDelegate {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         if let image = info[.editedImage] as? UIImage {
-            if let imageData = image.jpegData(compressionQuality: 0.5) {
-                recordViewModel.inputs.patchAlbum(image: imageData)
-            }
+            recordViewModel.inputs.patchAlbum(image: image)
             let nav = UploadViewController(viewModel: self.recordViewModel)
             self.navigationController?.pushViewController(nav, animated: true)
         }

@@ -14,12 +14,12 @@ import Alamofire
 protocol RecordViewModelInputs {
     func getAlbum()
     func deleteButtonTapped(idx: Int)
-    func patchAlbum(image: Data)
+    func patchAlbum(image: UIImage)
 }
 
 protocol RecordViewModelOutputs {
     var albumData: BehaviorRelay<[AlbumEntity]> { get }
-    var albumImageData: PublishSubject<AlbumImageEntity> { get }
+    var putImageSuccess: PublishSubject<Bool> { get }
 }
 
 protocol RecordViewModelType {
@@ -32,12 +32,13 @@ final class RecordViewModel: RecordViewModelInputs, RecordViewModelOutputs, Reco
     var inputs: RecordViewModelInputs { return self }
     var outputs: RecordViewModelOutputs { return self }
     
-    var uploadImage: Data?
+    var uploadImage: UIImage?
+    var fileName: String = ""
  
     // output
     
     var albumData: BehaviorRelay<[AlbumEntity]> = BehaviorRelay<[AlbumEntity]>(value: [])
-    var albumImageData: PublishSubject<AlbumImageEntity> = PublishSubject<AlbumImageEntity>()
+    var putImageSuccess: PublishSubject<Bool> = PublishSubject<Bool>()
     
     // input
     
@@ -49,7 +50,7 @@ final class RecordViewModel: RecordViewModelInputs, RecordViewModelOutputs, Reco
         self.deleteAlbumAPI(id: idx)
     }
     
-    func patchAlbum(image: Data) {
+    func patchAlbum(image: UIImage) {
         self.uploadImage = image
         self.patchAlbumImageAPI()
     }
@@ -66,7 +67,6 @@ extension RecordViewModel {
             switch networkResult {
             case .success(let data):
                 if let data = data as? GenericResponse<[AlbumEntity]> {
-                    dump(data)
                     if let albumData = data.data {
                         self.albumData.accept(albumData)
                     }
@@ -96,11 +96,24 @@ extension RecordViewModel {
             case .success(let data):
                 if let data = data as? GenericResponse<AlbumImageEntity> {
                     if let imageUrlData = data.data {
-                        self.albumImageData.onNext(imageUrlData)
+                        dump(imageUrlData)
+                        self.fileName = imageUrlData.fileName
+                        self.putImageAPI(serverUrl: imageUrlData.url)
                     }
                 }
             default:
                 break
+            }
+        }
+    }
+    
+    func putImageAPI(serverUrl: String) {
+        RecordService.shared.putAlbumAPI(img: self.uploadImage ?? UIImage(), serverUrl: serverUrl) { networkResult in
+            switch networkResult {
+            case 200:
+                self.putImageSuccess.onNext(true)
+            default:
+                self.putImageSuccess.onNext(false)
             }
         }
     }
