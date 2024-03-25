@@ -151,6 +151,7 @@
 		A408BCE82AB713F300AABB46 /* ArchivingQuestionTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A408BCE72AB713F300AABB46 /* ArchivingQuestionTableHeaderView.swift */; };
 		A41289702B9DF31A00E3462D /* AlbumDeleteEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A412896F2B9DF31A00E3462D /* AlbumDeleteEntity.swift */; };
 		A41289722B9F229B00E3462D /* UploadCancelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41289712B9F229A00E3462D /* UploadCancelView.swift */; };
+		A41289742B9F26EA00E3462D /* AlbumImageEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41289732B9F26EA00E3462D /* AlbumImageEntity.swift */; };
 		A423E8872B64063E00B8C125 /* RecordCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A423E8862B64063E00B8C125 /* RecordCollectionViewCell.swift */; };
 		A423E8892B64064A00B8C125 /* RecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A423E8882B64064A00B8C125 /* RecordView.swift */; };
 		A423E88B2B64065300B8C125 /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A423E88A2B64065300B8C125 /* RecordViewController.swift */; };
@@ -318,6 +319,7 @@
 		A408BCE72AB713F300AABB46 /* ArchivingQuestionTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchivingQuestionTableHeaderView.swift; sourceTree = "<group>"; };
 		A412896F2B9DF31A00E3462D /* AlbumDeleteEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDeleteEntity.swift; sourceTree = "<group>"; };
 		A41289712B9F229A00E3462D /* UploadCancelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadCancelView.swift; sourceTree = "<group>"; };
+		A41289732B9F26EA00E3462D /* AlbumImageEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumImageEntity.swift; sourceTree = "<group>"; };
 		A423E8862B64063E00B8C125 /* RecordCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordCollectionViewCell.swift; sourceTree = "<group>"; };
 		A423E8882B64064A00B8C125 /* RecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordView.swift; sourceTree = "<group>"; };
 		A423E88A2B64065300B8C125 /* RecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
@@ -1525,6 +1527,7 @@
 			children = (
 				A488FB562B9B2B01004D4A09 /* AlbumEntity.swift */,
 				A412896F2B9DF31A00E3462D /* AlbumDeleteEntity.swift */,
+				A41289732B9F26EA00E3462D /* AlbumImageEntity.swift */,
 			);
 			path = Record;
 			sourceTree = "<group>";
@@ -1835,6 +1838,7 @@
 				697E19CE2A63243700D4752D /* TodayEntity.swift in Sources */,
 				691979F42A5C61450069FB63 /* AlertVIewController.swift in Sources */,
 				6991BA702A57314A0091D52D /* UserInfoView.swift in Sources */,
+				A41289742B9F26EA00E3462D /* AlbumImageEntity.swift in Sources */,
 				6951A6982A5D89DA00D49692 /* NaviagionBarProtocol.swift in Sources */,
 				697815DE2A530D2C0047944C /* NetworkResult.swift in Sources */,
 				6978156B2A52FE960047944C /* FontLiterals.swift in Sources */,

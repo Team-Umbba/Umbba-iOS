@@ -66,4 +66,57 @@ extension RecordService {
             
         }
     }
+    
+    func patchAlbumImageAPI(completion: @escaping (NetworkResult<Any>) -> Void) {
+        let url = URLConstant.albumImageURL
+        let header: HTTPHeaders = NetworkConstant.noTokenHeader
+        let body: Parameters = [
+            "img_prefix": "album/"
+        ]
+        let dataRequest = AF.request(url,
+                                     method: .patch,
+                                     parameters: body,
+                                     encoding: JSONEncoding.default,
+                                     headers: header)
+        
+        dataRequest.responseData { response in
+            switch response.result {
+            case .success:
+                guard let statusCode = response.response?.statusCode else { return }
+                guard let data = response.data else { return }
+                let networkResult = self.judgeStatus(by: statusCode,
+                                                     data,
+                                                     AlbumImageEntity.self)
+                completion(networkResult)
+            case .failure:
+                completion(.networkFail)
+            }
+            
+        }
+    }
+    
+    func putAlbumAPI(img: Data, imgName: String, serverUrl: String, completion: @escaping (NetworkResult<Any>) -> Void) {
+        let dataRequest = AF.upload(multipartFormData: { multipartFormData in
+                        multipartFormData.append(img,
+                                                 withName: imgName,
+                                                 fileName: imgName,
+                                                 mimeType: "application/octet-stream")},
+                                    to: serverUrl,
+                                    method: .put,
+                                    headers: nil)
+        dataRequest.responseData { response in
+            switch response.result {
+            case .success:
+                guard let statusCode = response.response?.statusCode else { return }
+                guard let data = response.data else { return }
+                let networkResult = self.judgeStatus(by: statusCode,
+                                                     data,
+                                                     AlbumImageEntity.self)
+                completion(networkResult)
+            case .failure:
+                completion(.networkFail)
+            }
+            
+        }
+    }
 }

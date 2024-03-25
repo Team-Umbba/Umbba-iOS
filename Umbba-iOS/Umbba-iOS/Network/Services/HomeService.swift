@@ -26,6 +26,7 @@ extension HomeService {
                                      headers: header)
         
         dataRequest.responseData { response in
+            dump(response)
             switch response.result {
             case .success:
                 guard let statusCode = response.response?.statusCode else { return }

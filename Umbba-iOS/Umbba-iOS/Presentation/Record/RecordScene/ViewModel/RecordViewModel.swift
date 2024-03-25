@@ -14,10 +14,12 @@ import Alamofire
 protocol RecordViewModelInputs {
     func getAlbum()
     func deleteButtonTapped(idx: Int)
+    func patchAlbum(image: Data)
 }
 
 protocol RecordViewModelOutputs {
     var albumData: BehaviorRelay<[AlbumEntity]> { get }
+    var albumImageData: PublishSubject<AlbumImageEntity> { get }
 }
 
 protocol RecordViewModelType {
@@ -30,13 +32,12 @@ final class RecordViewModel: RecordViewModelInputs, RecordViewModelOutputs, Reco
     var inputs: RecordViewModelInputs { return self }
     var outputs: RecordViewModelOutputs { return self }
     
-    var image: Data?
-    var location: String = ""
-    var firstDelete: Bool = false
+    var uploadImage: Data?
  
     // output
     
     var albumData: BehaviorRelay<[AlbumEntity]> = BehaviorRelay<[AlbumEntity]>(value: [])
+    var albumImageData: PublishSubject<AlbumImageEntity> = PublishSubject<AlbumImageEntity>()
     
     // input
     
@@ -46,6 +47,11 @@ final class RecordViewModel: RecordViewModelInputs, RecordViewModelOutputs, Reco
     
     func deleteButtonTapped(idx: Int) {
         self.deleteAlbumAPI(id: idx)
+    }
+    
+    func patchAlbum(image: Data) {
+        self.uploadImage = image
+        self.patchAlbumImageAPI()
     }
     
     init() {
@@ -77,6 +83,21 @@ extension RecordViewModel {
             case .success(let data):
                 if let data = data as? GenericResponse<AlbumDeleteEntity> {
                     dump(data)
+                }
+            default:
+                break
+            }
+        }
+    }
+    
+    func patchAlbumImageAPI() {
+        RecordService.shared.patchAlbumImageAPI { networkResult in
+            switch networkResult {
+            case .success(let data):
+                if let data = data as? GenericResponse<AlbumImageEntity> {
+                    if let imageUrlData = data.data {
+                        self.albumImageData.onNext(imageUrlData)
+                    }
                 }
             default:
                 break
