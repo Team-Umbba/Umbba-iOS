@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "umbbaLogo@1x.png",
+      "filename" : "logo@4x.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "umbbaLogo@2x.png",
+      "filename" : "logo@4x@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "umbbaLogo@3x.png",
+      "filename" : "logo@4x@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

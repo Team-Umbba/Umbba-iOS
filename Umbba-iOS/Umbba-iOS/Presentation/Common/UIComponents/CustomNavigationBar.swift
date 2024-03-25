@@ -114,7 +114,7 @@ extension CustomNavigationBar {
     }
     
     func setLayout() {
-        self.addSubviews(leftButton, pretendardtTitleLabel, titleView, rightButton, settingButton, cameraButton, quizImageView)
+        self.addSubviews(leftButton, pretendardtTitleLabel, titleView, rightButton, settingButton, quizImageView)
         titleView.addSubviews(cafe24TitleLabel)
         
         self.snp.makeConstraints {

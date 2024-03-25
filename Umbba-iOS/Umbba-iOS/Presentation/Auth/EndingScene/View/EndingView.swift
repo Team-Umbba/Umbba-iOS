@@ -45,7 +45,12 @@ final class EndingView: UIView {
     }()
     
     private let endingBackgroundImage = UIImageView(image: UIImage(resource: .imgGradation))
-    private let endingLogoImage = UIImageView(image: UIImage(resource: .umbbaLogo))
+    
+    private let endingLogoImage: UIImageView = {
+        let image = UIImageView(image: UIImage(resource: .umbbaLogo))
+        image.alpha = 0.75
+        return image
+    }()
     
     private let surveyTitle: UILabel = {
         let label = UILabel()
@@ -97,12 +102,11 @@ private extension EndingView {
     
     func setUI() {
         backgroundColor = .Primary400
-        endingBackgroundImage.contentMode = .scaleAspectFit
     }
     
     func setHierarchy() {
         endingBackgroundImage.addSubview(endingLogoImage)
-        addSubviews(exitButton, endingTitle, endingSubTitle, endingBackgroundImage, endingLogoImage, surveyTitle, surveyButton, surveyPassButton)
+        addSubviews(exitButton, endingTitle, endingSubTitle, endingBackgroundImage, surveyTitle, surveyButton, surveyPassButton)
     }
     
     func setAddTarget() {
@@ -113,7 +117,7 @@ private extension EndingView {
     
     func setLayout() {
         exitButton.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(51)
+            $0.top.equalToSuperview().inset(SizeLiterals.Screen.screenHeight * 51 / 812)
             $0.leading.equalToSuperview().inset(8)
             $0.size.equalTo(48)
         }
@@ -129,7 +133,7 @@ private extension EndingView {
         }
         
         endingBackgroundImage.snp.makeConstraints {
-            $0.top.equalTo(endingSubTitle.snp.bottom).offset(2)
+            $0.top.equalTo(endingSubTitle.snp.bottom).offset(SizeLiterals.Screen.deviceRatio > 0.5 ? -30 : 2)
             $0.centerX.equalToSuperview()
             $0.size.equalTo(SizeLiterals.Screen.screenWidth * 386 / 375)
         }
@@ -140,7 +144,7 @@ private extension EndingView {
         }
         
         surveyPassButton.snp.makeConstraints {
-            $0.bottom.equalToSuperview().inset(68)
+            $0.bottom.equalToSuperview().inset(SizeLiterals.Screen.screenHeight * 68 / 812)
             $0.centerX.equalToSuperview()
             $0.width.equalTo(56)
             $0.height.equalTo(19)
