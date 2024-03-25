@@ -153,11 +153,10 @@ enum I18N {
     
     enum Ending {
         static let endingTitle = "지금까지 여정이 어땠는지 알려줘"
-        static let endingSubTitle = "설문에 관련하여 전달한 소제목"
-        static let continueTitle = "매일 새롭게 주어지는 문답을 진행해보세요."
-        static let continueButtonTitle = "문답 이어가기"
-        static let surveyTitle = "설문조사에 참여하여 피드백을 남겨주세요."
+        static let endingSubTitle = "설문에 참여하고, 다시 문답을 이어가자"
+        static let surveyTitle = "설문조사에 참여하여 피드백을 남겨주세요"
         static let surveyButtonTitle = "설문하러 가기"
+        static let surveyPassButtonTitle = "건너뛰기"
     }
     
     enum MyPage {

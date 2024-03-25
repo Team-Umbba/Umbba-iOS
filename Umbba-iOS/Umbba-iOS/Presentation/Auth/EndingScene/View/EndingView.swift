@@ -11,8 +11,8 @@ import SnapKit
 
 protocol EndingDelegate: AnyObject {
     func exitButtonTapped()
-    func continueButtonTapped()
     func surveyButtonTapped()
+    func passButtonTapped()
 }
 
 final class EndingView: UIView {
@@ -20,19 +20,6 @@ final class EndingView: UIView {
     weak var endingDelegate: EndingDelegate?
     
     // MARK: - UI Components
-    
-    private lazy var gradientLayer: CAGradientLayer = {
-        let gradient = CAGradientLayer()
-        gradient.colors = [UIColor.GradientHigh.withAlphaComponent(0.38).cgColor, UIColor.GradientHigh.withAlphaComponent(0).cgColor]
-        gradient.frame = CGRect(x: 0, y: 0, width: bounds.width, height: 217 / 812 * SizeLiterals.Screen.screenHeight)
-        return gradient
-    }()
-    
-    private let endingImageView: UIImageView = {
-        let image = UIImageView()
-        image.image = SizeLiterals.Screen.deviceRatio > 0.5 ? ImageLiterals.Ending.SE_ending_img : ImageLiterals.Ending.ending_img
-        return image
-    }()
     
     private lazy var exitButton: UIButton = {
         let button = UIButton()
@@ -57,30 +44,14 @@ final class EndingView: UIView {
         return label
     }()
     
-    private let continueTitle: UILabel = {
-        let label = UILabel()
-        label.text = I18N.Ending.continueTitle
-        label.textColor = .UmbbaBlack
-        label.font = .PretendardRegular(size: 12)
-        return label
-    }()
-    
-    private lazy var continueButton: CustomButton = {
-        let button = CustomButton(status: true, title: I18N.Home.questionButtonTitle)
-        button.setBackgroundColor(.White500, for: .normal)
-        button.setTitle(I18N.Ending.continueButtonTitle, for: .normal)
-        button.setTitleColor(.Primary500, for: .normal)
-        button.layer.borderColor = UIColor.Primary500.cgColor
-        button.layer.borderWidth = 2
-        button.adjustsImageWhenHighlighted = false
-        return button
-    }()
+    private let endingBackgroundImage = UIImageView(image: UIImage(resource: .imgGradation))
+    private let endingLogoImage = UIImageView(image: UIImage(resource: .umbbaLogo))
     
     private let surveyTitle: UILabel = {
         let label = UILabel()
         label.text = I18N.Ending.surveyTitle
-        label.textColor = .UmbbaBlack
-        label.font = .PretendardRegular(size: 12)
+        label.textColor = .Gray900
+        label.font = .PretendardRegular(size: 16)
         return label
     }()
     
@@ -90,6 +61,15 @@ final class EndingView: UIView {
         button.setTitleColor(.White500, for: .normal)
         button.setBackgroundColor(.Primary500, for: .normal)
         button.adjustsImageWhenHighlighted = false
+        return button
+    }()
+    
+    private lazy var surveyPassButton: UIButton = {
+        let button = UIButton()
+        button.setTitle(I18N.Ending.surveyPassButtonTitle, for: .normal)
+        button.setTitleColor(.Gray900, for: .normal)
+        button.titleLabel?.font = .PretendardRegular(size: 16)
+        button.titleLabel?.setUnderlinePartFontChange(targetString: I18N.Ending.surveyPassButtonTitle, font: .PretendardRegular(size: 16))
         return button
     }()
     
@@ -104,12 +84,6 @@ final class EndingView: UIView {
         setAddTarget()
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-
-        setGradient()
-    }
-    
     @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -120,21 +94,20 @@ final class EndingView: UIView {
 // MARK: - Extensions
 
 private extension EndingView {
-    func setUI() {
-        backgroundColor = .White500
-    }
     
-    func setGradient() {
-        layer.addSublayer(gradientLayer)
+    func setUI() {
+        backgroundColor = .Primary400
+        endingBackgroundImage.contentMode = .scaleAspectFit
     }
     
     func setHierarchy() {
-        addSubviews(exitButton, endingTitle, endingSubTitle, endingImageView, continueTitle, continueButton, surveyTitle, surveyButton)
+        endingBackgroundImage.addSubview(endingLogoImage)
+        addSubviews(exitButton, endingTitle, endingSubTitle, endingBackgroundImage, endingLogoImage, surveyTitle, surveyButton, surveyPassButton)
     }
     
     func setAddTarget() {
         surveyButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
-        continueButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+        surveyPassButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
         exitButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
     }
     
@@ -155,13 +128,26 @@ private extension EndingView {
             $0.leading.equalTo(endingTitle.snp.leading)
         }
         
-        endingImageView.snp.makeConstraints {
-            $0.top.equalTo(endingSubTitle.snp.bottom).offset(SizeLiterals.Screen.screenHeight * 81 / 812)
-            $0.leading.trailing.equalToSuperview()
+        endingBackgroundImage.snp.makeConstraints {
+            $0.top.equalTo(endingSubTitle.snp.bottom).offset(2)
+            $0.centerX.equalToSuperview()
+            $0.size.equalTo(SizeLiterals.Screen.screenWidth * 386 / 375)
+        }
+        
+        endingLogoImage.snp.makeConstraints {
+            $0.center.equalToSuperview()
+            $0.size.equalTo(SizeLiterals.Screen.screenWidth * 174 / 375)
+        }
+        
+        surveyPassButton.snp.makeConstraints {
+            $0.bottom.equalToSuperview().inset(68)
+            $0.centerX.equalToSuperview()
+            $0.width.equalTo(56)
+            $0.height.equalTo(19)
         }
         
         surveyButton.snp.makeConstraints {
-            $0.bottom.equalToSuperview().inset(44)
+            $0.bottom.equalTo(surveyPassButton.snp.top).offset(-28)
             $0.centerX.equalToSuperview()
             $0.width.equalTo(SizeLiterals.Screen.screenWidth - 56)
             $0.height.equalTo(60)
@@ -171,18 +157,6 @@ private extension EndingView {
             $0.bottom.equalTo(surveyButton.snp.top).offset(-12)
             $0.centerX.equalToSuperview()
         }
-        
-        continueButton.snp.makeConstraints {
-            $0.bottom.equalTo(surveyTitle.snp.top).offset(-16)
-            $0.centerX.equalToSuperview()
-            $0.width.equalTo(SizeLiterals.Screen.screenWidth - 56)
-            $0.height.equalTo(60)
-        }
-        
-        continueTitle.snp.makeConstraints {
-            $0.bottom.equalTo(continueButton.snp.top).offset(-12)
-            $0.centerX.equalToSuperview()
-        }
     }
     
     @objc
@@ -190,8 +164,8 @@ private extension EndingView {
         switch sender {
         case exitButton:
             endingDelegate?.exitButtonTapped()
-        case continueButton:
-            endingDelegate?.continueButtonTapped()
+        case surveyPassButton:
+            endingDelegate?.passButtonTapped()
         case surveyButton:
             endingDelegate?.surveyButtonTapped()
         default:
