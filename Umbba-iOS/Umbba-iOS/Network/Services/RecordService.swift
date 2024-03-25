@@ -112,4 +112,35 @@ extension RecordService {
             }
         }
     }
+    
+    func postAlbumAPI(title: String, content: String, fileName: String,
+                      completion: @escaping (NetworkResult<Any>) -> Void) {
+        let url = URLConstant.albumURL
+        let header: HTTPHeaders = NetworkConstant.hasTokenHeader
+        let body: Parameters = [
+            "title": title,
+            "content": content,
+            "img_file_name": fileName
+        ]
+        let dataRequest = AF.request(url,
+                                     method: .post,
+                                     parameters: body,
+                                     encoding: JSONEncoding.default,
+                                     headers: header)
+        
+        dataRequest.responseData { response in
+            switch response.result {
+            case .success:
+                guard let statusCode = response.response?.statusCode else { return }
+                guard let data = response.data else { return }
+                let networkResult = self.judgeStatus(by: statusCode,
+                                                     data,
+                                                     AlbumDeleteEntity.self)
+                completion(networkResult)
+            case .failure:
+                completion(.networkFail)
+            }
+            
+        }
+    }
 }

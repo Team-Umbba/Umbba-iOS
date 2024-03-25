@@ -15,6 +15,7 @@ protocol RecordViewModelInputs {
     func getAlbum()
     func deleteButtonTapped(idx: Int)
     func patchAlbum(image: UIImage)
+    func postAlbum(title: String, content: String)
 }
 
 protocol RecordViewModelOutputs {
@@ -53,6 +54,10 @@ final class RecordViewModel: RecordViewModelInputs, RecordViewModelOutputs, Reco
     func patchAlbum(image: UIImage) {
         self.uploadImage = image
         self.patchAlbumImageAPI()
+    }
+    
+    func postAlbum(title: String, content: String) {
+        self.postAlbumAPI(title: title, content: content)
     }
     
     init() {
@@ -114,6 +119,21 @@ extension RecordViewModel {
                 self.putImageSuccess.onNext(true)
             default:
                 self.putImageSuccess.onNext(false)
+            }
+        }
+    }
+    
+    func postAlbumAPI(title: String, content: String) {
+        RecordService.shared.postAlbumAPI(title: title, content: content, fileName: self.fileName) { networkResult in
+            switch networkResult {
+            case .success(let data):
+                if let data = data as? GenericResponse<AlbumDeleteEntity> {
+                    if let albumData = data.data {
+                        dump(albumData)
+                    }
+                }
+            default:
+                break
             }
         }
     }

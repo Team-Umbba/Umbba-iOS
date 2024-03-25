@@ -84,6 +84,14 @@ private extension UploadViewController {
                 }
             })
             .disposed(by: disposeBag)
+        
+        uploadView.uploadButton.rx.tap
+            .bind {
+                self.viewModel.inputs.postAlbum(title: self.uploadView.titleTextField.text ?? "", content: self.uploadView.introduceTextView.text ?? "")
+                NotificationCenter.default.post(name: NSNotification.Name("albumDeleted"), object: nil)
+                self.navigationController?.popViewController(animated: true)
+            }
+            .disposed(by: disposeBag)
     }
 }
 

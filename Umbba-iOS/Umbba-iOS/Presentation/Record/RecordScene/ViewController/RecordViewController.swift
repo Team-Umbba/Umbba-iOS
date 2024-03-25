@@ -90,11 +90,11 @@ extension RecordViewController {
                        cellType: RecordCollectionViewCell.self)) { (index, model, cell) in
                 cell.configureCell(model: model)
                 cell.recordDeleteButton.rx.tap
-                    .subscribe(onNext: {
+                    .bind {
                         let nav = DeleteRecordAlertViewController(viewModel: self.recordViewModel, idx: model.albumID)
                         nav.modalPresentationStyle = .overFullScreen
                         self.present(nav, animated: false)
-                    })
+                    }
                     .disposed(by: self.disposeBag)
             }
             .disposed(by: disposeBag)
