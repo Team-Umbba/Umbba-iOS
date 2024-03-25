@@ -100,8 +100,9 @@ enum I18N {
         static let homeButton = "홈으로"
         static let partnerName = "이승준."
         static let myName = "김수연."
-        static let noneAnswer = "상대방은 아직 답변하지 않았어요"
-        static let pleaseAnswer = "답변을 입력하세요"
+        static let noneAnswer = "상대방이 아직 답변하지 않았어요"
+        static let yetAnswer = "아래 질문에 답하고 내용을 확인하세요"
+        static let pleaseAnswer = "하단 버튼을 눌러 답변을 입력하세요"
     }
     
     enum Setting {
@@ -167,5 +168,17 @@ enum I18N {
         static let albumTitle = "기록하기"
         static let albumDetail = "소중한 순간을 기록하세요"
         static let copyright = "ub company 2023 어쩌구 ver 1.2 뭔말알"
+    }
+    
+    enum Quiz {
+        static let QuizTitle = "밸런스 게임!"
+        static let QuizSubTitle = "나는 상대방에 대해 얼마나 알고 있을까?"
+        static let ResultButtonTitle = "결과 확인하기"
+        static let resultTitle = "결과 확인"
+        static let myChoice = "나의 선택"
+        static let opponentChoice = "상대방의 선택"
+        static let result_notyet = "아직 상대가\n선택하지 않았어요"
+        static let result_correct = "우리는 통했어요"
+        static let result_incorrect = "선택이 엇갈렸어요"
     }
 }
