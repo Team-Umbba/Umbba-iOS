@@ -53,7 +53,7 @@ extension EndingViewController: EndingDelegate {
         self.navigationController?.popViewController(animated: false)
     }
     
-    func continueButtonTapped() {
+    func passButtonTapped() {
         patchRestartAPI()
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "patchRestart"), object: nil)
         self.navigationController?.popViewController(animated: false)

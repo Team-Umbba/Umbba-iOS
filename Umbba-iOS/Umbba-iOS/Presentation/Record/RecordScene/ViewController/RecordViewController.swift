@@ -7,12 +7,20 @@
 
 import UIKit
 
+import RxSwift
+import RxCocoa
+
 final class RecordViewController: UIViewController {
+    
+    // MARK: - Properties
+    
+    private let disposeBag = DisposeBag()
+    private let recordViewModel = RecordViewModel()
     
     // MARK: - UI Components
     
     private let recordView = RecordView()
-    private lazy var collectionView = recordView.collectionView
+    private lazy var collectionView = recordView.recordCollectionView
     
     // MARK: - Life Cycles
     
@@ -26,6 +34,11 @@ final class RecordViewController: UIViewController {
         
         setUI()
         setDelegate()
+        bindViewModel()
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
 }
 
@@ -38,26 +51,74 @@ extension RecordViewController {
     }
     
     func setDelegate() {
-        collectionView.delegate = self
-        collectionView.dataSource = self
         recordView.navigationdelegate = self
+        NotificationCenter.default.addObserver(self, selector: #selector(self.albumeDeleted(_:)), name: NSNotification.Name("albumDeleted"), object: nil)
+    }
+    
+    @objc func albumeDeleted(_ notification: Notification) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+            self.recordViewModel.inputs.getAlbum()
+        }
+    }
+    
+    func bindViewModel() {
+        recordView.recordButton.rx.tap
+            .subscribe(onNext: {
+                let albumVC = UIImagePickerController()
+                albumVC.sourceType = .photoLibrary
+                albumVC.delegate = self
+                albumVC.allowsEditing = true
+                self.present(albumVC, animated: true, completion: nil)
+            })
+            .disposed(by: disposeBag)
+        
+        recordViewModel.outputs.albumData
+            .subscribe(onNext: { [weak self] albums in
+                guard let self = self else { return }
+                if albums.isEmpty {
+                    self.recordView.configureView(.emptyRecord)
+                } else {
+                    self.recordView.configureView(.hasRecord)
+                }
+                self.collectionView.reloadData()
+            })
+            .disposed(by: disposeBag)
+        
+        recordViewModel.outputs.albumData
+            .bind(to: recordView.recordCollectionView.rx
+                .items(cellIdentifier: RecordCollectionViewCell.className,
+                       cellType: RecordCollectionViewCell.self)) { (index, model, cell) in
+                cell.configureCell(model: model)
+                cell.recordDeleteButton.rx.tap
+                    .bind {
+                        let nav = DeleteRecordAlertViewController(viewModel: self.recordViewModel, idx: model.albumID)
+                        nav.modalPresentationStyle = .overFullScreen
+                        self.present(nav, animated: false)
+                    }
+                    .disposed(by: self.disposeBag)
+            }
+            .disposed(by: disposeBag)
     }
 }
 
-extension RecordViewController: UICollectionViewDelegate {
+extension RecordViewController: UIImagePickerControllerDelegate {
     
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+        if let image = info[.editedImage] as? UIImage {
+            recordViewModel.inputs.patchAlbum(image: image)
+            let nav = UploadViewController(viewModel: self.recordViewModel)
+            self.navigationController?.pushViewController(nav, animated: true)
+        }
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        self.dismiss(animated: true, completion: nil)
+    }
 }
 
-extension RecordViewController: UICollectionViewDataSource {
+extension RecordViewController: UINavigationControllerDelegate {
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = RecordCollectionViewCell.dequeueReusableCell(collectionView: collectionView, indexPath: indexPath)
-        return cell
-    }
 }
 
 extension RecordViewController: NavigationBarDelegate {
