@@ -44,11 +44,6 @@ final class CustomNavigationBar: UIView {
         set { settingButton.isHidden = !newValue }
     }
     
-    public var isQuizImageViewIncluded: Bool {
-        get { !quizImageView.isHidden }
-        set { quizImageView.isHidden = !newValue }
-    }
-    
     lazy var leftButton: UIButton = {
         let button = UIButton()
         button.setImage(ImageLiterals.NavigationBar.icn_back, for: .normal)
@@ -126,7 +121,7 @@ extension CustomNavigationBar {
     }
     
     func setLayout() {
-        self.addSubviews(leftButton, pretendardtTitleLabel, titleView, rightButton, settingButton, cameraButton, quizImageView)
+        self.addSubviews(leftButton, pretendardtTitleLabel, titleView, rightButton, settingButton, cameraButton)
         titleView.addSubviews(cafe24TitleLabel)
         
         self.snp.makeConstraints {
@@ -167,12 +162,6 @@ extension CustomNavigationBar {
         cameraButton.snp.makeConstraints {
             $0.centerY.equalToSuperview()
             $0.trailing.equalToSuperview().inset(6)
-            $0.size.equalTo(48)
-        }
-        
-        quizImageView.snp.makeConstraints {
-            $0.centerY.equalToSuperview()
-            $0.trailing.equalToSuperview().inset(8)
             $0.size.equalTo(48)
         }
     }

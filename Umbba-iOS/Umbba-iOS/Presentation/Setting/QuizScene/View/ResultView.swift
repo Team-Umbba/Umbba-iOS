@@ -19,7 +19,6 @@ final class ResultView: UIView {
     private let navigationBarView: CustomNavigationBar = {
         let view = CustomNavigationBar()
         view.isLeftButtonIncluded = true
-        view.isQuizImageViewIncluded = true
         view.backgroundColor = .White500
         return view
     }()
@@ -110,7 +109,7 @@ final class ResultView: UIView {
     
     private let resultLabel: UILabel = {
         let label = UILabel()
-        label.font = .PretendardBold(size: 24)
+        label.font = .PretendardBold(size: 20)
         return label
     }()
     
@@ -248,7 +247,6 @@ private extension ResultView {
             resultLabel.snp.updateConstraints {
                 $0.top.equalTo(resultView.snp.bottom).offset(16)
             }
-            resultLabel.font = .PretendardBold(size: 20)
             resultLabel.textAlignment = .center
             resultLabel.text = I18N.Quiz.result_notyet
             resultLabel.numberOfLines = 2
