@@ -25,7 +25,7 @@ final class UploadView: UIView {
     
     private let uploadTitleLabel: UILabel = {
         let label = UILabel()
-        label.text = "기록하기"
+        label.text = I18N.Record.uploadTitle
         label.textColor = .UmbbaBlack
         label.font = .PretendardSemiBold(size: 24)
         return label
@@ -33,7 +33,7 @@ final class UploadView: UIView {
     
     private let uploadSubTitleLabel: UILabel = {
         let label = UILabel()
-        label.text = "간단한 설명과 함께 사진을 업로드 하세요"
+        label.text = I18N.Record.uploadSubTitle
         label.textColor = .Gray900
         label.font = .PretendardRegular(size: 16)
         return label
@@ -50,17 +50,17 @@ final class UploadView: UIView {
     
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "제목"
+        label.text = I18N.Record.uploadTextTitle
         label.textColor = .UmbbaBlack
         label.font = .PretendardSemiBold(size: 20)
         return label
     }()
     
-    let titleTextField = CustomTextField(placeHolder: "사진의 제목을 작성해주세요")
+    let titleTextField = CustomTextField(placeHolder: I18N.Record.uploadTextPlaceholder)
     
     let titleErrorLabel: UILabel = {
         let label = UILabel()
-        label.text = "*최대 15자까지 입력 가능합니다."
+        label.text = I18N.Record.uploadTextErrorTitle
         label.textColor = .Error
         label.font = .PretendardRegular(size: 12)
         return label
@@ -77,7 +77,7 @@ final class UploadView: UIView {
     
     private let introduceLabel: UILabel = {
         let label = UILabel()
-        label.text = "소개"
+        label.text = I18N.Record.introduceTitle
         label.textColor = .UmbbaBlack
         label.font = .PretendardSemiBold(size: 20)
         return label
@@ -85,7 +85,7 @@ final class UploadView: UIView {
     
     let introduceTextView: UITextView = {
         let textView = UITextView()
-        textView.text = "사진에 대해 소개해주세요"
+        textView.text = I18N.Record.introducePlaceholder
         textView.font = .PretendardRegular(size: 16)
         textView.textColor = .Gray800
         textView.textContainer.maximumNumberOfLines = 5
@@ -102,12 +102,12 @@ final class UploadView: UIView {
     private let countLabel: UILabel = {
         let label = UILabel()
         label.textColor = .UmbbaBlack
-        label.text = "0/32"
+        label.text = I18N.Record.countTitle
         label.font = .PretendardRegular(size: 10)
         return label
     }()
     
-    lazy var uploadButton = CustomButton(status: false, title: "등록하기")
+    lazy var uploadButton = CustomButton(status: false, title: I18N.Record.uploadButtonTitle)
     
     let uploadCancelView = UploadCancelView()
     
@@ -248,7 +248,7 @@ private extension UploadView {
     
     func updateUploadButton() {
 
-        if !titleTextField.isEmpty && introduceTextView.text != "사진에 대해 소개해주세요" && introduceTextView.text.count > 0 {
+        if !titleTextField.isEmpty && introduceTextView.text != I18N.Record.introducePlaceholder && introduceTextView.text.count > 0 {
             uploadButton.isEnabled = true
         } else {
             uploadButton.isEnabled = false
@@ -266,7 +266,7 @@ extension UploadView: UITextViewDelegate {
     
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.isEmpty {
-            textView.text = "사진에 대해 소개해주세요"
+            textView.text = I18N.Record.introducePlaceholder
             textView.textColor = .Gray800
         }
     }

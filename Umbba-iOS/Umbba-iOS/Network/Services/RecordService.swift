@@ -108,7 +108,7 @@ extension RecordService {
             case 200:
                 completion(200)
             default:
-                print("fail")
+                break
             }
         }
     }

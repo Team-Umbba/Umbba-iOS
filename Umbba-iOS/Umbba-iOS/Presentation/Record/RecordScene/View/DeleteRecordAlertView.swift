@@ -8,8 +8,6 @@
 import UIKit
 
 import SnapKit
-import RxSwift
-import RxCocoa
 
 final class DeleteRecordAlertView: UIView {
     
@@ -30,7 +28,7 @@ final class DeleteRecordAlertView: UIView {
     
     private let alertTitle: UILabel = {
         let label = UILabel()
-        label.text = "정말 기록을 삭제하시겠어요?"
+        label.text = I18N.Record.recordDelAlertTitle
         label.font = .PretendardRegular(size: 16)
         label.textColor = .UmbbaBlack
         label.textAlignment = .center

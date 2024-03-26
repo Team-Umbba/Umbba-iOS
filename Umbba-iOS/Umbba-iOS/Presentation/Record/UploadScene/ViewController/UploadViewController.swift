@@ -75,7 +75,7 @@ private extension UploadViewController {
                     coordinator.animate(alongsideTransition: nil) { _ in
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
                             if !success {
-                                self.makeAlert(title: "오류가 발생했습니다", message: "다시 사진을 업로드해주세요.", okAction: { _ in
+                                self.makeAlert(title: I18N.Record.putImageErrorTitle, message: I18N.Record.putImageErrorSubTitle, okAction: { _ in
                                     self.navigationController?.popViewController(animated: true)
                                 })
                             }

@@ -30,7 +30,7 @@ final class RecordView: UIView {
     
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "사진으로 추억을 기록해요"
+        label.text = I18N.Record.recordTitle
         label.textColor = .UmbbaBlack
         label.font = .PretendardSemiBold(size: 24)
         return label
@@ -38,7 +38,7 @@ final class RecordView: UIView {
     
     private let subTitleLabel: UILabel = {
         let label = UILabel()
-        label.text = "간단한 설명과 함께 사진을 업로드 하세요"
+        label.text = I18N.Record.recordSubTitle
         label.textColor = .Gray900
         label.font = .PretendardRegular(size: 16)
         return label
@@ -57,12 +57,12 @@ final class RecordView: UIView {
         return collectionView
     }()
     
-    lazy var recordButton = CustomButton(status: true, title: "사진 업로드하기")
+    lazy var recordButton = CustomButton(status: true, title: I18N.Record.recordButtonTitle)
     
     private let emptyImage = UIImageView(image: UIImage(resource: .recordEmpty))
     private let emptyTitle: UILabel = {
         let label = UILabel()
-        label.text = "업로드 한 사진이 없어요"
+        label.text = I18N.Record.recordEmptyTitle
         label.textColor = .Gray800
         label.font = .PretendardSemiBold(size: 16)
         return label

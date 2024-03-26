@@ -87,7 +87,6 @@ extension RecordViewModel {
             switch networkResult {
             case .success(let data):
                 if let data = data as? GenericResponse<AlbumDeleteEntity> {
-                    dump(data)
                 }
             default:
                 break
@@ -101,7 +100,6 @@ extension RecordViewModel {
             case .success(let data):
                 if let data = data as? GenericResponse<AlbumImageEntity> {
                     if let imageUrlData = data.data {
-                        dump(imageUrlData)
                         self.fileName = imageUrlData.fileName
                         self.putImageAPI(serverUrl: imageUrlData.url)
                     }
@@ -129,7 +127,6 @@ extension RecordViewModel {
             case .success(let data):
                 if let data = data as? GenericResponse<AlbumDeleteEntity> {
                     if let albumData = data.data {
-                        dump(albumData)
                     }
                 }
             default:

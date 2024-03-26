@@ -8,8 +8,6 @@
 import UIKit
 
 import SnapKit
-import RxSwift
-import RxCocoa
 
 final class UploadCancelView: UIView {
     
@@ -30,7 +28,7 @@ final class UploadCancelView: UIView {
     
     private let alertTitle: UILabel = {
         let label = UILabel()
-        label.text = "작성을 취소하시겠어요?\n작성 중인 글은 저장되지 않아요"
+        label.text = I18N.Record.uploadAlertTitle
         label.numberOfLines = 2
         label.font = .PretendardRegular(size: 16)
         label.textColor = .UmbbaBlack

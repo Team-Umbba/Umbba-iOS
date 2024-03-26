@@ -29,7 +29,6 @@ final class RecordCollectionViewCell: UICollectionViewCell, UICollectionViewRegi
     
     private let recordTitleLabel: UILabel = {
         let label = UILabel()
-        label.text = "설이 귀여움"
         label.textColor = .White500
         label.textAlignment = .center
         label.font = .PretendardSemiBold(size: 16)
@@ -63,7 +62,6 @@ final class RecordCollectionViewCell: UICollectionViewCell, UICollectionViewRegi
     
     private let contentLabel: UILabel = {
         let label = UILabel()
-        label.text = "머리가 참외같이\n작아서 놀랐던 날"
         label.textColor = .White400
         label.font = .PretendardSemiBold(size: 16)
         label.textAlignment = .center
@@ -73,7 +71,7 @@ final class RecordCollectionViewCell: UICollectionViewCell, UICollectionViewRegi
     
     private let writerLabel: UILabel = {
         let label = UILabel()
-        label.text = "작성자"
+        label.text = I18N.Record.writerTitle
         label.textColor = .Primary400
         label.font = .PretendardRegular(size: 16)
         return label
@@ -94,7 +92,7 @@ final class RecordCollectionViewCell: UICollectionViewCell, UICollectionViewRegi
     
     private let touchTitle: UILabel = {
         let label = UILabel()
-        label.text = "터치하기"
+        label.text = I18N.Record.touchTitle
         label.textColor = .White400
         label.textAlignment = .center
         label.font = .PretendardRegular(size: 12)
@@ -201,16 +199,10 @@ private extension RecordCollectionViewCell {
     }
     
     @objc
-    private func handleTap(_ sender: UITapGestureRecognizer) {
-        if recordContentView.isHidden {
-            titleView.isHidden = true
-            touchStackView.isHidden = true
-            recordContentView.isHidden = false
-        } else {
-            titleView.isHidden = false
-            touchStackView.isHidden = false
-            recordContentView.isHidden = true
-        }
+    func handleTap(_ sender: UITapGestureRecognizer) {
+        titleView.isHidden = recordContentView.isHidden
+        touchStackView.isHidden = !recordContentView.isHidden
+        recordContentView.isHidden.toggle()
     }
 }
 

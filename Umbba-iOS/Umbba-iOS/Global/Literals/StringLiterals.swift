@@ -181,4 +181,26 @@ enum I18N {
         static let result_correct = "우리는 통했어요"
         static let result_incorrect = "선택이 엇갈렸어요"
     }
+    
+    enum Record {
+        static let writerTitle = "작성자"
+        static let touchTitle = "터치하기"
+        static let recordDelAlertTitle =  "정말 기록을 삭제하시겠어요?"
+        static let recordTitle = "사진으로 추억을 기록해요"
+        static let recordSubTitle = "간단한 설명과 함께 사진을 업로드 하세요"
+        static let recordButtonTitle = "사진 업로드하기"
+        static let recordEmptyTitle = "업로드 한 사진이 없어요"
+        static let uploadAlertTitle = "작성을 취소하시겠어요?\n작성 중인 글은 저장되지 않아요"
+        static let uploadTitle = "기록하기"
+        static let uploadSubTitle = "간단한 설명과 함께 사진을 업로드 하세요"
+        static let uploadTextTitle = "제목"
+        static let uploadTextPlaceholder = "사진의 제목을 작성해주세요"
+        static let uploadTextErrorTitle =  "*최대 15자까지 입력 가능합니다."
+        static let introduceTitle = "소개"
+        static let introducePlaceholder = "사진에 대해 소개해주세요"
+        static let countTitle = "0/32"
+        static let uploadButtonTitle = "등록하기"
+        static let putImageErrorTitle = "오류가 발생했습니다"
+        static let putImageErrorSubTitle = "다시 사진을 업로드해주세요."
+    }
 }
