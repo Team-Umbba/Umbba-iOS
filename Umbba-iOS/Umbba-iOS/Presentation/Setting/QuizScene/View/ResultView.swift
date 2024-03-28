@@ -114,7 +114,7 @@ final class ResultView: UIView {
     }()
     
     lazy var nextButton: CustomButton = {
-        let button = CustomButton(status: false, title: "다음으로")
+        let button = CustomButton(status: false, title: I18N.Common.nextButtonTitle)
         button.isEnabled = false
         return button
     }()
