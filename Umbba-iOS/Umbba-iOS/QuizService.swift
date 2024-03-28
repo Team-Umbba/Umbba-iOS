@@ -1,60 +1,28 @@
 //
-//  AuthService.swift
+//  QuizService.swift
 //  Umbba-iOS
 //
-//  Created by 최영린 on 2023/07/03.
+//  Created by 최영린 on 3/15/24.
 //
 
 import Foundation
 
 import Alamofire
 
-final class AuthService: BaseService {
+final class QuizService: BaseService {
     
-    static let shared = AuthService()
+    static let shared = QuizService()
     
     private override init() {}
 }
 
-extension AuthService {
-    func postLoginAPI(
-        social_platform: String,
-        social_token: String,
-        fcm_token: String,
-        completion: @escaping (NetworkResult<Any>) -> Void) {
-            let url = URLConstant.loginURL
-            let header: HTTPHeaders = [
-                "Content-Type": "application/json",
-                "Authorization": social_token]
-            let body: Parameters = [
-                "social_platform": social_platform,
-                "fcm_token": fcm_token
-            ]
-            let dataRequest = AF.request(url,
-                                         method: .post,
-                                         parameters: body,
-                                         encoding: JSONEncoding.default,
-                                         headers: header)
-            dataRequest.responseData { response in
-                switch response.result {
-                case .success:
-                    guard let statusCode = response.response?.statusCode else { return }
-                    guard let data = response.data else { return }
-                    let networkResult = self.judgeStatus(by: statusCode,
-                                                         data,
-                                                         LoginEntity.self)
-                    completion(networkResult)
-                case .failure:
-                    completion(.networkFail)
-                }
-            }
-        }
+extension QuizService {
     
-    func patchLogOutAPI(completion: @escaping (NetworkResult<Any>) -> Void) {
-        let url = URLConstant.logoutURL
+    func getQuizAPI(completion: @escaping (NetworkResult<Any>) -> Void) {
+        let url = URLConstant.quizURL
         let header: HTTPHeaders = NetworkConstant.hasTokenHeader
         let dataRequest = AF.request(url,
-                                     method: .patch,
+                                     method: .get,
                                      encoding: JSONEncoding.default,
                                      headers: header)
         dataRequest.responseData { response in
@@ -64,16 +32,44 @@ extension AuthService {
                 guard let data = response.data else { return }
                 let networkResult = self.judgeStatus(by: statusCode,
                                                      data,
-                                                     BlankEntity.self)
+                                                     QuizEntity.self)
                 completion(networkResult)
             case .failure:
                 completion(.networkFail)
             }
+            
         }
     }
     
-    func patchSignOutAPI(completion: @escaping (NetworkResult<Any>) -> Void) {
-        let url = URLConstant.signoutURL
+    func patchQuizAnswerAPI(answer: Int, completion: @escaping (NetworkResult<Any>) -> Void) {
+        let url = URLConstant.quizAnswerURL
+        let header: HTTPHeaders = NetworkConstant.hasTokenHeader
+        let body: Parameters = [
+            "answer": answer
+        ]
+        let dataRequest = AF.request(url,
+                                     method: .patch,
+                                     parameters: body,
+                                     encoding: JSONEncoding.default,
+                                     headers: header)
+        dataRequest.responseData { response in
+            switch response.result {
+            case .success:
+                guard let statusCode = response.response?.statusCode else { return }
+                guard let data = response.data else { return }
+                let networkResult = self.judgeStatus(by: statusCode,
+                                                     data,
+                                                     BlankEntity.self)
+                completion(networkResult)
+            case .failure:
+                completion(.networkFail)
+            }
+            
+        }
+    }
+    
+    func patchQuizNextAPI(completion: @escaping (NetworkResult<Any>) -> Void) {
+        let url = URLConstant.quizNextURL
         let header: HTTPHeaders = NetworkConstant.hasTokenHeader
         let dataRequest = AF.request(url,
                                      method: .patch,
@@ -91,6 +87,7 @@ extension AuthService {
             case .failure:
                 completion(.networkFail)
             }
+            
         }
     }
 }

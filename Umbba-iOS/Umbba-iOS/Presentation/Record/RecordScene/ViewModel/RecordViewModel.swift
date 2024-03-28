@@ -86,7 +86,7 @@ extension RecordViewModel {
         RecordService.shared.deleteAlbumAPI(albumId: id) { networkResult in
             switch networkResult {
             case .success(let data):
-                if let data = data as? GenericResponse<AlbumDeleteEntity> {
+                if let data = data as? GenericResponse<BlankEntity> {
                 }
             default:
                 break
@@ -125,7 +125,7 @@ extension RecordViewModel {
         RecordService.shared.postAlbumAPI(title: title, content: content, fileName: self.fileName) { networkResult in
             switch networkResult {
             case .success(let data):
-                if let data = data as? GenericResponse<AlbumDeleteEntity> {
+                if let data = data as? GenericResponse<BlankEntity> {
                     if let albumData = data.data {
                     }
                 }

@@ -39,11 +39,6 @@ final class CustomNavigationBar: UIView {
         set { settingButton.isHidden = !newValue }
     }
     
-    public var isQuizImageViewIncluded: Bool {
-        get { !quizImageView.isHidden }
-        set { quizImageView.isHidden = !newValue }
-    }
-    
     lazy var leftButton: UIButton = {
         let button = UIButton()
         button.setImage(ImageLiterals.NavigationBar.icn_back, for: .normal)

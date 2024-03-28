@@ -13,16 +13,15 @@ final class QuizView: UIView {
     
     weak var navigationdelegate: NavigationBarDelegate?
     weak var nextDelegate: NextButtonDelegate?
-    
+
     private var answerButton: [UIButton] = []
-    private var answer: String = ""
+    var answer: Int = -1
     
     // MARK: - UI Components
     
     private let navigationBarView: CustomNavigationBar = {
         let view = CustomNavigationBar()
         view.isLeftButtonIncluded = true
-        view.isQuizImageViewIncluded = true
         view.backgroundColor = .White500
         return view
     }()
@@ -54,7 +53,6 @@ final class QuizView: UIView {
     
     private lazy var questionLabel: UILabel = {
         let label = UILabel()
-        label.text = "Q. 겨울에는"
         label.textColor = .UmbbaBlack
         label.font = .PretendardBold(size: 20)
         return label
@@ -64,7 +62,6 @@ final class QuizView: UIView {
         let button = UIButton()
         button.setBackgroundColor(.White500, for: .normal)
         button.setBackgroundColor(.Primary400, for: .selected)
-        button.setTitle("팥 붕어빵", for: .normal)
         button.setTitleColor(.Gray900, for: .normal)
         button.setTitleColor(.Primary600, for: .selected)
         button.titleLabel?.font = .PretendardBold(size: 20)
@@ -72,6 +69,7 @@ final class QuizView: UIView {
         button.layer.borderWidth = 1
         button.layer.cornerRadius = 17
         button.adjustsImageWhenHighlighted = false
+        button.tag = 1
         answerButton.append(button)
         return button
     }()
@@ -80,7 +78,6 @@ final class QuizView: UIView {
         let button = UIButton()
         button.setBackgroundColor(.White500, for: .normal)
         button.setBackgroundColor(.Primary400, for: .selected)
-        button.setTitle("슈크림 붕어빵", for: .normal)
         button.setTitleColor(.Gray900, for: .normal)
         button.setTitleColor(.Primary600, for: .selected)
         button.titleLabel?.font = .PretendardBold(size: 20)
@@ -88,6 +85,7 @@ final class QuizView: UIView {
         button.layer.borderWidth = 1
         button.layer.cornerRadius = 17
         button.adjustsImageWhenHighlighted = false
+        button.tag = 2
         answerButton.append(button)
         return button
     }()
@@ -190,15 +188,21 @@ private extension QuizView {
     func answerButtonTapped(sender: UIButton) {
         nextButton.isEnabled = true
         answerButton.forEach { button in
-            guard let answer = button.titleLabel?.text else { return }
             button.isSelected = sender == button
             if button.isSelected {
                 button.layer.borderColor = UIColor.Primary600.cgColor
-                self.answer = answer
+                self.answer = button.tag
             } else {
                 button.layer.borderColor = UIColor.Gray400.cgColor
             }
         }
     }
-    
+}
+
+extension QuizView {
+    func setDataBind(model: QuizEntity) {
+        questionLabel.text = "Q. \(model.balanceQuestion)"
+        answerButton1.setTitle(model.choiceAnswer1, for: .normal)
+        answerButton2.setTitle(model.choiceAnswer2, for: .normal)
+    }
 }
