@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "ic_closeQuote.svg",
+      "filename" : "icon_closeQuote.svg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "ic_closeQuote 1.svg",
+      "filename" : "icon_closeQuote 1.svg",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "ic_closeQuote 2.svg",
+      "filename" : "icon_closeQuote 2.svg",
       "idiom" : "universal",
       "scale" : "3x"
     }

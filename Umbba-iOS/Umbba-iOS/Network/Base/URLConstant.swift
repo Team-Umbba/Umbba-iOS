@@ -40,7 +40,7 @@ enum URLConstant {
     static let archivingURL = baseURL + "/qna/list"
     static let qnaURL = baseURL + "/qna"
     
-    // MARK: -  MyPage URL
+    // MARK: - MyPage URL
        
     static let myPageURL =  baseURL + "/user/me"
     
@@ -50,4 +50,10 @@ enum URLConstant {
     static let quizAnswerURL =  baseURL + "/closer/answer"
     static let quizNextURL = baseURL + "/closer/next"
     
+    // MARK: - Record URL
+       
+    static let albumURL =  baseURL + "/album"
+    static let albumImageURL = baseURL + "/album/image"
+    static let albumDeleteURL = baseURL + "/album/"
+
 }

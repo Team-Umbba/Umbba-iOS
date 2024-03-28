@@ -155,6 +155,9 @@
 		A408BCE42AB711FB00AABB46 /* ArchivingQuestionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A408BCE32AB711FB00AABB46 /* ArchivingQuestionTableViewCell.swift */; };
 		A408BCE62AB712B200AABB46 /* ArchivingTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A408BCE52AB712B200AABB46 /* ArchivingTableView.swift */; };
 		A408BCE82AB713F300AABB46 /* ArchivingQuestionTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A408BCE72AB713F300AABB46 /* ArchivingQuestionTableHeaderView.swift */; };
+		A41289702B9DF31A00E3462D /* AlbumDeleteEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A412896F2B9DF31A00E3462D /* AlbumDeleteEntity.swift */; };
+		A41289722B9F229B00E3462D /* UploadCancelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41289712B9F229A00E3462D /* UploadCancelView.swift */; };
+		A41289742B9F26EA00E3462D /* AlbumImageEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A41289732B9F26EA00E3462D /* AlbumImageEntity.swift */; };
 		A423E8872B64063E00B8C125 /* RecordCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A423E8862B64063E00B8C125 /* RecordCollectionViewCell.swift */; };
 		A423E8892B64064A00B8C125 /* RecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A423E8882B64064A00B8C125 /* RecordView.swift */; };
 		A423E88B2B64065300B8C125 /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A423E88A2B64065300B8C125 /* RecordViewController.swift */; };
@@ -167,10 +170,22 @@
 		A42740F02A5FBCA100D05B14 /* LottieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42740EF2A5FBCA100D05B14 /* LottieViewController.swift */; };
 		A42740F22A5FBDF600D05B14 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42740F12A5FBDF600D05B14 /* LottieView.swift */; };
 		A43C73B22B8AF46B00B39F21 /* RestartEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43C73B12B8AF46B00B39F21 /* RestartEntity.swift */; };
+		A43C73CC2B8E2E0400B39F21 /* UploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43C73CB2B8E2E0400B39F21 /* UploadViewController.swift */; };
+		A43C73CE2B8E2E1000B39F21 /* UploadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43C73CD2B8E2E1000B39F21 /* UploadView.swift */; };
 		A4743BA02A673D42007FB69C /* MakeAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4743B9F2A673D42007FB69C /* MakeAlert.swift */; };
 		A4743BA42A681CBE007FB69C /* UserDefaultWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4743BA32A681CBE007FB69C /* UserDefaultWrapper.swift */; };
 		A47BDA492A5D5FD6007B8E3E /* AssignView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47BDA482A5D5FD6007B8E3E /* AssignView.swift */; };
 		A47BDA4B2A5D5FE9007B8E3E /* AssignViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47BDA4A2A5D5FE9007B8E3E /* AssignViewController.swift */; };
+		A488FAFD2B91CA4F004D4A09 /* RxBlocking in Frameworks */ = {isa = PBXBuildFile; productRef = A488FAFC2B91CA4F004D4A09 /* RxBlocking */; };
+		A488FAFF2B91CA4F004D4A09 /* RxBlocking-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = A488FAFE2B91CA4F004D4A09 /* RxBlocking-Dynamic */; };
+		A488FB012B91CA4F004D4A09 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = A488FB002B91CA4F004D4A09 /* RxCocoa */; };
+		A488FB032B91CA4F004D4A09 /* RxCocoa-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = A488FB022B91CA4F004D4A09 /* RxCocoa-Dynamic */; };
+		A488FB052B91CA4F004D4A09 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = A488FB042B91CA4F004D4A09 /* RxRelay */; };
+		A488FB0B2B91D15D004D4A09 /* RecordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A488FB0A2B91D15D004D4A09 /* RecordViewModel.swift */; };
+		A488FB572B9B2B01004D4A09 /* AlbumEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A488FB562B9B2B01004D4A09 /* AlbumEntity.swift */; };
+		A488FB592B9B2B1D004D4A09 /* RecordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A488FB582B9B2B1D004D4A09 /* RecordService.swift */; };
+		A488FBAF2B9C95E9004D4A09 /* DeleteRecordAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A488FBAE2B9C95E9004D4A09 /* DeleteRecordAlertView.swift */; };
+		A488FBB12B9C97D2004D4A09 /* DeleteRecordAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A488FBB02B9C97D2004D4A09 /* DeleteRecordAlertViewController.swift */; };
 		A489BE062A5AFCE90027E817 /* ArchivingImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A489BE052A5AFCE90027E817 /* ArchivingImageView.swift */; };
 		A4BC705E2ADEB0CF00E54675 /* AnimationGif.gif in Resources */ = {isa = PBXBuildFile; fileRef = A4BC705D2ADEB0CF00E54675 /* AnimationGif.gif */; };
 		A4BC70602ADEBF6800E54675 /* AnimationMp4.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = A4BC705F2ADEBF6800E54675 /* AnimationMp4.mp4 */; };
@@ -293,7 +308,6 @@
 		699455EA2A5C0C24003C118A /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		699455ED2A5C0C8B003C118A /* InviteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteViewController.swift; sourceTree = "<group>"; };
 		69A24CF62ACB10B6002F2D75 /* UpdateAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateAlertView.swift; sourceTree = "<group>"; };
-		69A67D782A5C0F9C00C43F49 /* Umbba-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Umbba-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		69A67D7A2A5C12CE00C43F49 /* AnswerWriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerWriteView.swift; sourceTree = "<group>"; };
 		69A67D7D2A5C12F100C43F49 /* AnswerWriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerWriteViewController.swift; sourceTree = "<group>"; };
 		69A67D802A5C1BB600C43F49 /* CustomNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBar.swift; sourceTree = "<group>"; };
@@ -315,6 +329,9 @@
 		A408BCE32AB711FB00AABB46 /* ArchivingQuestionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchivingQuestionTableViewCell.swift; sourceTree = "<group>"; };
 		A408BCE52AB712B200AABB46 /* ArchivingTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchivingTableView.swift; sourceTree = "<group>"; };
 		A408BCE72AB713F300AABB46 /* ArchivingQuestionTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchivingQuestionTableHeaderView.swift; sourceTree = "<group>"; };
+		A412896F2B9DF31A00E3462D /* AlbumDeleteEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumDeleteEntity.swift; sourceTree = "<group>"; };
+		A41289712B9F229A00E3462D /* UploadCancelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadCancelView.swift; sourceTree = "<group>"; };
+		A41289732B9F26EA00E3462D /* AlbumImageEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumImageEntity.swift; sourceTree = "<group>"; };
 		A423E8862B64063E00B8C125 /* RecordCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordCollectionViewCell.swift; sourceTree = "<group>"; };
 		A423E8882B64064A00B8C125 /* RecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordView.swift; sourceTree = "<group>"; };
 		A423E88A2B64065300B8C125 /* RecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
@@ -326,10 +343,18 @@
 		A42740EF2A5FBCA100D05B14 /* LottieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieViewController.swift; sourceTree = "<group>"; };
 		A42740F12A5FBDF600D05B14 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		A43C73B12B8AF46B00B39F21 /* RestartEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestartEntity.swift; sourceTree = "<group>"; };
+		A43C73CB2B8E2E0400B39F21 /* UploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadViewController.swift; sourceTree = "<group>"; };
+		A43C73CD2B8E2E1000B39F21 /* UploadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadView.swift; sourceTree = "<group>"; };
 		A4743B9F2A673D42007FB69C /* MakeAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeAlert.swift; sourceTree = "<group>"; };
 		A4743BA32A681CBE007FB69C /* UserDefaultWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultWrapper.swift; sourceTree = "<group>"; };
 		A47BDA482A5D5FD6007B8E3E /* AssignView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignView.swift; sourceTree = "<group>"; };
 		A47BDA4A2A5D5FE9007B8E3E /* AssignViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignViewController.swift; sourceTree = "<group>"; };
+		A488FB082B91CDC9004D4A09 /* Umbba-iOS.entitlements */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = "Umbba-iOS.entitlements"; path = "Umbba-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A488FB0A2B91D15D004D4A09 /* RecordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewModel.swift; sourceTree = "<group>"; };
+		A488FB562B9B2B01004D4A09 /* AlbumEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumEntity.swift; sourceTree = "<group>"; };
+		A488FB582B9B2B1D004D4A09 /* RecordService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordService.swift; sourceTree = "<group>"; };
+		A488FBAE2B9C95E9004D4A09 /* DeleteRecordAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteRecordAlertView.swift; sourceTree = "<group>"; };
+		A488FBB02B9C97D2004D4A09 /* DeleteRecordAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteRecordAlertViewController.swift; sourceTree = "<group>"; };
 		A489BE052A5AFCE90027E817 /* ArchivingImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchivingImageView.swift; sourceTree = "<group>"; };
 		A4BC705D2ADEB0CF00E54675 /* AnimationGif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = AnimationGif.gif; sourceTree = "<group>"; };
 		A4BC705F2ADEBF6800E54675 /* AnimationMp4.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = AnimationMp4.mp4; sourceTree = "<group>"; };
@@ -346,12 +371,16 @@
 			files = (
 				697816182A5317C10047944C /* FirebaseInAppMessaging-Beta in Frameworks */,
 				697816052A5316E80047944C /* KakaoSDKCommon in Frameworks */,
+				A488FB052B91CA4F004D4A09 /* RxRelay in Frameworks */,
 				6978161A2A5317C10047944C /* FirebaseInAppMessagingSwift-Beta in Frameworks */,
+				A488FB012B91CA4F004D4A09 /* RxCocoa in Frameworks */,
 				697815FE2A5316BB0047944C /* SnapKit in Frameworks */,
+				A488FAFD2B91CA4F004D4A09 /* RxBlocking in Frameworks */,
 				6978160B2A5316E80047944C /* KakaoSDKTemplate in Frameworks */,
 				695C88242A870AF500A94210 /* FirebaseDynamicLinks in Frameworks */,
 				697816072A5316E80047944C /* KakaoSDKShare in Frameworks */,
 				697816122A5317C10047944C /* FirebaseAnalyticsSwift in Frameworks */,
+				A488FB032B91CA4F004D4A09 /* RxCocoa-Dynamic in Frameworks */,
 				A42740EE2A5FBBE500D05B14 /* Lottie in Frameworks */,
 				6978160D2A5316E80047944C /* KakaoSDKUser in Frameworks */,
 				697816092A5316E80047944C /* KakaoSDKTalk in Frameworks */,
@@ -362,6 +391,7 @@
 				6978161C2A5317C10047944C /* FirebaseMessaging in Frameworks */,
 				697816032A5316E80047944C /* KakaoSDKAuth in Frameworks */,
 				697816102A5317C10047944C /* FirebaseAnalytics in Frameworks */,
+				A488FAFF2B91CA4F004D4A09 /* RxBlocking-Dynamic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -621,8 +651,8 @@
 			isa = PBXGroup;
 			children = (
 				697815422A52FA370047944C /* Umbba-iOS */,
-				69A67D782A5C0F9C00C43F49 /* Umbba-iOS.app */,
 				695C88222A870AF500A94210 /* Frameworks */,
+				A488FB082B91CDC9004D4A09 /* Umbba-iOS.entitlements */,
 			);
 			sourceTree = "<group>";
 		};
@@ -993,6 +1023,7 @@
 				697E19D72A63286C00D4752D /* ArchivingListService.swift */,
 				6938AC562B8B2FE80091DFA8 /* MyPageService.swift */,
 				697C012F2BA4881700395C72 /* QuizService.swift */,
+				A488FB582B9B2B1D004D4A09 /* RecordService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -1005,6 +1036,7 @@
 				697E19A22A63204200D4752D /* Home */,
 				697E19AE2A6321AA00D4752D /* ArchivingList */,
 				6938AC532B8B2F760091DFA8 /* MyPage */,
+				A488FB552B9B2AF4004D4A09 /* Record */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -1349,6 +1381,7 @@
 			isa = PBXGroup;
 			children = (
 				A423E8822B64061900B8C125 /* RecordScene */,
+				A43C73C82B8E2DE800B39F21 /* UploadScene */,
 			);
 			path = Record;
 			sourceTree = "<group>";
@@ -1358,6 +1391,7 @@
 			children = (
 				A423E8852B64062900B8C125 /* Cell */,
 				A423E8842B64062400B8C125 /* View */,
+				A488FB092B91D0CC004D4A09 /* ViewModel */,
 				A423E8832B64061F00B8C125 /* ViewController */,
 			);
 			path = RecordScene;
@@ -1367,6 +1401,7 @@
 			isa = PBXGroup;
 			children = (
 				A423E88A2B64065300B8C125 /* RecordViewController.swift */,
+				A488FBB02B9C97D2004D4A09 /* DeleteRecordAlertViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -1375,6 +1410,7 @@
 			isa = PBXGroup;
 			children = (
 				A423E8882B64064A00B8C125 /* RecordView.swift */,
+				A488FBAE2B9C95E9004D4A09 /* DeleteRecordAlertView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1453,6 +1489,32 @@
 			path = Restart;
 			sourceTree = "<group>";
 		};
+		A43C73C82B8E2DE800B39F21 /* UploadScene */ = {
+			isa = PBXGroup;
+			children = (
+				A43C73CA2B8E2DF100B39F21 /* View */,
+				A43C73C92B8E2DED00B39F21 /* ViewController */,
+			);
+			path = UploadScene;
+			sourceTree = "<group>";
+		};
+		A43C73C92B8E2DED00B39F21 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A43C73CB2B8E2E0400B39F21 /* UploadViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		A43C73CA2B8E2DF100B39F21 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A43C73CD2B8E2E1000B39F21 /* UploadView.swift */,
+				A41289712B9F229A00E3462D /* UploadCancelView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		A47BDA452A5D5F8D007B8E3E /* AssignScene */ = {
 			isa = PBXGroup;
 			children = (
@@ -1476,6 +1538,24 @@
 				A47BDA4A2A5D5FE9007B8E3E /* AssignViewController.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		A488FB092B91D0CC004D4A09 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				A488FB0A2B91D15D004D4A09 /* RecordViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		A488FB552B9B2AF4004D4A09 /* Record */ = {
+			isa = PBXGroup;
+			children = (
+				A488FB562B9B2B01004D4A09 /* AlbumEntity.swift */,
+				A412896F2B9DF31A00E3462D /* AlbumDeleteEntity.swift */,
+				A41289732B9F26EA00E3462D /* AlbumImageEntity.swift */,
+			);
+			path = Record;
 			sourceTree = "<group>";
 		};
 		A489BDF42A5A8E760027E817 /* Cell */ = {
@@ -1575,9 +1655,14 @@
 				A42740ED2A5FBBE500D05B14 /* Lottie */,
 				695C88232A870AF500A94210 /* FirebaseDynamicLinks */,
 				69A934A62AA0BC21009466D4 /* Kingfisher */,
+				A488FAFC2B91CA4F004D4A09 /* RxBlocking */,
+				A488FAFE2B91CA4F004D4A09 /* RxBlocking-Dynamic */,
+				A488FB002B91CA4F004D4A09 /* RxCocoa */,
+				A488FB022B91CA4F004D4A09 /* RxCocoa-Dynamic */,
+				A488FB042B91CA4F004D4A09 /* RxRelay */,
 			);
 			productName = "Umbba-iOS";
-			productReference = 69A67D782A5C0F9C00C43F49 /* Umbba-iOS.app */;
+			productReference = A488FB082B91CDC9004D4A09 /* Umbba-iOS.entitlements */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -1610,6 +1695,7 @@
 				6978160E2A5317C10047944C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				A42740EC2A5FBBE500D05B14 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 				69A934A52AA0BC21009466D4 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				A488FAFB2B91CA4F004D4A09 /* XCRemoteSwiftPackageReference "RxSwift" */,
 			);
 			productRefGroup = 697815372A52FA370047944C;
 			projectDirPath = "";
@@ -1692,6 +1778,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6951A69A2A5D8A8F00D49692 /* NextButtonProtocol.swift in Sources */,
+				A43C73CC2B8E2E0400B39F21 /* UploadViewController.swift in Sources */,
 				A408BCE62AB712B200AABB46 /* ArchivingTableView.swift in Sources */,
 				A4C776102A60727100375378 /* MainView.swift in Sources */,
 				A423E88B2B64065300B8C125 /* RecordViewController.swift in Sources */,
@@ -1722,6 +1809,7 @@
 				A4D4F1F02A98926800F5EF6C /* EndingViewController.swift in Sources */,
 				697E19BF2A63230400D4752D /* ReceiveEntity.swift in Sources */,
 				A423E8892B64064A00B8C125 /* RecordView.swift in Sources */,
+				A41289702B9DF31A00E3462D /* AlbumDeleteEntity.swift in Sources */,
 				693A68E92B6A4B2200D39F20 /* PresentView.swift in Sources */,
 				697E19D82A63286C00D4752D /* ArchivingListService.swift in Sources */,
 				697815832A53000D0047944C /* UITableView+.swift in Sources */,
@@ -1729,6 +1817,7 @@
 				69F2D6B12B93726C0024C498 /* ResultViewController.swift in Sources */,
 				697815692A52FE850047944C /* SizeLiterals.swift in Sources */,
 				69636FB52A5ADE5D008B457A /* CompleteView.swift in Sources */,
+				A488FB0B2B91D15D004D4A09 /* RecordViewModel.swift in Sources */,
 				6978156F2A52FEB00047944C /* ImageLiterals.swift in Sources */,
 				6991BA6E2A5731330091D52D /* UserInfoViewController.swift in Sources */,
 				697815772A52FF890047944C /* UITextField+.swift in Sources */,
@@ -1762,6 +1851,7 @@
 				697E199B2A631D5A00D4752D /* NetworkConstant.swift in Sources */,
 				697815D12A530BF10047944C /* WritePopUp.swift in Sources */,
 				A4743BA42A681CBE007FB69C /* UserDefaultWrapper.swift in Sources */,
+				A488FBB12B9C97D2004D4A09 /* DeleteRecordAlertViewController.swift in Sources */,
 				149099EB2A602EB0007242C6 /* WithdrawalView.swift in Sources */,
 				69A67D7E2A5C12F100C43F49 /* AnswerWriteViewController.swift in Sources */,
 				697E19D62A63285D00D4752D /* HomeService.swift in Sources */,
@@ -1779,6 +1869,7 @@
 				697E19CE2A63243700D4752D /* TodayEntity.swift in Sources */,
 				691979F42A5C61450069FB63 /* AlertVIewController.swift in Sources */,
 				6991BA702A57314A0091D52D /* UserInfoView.swift in Sources */,
+				A41289742B9F26EA00E3462D /* AlbumImageEntity.swift in Sources */,
 				6951A6982A5D89DA00D49692 /* NaviagionBarProtocol.swift in Sources */,
 				697815DE2A530D2C0047944C /* NetworkResult.swift in Sources */,
 				6978156B2A52FE960047944C /* FontLiterals.swift in Sources */,
@@ -1788,6 +1879,7 @@
 				6951A6AE2A62D93A00D49692 /* ShowToast.swift in Sources */,
 				697815902A53015D0047944C /* MakeVibrate.swift in Sources */,
 				A47BDA4B2A5D5FE9007B8E3E /* AssignViewController.swift in Sources */,
+				A488FB592B9B2B1D004D4A09 /* RecordService.swift in Sources */,
 				697815792A52FFA20047944C /* UIButton+.swift in Sources */,
 				697815E02A530DC80047944C /* AuthService.swift in Sources */,
 				A42723C92A5A8162003C445F /* ArchivingViewController.swift in Sources */,
@@ -1802,6 +1894,7 @@
 				69A24CF72ACB10B6002F2D75 /* UpdateAlertView.swift in Sources */,
 				697E199D2A631D9800D4752D /* BaseService.swift in Sources */,
 				69A67D812A5C1BB600C43F49 /* CustomNavigationBar.swift in Sources */,
+				A43C73CE2B8E2E1000B39F21 /* UploadView.swift in Sources */,
 				697815812A52FFF50047944C /* NSObject+.swift in Sources */,
 				A42723BF2A5537CD003C445F /* EntryView.swift in Sources */,
 				A4743BA02A673D42007FB69C /* MakeAlert.swift in Sources */,
@@ -1819,13 +1912,16 @@
 				691B8C172A67EB440041CC7C /* AddToolBar.swift in Sources */,
 				A408BCE22AB59C5700AABB46 /* ArchivingSectionCollectionView.swift in Sources */,
 				69DE6B912A53384C00F31812 /* UIColor+.swift in Sources */,
+				A488FBAF2B9C95E9004D4A09 /* DeleteRecordAlertView.swift in Sources */,
 				149099ED2A603143007242C6 /* WithdrawalViewController.swift in Sources */,
 				69DE6BB42A54400500F31812 /* InviteView.swift in Sources */,
 				6978155B2A52FBD30047944C /* UserManager.swift in Sources */,
 				697E19C82A6323CC00D4752D /* PushAlarmEntity.swift in Sources */,
 				691979F82A5C6A4E0069FB63 /* WithdrawalAlertView.swift in Sources */,
 				14AE602F2A63F72400BC43B8 /* CaseEntity.swift in Sources */,
+				A41289722B9F229B00E3462D /* UploadCancelView.swift in Sources */,
 				69DE6BAF2A5432E600F31812 /* CustomButton.swift in Sources */,
+				A488FB572B9B2B01004D4A09 /* AlbumEntity.swift in Sources */,
 				697815732A52FF650047944C /* UIImage+.swift in Sources */,
 				693A68E52B6A4B0300D39F20 /* QuizViewController.swift in Sources */,
 				144F3F472A5C963B00D73A6B /* AccountTableView.swift in Sources */,
@@ -2115,6 +2211,14 @@
 				minimumVersion = 4.0.0;
 			};
 		};
+		A488FAFB2B91CA4F004D4A09 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.6.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -2207,6 +2311,31 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A42740EC2A5FBBE500D05B14 /* XCRemoteSwiftPackageReference "lottie-ios" */;
 			productName = Lottie;
+		};
+		A488FAFC2B91CA4F004D4A09 /* RxBlocking */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A488FAFB2B91CA4F004D4A09 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxBlocking;
+		};
+		A488FAFE2B91CA4F004D4A09 /* RxBlocking-Dynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A488FAFB2B91CA4F004D4A09 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = "RxBlocking-Dynamic";
+		};
+		A488FB002B91CA4F004D4A09 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A488FAFB2B91CA4F004D4A09 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		A488FB022B91CA4F004D4A09 /* RxCocoa-Dynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A488FAFB2B91CA4F004D4A09 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = "RxCocoa-Dynamic";
+		};
+		A488FB042B91CA4F004D4A09 /* RxRelay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A488FAFB2B91CA4F004D4A09 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxRelay;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

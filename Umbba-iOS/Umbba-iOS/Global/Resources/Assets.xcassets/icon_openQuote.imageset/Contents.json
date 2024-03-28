@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "logo@4x.png",
+      "filename" : "icon_openQuote.svg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "logo@4x@2x.png",
+      "filename" : "icon_openQuote 1.svg",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "logo@4x@3x.png",
+      "filename" : "icon_openQuote 2.svg",
       "idiom" : "universal",
       "scale" : "3x"
     }
