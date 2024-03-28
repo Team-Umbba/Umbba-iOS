@@ -64,7 +64,7 @@ extension AuthService {
                 guard let data = response.data else { return }
                 let networkResult = self.judgeStatus(by: statusCode,
                                                      data,
-                                                     LogoutEntity.self)
+                                                     BlankEntity.self)
                 completion(networkResult)
             case .failure:
                 completion(.networkFail)
@@ -86,7 +86,7 @@ extension AuthService {
                 guard let data = response.data else { return }
                 let networkResult = self.judgeStatus(by: statusCode,
                                                      data,
-                                                     SignOutEntity.self)
+                                                     BlankEntity.self)
                 completion(networkResult)
             case .failure:
                 completion(.networkFail)

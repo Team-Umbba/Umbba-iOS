@@ -107,7 +107,7 @@ extension HomeService {
                 guard let data = response.data else { return }
                 let networkResult = self.judgeStatus(by: statusCode,
                                                      data,
-                                                     AnswerEntity.self)
+                                                     BlankEntity.self)
                 completion(networkResult)
             case .failure:
                 completion(.networkFail)
@@ -130,7 +130,7 @@ extension HomeService {
                 guard let data = response.data else { return }
                 let networkResult = self.judgeStatus(by: statusCode,
                                                      data,
-                                                     RestartEntity.self)
+                                                     BlankEntity.self)
                 completion(networkResult)
             case .failure:
                 completion(.networkFail)

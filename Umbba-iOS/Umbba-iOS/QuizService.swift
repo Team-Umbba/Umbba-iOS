@@ -59,7 +59,7 @@ extension QuizService {
                 guard let data = response.data else { return }
                 let networkResult = self.judgeStatus(by: statusCode,
                                                      data,
-                                                     QuizAnswerEntity.self)
+                                                     BlankEntity.self)
                 completion(networkResult)
             case .failure:
                 completion(.networkFail)
@@ -82,7 +82,7 @@ extension QuizService {
                 guard let data = response.data else { return }
                 let networkResult = self.judgeStatus(by: statusCode,
                                                      data,
-                                                     QuizNextEntity.self)
+                                                     BlankEntity.self)
                 completion(networkResult)
             case .failure:
                 completion(.networkFail)

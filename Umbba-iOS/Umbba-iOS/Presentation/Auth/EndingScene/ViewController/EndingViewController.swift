@@ -13,7 +13,7 @@ final class EndingViewController: UIViewController {
     
     // MARK: - Properties
     
-    private var restartEntity = RestartEntity()
+    private var restartEntity = BlankEntity()
     
     // MARK: - UI Components
     
@@ -75,7 +75,7 @@ extension EndingViewController {
         HomeService.shared.patchRestartAPI { networkResult in
             switch networkResult {
             case .success(let data):
-                if let data = data as? GenericResponse<RestartEntity> {
+                if let data = data as? GenericResponse<BlankEntity> {
                     if let restartData = data.data {
                         self.restartEntity = restartData
                     }
